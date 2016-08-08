@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">CoachingForm</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_synchronization">Coaching Synchronization</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_coaching_option">Coaching Guideline Option</string>
+    <string name="title_activity_merchandiser">FA/SA/Merchandiser Coaching Guidelines</string>
+    <string name="title_activity_dsr">DSR Coaching Guidel</string>
+
+    <string name="description_coaching_option">**The following questions is a guidelines for you to coach the team to develop better</string>
+    <string name="dsr_description">**The following questions is a guidelines for you to coach the team to develop better in Selling Skills (Basic Call Procedure)</string>
+
+    <string name="title_bahasa_sebelum_kunjungan">SEBELUM KUNJUNGAN\n<i>Perencanaan &amp; Persiapan</i></string>
+    <string name="title_bahasa_saat_kunjungan">PADA SAAT KUNJUNGAN\n<i>Pembukaan, Store Check, Presentasi, Penutup, Merchandising</i></string>
+    <string name="title_bahasa_setelah_kunjungan">SETELAH KUNJUNGAN\n<i>Finalisasi &amp; Evaluasi</i></string>
+    <string name="title_english_sebelum_kunjungan">SEBELUM KUNJUNGAN\n<i>Perencanaan &amp; Persiapan</i></string>
+    <string name="title_english_saat_kunjungan">PADA SAAT KUNJUNGAN\n<i>Pembukaan, Store Check, Presentasi, Penutup, Merchandising</i></string>
+    <string name="title_english_setelah_kunjungan">SETELAH KUNJUNGAN\n<i>Finalisasi &amp; Evaluasi</i></string>
+
+    <string name="bahasa_dsr_sebelum_1">1. Menganalisa kembali tujuan dari kunjungan</string>
+    <string name="bahasa_dsr_sebelum_2">2. Men-cek stock availability yang ada di gudang</string>
+    <string name="bahasa_dsr_sebelum_3">3. Mengetahui dan memahami promo-promo yang sedang berlangsung</string>
+    <string name="bahasa_dsr_sebelum_4">4. Mempersiapkan tools untuk kunjungan</string>
+    <string name="bahasa_dsr_sebelum_4a">\t a. TRC, Alat Tulis, dan Kalkulator</string>
+    <string name="bahasa_dsr_sebelum_4b">\t b.Kartu Nama</string>
+    <string name="bahasa_dsr_sebelum_4c">\t c.Katalog Produk</string>
+    <string name="bahasa_dsr_sebelum_4d">\t d.Marketing Program</string>
+    <string name="bahasa_dsr_sebelum_4e">\t e.Price List</string>
+    <string name="english_dsr_sebelum_1">1. Menganalisa kembali tujuan dari kunjungan</string>
+    <string name="english_dsr_sebelum_2">2. Men-cek stock availability yang ada di gudang</string>
+    <string name="english_dsr_sebelum_3">3. Mengetahui dan memahami promo-promo yang sedang berlangsung</string>
+    <string name="english_dsr_sebelum_4">4. Mempersiapkan tools untuk kunjungan</string>
+    <string name="english_dsr_sebelum_4a">\t a. TRC, Alat Tulis, dan Kalkulator</string>
+    <string name="english_dsr_sebelum_4b">\t b. Kartu Nama</string>
+    <string name="english_dsr_sebelum_4c">\t c. Katalog Produk</string>
+    <string name="english_dsr_sebelum_4d">\t d. Marketing Program</string>
+    <string name="english_dsr_sebelum_4e">\t e. Price List</string>
+
+    <string name="bahasa_dsr_saat_1">1. Perkenalan</string>
+    <string name="bahasa_dsr_saat_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
+    <string name="bahasa_dsr_saat_3">3. Presentasi</string>
+    <string name="bahasa_dsr_saat_3a">\t a. Menawarkan penambahan stock (taking order) pada customer</string>
+    <string name="bahasa_dsr_saat_3b">\t b. Menawarkan penambahan SKU baru (NPI)</string>
+    <string name="bahasa_dsr_saat_3c">\t c. Presentasi produk: menguasai keunggulan produk</string>
+    <string name="bahasa_dsr_saat_3d">\t d. Presentasi harga: menguasai produk</string>
+    <string name="bahasa_dsr_saat_3e">\t e. Presentasi program: menguasai program-program yang sedang berlangsung</string>
+    <string name="bahasa_dsr_saat_4">4. Penutupan: merekonfirmasi hasil kunjugan (jumlah orderan, dll)</string>
+    <string name="bahasa_dsr_saat_5">5. Melakukan merchandising</string>
+    <string name="bahasa_dsr_saat_6">6. Mengisi TRC</string>
+    <string name="english_dsr_saat_1">1. Perkenalan</string>
+    <string name="english_dsr_saat_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
+    <string name="english_dsr_saat_3">3. Presentasi</string>
+    <string name="english_dsr_saat_3a">\t a. Menawarkan penambahan stock (taking order) pada customer</string>
+    <string name="english_dsr_saat_3b">\t b. Menawarkan penambahan SKU baru (NPI)</string>
+    <string name="english_dsr_saat_3c">\t c. Presentasi produk: menguasai keunggulan produk</string>
+    <string name="english_dsr_saat_3d">\t d. Presentasi harga: menguasai produk</string>
+    <string name="english_dsr_saat_3e">\t e. Presentasi program: menguasai program-program yang sedang berlangsung</string>
+    <string name="english_dsr_saat_4">4. Penutupan: merekonfirmasi hasil kunjugan (jumlah orderan, dll)</string>
+    <string name="english_dsr_saat_5">5. Melakukan merchandising</string>
+    <string name="english_dsr_saat_6">6. Mengisi TRC</string>
+
+    <string name="bahasa_dsr_setelah_1">1. Perkenalan</string>
+    <string name="bahasa_dsr_setelah_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
+    <string name="english_dsr_setelah_1">1. Perkenalan</string>
+    <string name="english_dsr_setelah_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
+
+    <string name="bahasa_summary_1">Apa telah dilakukan dengan baik</string>
+    <string name="bahasa_summary_2">Apa yang perlu ditingkatkan</string>
+    <string name="bahasa_summary_3">Apa yang perlu dilakukan untuk perbaikan</string>
+    <string name="english_summary_1">Yang sudah berjalan dengan baik</string>
+    <string name="english_summary_2">Yang perlu diperbaiki</string>
+    <string name="english_summary_3">Yang akan dilakukan selanjutnya</string>
+    <string name="title_activity_dsrsaat">DSR Coaching Guideline</string>
+    <string name="title_activity_dsrsetelah">DSR Coachin Guideline</string>
+    <string name="title_activity_coaching_summary">Coaching Summary</string>
+
+
+</resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="unilever.coachingform.CoachingOption">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <TextView
+            android:id="@+id/title"
+            style="@style/title_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Coaching Guideline"/>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="@string/description_coaching_option"
+            android:layout_below="@+id/title"
+            android:gravity="center_horizontal"
+            android:textColor="@color/orange"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"/>
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/orange"
+            android:layout_below="@+id/description"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <LinearLayout
+            android:id="@+id/coaching_option"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/line1"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp">
+            <Button
+                android:id="@+id/rsm_coaching"
+                android:text="RSM Coaching Guidelines"
+                style="@style/button_coaching_option"
+                android:layout_marginBottom="0dp"/>
+            <Button
+                android:id="@+id/asm_push_coaching"
+                android:text="ASM Push Coaching Guidelines"
+                style="@style/button_coaching_option"/>
+            <Button
+                android:id="@+id/asm_pull_coaching"
+                android:text="ASM Pull Coaching Guidelines"
+                style="@style/button_coaching_option"/>
+            <Button
+                android:id="@+id/dts_coaching"
+                android:text="DTS Coaching Guidelines"
+                style="@style/button_coaching_option"/>
+            <Button
+                android:id="@+id/sr_pull_coaching"
+                android:text="SR Pull Bareca/Hotel Coaching Guidelines"
+                style="@style/button_coaching_option"
+                android:layout_below="@+id/rsm_coaching"/>
+            <Button
+                android:id="@+id/dsr_coaching"
+                android:text="DSR Coaching Guidelines"
+                style="@style/button_coaching_option"
+                android:layout_below="@+id/rsm_coaching"/>
+            <Button
+                android:id="@+id/fa_coaching"
+                android:text="FA/SA/Merchandiser Coaching Guidelines"
+                style="@style/button_coaching_option"
+                android:layout_below="@+id/rsm_coaching"/>
+        </LinearLayout>
+        <TextView
+            android:id="@+id/language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="LANGUAGE"
+            android:textColor="@color/orange"
+            android:layout_below="@+id/coaching_option"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
+        <LinearLayout
+            android:id="@+id/language_option"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/language"
+            android:layout_centerHorizontal="true">
+            <Button
+                android:id="@+id/indonesian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/orange"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:text="English"/>
+            <Button
+                android:id="@+id/english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/orange"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:layout_margin="5dp"
+                android:text="Bahasa"/>
+        </LinearLayout>
+        <Button
+            android:id="@+id/back"
+            android:text="Back"
+            style="@style/back_button"
+            android:layout_below="@+id/language_option"
+            />
+        <ImageView
+            style="@style/image_page"
+            android:layout_below="@+id/language_option"/>
+        <Button
+            android:id="@+id/next"
+            android:text="Next"
+            style="@style/next_button"
+            android:layout_below="@+id/language_option"
+            />
+        <TextView
+            android:id="@+id/date"
+            android:layout_below="@+id/next"
+            style="@style/date_coaching"
+            android:text="Date: 03 September 2016"
+            />
+    </RelativeLayout>
+</ScrollView>
+

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:fitsSystemWindows="true"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:id="@+id/fields"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/logo">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="Email"
+                android:textSize="20dp"
+                android:padding="5dip"
+                android:textColor="@color/white"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:layout_weight="0" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"
+                android:ems="12"
+                android:id="@+id/email"
+                android:layout_column="1"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:textCursorDrawable="@null"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="Password"
+                android:textSize="20dp"
+                android:padding="5dip"
+                android:textColor="@color/white"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:layout_weight="0"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password"
+                android:ems="12"
+                android:id="@+id/password"
+                android:layout_column="1"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:textCursorDrawable="@null"/>
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:text="Job Title"
+                android:textSize="20dp"
+                android:padding="5dip"
+                android:textColor="@color/white"
+                android:background="@color/orange"
+                android:gravity="center"
+                android:layout_weight="0"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Job Title"
+                android:id="@+id/job"
+                android:layout_column="1"
+                android:background="@drawable/apptheme_edit_text_holo_light"
+                android:textCursorDrawable="@null"/>
+        </TableRow>
+    </TableLayout>
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fields"
+        android:textSize="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@color/orange"
+        android:textColor="@color/white"
+        android:text="Login"
+        android:textAllCaps="false"/>
+
+
+</RelativeLayout>
