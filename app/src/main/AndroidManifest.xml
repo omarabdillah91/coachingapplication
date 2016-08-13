@@ -19,7 +19,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            </activity>
+        </activity>
         <activity
             android:name=".SynchronizationActivity"
             android:label="@string/title_activity_synchronization"
@@ -35,8 +35,7 @@
         <activity
             android:name=".MerchandiserActivity"
             android:label="@string/title_activity_merchandiser"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".DSRSebelumActivity"
             android:label="@string/title_activity_dsr"
@@ -44,19 +43,19 @@
         <activity
             android:name=".DSRSaatActivity"
             android:label="@string/title_activity_dsrsaat"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".DSRSetelahActivity"
             android:label="@string/title_activity_dsrsetelah"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DSRCoachingSummaryActivity"
             android:label="@string/title_activity_coaching_summary"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".RSMCoachingActivity"
+            android:label="@string/title_activity_rsmcoaching"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

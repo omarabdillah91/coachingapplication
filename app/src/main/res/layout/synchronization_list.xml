@@ -6,21 +6,21 @@
     android:layout_margin="5dp"
     android:weightSum="1.0">
     <TextView
+        android:id="@+id/coache"
+        android:layout_width="0px"
+        android:layout_weight="0.45"
+        android:layout_height="wrap_content"
+        style="@style/synchronization_list"/>
+    <TextView
         android:id="@+id/date"
         android:layout_width="0px"
-        android:layout_weight="0.25"
+        android:layout_weight="0.3"
         android:layout_height="wrap_content"
-        style="@style/header_box"/>
-    <TextView
-        android:id="@+id/coach"
-        android:layout_width="0px"
-        android:layout_weight="0.25"
-        android:layout_height="wrap_content"
-        style="@style/header_box"/>
+        style="@style/synchronization_list"/>
     <TextView
         android:id="@+id/status"
         android:layout_width="0px"
-        android:layout_weight="0.5"
+        android:layout_weight="0.25"
         android:layout_height="wrap_content"
-        style="@style/header_box"/>
+        style="@style/synchronization_list"/>
 </LinearLayout>

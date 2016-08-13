@@ -31,7 +31,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> implements
         RealmConfiguration realmConfig = new RealmConfiguration.Builder(getContext()).build();
         Realm.setDefaultConfiguration(realmConfig);
 
-        /*Realm realm = Realm.getDefaultInstance();
+/*        Realm realm = Realm.getDefaultInstance();
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class).findAll();
         realm.beginTransaction();
         sessionList.deleteAllFromRealm();
@@ -55,7 +55,7 @@ public class ApplicationTest extends ApplicationTestCase<Application> implements
         assertEquals(sessionList.get(0).getGuid(), guid);
 
         CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u");*/
-        for(int i = 0 ; i < 2; i++){
+        for(int i = 0 ; i < 14; i++){
             CoachingSession cs = new CoachingSession();
             cs.setDate(System.currentTimeMillis() / 1000);
             cs.setCoacheeID(RealmUtil.generateID());

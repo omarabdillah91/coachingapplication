@@ -26,26 +26,52 @@
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Coach"
+            android:layout_weight="0.45"
+            android:text="Coache"
             style="@style/header_box"/>
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
+            android:layout_weight="0.3"
             android:text="Date"
             style="@style/header_box"/>
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Action"
+            android:layout_weight="0.25"
+            android:text="Status"
             style="@style/header_box"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/sync"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/orange"
+            android:textColor="@color/white"
+            android:text="Sync"
+            android:textAllCaps="false"/>
+        <ImageView
+            style="@style/image_sync_page"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/sync"></ImageView>
     </LinearLayout>
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:layout_above="@+id/button"
         android:layout_below="@+id/header"/>
+
 </RelativeLayout>

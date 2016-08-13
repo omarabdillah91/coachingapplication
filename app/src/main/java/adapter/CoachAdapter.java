@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.Coaching;
 import unilever.coachingform.R;
 
@@ -17,9 +20,9 @@ import unilever.coachingform.R;
 public class CoachAdapter extends ArrayAdapter<Coaching> {
     Context context;
     int layoutResourceId;
-    Coaching data[] = null;
+    List<Coaching> data = new ArrayList<>();
 
-    public CoachAdapter(Context context,int layoutResourceId,Coaching[] data) {
+    public CoachAdapter(Context context,int layoutResourceId,List<Coaching> data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -38,7 +41,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
 
             holder = new CoachingHolder();
             holder.date = (TextView)row.findViewById(R.id.date);
-            holder.coach = (TextView)row.findViewById(R.id.coach);
+            holder.coache = (TextView)row.findViewById(R.id.coache);
             holder.status = (TextView)row.findViewById(R.id.status);
             row.setTag(holder);
         }
@@ -47,9 +50,9 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
             holder = (CoachingHolder)row.getTag();
         }
 
-        Coaching input = data[position];
+        Coaching input = data.get(position);
         holder.date.setText(input.date);
-        holder.coach.setText(input.coachee);
+        holder.coache.setText(input.coachee);
         holder.status.setText(input.status);
 
         return row;
@@ -57,7 +60,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
 
     static class CoachingHolder {
         TextView date;
-        TextView coach;
+        TextView coache;
         TextView status;
     }
 }

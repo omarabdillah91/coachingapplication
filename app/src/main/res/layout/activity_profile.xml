@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true"
-        android:scrollbars="horizontal"
+        android:scrollbars="none"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp">
         <TableLayout
@@ -74,10 +74,13 @@
                     android:inputType="textEmailAddress"
                     style="@style/table_edittext_type"
                     android:layout_weight="1"/>
-                <EditText
+                <Spinner
                     android:id="@+id/coach_position"
-                    style="@style/table_edittext_type"
-                    android:layout_weight="1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_column="1"
+                    android:background="@drawable/apptheme_spinner_background_holo_light"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -96,10 +99,13 @@
                     style="@style/table_edittext_type"
                     android:inputType="textEmailAddress"
                     android:layout_weight="1"/>
-                <EditText
+                <Spinner
                     android:id="@+id/coachee_position"
-                    style="@style/table_edittext_type"
-                    android:layout_weight="1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_column="1"
+                    android:background="@drawable/apptheme_spinner_background_holo_light"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -118,10 +124,13 @@
                     android:inputType="textEmailAddress"
                     style="@style/table_edittext_type"
                     android:layout_weight="1"/>
-                <EditText
+                <Spinner
                     android:id="@+id/firstlinemanager_position"
-                    style="@style/table_edittext_type"
-                    android:layout_weight="1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_column="1"
+                    android:background="@drawable/apptheme_spinner_background_holo_light"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -140,10 +149,13 @@
                     android:inputType="textEmailAddress"
                     style="@style/table_edittext_type"
                     android:layout_weight="1"/>
-                <EditText
+                <Spinner
                     android:id="@+id/secondlinemanager_position"
-                    style="@style/table_edittext_type"
-                    android:layout_weight="1"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_column="1"
+                    android:background="@drawable/apptheme_spinner_background_holo_light"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
@@ -162,10 +174,13 @@
                     android:inputType="textEmailAddress"
                     style="@style/table_edittext_type"
                     android:layout_weight="1"/>
-                <EditText
+                <Spinner
                     android:id="@+id/cdteam_position"
-                    android:layout_weight="1"
-                    style="@style/table_edittext_type"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:layout_column="1"
+                    android:background="@drawable/apptheme_spinner_background_holo_light"/>
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"

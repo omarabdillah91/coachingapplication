@@ -25,7 +25,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+import java.util.List;
+
+import dao.CoachingSessionDAO;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import model.Coaching;
+
+public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, CoachingSessionDAO.CoachingSessionListener {
     private static final String TAG = "Login";
     String email = "";
     int job = 0;
@@ -33,6 +40,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     EditText edit_email, edit_password;
     Button login;
     private FirebaseAuth mAuth;
+    private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
     ArrayAdapter<CharSequence> job_adapter;
     View.OnClickListener onClick = new View.OnClickListener() {
@@ -63,20 +71,23 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(onClick);
         mAuth = FirebaseAuth.getInstance();
+        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this.getApplicationContext()).build();
+        Realm.setDefaultConfiguration(realmConfig);
         // [START auth_state_listener]
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+                FirebaseUser temp = firebaseAuth.getCurrentUser();
+                if (temp != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + temp.getUid());
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
                 }
                 // [START_EXCLUDE]
-                updateUI(user);
+                user = temp;
+                updateUI(temp);
                 // [END_EXCLUDE]
             }
         };
@@ -167,10 +178,27 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void updateUI(FirebaseUser user) {
         if (user != null) {
+            CoachingSessionDAO.getUnsubmittedCoaching(this);
+        }
+    }
+
+    @Override
+    public void onCoachingReceived(List<Coaching> coachingList) {
+        if(coachingList.size() > 0) {
             Intent intent = new Intent(LoginActivity.this, SynchronizationActivity.class);
             intent.putExtra("email", user.getEmail());
             intent.putExtra("job", job);
             startActivity(intent);
+        } else {
+            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            intent.putExtra("email", user.getEmail());
+            intent.putExtra("job", job);
+            startActivity(intent);
         }
+    }
+
+    @Override
+    public void onCoachingInserted(boolean succees) {
+
     }
 }

@@ -40,6 +40,14 @@
         <item name="android:layout_marginLeft">5dp</item>
     </style>
 
+    <style name="synchronization_list">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
     <style name="heading_string_size">
         <item name="android:textSize">15dp</item>
         <item name="android:textColor">@android:color/white</item>
@@ -123,6 +131,12 @@
         <item name="android:layout_height">50dp</item>
         <item name="android:src">@drawable/logoufs</item>
         <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="image_sync_page">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:src">@drawable/logoufs</item>
     </style>
 
     <style name="date_coaching">

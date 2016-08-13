@@ -1,7 +1,11 @@
 package dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import entity.CoachingSession;
 import io.realm.Realm;
@@ -19,8 +23,13 @@ public class CoachingSessionDAO {
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class)
                 .equalTo("isSubmitted",false).findAll();
         for(CoachingSession cs : sessionList){
+            Date date = new Date(cs.getDate());
+            DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+            format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
+            String date_formatted = format.format(date);
+            String status = "";
             coachingList.add(new Coaching(cs.getCoacheeID(),
-                    String.valueOf(cs.getDate()), String.valueOf(cs.isSubmitted())));
+                    date_formatted,(cs.isSubmitted())?"Unsent": "Sent"));
         }
         listener.onCoachingReceived(coachingList);
     }
