@@ -29,6 +29,17 @@
         <item name="android:padding">5dp</item>
     </style>
 
+    <style name="header_box">
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@color/orange</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+    </style>
+
     <style name="heading_string_size">
         <item name="android:textSize">15dp</item>
         <item name="android:textColor">@android:color/white</item>
