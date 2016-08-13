@@ -49,7 +49,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
 
         Coaching input = data[position];
         holder.date.setText(input.date);
-        holder.coach.setText(input.coach);
+        holder.coach.setText(input.coachee);
         holder.status.setText(input.status);
 
         return row;

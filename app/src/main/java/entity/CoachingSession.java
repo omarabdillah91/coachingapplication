@@ -106,4 +106,13 @@ public class CoachingSession extends RealmObject {
     public void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
     }
+
+    @Override
+    public String toString() {
+        return "CoachingSession{" +
+                "coacheeID='" + coacheeID + '\'' +
+                ", date=" + date +
+                ", isSubmitted=" + isSubmitted +
+                '}';
+    }
 }
