@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "819714589166",
+    "firebase_url": "https://unilever-coaching-app-dev.firebaseio.com",
+    "project_id": "unilever-coaching-app-dev",
+    "storage_bucket": "unilever-coaching-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819714589166:android:8aea1378570475f5",
+        "android_client_info": {
+          "package_name": "unilever.coachingform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "819714589166-r7ifadacjsd62a3evp6a9bphpc9thql9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNbu7whPn-En5Ium2_VzUemdbPFSByU8g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
