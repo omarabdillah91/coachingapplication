@@ -55,8 +55,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
         return row;
     }
 
-    static class CoachingHolder
-    {
+    static class CoachingHolder {
         TextView date;
         TextView coach;
         TextView status;
