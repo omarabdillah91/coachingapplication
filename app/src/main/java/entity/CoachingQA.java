@@ -9,8 +9,8 @@ public class CoachingQA extends RealmObject {
 
     private String guid;
     private String coachingSessionID;
-    private String columnID;
     private String questionID;
+    private String columnID;
     private boolean tickAnswer;
     private String textAnswer;
 
@@ -30,20 +30,20 @@ public class CoachingQA extends RealmObject {
         this.coachingSessionID = coachingSessionID;
     }
 
-    public String getColumnID() {
-        return columnID;
-    }
-
-    public void setColumnID(String columnID) {
-        this.columnID = columnID;
-    }
-
     public String getQuestionID() {
         return questionID;
     }
 
     public void setQuestionID(String questionID) {
         this.questionID = questionID;
+    }
+
+    public String getColumnID() {
+        return columnID;
+    }
+
+    public void setColumnID(String columnID) {
+        this.columnID = columnID;
     }
 
     public boolean isTickAnswer() {
