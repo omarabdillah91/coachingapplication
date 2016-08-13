@@ -86,4 +86,12 @@ public class CoacheeHistoryDTO {
     public void setCoachingGuideline(int coachingGuideline) {
         this.coachingGuideline = coachingGuideline;
     }
+
+    @Override
+    public String toString() {
+        return "CoacheeHistoryDTO{" +
+                "coachName='" + coachName + '\'' +
+                ", coachID='" + coachID + '\'' +
+                '}';
+    }
 }

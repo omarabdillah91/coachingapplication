@@ -2,11 +2,13 @@ package unilever.coachingform;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
+import android.util.Log;
 
 import entity.CoachingSession;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import service.CoacheeHistoryService;
 import utility.RealmUtil;
 
 /**
@@ -16,6 +18,8 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public ApplicationTest() {
         super(Application.class);
     }
+
+    private static final String TAG = "ApplicationTest";
 
     @Override
     public void setUp() throws Exception {
@@ -40,15 +44,12 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         session.setDate(System.currentTimeMillis() / 1000);
         realm.commitTransaction();
 
-        System.out.println(guid);
+        Log.d(TAG, guid);
 
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class).findAll();
         assertEquals(1, sessionList.size());
+        assertEquals(sessionList.get(0).getGuid(), guid);
 
-    }
-
-    @Override
-    public void tearDown() throws Exception {
-        super.tearDown();
+        CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u");
     }
 }
