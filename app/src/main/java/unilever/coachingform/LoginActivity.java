@@ -8,14 +8,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    String email = "";
+    String job = "";
+    EditText edit_email, edit_password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        edit_email = (EditText) findViewById(R.id.email);
+        edit_password  = (EditText) findViewById(R.id.password);
+        Spinner spinner = (Spinner) findViewById(R.id.job);
+        spinner.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -38,5 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        job = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

@@ -7,6 +7,33 @@
     <string name="title_activity_merchandiser">FA/SA/Merchandiser Coaching Guidelines</string>
     <string name="title_activity_dsr">DSR Coaching Guidel</string>
 
+    <string-array name="job_title">
+        <item>Managing Director</item>
+        <item>NSM Push</item>
+        <item>NSM Pull</item>
+        <item>NSM Chain</item>
+        <item>NSM Hotel</item>
+        <item>CD Capability Building Manager</item>
+        <item>RSM Pull</item>
+        <item>RSM Push</item>
+        <item>ASM Pull</item>
+        <item>ASM Push</item>
+        <item>Asst. CD Capability Building Manager</item>
+        <item>DTS Push</item>
+        <item>SR Pull Bareca</item>
+        <item>SR Pull Hotel</item>
+        <item>OM Dist.</item>
+        <item>DSS</item>
+        <item>DSR</item>
+        <item>CD Ops Manager</item>
+        <item>Asst. CD Ops Manager</item>
+        <item>Supply Chain</item>
+        <item>Marketing</item>
+        <item>Finance</item>
+        <item>R&amp;D</item>
+
+    </string-array>
+
     <string name="description_coaching_option">**The following questions is a guidelines for you to coach the team to develop better</string>
     <string name="dsr_description">**The following questions is a guidelines for you to coach the team to develop better in Selling Skills (Basic Call Procedure)</string>
 

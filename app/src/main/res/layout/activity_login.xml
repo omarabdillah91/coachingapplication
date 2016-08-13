@@ -35,7 +35,7 @@
             android:layout_marginTop="10dp">
             <TextView
                 android:text="Email"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:padding="5dip"
                 android:textColor="@color/white"
                 android:background="@color/orange"
@@ -46,6 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:textSize="15dp"
                 android:hint="Email"
                 android:ems="12"
                 android:id="@+id/email"
@@ -60,7 +61,7 @@
             android:layout_marginTop="10dp">
             <TextView
                 android:text="Password"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:padding="5dip"
                 android:textColor="@color/white"
                 android:background="@color/orange"
@@ -70,6 +71,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 android:inputType="textPassword"
                 android:hint="Password"
                 android:ems="12"
@@ -84,21 +86,20 @@
             android:layout_marginTop="10dp">
             <TextView
                 android:text="Job Title"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:padding="5dip"
                 android:textColor="@color/white"
                 android:background="@color/orange"
                 android:gravity="center"
                 android:layout_weight="0"/>
 
-            <EditText
+            <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Job Title"
+                android:textSize="15dp"
                 android:id="@+id/job"
                 android:layout_column="1"
-                android:background="@drawable/apptheme_edit_text_holo_light"
-                android:textCursorDrawable="@null"/>
+                android:background="@drawable/apptheme_spinner_background_holo_light"/>
         </TableRow>
     </TableLayout>
     <Button
@@ -106,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/fields"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:layout_alignParentRight="true"
