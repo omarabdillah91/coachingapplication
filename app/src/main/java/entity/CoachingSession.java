@@ -1,6 +1,7 @@
 package entity;
 
 import io.realm.RealmObject;
+import utility.RealmUtil;
 
 /**
  * Created by adria on 8/13/2016.
@@ -19,6 +20,25 @@ public class CoachingSession extends RealmObject {
     private long date;
     private long dateCreated;
     private boolean isSubmitted;
+
+    public CoachingSession() {
+    }
+
+    public CoachingSession(String coacheeID, String coacheeName, String coachName, String coachID,
+                           String store, String distributor, String area, int coachingGuideline) {
+        this.coacheeID = coacheeID;
+        this.coacheeName = coacheeName;
+        this.coachName = coachName;
+        this.coachID = coachID;
+        this.store = store;
+        this.distributor = distributor;
+        this.area = area;
+        this.coachingGuideline = coachingGuideline;
+        this.guid = RealmUtil.generateID();
+        this.date = System.currentTimeMillis() / 1000;
+        this.dateCreated = System.currentTimeMillis() / 1000;
+        this.isSubmitted = false;
+    }
 
     public String getGuid() {
         return guid;

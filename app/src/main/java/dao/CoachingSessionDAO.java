@@ -36,27 +36,19 @@ public class CoachingSessionDAO {
         listener.onReceived(coachingList);
     }
 
-    public static void insertCoaching(CoachingSession coachingSession,
-                                      InsertCoachingListener listener){
-        String guid = RealmUtil.generateID();
-        coachingSession.setGuid(guid);
-        coachingSession.setSubmitted(false);
-        coachingSession.setDate(System.currentTimeMillis() / 1000);
+    public static void insertCoaching(String coacheeID, String coacheeName, String coachName,
+                                      String coachID, String store, String distributor, String area,
+                                      int coachingGuideline, InsertCoachingListener listener){
 
-        /*CoachingSession coachingSession = new CoachingSession();
-
-        coachingSession.setCoachName("Coach");
-        coachingSession.setCoacheeName(coaching.coachee);
-        coachingSession.setGuid(guid);
-        coachingSession.setSubmitted(false);
-        coachingSession.setDate(System.currentTimeMillis() / 1000);*/
+        CoachingSession coachingSession = new CoachingSession(coacheeID, coacheeName, coachName,
+                coachID, store, distributor, area, coachingGuideline);
 
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealm(coachingSession);
         realm.commitTransaction();
 
-        listener.onCompleted(guid);
+        listener.onCompleted(coachingSession.getGuid());
     }
 
     public interface GetCoachingListener {

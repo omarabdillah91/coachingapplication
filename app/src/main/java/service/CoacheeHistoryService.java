@@ -19,16 +19,17 @@ import model.CoacheeHistory;
  */
 public class CoacheeHistoryService {
 
-    private static DatabaseReference mDatabase =  FirebaseDatabase.getInstance().getReference();
+    private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
     private static final String TAG = "CoacheeHistoryService";
+    private static final String childNode = "coacheeHistory";
 
-    public static void getCoacheeHistory(String coacheeID, final GetCoacheeHistoryServiceListener listener){
+    public static void getCoacheeHistory(String coacheeID, final GetCoacheeHistoryServiceListener listener) {
         final List<CoacheeHistory> coacheeHistories = new ArrayList<>();
-        mDatabase.child("coacheeHistory").child(coacheeID).addListenerForSingleValueEvent(
+        mDatabase.child(childNode).child(coacheeID).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        for(DataSnapshot d : dataSnapshot.getChildren()){
+                        for (DataSnapshot d : dataSnapshot.getChildren()) {
                             CoacheeHistoryDTO dto = d.getValue(CoacheeHistoryDTO.class);
                             Log.d(TAG, dto.toString());
                             coacheeHistories.add(new CoacheeHistory(dto.getCoachName()));
@@ -43,7 +44,27 @@ public class CoacheeHistoryService {
                 });
     }
 
+    public static void insertCoacheeHistory(String coacheeID, CoacheeHistoryDTO coacheeHistoryDTO,
+                                            final InsertCoacheeHistoryServiceListener listener) {
+
+        final DatabaseReference newRef = mDatabase.child(childNode).child(coacheeID).push();
+        newRef.setValue(coacheeHistoryDTO, new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                if(databaseError != null){
+                    Log.d(TAG, databaseError.toString());
+                }
+                listener.onCompleted(newRef.getKey());
+            }
+        });
+
+    }
+
     public interface GetCoacheeHistoryServiceListener {
         void onReceived(List<CoacheeHistory> coacheeHistories);
+    }
+
+    public interface InsertCoacheeHistoryServiceListener {
+        void onCompleted(String coacheeHistoryID);
     }
 }

@@ -19,6 +19,7 @@ import model.CoacheeHistory;
 import model.Coaching;
 import service.CoacheeHistoryService;
 import service.CoacheeService;
+import service.SynchronizationService;
 import utility.RealmUtil;
 
 /**
@@ -30,13 +31,12 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
     }
 
     private static final String TAG = "ApplicationTest";
-
+    private static String coachingSessionID;
+    private static String coacheeID = "-KO0f6c9vRKTo5cg9m5u";
 
     @Override
     public void setUp() throws Exception {
         createApplication();
-        /*RealmConfiguration realmConfig = new RealmConfiguration.Builder(getContext()).build();
-        Realm.setDefaultConfiguration(realmConfig);*/
 
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class).findAll();
@@ -48,32 +48,14 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
     }
 
     public void testRealm() throws Exception {
-        /*Realm realm = Realm.getDefaultInstance();
-        realm.beginTransaction();
-
-        CoachingSession session = realm.createObject(CoachingSession.class);
-        String guid = RealmUtil.generateID();
-        session.setGuid(guid);
-        session.setDate(System.currentTimeMillis() / 1000);
-        realm.commitTransaction();
-
-        Log.d(TAG, guid);
-
-        RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class).findAll();
-        assertEquals(1, sessionList.size());
-        assertEquals(sessionList.get(0).getGuid(), guid);
-
-        CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u");*/
 
         for(int i = 0 ; i < 5; i++){
-            CoachingSession coachingSession = new CoachingSession();
-            coachingSession.setCoachName("Coach");
-            coachingSession.setCoacheeName("Coachee-" + System.currentTimeMillis() / 1000);
-
-            CoachingSessionDAO.insertCoaching(coachingSession, new CoachingSessionDAO.InsertCoachingListener() {
+            CoachingSessionDAO.insertCoaching(coacheeID, "Coachee" + i, "Coach"+i,
+                    "CoachID"+i, "", "","",1, new CoachingSessionDAO.InsertCoachingListener() {
                 @Override
                 public void onCompleted(String guid) {
                     Log.d(TAG, "Insert : " + guid);
+                    coachingSessionID = guid;
                 }
             });
         }
@@ -86,8 +68,6 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             }
         });
 
-
-        String coachingSessionID = RealmUtil.generateID();
         List<CoachingQA> coachingQAs = new ArrayList<>();
         for(int i = 0; i < 5; i++){
             CoachingQA coachingQA = new CoachingQA();
@@ -117,10 +97,10 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             }
         });
 
-        final CountDownLatch signal = new CountDownLatch(2);
+        /*final CountDownLatch signal = new CountDownLatch(2);
 
         //Get coachee history
-        CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u",
+        CoacheeHistoryService.getCoacheeHistory(coacheeID,
                 new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
             @Override
             public void onReceived(List<CoacheeHistory> coacheeHistories) {
@@ -140,6 +120,20 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             }
         });
 
-        signal.await(30, TimeUnit.SECONDS);
+
+        signal.await(30, TimeUnit.SECONDS);*/
+
+        final CountDownLatch signal2 = new CountDownLatch(1);
+
+        SynchronizationService.syncCoachingSession(coachingSessionID, coacheeID, "Coach", "CoachID",
+                1, "", "", "", "", new SynchronizationService.SyncCoachingListener() {
+                    @Override
+                    public void onCompleted(boolean isSucceed) {
+                        Log.d(TAG, "Sync succeed");
+                        signal2.countDown();
+                    }
+                });
+
+        signal2.await(30, TimeUnit.SECONDS);
     }
 }
