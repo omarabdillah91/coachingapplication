@@ -3,10 +3,16 @@ package unilever.coachingform;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import adapter.QuestionAdapter;
+import model.CoacheeHistory;
+import service.CoacheeHistoryService;
 
 public class MerchandiserActivity extends AppCompatActivity {
     private ArrayList<String> questions = new ArrayList<>();
@@ -53,6 +59,18 @@ public class MerchandiserActivity extends AppCompatActivity {
         questions.add(getResources().getString(R.string.bahasa_fa_title_7_1));
         questions.add(getResources().getString(R.string.bahasa_fa_7b));
         questions.add(getResources().getString(R.string.bahasa_fa_7c));
+    }
+
+    public void testButton(View v){
+        CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u",
+                new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
+                    @Override
+                    public void onReceived(List<CoacheeHistory> coacheeHistories) {
+                        Log.d("MerchandiserActivity", coacheeHistories.toString());
+                        Toast.makeText(MerchandiserActivity.this.getApplicationContext(),
+                                "" + coacheeHistories.size(), Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 }

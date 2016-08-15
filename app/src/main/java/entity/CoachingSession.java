@@ -9,6 +9,7 @@ public class CoachingSession extends RealmObject {
 
     private String guid;
     private String coacheeID;
+    private String coacheeName;
     private String coachName;
     private String coachID;
     private String store;
@@ -107,10 +108,18 @@ public class CoachingSession extends RealmObject {
         isSubmitted = submitted;
     }
 
+    public String getCoacheeName() {
+        return coacheeName;
+    }
+
+    public void setCoacheeName(String coacheeName) {
+        this.coacheeName = coacheeName;
+    }
+
     @Override
     public String toString() {
         return "CoachingSession{" +
-                "coacheeID='" + coacheeID + '\'' +
+                "coacheeName='" + coacheeName + '\'' +
                 ", date=" + date +
                 ", isSubmitted=" + isSubmitted +
                 '}';

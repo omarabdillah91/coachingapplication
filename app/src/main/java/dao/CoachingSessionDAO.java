@@ -17,7 +17,7 @@ import model.Coaching;
  */
 public class CoachingSessionDAO {
 
-    public static void getUnsubmittedCoaching(CoachingSessionListener listener){
+    public static void getUnsubmittedCoaching(GetCoachingListener listener){
         ArrayList<Coaching> coachingList = new ArrayList<>();
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class)
@@ -28,24 +28,27 @@ public class CoachingSessionDAO {
             format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
             String date_formatted = format.format(date);
             String status = "";
-            coachingList.add(new Coaching(cs.getCoacheeID(),
+            coachingList.add(new Coaching(cs.getCoacheeName(),
                     date_formatted,(cs.isSubmitted())?"Unsent": "Sent"));
         }
-        listener.onCoachingReceived(coachingList);
+        listener.onReceived(coachingList);
     }
 
-    public static void insertCoaching(CoachingSession coachingSession, CoachingSessionListener listener){
+    public static void insertCoaching(CoachingSession coachingSession,
+                                      InsertCoachingListener listener){
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealm(coachingSession);
         realm.commitTransaction();
 
-        listener.onCoachingInserted(true);
+        listener.onCompleted(true);
     }
 
+    public interface GetCoachingListener {
+        void onReceived(List<Coaching> coachingList);
+    }
 
-    public interface CoachingSessionListener {
-        void onCoachingReceived(List<Coaching> coachingList);
-        void onCoachingInserted(boolean succees);
+    public interface InsertCoachingListener {
+        void onCompleted(boolean isSuccess);
     }
 }
