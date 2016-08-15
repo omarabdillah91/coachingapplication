@@ -9,7 +9,7 @@ public class DSRSaatActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dsr_saat);
+        setContentView(R.layout.activity_dsr_saat_bahasa);
 
 
     }

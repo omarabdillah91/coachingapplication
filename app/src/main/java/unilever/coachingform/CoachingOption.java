@@ -14,7 +14,8 @@ public class CoachingOption extends AppCompatActivity {
     Button rsm, asm_pull, asm_push, fa, dsr, dts, sr, next, back, bahasa, english;
     boolean rsm_status, asm_pull_status, asm_push_status, fa_status, dsr_status, dts_status, sr_status, bahasa_status, english_status = false;
     String coach, coachee = "";
-    int job = -1;
+    String job = "";
+    Bundle profile;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -42,6 +43,7 @@ public class CoachingOption extends AppCompatActivity {
                 Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
                 intent.putExtra("email", coach);
                 intent.putExtra("job", job);
+                intent.putExtra("profile",profile);
                 startActivity(intent);
             } else if (v.getId() == R.id.indonesian) {
                 bahasa_status = reverseStatus(v,bahasa_status);
@@ -50,6 +52,49 @@ public class CoachingOption extends AppCompatActivity {
             }
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_coaching_option);
+        rsm = (Button) findViewById(R.id.rsm_coaching);
+        asm_pull = (Button) findViewById(R.id.asm_pull_coaching);
+        asm_push = (Button) findViewById(R.id.asm_push_coaching);
+        fa = (Button) findViewById(R.id.fa_coaching);
+        dsr = (Button) findViewById(R.id.dsr_coaching);
+        dts = (Button) findViewById(R.id.dts_coaching);
+        sr = (Button) findViewById(R.id.sr_pull_coaching);
+        next = (Button) findViewById(R.id.next);
+        back = (Button) findViewById(R.id.back);
+        bahasa = (Button) findViewById(R.id.indonesian);
+        english = (Button) findViewById(R.id.english);
+        if (getIntent().getExtras() != null) {
+            Bundle bundle = getIntent().getExtras();
+            if(bundle.getString("coach") != null) {
+                coach = bundle.getString("coach");
+            }
+            if(bundle.getString("coachee") != null) {
+                coachee = bundle.getString("coachee");
+            }
+            if(bundle.getString("job") != null) {
+                job = bundle.getString("job");
+            }
+            if(bundle.getBundle("profile") != null) {
+                profile = bundle.getBundle("profile");
+            }
+        }
+        rsm.setOnClickListener(onClick);
+        asm_pull.setOnClickListener(onClick);
+        asm_push.setOnClickListener(onClick);
+        fa.setOnClickListener(onClick);
+        dsr.setOnClickListener(onClick);
+        dts.setOnClickListener(onClick);
+        sr.setOnClickListener(onClick);
+        next.setOnClickListener(onClick);
+        back.setOnClickListener(onClick);
+        bahasa.setOnClickListener(onClick);
+        english.setOnClickListener(onClick);
+    }
 
     private boolean validSelection() {
         int guides = 0;
@@ -87,93 +132,60 @@ public class CoachingOption extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coaching_option);
-        rsm = (Button) findViewById(R.id.rsm_coaching);
-        asm_pull = (Button) findViewById(R.id.asm_pull_coaching);
-        asm_push = (Button) findViewById(R.id.asm_push_coaching);
-        fa = (Button) findViewById(R.id.fa_coaching);
-        dsr = (Button) findViewById(R.id.dsr_coaching);
-        dts = (Button) findViewById(R.id.dts_coaching);
-        sr = (Button) findViewById(R.id.sr_pull_coaching);
-        next = (Button) findViewById(R.id.next);
-        back = (Button) findViewById(R.id.back);
-        bahasa = (Button) findViewById(R.id.indonesian);
-        english = (Button) findViewById(R.id.english);
-        if (getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
-            if(bundle.getString("coach") != null) {
-                coach = bundle.getString("coach");
-            }
-            if(bundle.getString("coachee") != null) {
-                coachee = bundle.getString("coachee");
-            }
-            if(bundle.getString("job") != null) {
-                job = bundle.getInt("job");
-            }
-        }
-        rsm.setOnClickListener(onClick);
-        asm_pull.setOnClickListener(onClick);
-        asm_push.setOnClickListener(onClick);
-        fa.setOnClickListener(onClick);
-        dsr.setOnClickListener(onClick);
-        dts.setOnClickListener(onClick);
-        sr.setOnClickListener(onClick);
-        next.setOnClickListener(onClick);
-        back.setOnClickListener(onClick);
-        bahasa.setOnClickListener(onClick);
-        english.setOnClickListener(onClick);
-    }
-
     private void goCoaching() {
         if(rsm_status) {
             Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (asm_pull_status) {
             Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (asm_push_status) {
             Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (dsr_status) {
             Intent intent = new Intent(CoachingOption.this, DSRSebelumActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (dts_status) {
             Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (fa_status) {
             Intent intent = new Intent(CoachingOption.this, MerchandiserActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
         } else if (sr_status) {
             Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
-            intent.putExtra("email", coach);
+            intent.putExtra("coach", coach);
             intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             startActivity(intent);
@@ -237,6 +249,6 @@ public class CoachingOption extends AppCompatActivity {
                 v.setBackgroundColor(getResources().getColor(R.color.orange));
             }
         }
-        return !status;
+        return current_status;
     }
 }

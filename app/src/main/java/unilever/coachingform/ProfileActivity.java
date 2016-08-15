@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,7 +19,8 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     EditText coach_name, coachee_name, first_name,second_name, cd_name;
     EditText coach_email, coachee_email, first_email,second_email, cd_email;
     Button next;
-    int login_job;
+    String job = "";
+    int job_id = -1;
     ArrayAdapter<CharSequence> job_adapter;
     String coach_position, coachee_position, first_position, second_position, cd_position = "";
     View.OnClickListener onClick = new View.OnClickListener() {
@@ -26,13 +28,36 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         public void onClick(View v) {
             if (v.getId() == R.id.next) {
                 Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
+                Bundle profile = getBundle();
                 intent.putExtra("coach", coach_email.getText().toString());
                 intent.putExtra("coachee", coachee_email.getText().toString());
-                intent.putExtra("job", login_job);
+                intent.putExtra("job", job);
+                intent.putExtra("profile", profile);
                 startActivity(intent);
             }
         }
     };
+
+    private Bundle getBundle() {
+        Bundle outState = new Bundle();
+        outState.putString("coach_name", coach_name.getText().toString());
+        outState.putString("coachee_name", coachee_name.getText().toString());
+        outState.putString("first_name", first_name.getText().toString());
+        outState.putString("second_name", second_name.getText().toString());
+        outState.putString("cd_name", cd_name.getText().toString());
+        outState.putString("coach_email", coach_email.getText().toString());
+        outState.putString("coachee_email", coachee_email.getText().toString());
+        outState.putString("first_email", first_email.getText().toString());
+        outState.putString("second_email", second_email.getText().toString());
+        outState.putString("cd_email", cd_email.getText().toString());
+        outState.putString("coach_name", coach_name.getText().toString());
+        outState.putString("coach_position", coach_position);
+        outState.putString("coachee_position", coachee_position);
+        outState.putString("first_position", first_position);
+        outState.putString("second_position", second_position);
+        outState.putString("cd_position", cd_position);
+        return outState;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,17 +90,40 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             if(bundle.getString("email") != null) {
                 coach_email.setText(bundle.getString("email"));
             }
-            if(bundle.getString("job") != null) {
-                login_job = bundle.getInt("job");
-                coach_job.setSelection(bundle.getInt("job"));
+            if(bundle.getInt("job") != -1) {
+                job_id = bundle.getInt("job");
+                //coach_job.setS;
+            }
+            if(bundle.getBundle("profile")!= null) {
+                setField(bundle.getBundle("profile"));
             }
         }
+        coach_job.setSelection(job_id);
+        coach_position = coach_job.getSelectedItem().toString();
         coach_job.setOnItemSelectedListener(this);
         coachee_job.setOnItemSelectedListener(this);
         first_job.setOnItemSelectedListener(this);
         second_job.setOnItemSelectedListener(this);
         cd_job.setOnItemSelectedListener(this);
         next.setOnClickListener(onClick);
+    }
+
+    private void setField(Bundle savedState) {
+        coach_name.setText(savedState.getString("coach_name"));
+        coachee_name.setText(savedState.getString("coachee_name"));
+        first_name.setText(savedState.getString("first_name"));
+        second_name.setText(savedState.getString("second_name"));
+        cd_name.setText(savedState.getString("cd_name"));
+        coach_email.setText(savedState.getString("coach_email"));
+        coachee_email.setText(savedState.getString("coachee_email"));
+        first_email.setText(savedState.getString("first_email"));
+        second_email.setText(savedState.getString("second_email"));
+        cd_email.setText(savedState.getString("cd_email"));
+        coach_job.setSelection(job_adapter.getPosition(savedState.getString("coach_position")));
+        coachee_job.setSelection(job_adapter.getPosition(savedState.getString("coachee_position")));
+        first_job.setSelection(job_adapter.getPosition(savedState.getString("first_position")));
+        second_job.setSelection(job_adapter.getPosition(savedState.getString("second_position")));
+        cd_job.setSelection(job_adapter.getPosition(savedState.getString("cd_position")));
     }
 
     @Override
@@ -96,5 +144,43 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("coach_name", coach_name.getText().toString());
+        outState.putString("coachee_name", coachee_name.getText().toString());
+        outState.putString("first_name", first_name.getText().toString());
+        outState.putString("second_name", second_name.getText().toString());
+        outState.putString("cdname", cd_name.getText().toString());
+        outState.putString("coach_email", coach_email.getText().toString());
+        outState.putString("coachee_email", coachee_email.getText().toString());
+        outState.putString("first_email", first_email.getText().toString());
+        outState.putString("second_email", second_email.getText().toString());
+        outState.putString("cd_email", cd_email.getText().toString());
+        outState.putString("coach_name", coach_name.getText().toString());
+        outState.putString("coach_position", coach_position);
+        outState.putString("coachee_position", coachee_position);
+        outState.putString("first_position", first_position);
+        outState.putString("second_position", second_position);
+        outState.putString("cd_position", cd_position);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedState) {
+        coach_name.setText(savedState.getString("coach_name"));
+        coachee_name.setText(savedState.getString("coachee_name"));
+        first_name.setText(savedState.getString("first_name"));
+        second_name.setText(savedState.getString("second_name"));
+        cd_name.setText(savedState.getString("cd_name"));
+        coach_email.setText(savedState.getString("coach_email"));
+        coachee_email.setText(savedState.getString("coachee_email"));
+        first_email.setText(savedState.getString("first_email"));
+        second_email.setText(savedState.getString("second_email"));
+        cd_email.setText(savedState.getString("cd_email"));
+        coach_job.setSelection(job_adapter.getPosition(savedState.getString("coach_position")));
+        coachee_job.setSelection(job_adapter.getPosition(savedState.getString("coachee_position")));
+        first_job.setSelection(job_adapter.getPosition(savedState.getString("first_position")));
+        second_job.setSelection(job_adapter.getPosition(savedState.getString("second_position")));
+        cd_job.setSelection(job_adapter.getPosition(savedState.getString("cd_position")));
     }
 }

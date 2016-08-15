@@ -51,65 +51,76 @@
             android:layout_below="@+id/description"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
-        <TableLayout
+        <HorizontalScrollView
             android:id="@+id/profile_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbars="none"
             android:layout_margin="10dp"
             android:layout_below="@+id/line1">
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Coach"
-                    android:textSize="15dp"
-                    android:layout_weight="0"/>
-                <EditText
-                    android:id="@+id/coach"
-                    style="@style/table_edittext_type"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:text="Distributor"
-                    android:textSize="15dp"
-                    android:layout_weight="0"/>
-                <EditText
-                    android:id="@+id/distributor"
-                    style="@style/table_edittext_type"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Coachee"
-                    android:textSize="15dp"
-                    android:layout_weight="0"/>
-                <EditText
-                    android:id="@+id/coachee"
-                    style="@style/table_edittext_type"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"/>
-                <TextView
-                    android:text="Area"
-                    android:textSize="15dp"
-                    android:layout_weight="0"/>
-                <EditText
-                    android:id="@+id/area"
-                    style="@style/table_edittext_type"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-        </TableLayout>
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Coach"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/coach"
+                        style="@style/table_edittext_type"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:hint="Coach"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="Distributor"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/distributor"
+                        style="@style/table_edittext_type"
+                        android:hint="Distributor"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"/>
+                </TableRow>
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Coachee"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/coachee"
+                        style="@style/table_edittext_type"
+                        android:hint="Coachee"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="Area"
+                        android:textSize="15dp"
+                        android:layout_weight="1"/>
+                    <EditText
+                        android:id="@+id/area"
+                        style="@style/table_edittext_type"
+                        android:hint="Area"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"/>
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
         <HorizontalScrollView
             android:id="@+id/questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fillViewport="true"
-            android:scrollbars="horizontal"
+            android:scrollbars="none"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_below="@+id/profile_line">

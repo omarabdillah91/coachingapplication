@@ -10,6 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="unilever.coachingform.RSMCoachingActivity"
-    tools:showIn="@layout/activity_rsm_coaching">
+    tools:showIn="@layout/activity_rsm_coaching_bahasa">
 
 </RelativeLayout>

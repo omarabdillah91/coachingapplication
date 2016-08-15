@@ -12,7 +12,7 @@ public class RSMCoachingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rsm_coaching);
+        setContentView(R.layout.activity_rsm_coaching_bahasa);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -72,6 +72,7 @@
     <style name="table_edittext_type">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>
@@ -79,14 +80,11 @@
     </style>
 
     <style name="table_edittext_type_header_fa">
-        <item name="android:layout_width">0px</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textSize">15dp</item>
         <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>
         <item name="android:textCursorDrawable">@null</item>
-        <item name="android:layout_marginTop">0dp</item>
-        <item name="android:textSize">15dp</item>
-        <item name="android:layout_gravity">center_horizontal</item>
     </style>
 
     <style name="button_coaching_option">
@@ -168,8 +166,6 @@
     </style>
 
     <style name="column_customer_header_fa">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:textSize">15dp</item>

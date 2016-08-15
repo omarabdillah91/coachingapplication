@@ -18,14 +18,14 @@ public class SynchronizationActivity extends AppCompatActivity implements Coachi
     ListView listView;
     Button sync;
     String email = "";
-    int job_id = -1;
+    int job = 0;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.sync) {
                 Intent intent = new Intent(SynchronizationActivity.this, ProfileActivity.class);
                 intent.putExtra("email", email);
-                intent.putExtra("job", job_id);
+                intent.putExtra("job", job);
                 startActivity(intent);
             }
         }
@@ -44,7 +44,7 @@ public class SynchronizationActivity extends AppCompatActivity implements Coachi
                 email = bundle.getString("first_name");
             }
             if(bundle.getString("job") != null) {
-                job_id = bundle.getInt("job");
+                job = bundle.getInt("job");
             }
         }
         sync.setOnClickListener(onClick);

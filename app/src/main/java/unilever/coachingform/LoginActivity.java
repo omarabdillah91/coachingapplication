@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         job = position;
+        Log.d("Position", job+"");
     }
 
     @Override
@@ -200,5 +201,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onCoachingInserted(boolean succees) {
 
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putCharSequence("email", edit_email.getText().toString());
+    }
+    protected void onRestoreInstanceState(Bundle savedState) {
+        String userText = savedState.getString("email");
+        edit_email.setText(userText);
     }
 }
