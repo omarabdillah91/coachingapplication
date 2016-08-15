@@ -60,17 +60,4 @@ public class MerchandiserActivity extends AppCompatActivity {
         questions.add(getResources().getString(R.string.bahasa_fa_7b));
         questions.add(getResources().getString(R.string.bahasa_fa_7c));
     }
-
-    public void testButton(View v){
-        CoacheeHistoryService.getCoacheeHistory("-KO0f6c9vRKTo5cg9m5u",
-                new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
-                    @Override
-                    public void onReceived(List<CoacheeHistory> coacheeHistories) {
-                        Log.d("MerchandiserActivity", coacheeHistories.toString());
-                        Toast.makeText(MerchandiserActivity.this.getApplicationContext(),
-                                "" + coacheeHistories.size(), Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
-
 }

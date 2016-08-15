@@ -13,6 +13,7 @@ public class CoachingQA extends RealmObject {
     private String columnID;
     private boolean tickAnswer;
     private String textAnswer;
+    private boolean hasTickAnswer;
 
     public String getGuid() {
         return guid;
@@ -60,5 +61,13 @@ public class CoachingQA extends RealmObject {
 
     public void setTextAnswer(String textAnswer) {
         this.textAnswer = textAnswer;
+    }
+
+    public boolean isHasTickAnswer() {
+        return hasTickAnswer;
+    }
+
+    public void setHasTickAnswer(boolean hasTickAnswer) {
+        this.hasTickAnswer = hasTickAnswer;
     }
 }

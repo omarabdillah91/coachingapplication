@@ -6,9 +6,18 @@ package model;
 public class CoacheeHistory {
 
     private String coachName;
+    private String coacheeName;
 
     public CoacheeHistory(String coachName) {
         this.coachName = coachName;
+    }
+
+    public String getCoacheeName() {
+        return coacheeName;
+    }
+
+    public void setCoacheeName(String coacheeName) {
+        this.coacheeName = coacheeName;
     }
 
     public String getCoachName() {
@@ -17,5 +26,12 @@ public class CoacheeHistory {
 
     public void setCoachName(String coachName) {
         this.coachName = coachName;
+    }
+
+    @Override
+    public String toString() {
+        return "CoacheeHistory{" +
+                "coachName='" + coachName + '\'' +
+                '}';
     }
 }

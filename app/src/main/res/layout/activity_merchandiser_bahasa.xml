@@ -214,9 +214,6 @@
                         android:text="@string/bahasa_fa_title_1"
                         android:layout_span="10"
                         android:textSize="15dp"/>
-                    <Button
-                        android:text="test"
-                        android:onClick="testButton"/>
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>

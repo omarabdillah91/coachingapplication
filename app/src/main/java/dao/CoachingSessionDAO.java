@@ -10,7 +10,9 @@ import java.util.TimeZone;
 import entity.CoachingSession;
 import io.realm.Realm;
 import io.realm.RealmResults;
+import model.CoacheeHistory;
 import model.Coaching;
+import utility.RealmUtil;
 
 /**
  * Created by adria on 8/13/2016.
@@ -36,12 +38,25 @@ public class CoachingSessionDAO {
 
     public static void insertCoaching(CoachingSession coachingSession,
                                       InsertCoachingListener listener){
+        String guid = RealmUtil.generateID();
+        coachingSession.setGuid(guid);
+        coachingSession.setSubmitted(false);
+        coachingSession.setDate(System.currentTimeMillis() / 1000);
+
+        /*CoachingSession coachingSession = new CoachingSession();
+
+        coachingSession.setCoachName("Coach");
+        coachingSession.setCoacheeName(coaching.coachee);
+        coachingSession.setGuid(guid);
+        coachingSession.setSubmitted(false);
+        coachingSession.setDate(System.currentTimeMillis() / 1000);*/
+
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealm(coachingSession);
         realm.commitTransaction();
 
-        listener.onCompleted(true);
+        listener.onCompleted(guid);
     }
 
     public interface GetCoachingListener {
@@ -49,6 +64,6 @@ public class CoachingSessionDAO {
     }
 
     public interface InsertCoachingListener {
-        void onCompleted(boolean isSuccess);
+        void onCompleted(String guid);
     }
 }
