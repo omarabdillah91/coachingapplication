@@ -3,10 +3,16 @@ package unilever.coachingform;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import adapter.QuestionAdapter;
+import model.CoacheeHistory;
+import service.CoacheeHistoryService;
 
 public class MerchandiserActivity extends AppCompatActivity {
     private ArrayList<String> questions = new ArrayList<>();
@@ -54,5 +60,4 @@ public class MerchandiserActivity extends AppCompatActivity {
         questions.add(getResources().getString(R.string.bahasa_fa_7b));
         questions.add(getResources().getString(R.string.bahasa_fa_7c));
     }
-
 }

@@ -10,14 +10,16 @@ import java.util.TimeZone;
 import entity.CoachingSession;
 import io.realm.Realm;
 import io.realm.RealmResults;
+import model.CoacheeHistory;
 import model.Coaching;
+import utility.RealmUtil;
 
 /**
  * Created by adria on 8/13/2016.
  */
 public class CoachingSessionDAO {
 
-    public static void getUnsubmittedCoaching(CoachingSessionListener listener){
+    public static void getUnsubmittedCoaching(GetCoachingListener listener){
         ArrayList<Coaching> coachingList = new ArrayList<>();
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class)
@@ -28,24 +30,32 @@ public class CoachingSessionDAO {
             format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
             String date_formatted = format.format(date);
             String status = "";
-            coachingList.add(new Coaching(cs.getCoacheeID(),
+            coachingList.add(new Coaching(cs.getCoacheeName(),
                     date_formatted,(cs.isSubmitted())?"Unsent": "Sent"));
         }
-        listener.onCoachingReceived(coachingList);
+        listener.onReceived(coachingList);
     }
 
-    public static void insertCoaching(CoachingSession coachingSession, CoachingSessionListener listener){
+    public static void insertCoaching(String coacheeID, String coacheeName, String coachName,
+                                      String coachID, String store, String distributor, String area,
+                                      int coachingGuideline, InsertCoachingListener listener){
+
+        CoachingSession coachingSession = new CoachingSession(coacheeID, coacheeName, coachName,
+                coachID, store, distributor, area, coachingGuideline);
+
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         realm.copyToRealm(coachingSession);
         realm.commitTransaction();
 
-        listener.onCoachingInserted(true);
+        listener.onCompleted(coachingSession.getGuid());
     }
 
+    public interface GetCoachingListener {
+        void onReceived(List<Coaching> coachingList);
+    }
 
-    public interface CoachingSessionListener {
-        void onCoachingReceived(List<Coaching> coachingList);
-        void onCoachingInserted(boolean succees);
+    public interface InsertCoachingListener {
+        void onCompleted(String guid);
     }
 }

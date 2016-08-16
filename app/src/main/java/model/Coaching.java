@@ -13,4 +13,13 @@ public class Coaching {
         this.date = b;
         this.status = c;
     }
+
+    @Override
+    public String toString() {
+        return "Coaching{" +
+                "coachee='" + coachee + '\'' +
+                ", date='" + date + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
 }

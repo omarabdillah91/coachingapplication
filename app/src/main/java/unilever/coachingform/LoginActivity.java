@@ -32,7 +32,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import model.Coaching;
 
-public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, CoachingSessionDAO.CoachingSessionListener {
+public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "Login";
     String email = "";
     int job = 0;
@@ -71,8 +71,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         login = (Button) findViewById(R.id.login);
         login.setOnClickListener(onClick);
         mAuth = FirebaseAuth.getInstance();
-        RealmConfiguration realmConfig = new RealmConfiguration.Builder(this.getApplicationContext()).build();
-        Realm.setDefaultConfiguration(realmConfig);
         // [START auth_state_listener]
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -179,11 +177,15 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            CoachingSessionDAO.getUnsubmittedCoaching(this);
+            CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetCoachingListener() {
+                @Override
+                public void onReceived(List<Coaching> coachingList) {
+                    onCoachingReceived(coachingList);
+                }
+            });
         }
     }
 
-    @Override
     public void onCoachingReceived(List<Coaching> coachingList) {
         if(coachingList.size() > 0) {
             Intent intent = new Intent(LoginActivity.this, SynchronizationActivity.class);
@@ -196,11 +198,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             intent.putExtra("job", job);
             startActivity(intent);
         }
-    }
-
-    @Override
-    public void onCoachingInserted(boolean succees) {
-
     }
 
     protected void onSaveInstanceState(Bundle outState) {

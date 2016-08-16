@@ -15,6 +15,22 @@ public class CoacheeHistoryDTO {
     private long dateCreated;
     private int coachingGuideline;
 
+    public CoacheeHistoryDTO() {
+    }
+
+    public CoacheeHistoryDTO(String coachID, String coachName, String distributor, String store,
+                             String area, String action,int coachingGuideline) {
+        this.coachID = coachID;
+        this.coachName = coachName;
+        this.distributor = distributor;
+        this.store = store;
+        this.area = area;
+        this.action = action;
+        this.date = System.currentTimeMillis() / 1000;
+        this.dateCreated = System.currentTimeMillis() / 1000;
+        this.coachingGuideline = coachingGuideline;
+    }
+
     public String getCoachID() {
         return coachID;
     }

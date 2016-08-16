@@ -14,7 +14,7 @@ import adapter.CoachAdapter;
 import dao.CoachingSessionDAO;
 import model.Coaching;
 
-public class SynchronizationActivity extends AppCompatActivity implements CoachingSessionDAO.CoachingSessionListener {
+public class SynchronizationActivity extends AppCompatActivity {
     ListView listView;
     Button sync;
     String email = "";
@@ -36,7 +36,12 @@ public class SynchronizationActivity extends AppCompatActivity implements Coachi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synchronization);
         listView = (ListView)findViewById(R.id.listView);
-        CoachingSessionDAO.getUnsubmittedCoaching(this);
+        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetCoachingListener() {
+            @Override
+            public void onReceived(List<Coaching> coachingList) {
+                onCoachingReceived(coachingList);
+            }
+        });
         sync = (Button) findViewById(R.id.sync);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
@@ -51,14 +56,9 @@ public class SynchronizationActivity extends AppCompatActivity implements Coachi
 
     }
 
-    @Override
     public void onCoachingReceived(List<Coaching> coachingList) {
         CoachAdapter adapter = new CoachAdapter(this,
                 R.layout.synchronization_list, coachingList);
         listView.setAdapter(adapter);
-    }
-
-    @Override
-    public void onCoachingInserted(boolean succees) {
     }
 }
