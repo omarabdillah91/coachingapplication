@@ -21,8 +21,7 @@
             <Button
                 android:id="@+id/before_coaching"
                 android:text="Sebelum Kunjungan"
-                style="@style/sub_page_coaching"
-                android:background="@color/gray"/>
+                style="@style/sub_page_coaching"/>
             <Button
                 android:id="@+id/on_coaching"
                 android:text="Pada Saat Kunjungan"
@@ -31,7 +30,8 @@
             <Button
                 android:id="@+id/after_coaching"
                 android:text="Setelah Kunjungan"
-                style="@style/sub_page_coaching"/>
+                style="@style/sub_page_coaching"
+                android:background="@color/gray"/>
         </LinearLayout>
         <TextView
             android:id="@+id/description"
@@ -51,134 +51,129 @@
             android:layout_below="@+id/description"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"/>
-        <HorizontalScrollView
+        <TableLayout
             android:id="@+id/profile_line"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:scrollbars="none"
+            android:stretchColumns="*"
             android:layout_margin="10dp"
             android:layout_below="@+id/line1">
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:stretchColumns="*">
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="Coach"
-                        android:textSize="15dp"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/coach"
-                        style="@style/table_edittext_type"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
-                        android:hint="Coach"
-                        android:layout_weight="1"/>
-                    <TextView
-                        android:text="Distributor"
-                        android:textSize="15dp"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/distributor"
-                        style="@style/table_edittext_type"
-                        android:hint="Distributor"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"/>
-                </TableRow>
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="Coachee"
-                        android:textSize="15dp"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/coachee"
-                        style="@style/table_edittext_type"
-                        android:hint="Coachee"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_weight="1"/>
-                    <TextView
-                        android:text="Area"
-                        android:textSize="15dp"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/area"
-                        style="@style/table_edittext_type"
-                        android:hint="Area"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"/>
-                </TableRow>
-            </TableLayout>
-        </HorizontalScrollView>
-        <HorizontalScrollView
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Coach"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/coach"
+                    style="@style/table_edittext_type"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="Coach"
+                    android:layout_weight="1"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Distributor"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/distributor"
+                    style="@style/table_edittext_type"
+                    android:hint="Distributor"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Coachee"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/coachee"
+                    style="@style/table_edittext_type"
+                    android:hint="Coachee"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Area"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/area"
+                    style="@style/table_edittext_type"
+                    android:hint="Area"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+        </TableLayout>
+        <LinearLayout
             android:id="@+id/questions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:scrollbars="none"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
             android:layout_below="@+id/profile_line">
-            <TableLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stretchColumns="*">
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="@string/title_bahasa_setelah_kunjungan"
-                        android:textSize="15dp"
-                        android:layout_weight="0"/>
-                    <TextView
-                        android:text="Thick if\nDone/know"
-                        android:textSize="15dp"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal"/>
-                    <TextView
-                        android:text="Remarks"
-                        android:textSize="15dp"
-                        android:layout_weight="0"/>
-                </TableRow>
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="@string/bahasa_dsr_setelah_1"
-                        android:textSize="15dp"
-                        android:layout_weight="0"/>
-                    <RadioButton
-                        android:id="@+id/dsr_setelah_1"
-                        style="@style/RadioButtonAppTheme"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/remarks_dsr_setelah_1"
-                        style="@style/table_edittext_type"
-                        android:layout_weight="0"/>
-                </TableRow>
-                <TableRow
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="@string/bahasa_dsr_setelah_2"
-                        android:textSize="15dp"
-                        android:layout_weight="0"/>
-                    <RadioButton
-                        android:id="@+id/dsr_setelah_2"
-                        style="@style/RadioButtonAppTheme"
-                        android:layout_weight="1"/>
-                    <EditText
-                        android:id="@+id/remarks_dsr_setelah_2"
-                        style="@style/table_edittext_type"
-                        android:layout_weight="0"/>
-                </TableRow>
-            </TableLayout>
-        </HorizontalScrollView>
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/title_bahasa_setelah_kunjungan"
+                    style="@style/text_questions"/>
+                <TextView
+                    android:text="Thick if\nDone/know"
+                    style="@style/tick_questions"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/bahasa_dsr_setelah_1"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dsr_setelah_1"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_dsr_setelah_1"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/bahasa_dsr_setelah_2"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dsr_setelah_2"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_dsr_setelah_2"
+                style="@style/remarks" />
+        </LinearLayout>
         <Button
             android:id="@+id/back"
             android:text="Back"

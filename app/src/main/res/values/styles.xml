@@ -70,7 +70,7 @@
     </style>
 
     <style name="table_edittext_type">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">15dp</item>
         <item name="android:padding">5dp</item>
@@ -175,6 +175,51 @@
         <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="dsr_saat_question">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="dsr_saat_radio">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+
+    <style name="text_questions">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.7</item>
+    </style>
+
+    <style name="tick_questions">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.3</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="radio_questions">
+        <item name="android:button">@drawable/apptheme_btn_radio_holo_light</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.3</item>
+    </style>
+
+    <style name="remarks">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>
+        <item name="android:textCursorDrawable">@null</item>
     </style>
 
     <style name="RadioButtonAppTheme" parent="android:Widget.CompoundButton.RadioButton">

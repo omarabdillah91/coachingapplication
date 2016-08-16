@@ -108,7 +108,7 @@
                         android:text="Thick if Done/know"
                         android:textSize="15dp"
                         android:layout_span="12"
-                        android:layout_column="10"
+                        android:layout_column="1"
                         android:layout_gravity="left"/>
                 </TableRow>
                 <TableRow>
@@ -116,104 +116,186 @@
                         android:text="TOP SKU PRODUCT"
                         android:textSize="15dp"
                         android:layout_span="12"
-                        android:layout_column="10"
+                        android:layout_column="1"
                         android:layout_gravity="left"/>
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:text=" "
-                        android:textSize="15dp"
-                        android:layout_span="7"
-                        android:layout_marginRight="5dp"/>
-                    <TextView
                         android:text="@string/product_1"
+                        android:layout_column="1"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_2"
+                        android:layout_column="2"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_3"
+                        android:layout_column="3"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_4"
+                        android:layout_column="4"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_5"
+                        android:layout_column="5"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_6"
+                        android:layout_column="6"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_7"
+                        android:layout_column="7"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_8"
+                        android:layout_column="8"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_9"
+                        android:layout_column="9"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/product_10"
+                        android:layout_column="10"
                         style="@style/column_customer_header_fa"/>
                     <EditText
                         android:id="@+id/product_11"
                         android:hint="Product"
+                        android:layout_column="20"
                         style="@style/table_edittext_type_header_fa"/>
                     <EditText
                         android:hint="Product"
                         android:id="@+id/product_12"
+                        android:layout_column="12"
                         style="@style/table_edittext_type_header_fa"/>
                 </TableRow>
                 <TableRow>
                     <TextView
-                        android:text=" "
-                        android:textSize="15dp"
-                        android:layout_span="10"
-                        android:layout_marginRight="5dp"/>
-                    <TextView
                         android:text="@string/size_1"
+                        android:layout_column="1"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_2"
+                        android:layout_column="2"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_3"
+                        android:layout_column="3"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_4"
+                        android:layout_column="4"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_5"
+                        android:layout_column="5"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_6"
+                        android:layout_column="6"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_7"
+                        android:layout_column="7"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_8"
+                        android:layout_column="8"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_9"
+                        android:layout_column="9"
                         style="@style/column_customer_header_fa"/>
                     <TextView
                         android:text="@string/size_10"
+                        android:layout_column="10"
                         style="@style/column_customer_header_fa"/>
                     <EditText
                         android:id="@+id/size_11"
                         android:hint="Size"
+                        android:layout_column="11"
                         style="@style/table_edittext_type_header_fa"/>
                     <EditText
                         android:hint="Size"
+                        android:layout_column="12"
                         android:id="@+id/size_12"
                         style="@style/table_edittext_type_header_fa"/>
                 </TableRow>
                 <TableRow>
                     <TextView
                         android:text="@string/bahasa_fa_title_1"
-                        android:layout_span="10"
+                        android:layout_column="0"
                         android:textSize="15dp"/>
+                    <RadioGroup
+                        android:id="@+id/radiogroup_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true" >
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_1"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_2"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_3"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_4"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_5"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_6"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_7"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_8"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_9"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_10"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_11"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <RadioButton
+                            android:id="@+id/dsr_saat_1_12"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </RadioGroup>
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
