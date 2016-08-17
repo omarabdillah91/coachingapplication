@@ -134,60 +134,67 @@ public class CoachingOption extends AppCompatActivity {
 
     private void goCoaching() {
         if(rsm_status) {
-            Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","rsm");
             startActivity(intent);
         } else if (asm_pull_status) {
-            Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","asm_pull");
             startActivity(intent);
         } else if (asm_push_status) {
-            Intent intent = new Intent(CoachingOption.this, RSMCoachingActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","asm_push");
             startActivity(intent);
         } else if (dsr_status) {
-            Intent intent = new Intent(CoachingOption.this, DSRSebelumActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","dsr");
             startActivity(intent);
         } else if (dts_status) {
-            Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","dts");
             startActivity(intent);
         } else if (fa_status) {
-            Intent intent = new Intent(CoachingOption.this, MerchandiserActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","fa");
             startActivity(intent);
         } else if (sr_status) {
-            Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
+            intent.putExtra("coaching","sr");
             startActivity(intent);
         }
     }

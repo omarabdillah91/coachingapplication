@@ -2,6 +2,8 @@ package unilever.coachingform;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -22,14 +24,14 @@ public class MerchandiserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_merchandiser_bahasa);
-        //recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        setContentView(R.layout.activity_merchandiser_recyclerview);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         prepareData();
-//        mAdapter = new QuestionAdapter(questions);
-//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-//        recyclerView.setLayoutManager(mLayoutManager);
-//        recyclerView.setItemAnimator(new DefaultItemAnimator());
-//        recyclerView.setAdapter(mAdapter);
+        mAdapter = new QuestionAdapter(questions);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
 
     }
 

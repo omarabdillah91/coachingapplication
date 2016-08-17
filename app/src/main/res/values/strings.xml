@@ -65,7 +65,8 @@
 
     <string name="bahasa_dsr_saat_1">1. Perkenalan</string>
     <string name="bahasa_dsr_saat_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
-    <string name="bahasa_dsr_saat_3a">Presentasi\n\t a. Menawarkan penambahan stock (taking order) pada customer</string>
+    <string name="bahasa_dsr_saat_3">3. Presentasi</string>
+    <string name="bahasa_dsr_saat_3a">\t a. Menawarkan penambahan stock (taking order) pada customer</string>
     <string name="bahasa_dsr_saat_3b">\t b. Menawarkan penambahan SKU baru (NPI)</string>
     <string name="bahasa_dsr_saat_3c">\t c. Presentasi produk: menguasai keunggulan produk</string>
     <string name="bahasa_dsr_saat_3d">\t d. Presentasi harga: menguasai produk</string>
@@ -172,4 +173,5 @@
     <string name="size_9">Produk I</string>
     <string name="size_10">Produk J</string>
     <string name="title_activity_rsmcoaching">RSM Coaching Guideline</string>
+    <string name="title_activity_coachee_history">Coachee History</string>
 </resources>

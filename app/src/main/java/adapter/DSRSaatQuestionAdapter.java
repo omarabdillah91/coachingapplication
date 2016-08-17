@@ -39,7 +39,7 @@ public class DSRSaatQuestionAdapter extends RecyclerView.Adapter<DSRSaatQuestion
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.dsr_saat_question, parent, false);
+                .inflate(R.layout.dsr_saat_questions, parent, false);
 
         return new MyViewHolder(itemView);
     }

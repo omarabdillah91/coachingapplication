@@ -64,15 +64,30 @@
                 <TextView
                     android:text="Coach"
                     android:textSize="15dp"
-                    android:layout_weight="1"
+                    android:layout_weight="0.5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
                     android:id="@+id/coach"
                     style="@style/table_edittext_type"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
                     android:hint="Coach"
+                    android:layout_weight="0.5"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Coachee"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/coachee"
+                    style="@style/table_edittext_type"
+                    android:hint="Coachee"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="1"/>
             </TableRow>
             <TableRow
@@ -89,23 +104,6 @@
                     style="@style/table_edittext_type"
                     android:hint="Distributor"
                     android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Coachee"
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/coachee"
-                    style="@style/table_edittext_type"
-                    android:hint="Coachee"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="20dp"
                     android:layout_weight="1"/>
             </TableRow>
             <TableRow

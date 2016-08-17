@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="Coaching Synchronization"
+        android:text="Coachee History"
         style="@style/title_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -26,20 +26,20 @@
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:layout_weight="0.45"
-            android:text="Coachee"
-            style="@style/header_box"/>
-        <TextView
-            android:layout_width="0px"
-            android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:text="Date"
+            android:text="Coached By"
             style="@style/header_box"/>
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
-            android:text="Status"
+            android:text="Date"
+            style="@style/header_box"/>
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.45"
+            android:text="Action"
             style="@style/header_box"/>
     </LinearLayout>
     <LinearLayout
@@ -50,7 +50,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true">
         <Button
-            android:id="@+id/sync"
+            android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15dp"

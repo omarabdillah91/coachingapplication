@@ -29,6 +29,8 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee.getText().toString());
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
+                intent.putExtra("area", area.getText());
+                intent.putExtra("distributor", distributor.getText());
                 startActivity(intent);
             } else if (v.getId() == R.id.back) {
                 Intent intent = new Intent(DSRSebelumActivity.this, CoachingOption.class);
@@ -43,6 +45,8 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee.getText().toString());
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
+                intent.putExtra("area", area.getText());
+                intent.putExtra("distributor", distributor.getText());
                 startActivity(intent);
             } else if (v.getId() == R.id.after_coaching) {
                 Intent intent = new Intent(DSRSebelumActivity.this, DSRSetelahActivity.class);
@@ -51,6 +55,8 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee.getText().toString());
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
+                intent.putExtra("area", area.getText());
+                intent.putExtra("distributor", distributor.getText());
                 startActivity(intent);
             } else if (v.getId() == R.id.dsr_sebelum_1) {
                 if(status_1) {
@@ -123,24 +129,11 @@ public class DSRSebelumActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
-            if(bundle.getBoolean("english")) {
-                english = bundle.getBoolean("english");
-                setContentView(R.layout.activity_dsr_sebelum_english);
-            }else {
-                bahasa = bundle.getBoolean("bahasa");
-                setContentView(R.layout.activity_dsr_sebelum_bahasa);
-            }
-            if(bundle.getString("coach") != null) {
-                coach_email = bundle.getString("coach");
-            }
-            if(bundle.getString("coachee") != null) {
-                coachee_email = bundle.getString("coachee");
-            }
-            if(bundle.getString("job") != null) {
-                job = bundle.getString("job");
-            }
+        getExtra(getIntent().getExtras());
+        if(english) {
+            setContentView(R.layout.activity_dsr_sebelum_english);
+        } else {
+            setContentView(R.layout.activity_dsr_sebelum_bahasa);
         }
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
@@ -179,6 +172,23 @@ public class DSRSebelumActivity extends AppCompatActivity {
         empat_c.setOnClickListener(onClick);
         empat_d.setOnClickListener(onClick);
         empat_e.setOnClickListener(onClick);
+    }
+
+    private void getExtra(Bundle bundle) {
+        if(bundle.getBoolean("english")) {
+            english = bundle.getBoolean("english");
+        }else {
+            bahasa = bundle.getBoolean("bahasa");
+        }
+        if(bundle.getString("coach") != null) {
+            coach_email = bundle.getString("coach");
+        }
+        if(bundle.getString("coachee") != null) {
+            coachee_email = bundle.getString("coachee");
+        }
+        if(bundle.getString("job") != null) {
+            job = bundle.getString("job");
+        }
     }
 
 }

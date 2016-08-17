@@ -32,7 +32,7 @@ public class CoacheeHistoryService {
                         for (DataSnapshot d : dataSnapshot.getChildren()) {
                             CoacheeHistoryDTO dto = d.getValue(CoacheeHistoryDTO.class);
                             Log.d(TAG, dto.toString());
-                            coacheeHistories.add(new CoacheeHistory(dto.getCoachName()));
+                            coacheeHistories.add(new CoacheeHistory(dto.getCoachName(),dto.getDate(),dto.getAction()));
                             listener.onReceived(coacheeHistories);
                         }
                     }
