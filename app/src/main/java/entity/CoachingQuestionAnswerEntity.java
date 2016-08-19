@@ -1,13 +1,17 @@
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dto.CoachingQuestionAnswerDTO;
 import io.realm.RealmObject;
 
 /**
  * Created by adria on 8/13/2016.
  */
-public class CoachingQA extends RealmObject {
+public class CoachingQuestionAnswerEntity extends RealmObject {
 
-    private String guid;
+    private String id;
     private String coachingSessionID;
     private String questionID;
     private String columnID;
@@ -15,12 +19,12 @@ public class CoachingQA extends RealmObject {
     private String textAnswer;
     private boolean hasTickAnswer;
 
-    public String getGuid() {
-        return guid;
+    public String getId() {
+        return id;
     }
 
-    public void setGuid(String guid) {
-        this.guid = guid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getCoachingSessionID() {
@@ -69,5 +73,20 @@ public class CoachingQA extends RealmObject {
 
     public void setHasTickAnswer(boolean hasTickAnswer) {
         this.hasTickAnswer = hasTickAnswer;
+    }
+
+    public static List<CoachingQuestionAnswerDTO> toDTOs(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+        List<CoachingQuestionAnswerDTO> coachingQuestionAnswerDTOs = new ArrayList<>();
+
+        for (CoachingQuestionAnswerEntity coachingQuestionAnswerEntity : coachingQuestionAnswerEntityList) {
+            CoachingQuestionAnswerDTO dto = new CoachingQuestionAnswerDTO();
+            dto.setTextAnswer(coachingQuestionAnswerEntity.getTextAnswer());
+            dto.setColumnID(coachingQuestionAnswerEntity.getColumnID());
+            dto.setQuestionID(coachingQuestionAnswerEntity.getQuestionID());
+            dto.setTickAnswer(coachingQuestionAnswerEntity.isTickAnswer());
+            coachingQuestionAnswerDTOs.add(dto);
+        }
+
+        return coachingQuestionAnswerDTOs;
     }
 }

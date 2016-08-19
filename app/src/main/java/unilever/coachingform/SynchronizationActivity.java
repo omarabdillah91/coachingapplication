@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -36,9 +35,9 @@ public class SynchronizationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synchronization);
         listView = (ListView)findViewById(R.id.listView);
-        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetCoachingListener() {
+        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
             @Override
-            public void onReceived(List<Coaching> coachingList) {
+            public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
                 onCoachingReceived(coachingList);
             }
         });

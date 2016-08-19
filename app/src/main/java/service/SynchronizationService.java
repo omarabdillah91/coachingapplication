@@ -3,10 +3,13 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.CoachingQADAO;
-import dto.CoacheeHistoryDTO;
-import dto.CoachingActivityDTO;
-import entity.CoachingQA;
+import dao.CoachingQuestionAnswerDAO;
+import dao.CoachingSessionDAO;
+import dto.CoachingSessionDTO;
+import dto.CoachingQuestionAnswerDTO;
+import entity.CoachingQuestionAnswerEntity;
+import entity.CoachingSessionEntity;
+import model.Coaching;
 
 /**
  * Created by adrianch on 15/08/2016.
@@ -18,42 +21,86 @@ public class SynchronizationService {
                                            String distributor, String store, String area,
                                            final SyncCoachingListener listener) {
 
-        CoacheeHistoryDTO coacheeHistoryDTO = new CoacheeHistoryDTO(coachID, coachName, distributor,
+        CoachingSessionDTO coachingSessionDTO = new CoachingSessionDTO(coachID, coachName, distributor,
                 store, area, action, coachingGuideline);
 
-        CoachingSessionService.insertCoacheeHistory(coacheeID, coacheeHistoryDTO,
-                new CoachingSessionService.InsertCoacheeHistoryServiceListener() {
+        CoachingSessionService.insertCoachingSession(coacheeID, coachingSessionDTO,
+                new CoachingSessionService.InsertCoachingSessionListener() {
                     @Override
-                    public void onInsertSessionCompleted(final String coacheeHistoryID) {
-                        CoachingQADAO.getCoachingQA(coachingGUID, new CoachingQADAO.GetCoachingQAListener() {
+                    public void onInsertSessionCompleted(final boolean isSuccess) {
+                        CoachingQuestionAnswerDAO.getCoachingQA(coachingGUID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
                             @Override
-                            public void onReceived(List<CoachingQA> coachingQAList) {
-                                List<CoachingActivityDTO> coachingActivityDTOs = new ArrayList<>();
+                            public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+                                if (isSuccess) {
+                                    List<CoachingQuestionAnswerDTO> coachingQuestionAnswerDTOs = new ArrayList<>();
 
-                                for (CoachingQA coachingQA : coachingQAList) {
-                                    CoachingActivityDTO dto = new CoachingActivityDTO();
-                                    dto.setTextAnswer(coachingQA.getTextAnswer());
-                                    dto.setColumnID(coachingQA.getColumnID());
-                                    dto.setQuestionID(coachingQA.getQuestionID());
-                                    dto.setTickAnswer(coachingQA.isTickAnswer());
-                                    coachingActivityDTOs.add(dto);
+                                    for (CoachingQuestionAnswerEntity coachingQuestionAnswerEntity : coachingQuestionAnswerEntityList) {
+                                        CoachingQuestionAnswerDTO dto = new CoachingQuestionAnswerDTO();
+                                        dto.setTextAnswer(coachingQuestionAnswerEntity.getTextAnswer());
+                                        dto.setColumnID(coachingQuestionAnswerEntity.getColumnID());
+                                        dto.setQuestionID(coachingQuestionAnswerEntity.getQuestionID());
+                                        dto.setTickAnswer(coachingQuestionAnswerEntity.isTickAnswer());
+                                        coachingQuestionAnswerDTOs.add(dto);
+                                    }
+
+                                    CoachingQuestionAnswerService.insertCoachingQuestionAnswer(coachingGUID,
+                                            coachingQuestionAnswerDTOs,
+                                            new CoachingQuestionAnswerService.InsertCoachingQuestionAnswerListener() {
+                                                @Override
+                                                public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                                                    listener.onSyncCoachingCompleted(isSuccess);
+                                                }
+                                            });
+                                } else {
+                                    listener.onSyncCoachingCompleted(false);
                                 }
-
-                                CoachingQuestionAnswerService.insertCoachingActivity(coacheeHistoryID,
-                                        coachingActivityDTOs,
-                                        new CoachingQuestionAnswerService.InsertCoachingQuestionAnswerListener() {
-                                            @Override
-                                            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
-                                                listener.onCompleted(true);
-                                            }
-                                        });
                             }
                         });
                     }
                 });
     }
 
+    public static void syncCoachingSession(final String coachingSessionID,
+                                           final SyncCoachingListener listener) {
+
+        CoachingSessionDAO.getCoachingSession(coachingSessionID, new CoachingSessionDAO.GetCoachingListener() {
+            @Override
+            public void onCoachingReceived(CoachingSessionEntity entity) {
+                if (entity != null) {
+                    CoachingSessionDTO coachingSessionDTO = entity.toDTO();
+                    CoachingSessionService.insertCoachingSession(coachingSessionID, coachingSessionDTO,
+                            new CoachingSessionService.InsertCoachingSessionListener() {
+                                @Override
+                                public void onInsertSessionCompleted(boolean isSuccess) {
+                                    if(isSuccess){
+                                        CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
+                                            @Override
+                                            public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+                                                List<CoachingQuestionAnswerDTO> coachingQuestionAnswerDTOs = CoachingQuestionAnswerEntity.toDTOs(coachingQuestionAnswerEntityList);
+                                                CoachingQuestionAnswerService.insertCoachingQuestionAnswer(coachingSessionID,
+                                                        coachingQuestionAnswerDTOs,
+                                                        new CoachingQuestionAnswerService.InsertCoachingQuestionAnswerListener() {
+                                                            @Override
+                                                            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                                                                listener.onSyncCoachingCompleted(isSuccess);
+                                                            }
+                                                        });
+                                            }
+                                        });
+                                    } else {
+                                        listener.onSyncCoachingCompleted(false);
+                                    }
+                                }
+                            });
+
+                } else {
+                    listener.onSyncCoachingCompleted(false);
+                }
+            }
+        });
+    }
+
     public interface SyncCoachingListener {
-        void onCompleted(boolean isSucceed);
+        void onSyncCoachingCompleted(boolean isSucceed);
     }
 }

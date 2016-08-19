@@ -11,7 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.CoacheeHistoryDTO;
+import dto.CoachingSessionDTO;
 import model.CoacheeHistory;
 
 /**
@@ -23,7 +23,7 @@ public class CoachingSessionService {
     private static final String TAG = "CoachingSessionService";
     private static final String childNode = "coachingSession";
 
-    public static void getCoacheeHistory(String coacheeEmail, final GetCoacheeHistoryServiceListener listener) {
+    public static void getCoacheeHistory(String coacheeEmail, final GetCoacheeHistoryListener listener) {
         final List<CoacheeHistory> coacheeHistories = new ArrayList<>();
         mDatabase.child(childNode).orderByChild("coacheeEmail").equalTo(coacheeEmail)
                 .addListenerForSingleValueEvent(
@@ -31,42 +31,43 @@ public class CoachingSessionService {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
                                 for (DataSnapshot d : dataSnapshot.getChildren()) {
-                                    CoacheeHistoryDTO dto = d.getValue(CoacheeHistoryDTO.class);
+                                    CoachingSessionDTO dto = d.getValue(CoachingSessionDTO.class);
                                     Log.d(TAG, dto.toString());
                                     coacheeHistories.add(new CoacheeHistory(dto.getCoachName(),
                                             dto.getDate(), dto.getAction()));
-                                    listener.onCoacheeHistoryReceived(coacheeHistories);
                                 }
+                                listener.onCoacheeHistoryReceived(coacheeHistories);
                             }
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
                                 Log.d(TAG, "getUser:onCancelled", databaseError.toException());
+                                listener.onCoacheeHistoryReceived(coacheeHistories);
                             }
                         });
     }
 
-    public static void insertCoacheeHistory(String coacheeID, CoacheeHistoryDTO coacheeHistoryDTO,
-                                            final InsertCoacheeHistoryServiceListener listener) {
+    public static void insertCoachingSession(String coachingSessionID, CoachingSessionDTO coachingSessionDTO,
+                                             final InsertCoachingSessionListener listener) {
 
-        final DatabaseReference newRef = mDatabase.child(childNode).child(coacheeID).push();
-        newRef.setValue(coacheeHistoryDTO, new DatabaseReference.CompletionListener() {
+        final DatabaseReference newRef = mDatabase.child(childNode).child(coachingSessionID);
+        newRef.setValue(coachingSessionDTO, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError != null) {
                     Log.d(TAG, databaseError.toString());
                 }
-                listener.onInsertSessionCompleted(newRef.getKey());
+                listener.onInsertSessionCompleted(databaseError == null);
             }
         });
 
     }
 
-    public interface GetCoacheeHistoryServiceListener {
+    public interface GetCoacheeHistoryListener {
         void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories);
     }
 
-    public interface InsertCoacheeHistoryServiceListener {
-        void onInsertSessionCompleted(String coacheeHistoryID);
+    public interface InsertCoachingSessionListener {
+        void onInsertSessionCompleted(boolean isSuccess);
     }
 }

@@ -51,7 +51,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.next);
         history = (ListView) findViewById(R.id.listView);
         next.setOnClickListener(onClick);
-        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryServiceListener() {
+        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
             public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
                 onCoacheeHistoryReceived(coacheeHistories);

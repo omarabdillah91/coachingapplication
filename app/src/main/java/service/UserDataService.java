@@ -24,7 +24,7 @@ public class UserDataService {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserDataDTO userDataDTO = dataSnapshot.getValue(UserDataDTO.class);
-                Log.d(TAG, userDataDTO.toString());
+                Log.d(TAG, userDataDTO != null ? userDataDTO.toString() : "NULL");
                 listener.onUserDataReceived(userDataDTO);
             }
 
