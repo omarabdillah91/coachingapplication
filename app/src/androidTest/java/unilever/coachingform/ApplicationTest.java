@@ -3,9 +3,12 @@ package unilever.coachingform;
 import android.test.ApplicationTestCase;
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
+import dao.CoachingQuestionAnswerDAO;
 import dao.CoachingSessionDAO;
 import dto.UserDataDTO;
 import entity.CoachingQuestionAnswerEntity;
@@ -13,6 +16,7 @@ import entity.CoachingSessionEntity;
 import io.realm.Realm;
 import io.realm.RealmResults;
 import model.Coaching;
+import service.SynchronizationService;
 import service.UserDataService;
 import utility.ConstantUtil;
 import utility.RealmUtil;
@@ -144,7 +148,51 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                         assertEquals(entity.getCoachingGuideline(), guideline);
                     }
                 });
+
+        final CountDownLatch signal3 = new CountDownLatch(1);
+        final CountDownLatch signal4 = new CountDownLatch(2);
+
+        List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+        for(int i = 0; i < 5; i++){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("Column 1");
+            coachingQA.setQuestionID("Question" + i);
+            coachingQA.setTextAnswer("Right");
+            coachingQA.setTickAnswer(false);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
+            @Override
+            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                assertEquals(true, isSuccess);
+                signal3.countDown();
+            }
+        });
+
+
+        signal3.await();
+
+        CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
+            @Override
+            public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+                assertEquals(coachingQuestionAnswerEntityList.size(), 5);
+                signal4.countDown();
+            }
+        });
+
+
+        SynchronizationService.syncCoachingSession(coachingSessionID, new SynchronizationService.SyncCoachingListener() {
+            @Override
+            public void onSyncCoachingCompleted(boolean isSucceed) {
+                assertEquals(true, isSucceed);
+                signal4.countDown();
+            }
+        });
+
+        signal4.await();
     }
-
-
 }

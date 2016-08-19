@@ -32,7 +32,6 @@ public class CoachingQuestionAnswerService {
                 listener.onInsertQuestionAnswerCompleted(databaseError == null);
             }
         });
-
     }
 
     public interface InsertCoachingQuestionAnswerListener {
