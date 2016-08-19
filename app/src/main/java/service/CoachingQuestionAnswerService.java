@@ -14,14 +14,14 @@ import dto.CoachingActivityDTO;
 /**
  * Created by adrianch on 15/08/2016.
  */
-public class CoachingActivityService {
+public class CoachingQuestionAnswerService {
     private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    private static final String TAG = "CoachingActivityService";
-    private static final String childNode = "coachingActivity";
+    private static final String TAG = "CoachingQAService";
+    private static final String childNode = "coachingQuestionAnswer";
 
     public static void insertCoachingActivity(String coachingSessionID,
                                               List<CoachingActivityDTO> coachingActivityDTOs,
-                                              final CoachingQADAO.InsertCoachingQAListener listener){
+                                              final InsertCoachingQuestionAnswerListener listener){
 
         DatabaseReference newRef = mDatabase.child(childNode).child(coachingSessionID);
         newRef.setValue(coachingActivityDTOs, new DatabaseReference.CompletionListener() {
@@ -30,13 +30,13 @@ public class CoachingActivityService {
                 if(databaseError != null){
                     Log.d(TAG, databaseError.toString());
                 }
-                listener.onCompleted(true);
+                listener.onInsertQuestionAnswerCompleted(true);
             }
         });
 
     }
 
-    public interface InsertCoachingActivityListener {
-        void onCompleted(boolean isSuccess);
+    public interface InsertCoachingQuestionAnswerListener {
+        void onInsertQuestionAnswerCompleted(boolean isSuccess);
     }
 }

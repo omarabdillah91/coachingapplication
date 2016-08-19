@@ -14,13 +14,11 @@ import entity.CoachingQA;
 import entity.CoachingSession;
 import io.realm.Realm;
 import io.realm.RealmResults;
-import model.Coachee;
-import model.CoacheeHistory;
 import model.Coaching;
-import service.CoacheeHistoryService;
-import service.CoacheeService;
 import service.SynchronizationService;
+import utility.ConstantUtil;
 import utility.RealmUtil;
+import utility.SharedPreferenceUtil;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -100,8 +98,8 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         /*final CountDownLatch signal = new CountDownLatch(2);
 
         //Get coachee history
-        CoacheeHistoryService.getCoacheeHistory(coacheeID,
-                new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
+        CoachingSessionService.getCoacheeHistory(coacheeID,
+                new CoachingSessionService.GetCoacheeHistoryServiceListener() {
             @Override
             public void onReceived(List<CoacheeHistory> coacheeHistories) {
                 Log.d(TAG, coacheeHistories.toString());
@@ -135,5 +133,18 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 });
 
         signal2.await(30, TimeUnit.SECONDS);
+    }
+
+    public void testSharedPreference() throws Exception{
+        String email = "adrian@gmail.com";
+        String username = "adrian";
+        String id = RealmUtil.generateID();
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, username);
+
+        assertEquals(email, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL));
+        assertEquals(username, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_NAME));
+        assertEquals(id, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_ID));
     }
 }

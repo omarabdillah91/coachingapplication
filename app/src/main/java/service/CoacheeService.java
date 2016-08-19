@@ -21,7 +21,7 @@ import model.Coachee;
 public class CoacheeService {
 
     private static DatabaseReference mDatabase =  FirebaseDatabase.getInstance().getReference();
-    private static final String TAG = "CoacheeHistoryService";
+    private static final String TAG = "CoachingSessionService";
 
     public static void getCoachee(final GetCoacheeListener listener){
         final List<Coachee> coacheeList = new ArrayList<>();

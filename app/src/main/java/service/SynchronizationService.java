@@ -1,7 +1,5 @@
 package service;
 
-import com.google.firebase.database.DatabaseReference;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,16 +21,16 @@ public class SynchronizationService {
         CoacheeHistoryDTO coacheeHistoryDTO = new CoacheeHistoryDTO(coachID, coachName, distributor,
                 store, area, action, coachingGuideline);
 
-        CoacheeHistoryService.insertCoacheeHistory(coacheeID, coacheeHistoryDTO,
-                new CoacheeHistoryService.InsertCoacheeHistoryServiceListener() {
+        CoachingSessionService.insertCoacheeHistory(coacheeID, coacheeHistoryDTO,
+                new CoachingSessionService.InsertCoacheeHistoryServiceListener() {
                     @Override
-                    public void onCompleted(final String coacheeHistoryID) {
+                    public void onInsertSessionCompleted(final String coacheeHistoryID) {
                         CoachingQADAO.getCoachingQA(coachingGUID, new CoachingQADAO.GetCoachingQAListener() {
                             @Override
                             public void onReceived(List<CoachingQA> coachingQAList) {
                                 List<CoachingActivityDTO> coachingActivityDTOs = new ArrayList<>();
 
-                                for(CoachingQA coachingQA : coachingQAList){
+                                for (CoachingQA coachingQA : coachingQAList) {
                                     CoachingActivityDTO dto = new CoachingActivityDTO();
                                     dto.setTextAnswer(coachingQA.getTextAnswer());
                                     dto.setColumnID(coachingQA.getColumnID());
@@ -41,11 +39,12 @@ public class SynchronizationService {
                                     coachingActivityDTOs.add(dto);
                                 }
 
-                                CoachingActivityService.insertCoachingActivity(coacheeHistoryID,
-                                        coachingActivityDTOs, new CoachingQADAO.InsertCoachingQAListener() {
+                                CoachingQuestionAnswerService.insertCoachingActivity(coacheeHistoryID,
+                                        coachingActivityDTOs,
+                                        new CoachingQuestionAnswerService.InsertCoachingQuestionAnswerListener() {
                                             @Override
-                                            public void onCompleted(boolean isSuccess) {
-                                                listener.onCompleted(isSuccess);
+                                            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                                                listener.onCompleted(true);
                                             }
                                         });
                             }
