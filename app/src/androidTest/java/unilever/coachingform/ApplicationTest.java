@@ -3,6 +3,10 @@ package unilever.coachingform;
 import android.test.ApplicationTestCase;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -32,7 +36,6 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
     private static final String TAG = "ApplicationTest";
     private static String coachingSessionID;
-    private static String coacheeID = "-KO0f6c9vRKTo5cg9m5u";
 
     @Override
     public void setUp() throws Exception {
@@ -153,7 +156,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal4 = new CountDownLatch(2);
 
         List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
+        for (int i = 0; i < 5; i++) {
             CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
@@ -194,5 +197,43 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         });
 
         signal4.await();
+
+        CoachingSessionDAO.updateSubmitted(coachingSessionID, true,
+                new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        assertEquals(isSuccess, true);
+                    }
+                });
+
+        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
+            @Override
+            public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
+                assertEquals(coachingList.size(), 0);
+            }
+        });
+
+    }
+
+    @Override
+    public void tearDown() throws Exception {
+        super.tearDown();
+        final CountDownLatch signal = new CountDownLatch(2);
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("coachingSession").child(coachingSessionID).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                signal.countDown();
+            }
+        });
+        mDatabase.child("coachingQuestionAnswer").child(coachingSessionID).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                signal.countDown();
+            }
+        });
+
+        signal.await();
+
     }
 }

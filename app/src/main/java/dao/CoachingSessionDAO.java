@@ -22,9 +22,10 @@ import utility.SharedPreferenceUtil;
 public class CoachingSessionDAO {
 
     private static final String TAG ="CoachingSessionDAO";
-    private static final Realm realm = Realm.getDefaultInstance();
+    //private static final Realm realm = Realm.getDefaultInstance();
 
     public static void getUnsubmittedCoaching(GetListCoachingListener listener) {
+        Realm realm = Realm.getDefaultInstance();
         ArrayList<Coaching> coachingList = new ArrayList<>();
         RealmResults<CoachingSessionEntity> sessionList = realm.where(CoachingSessionEntity.class)
                 .equalTo("isSubmitted", false).findAll();
@@ -41,6 +42,7 @@ public class CoachingSessionDAO {
     }
 
     public static void getCoachingSession(String coachingSessionID, GetCoachingListener listener){
+        Realm realm = Realm.getDefaultInstance();
         CoachingSessionEntity entity =
                 realm.where(CoachingSessionEntity.class)
                         .equalTo("id", coachingSessionID).findFirst();
@@ -61,6 +63,7 @@ public class CoachingSessionDAO {
                                          String secondManagerPosition, String cdTeamName,
                                          String cdTeamEmail, String cdTeamPosition,
                                          final InsertCoachingListener listener) {
+        Realm realm = Realm.getDefaultInstance();
 
         String coachID = SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_ID);
         String coachName = SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_NAME);
@@ -101,6 +104,7 @@ public class CoachingSessionDAO {
     public static void updateGuideline(final String coachingSessionID,
                                                final int coachingGuideline,
                                                final UpdateCoachingListener listener) {
+        Realm realm = Realm.getDefaultInstance();
         CoachingSessionEntity entity = realm.where(CoachingSessionEntity.class)
                 .equalTo("id", coachingSessionID).findFirst();
 
@@ -138,6 +142,7 @@ public class CoachingSessionDAO {
                                                   final String distributor,
                                                   final String area, final String store,
                                                   final UpdateCoachingListener listener){
+        Realm realm = Realm.getDefaultInstance();
         CoachingSessionEntity entity = realm.where(CoachingSessionEntity.class)
                 .equalTo("id", coachingSessionID).findFirst();
 
@@ -179,6 +184,7 @@ public class CoachingSessionDAO {
 
     public static void updateAction(final String coachingSessionID, final String action,
                                     final UpdateCoachingListener listener){
+        Realm realm = Realm.getDefaultInstance();
 
         CoachingSessionEntity entity = realm.where(CoachingSessionEntity.class)
                 .equalTo("id", coachingSessionID).findFirst();
@@ -212,6 +218,21 @@ public class CoachingSessionDAO {
                 listener.onGuidelineUpdated(false);
             }
         });*/
+    }
+
+    public static void updateSubmitted(final String coachingSessionID, boolean isSubmitted,
+                                       final UpdateCoachingListener listener){
+        Realm realm = Realm.getDefaultInstance();
+        CoachingSessionEntity entity = realm.where(CoachingSessionEntity.class)
+                .equalTo("id", coachingSessionID).findFirst();
+
+        if(entity != null){
+            realm.beginTransaction();
+            entity.setSubmitted(true);
+            realm.commitTransaction();
+        }
+
+        listener.onGuidelineUpdated(entity != null);
     }
 
     public interface GetCoachingListener {
