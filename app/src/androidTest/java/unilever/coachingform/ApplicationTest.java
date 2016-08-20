@@ -23,6 +23,7 @@ import model.Coaching;
 import service.SynchronizationService;
 import service.UserDataService;
 import utility.ConstantUtil;
+import utility.PDFUtil;
 import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
@@ -104,7 +105,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
         signal1.await(30, TimeUnit.SECONDS);
 
-        final int guideline = 1;
+        final int guideline = 2;
         final String area = "area1";
         final String distributor = "dist1";
         final String store = "Store1";
@@ -161,7 +162,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("Column 1");
-            coachingQA.setQuestionID("Question" + i);
+            coachingQA.setQuestionID("bahasa_Question" + i);
             coachingQA.setTextAnswer("Right");
             coachingQA.setTickAnswer(false);
             coachingQA.setHasTickAnswer(true);
@@ -212,6 +213,16 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 assertEquals(coachingList.size(), 0);
             }
         });
+
+        final CountDownLatch signal6 = new CountDownLatch(1);
+        PDFUtil.createPDF(coachingSessionID, new PDFUtil.GeneratePDFListener() {
+            @Override
+            public void onPDFGenerated(boolean isSuccess) {
+                signal6.countDown();
+            }
+        });
+
+        signal6.await();
 
     }
 
