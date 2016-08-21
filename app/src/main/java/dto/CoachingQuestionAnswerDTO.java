@@ -3,7 +3,7 @@ package dto;
 /**
  * Created by adria on 8/13/2016.
  */
-public class CoachingActivityDTO {
+public class CoachingQuestionAnswerDTO {
     private String questionID;
     private String columnID;
     private String textAnswer;

@@ -2,12 +2,6 @@ package unilever.coachingform;
 
 import org.junit.Test;
 
-import entity.CoachingSession;
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmResults;
-import utility.RealmUtil;
-
 import static org.junit.Assert.*;
 
 /**

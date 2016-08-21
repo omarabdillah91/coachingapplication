@@ -1,60 +1,62 @@
 package service;
 
-import com.google.firebase.database.DatabaseReference;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.CoachingQADAO;
-import dto.CoacheeHistoryDTO;
-import dto.CoachingActivityDTO;
-import entity.CoachingQA;
+import dao.CoachingQuestionAnswerDAO;
+import dao.CoachingSessionDAO;
+import dto.CoachingSessionDTO;
+import dto.CoachingQuestionAnswerDTO;
+import entity.CoachingQuestionAnswerEntity;
+import entity.CoachingSessionEntity;
+import model.Coaching;
 
 /**
  * Created by adrianch on 15/08/2016.
  */
 public class SynchronizationService {
 
-    public static void syncCoachingSession(final String coachingGUID, String coacheeID, String coachName,
-                                           String coachID, int coachingGuideline, String action,
-                                           String distributor, String store, String area,
+    public static void syncCoachingSession(final String coachingSessionID,
                                            final SyncCoachingListener listener) {
 
-        CoacheeHistoryDTO coacheeHistoryDTO = new CoacheeHistoryDTO(coachID, coachName, distributor,
-                store, area, action, coachingGuideline);
-
-        CoacheeHistoryService.insertCoacheeHistory(coacheeID, coacheeHistoryDTO,
-                new CoacheeHistoryService.InsertCoacheeHistoryServiceListener() {
-                    @Override
-                    public void onCompleted(final String coacheeHistoryID) {
-                        CoachingQADAO.getCoachingQA(coachingGUID, new CoachingQADAO.GetCoachingQAListener() {
-                            @Override
-                            public void onReceived(List<CoachingQA> coachingQAList) {
-                                List<CoachingActivityDTO> coachingActivityDTOs = new ArrayList<>();
-
-                                for(CoachingQA coachingQA : coachingQAList){
-                                    CoachingActivityDTO dto = new CoachingActivityDTO();
-                                    dto.setTextAnswer(coachingQA.getTextAnswer());
-                                    dto.setColumnID(coachingQA.getColumnID());
-                                    dto.setQuestionID(coachingQA.getQuestionID());
-                                    dto.setTickAnswer(coachingQA.isTickAnswer());
-                                    coachingActivityDTOs.add(dto);
-                                }
-
-                                CoachingActivityService.insertCoachingActivity(coacheeHistoryID,
-                                        coachingActivityDTOs, new CoachingQADAO.InsertCoachingQAListener() {
+        CoachingSessionDAO.getCoachingSession(coachingSessionID, new CoachingSessionDAO.GetCoachingListener() {
+            @Override
+            public void onCoachingReceived(CoachingSessionEntity entity) {
+                if (entity != null) {
+                    CoachingSessionDTO coachingSessionDTO = entity.toDTO();
+                    CoachingSessionService.insertCoachingSession(coachingSessionID, coachingSessionDTO,
+                            new CoachingSessionService.InsertCoachingSessionListener() {
+                                @Override
+                                public void onInsertSessionCompleted(boolean isSuccess) {
+                                    if(isSuccess){
+                                        CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
                                             @Override
-                                            public void onCompleted(boolean isSuccess) {
-                                                listener.onCompleted(isSuccess);
+                                            public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+                                                List<CoachingQuestionAnswerDTO> coachingQuestionAnswerDTOs = CoachingQuestionAnswerEntity.toDTOs(coachingQuestionAnswerEntityList);
+                                                CoachingQuestionAnswerService.insertCoachingQuestionAnswer(coachingSessionID,
+                                                        coachingQuestionAnswerDTOs,
+                                                        new CoachingQuestionAnswerService.InsertCoachingQuestionAnswerListener() {
+                                                            @Override
+                                                            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                                                                listener.onSyncCoachingCompleted(isSuccess);
+                                                            }
+                                                        });
                                             }
                                         });
-                            }
-                        });
-                    }
-                });
+                                    } else {
+                                        listener.onSyncCoachingCompleted(false);
+                                    }
+                                }
+                            });
+
+                } else {
+                    listener.onSyncCoachingCompleted(false);
+                }
+            }
+        });
     }
 
     public interface SyncCoachingListener {
-        void onCompleted(boolean isSucceed);
+        void onSyncCoachingCompleted(boolean isSucceed);
     }
 }

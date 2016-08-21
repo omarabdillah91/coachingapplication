@@ -3,10 +3,7 @@ package unilever.coachingform;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -28,8 +25,6 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.List;
 
 import dao.CoachingSessionDAO;
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 import model.Coaching;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -177,9 +172,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetCoachingListener() {
+            CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
                 @Override
-                public void onReceived(List<Coaching> coachingList) {
+                public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
                     onCoachingReceived(coachingList);
                 }
             });

@@ -2,22 +2,16 @@ package unilever.coachingform;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.List;
 
-import adapter.CoachAdapter;
 import adapter.CoacheeHistoryAdapter;
-import dao.CoachingSessionDAO;
 import model.CoacheeHistory;
-import model.Coaching;
-import service.CoacheeHistoryService;
+import service.CoachingSessionService;
 
 public class CoacheeHistoryActivity extends AppCompatActivity {
     String coach, job, coachee, coaching = "";
@@ -57,9 +51,9 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.next);
         history = (ListView) findViewById(R.id.listView);
         next.setOnClickListener(onClick);
-        CoacheeHistoryService.getCoacheeHistory(coachee, new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
+        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
-            public void onReceived(List<CoacheeHistory> coacheeHistories) {
+            public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
                 onCoacheeHistoryReceived(coacheeHistories);
             }
         });

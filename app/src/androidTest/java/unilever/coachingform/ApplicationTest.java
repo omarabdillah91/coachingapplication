@@ -3,24 +3,29 @@ package unilever.coachingform;
 import android.test.ApplicationTestCase;
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
-import dao.CoachingQADAO;
+import dao.CoachingQuestionAnswerDAO;
 import dao.CoachingSessionDAO;
-import entity.CoachingQA;
-import entity.CoachingSession;
+import dto.UserDataDTO;
+import entity.CoachingQuestionAnswerEntity;
+import entity.CoachingSessionEntity;
 import io.realm.Realm;
 import io.realm.RealmResults;
-import model.Coachee;
-import model.CoacheeHistory;
 import model.Coaching;
-import service.CoacheeHistoryService;
-import service.CoacheeService;
 import service.SynchronizationService;
+import service.UserDataService;
+import utility.ConstantUtil;
+import utility.PDFUtil;
 import utility.RealmUtil;
+import utility.SharedPreferenceUtil;
 
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
@@ -32,108 +37,214 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
     private static final String TAG = "ApplicationTest";
     private static String coachingSessionID;
-    private static String coacheeID = "-KO0f6c9vRKTo5cg9m5u";
 
     @Override
     public void setUp() throws Exception {
         createApplication();
 
         Realm realm = Realm.getDefaultInstance();
-        RealmResults<CoachingSession> sessionList = realm.where(CoachingSession.class).findAll();
-        RealmResults<CoachingQA> coachingQAs = realm.where(CoachingQA.class).findAll();
+        RealmResults<CoachingSessionEntity> sessionList = realm.where(CoachingSessionEntity.class).findAll();
+        RealmResults<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntities = realm.where(CoachingQuestionAnswerEntity.class).findAll();
         realm.beginTransaction();
         sessionList.deleteAllFromRealm();
-        coachingQAs.deleteAllFromRealm();
+        coachingQuestionAnswerEntities.deleteAllFromRealm();
         realm.commitTransaction();
     }
 
-    public void testRealm() throws Exception {
+    public void testSharedPreference() throws Exception {
+        String email = "adrian@gmail.com";
+        String username = "adrian";
+        String id = RealmUtil.generateID();
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
+        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, username);
 
-        for(int i = 0 ; i < 5; i++){
-            CoachingSessionDAO.insertCoaching(coacheeID, "Coachee" + i, "Coach"+i,
-                    "CoachID"+i, "", "","",1, new CoachingSessionDAO.InsertCoachingListener() {
-                @Override
-                public void onCompleted(String guid) {
-                    Log.d(TAG, "Insert : " + guid);
-                    coachingSessionID = guid;
-                }
-            });
-        }
+        assertEquals(email, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL));
+        assertEquals(username, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_NAME));
+        assertEquals(id, SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_ID));
+    }
 
-        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetCoachingListener() {
+    public void testUserDataService() throws Exception {
+        String userID = "ecOtI8PwyCOllfEfs5w2WgGEtxV2";
+
+        final CountDownLatch signal = new CountDownLatch(2);
+
+        UserDataService.getUserData(userID, new UserDataService.GetUserDataListener() {
             @Override
-            public void onReceived(List<Coaching> coachingList) {
-                Log.d(TAG, coachingList.toString());
-                Log.d(TAG, coachingList.size() + "");
+            public void onUserDataReceived(UserDataDTO userDataDTO) {
+                assertEquals(userDataDTO.getName(), "Adrian Chriswanto");
+                signal.countDown();
             }
         });
 
-        List<CoachingQA> coachingQAs = new ArrayList<>();
-        for(int i = 0; i < 5; i++){
-            CoachingQA coachingQA = new CoachingQA();
-            coachingQA.setGuid(RealmUtil.generateID());
+        UserDataService.getUserData("asdfasdf", new UserDataService.GetUserDataListener() {
+            @Override
+            public void onUserDataReceived(UserDataDTO userDataDTO) {
+                assertEquals(userDataDTO, null);
+                signal.countDown();
+            }
+        });
+
+        signal.await();
+    }
+
+    public void testCoachingSessionDAO() throws Exception {
+        final CountDownLatch signal1 = new CountDownLatch(1);
+        final CountDownLatch signal2 = new CountDownLatch(3);
+
+        CoachingSessionDAO.insertNewCoaching("coachee1", "coachee1@gmail.com",
+                "engineer", "", "", "", "", "", "", "", "", "",
+                new CoachingSessionDAO.InsertCoachingListener() {
+                    @Override
+                    public void onInsertCoachingCompleted(String id) {
+                        coachingSessionID = id;
+                        Log.d(TAG, "Cpacjee : " + id);
+                        signal1.countDown();
+                    }
+                });
+
+        signal1.await(30, TimeUnit.SECONDS);
+
+        final int guideline = 2;
+        final String area = "area1";
+        final String distributor = "dist1";
+        final String store = "Store1";
+        final String action = "Action1";
+
+        CoachingSessionDAO.updateAction(coachingSessionID, action,
+                new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        assertEquals(isSuccess, true);
+                        signal2.countDown();
+                    }
+                });
+
+        CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, distributor, area,
+                store, new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        assertEquals(isSuccess, true);
+                        signal2.countDown();
+                    }
+                });
+
+        CoachingSessionDAO.updateGuideline(coachingSessionID, guideline,
+                new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        Log.d(TAG, isSuccess + "");
+                        assertEquals(isSuccess, true);
+                        signal2.countDown();
+                    }
+                });
+
+        signal2.await(30, TimeUnit.SECONDS);
+
+        CoachingSessionDAO.getCoachingSession(coachingSessionID,
+                new CoachingSessionDAO.GetCoachingListener() {
+                    @Override
+                    public void onCoachingReceived(CoachingSessionEntity entity) {
+                        assertEquals(entity.getAction(), action);
+                        assertEquals(entity.getArea(), area);
+                        assertEquals(entity.getDistributor(), distributor);
+                        assertEquals(entity.getStore(), store);
+                        assertEquals(entity.getCoachingGuideline(), guideline);
+                    }
+                });
+
+        final CountDownLatch signal3 = new CountDownLatch(1);
+        final CountDownLatch signal4 = new CountDownLatch(2);
+
+        List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("Column 1");
-            coachingQA.setQuestionID("Question" + i);
+            coachingQA.setQuestionID("bahasa_Question" + i);
             coachingQA.setTextAnswer("Right");
             coachingQA.setTickAnswer(false);
             coachingQA.setHasTickAnswer(true);
             coachingQAs.add(coachingQA);
         }
 
-        CoachingQADAO.insertCoachingQA(coachingQAs, new CoachingQADAO.InsertCoachingQAListener() {
+        CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
-            public void onCompleted(boolean isSuccess) {
-                Log.d(TAG, "Insert Coaching QA : " + isSuccess);
-                assertEquals(isSuccess, true);
-            }
-        });
-
-        CoachingQADAO.getCoachingQA(coachingSessionID, new CoachingQADAO.GetCoachingQAListener() {
-            @Override
-            public void onReceived(List<CoachingQA> coachingQAList) {
-                Log.d(TAG, coachingQAList.toString());
-                assertEquals(coachingQAList.size(), 5);
-            }
-        });
-
-        /*final CountDownLatch signal = new CountDownLatch(2);
-
-        //Get coachee history
-        CoacheeHistoryService.getCoacheeHistory(coacheeID,
-                new CoacheeHistoryService.GetCoacheeHistoryServiceListener() {
-            @Override
-            public void onReceived(List<CoacheeHistory> coacheeHistories) {
-                Log.d(TAG, coacheeHistories.toString());
-                assertEquals(coacheeHistories.size(), 1);
-                signal.countDown();
-            }
-        });
-
-        //Get list coachee
-        CoacheeService.getCoachee(new CoacheeService.GetCoacheeListener() {
-            @Override
-            public void onReceived(List<Coachee> coacheeList) {
-                Log.d(TAG, coacheeList.toString());
-                assertEquals(coacheeList.size(), 1);
-                signal.countDown();
+            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                assertEquals(true, isSuccess);
+                signal3.countDown();
             }
         });
 
 
-        signal.await(30, TimeUnit.SECONDS);*/
+        signal3.await();
 
-        final CountDownLatch signal2 = new CountDownLatch(1);
+        CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
+            @Override
+            public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
+                assertEquals(coachingQuestionAnswerEntityList.size(), 5);
+                signal4.countDown();
+            }
+        });
 
-        SynchronizationService.syncCoachingSession(coachingSessionID, coacheeID, "Coach", "CoachID",
-                1, "", "", "", "", new SynchronizationService.SyncCoachingListener() {
+
+        SynchronizationService.syncCoachingSession(coachingSessionID, new SynchronizationService.SyncCoachingListener() {
+            @Override
+            public void onSyncCoachingCompleted(boolean isSucceed) {
+                assertEquals(true, isSucceed);
+                signal4.countDown();
+            }
+        });
+
+        signal4.await();
+
+        CoachingSessionDAO.updateSubmitted(coachingSessionID, true,
+                new CoachingSessionDAO.UpdateCoachingListener() {
                     @Override
-                    public void onCompleted(boolean isSucceed) {
-                        Log.d(TAG, "Sync succeed");
-                        signal2.countDown();
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        assertEquals(isSuccess, true);
                     }
                 });
 
-        signal2.await(30, TimeUnit.SECONDS);
+        CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
+            @Override
+            public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
+                assertEquals(coachingList.size(), 0);
+            }
+        });
+
+        final CountDownLatch signal6 = new CountDownLatch(1);
+        PDFUtil.createPDF(coachingSessionID, new PDFUtil.GeneratePDFListener() {
+            @Override
+            public void onPDFGenerated(boolean isSuccess) {
+                signal6.countDown();
+            }
+        });
+
+        signal6.await();
+
+    }
+
+    @Override
+    public void tearDown() throws Exception {
+        super.tearDown();
+        final CountDownLatch signal = new CountDownLatch(2);
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("coachingSession").child(coachingSessionID).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                signal.countDown();
+            }
+        });
+        mDatabase.child("coachingQuestionAnswer").child(coachingSessionID).removeValue(new DatabaseReference.CompletionListener() {
+            @Override
+            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
+                signal.countDown();
+            }
+        });
+
+        signal.await();
+
     }
 }
