@@ -1,5 +1,11 @@
 package service;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Environment;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +60,47 @@ public class SynchronizationService {
                 }
             }
         });
+    }
+
+    public static void sendEmail(String coachingSessionID, final Activity activity){
+
+        final String path = Environment.getExternalStorageDirectory() + "/" +
+                coachingSessionID + ".pdf";
+
+        CoachingSessionDAO.getCoachingSession(coachingSessionID, new CoachingSessionDAO.GetCoachingListener() {
+            @Override
+            public void onCoachingReceived(CoachingSessionEntity coachingSessionEntity) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                List<String> receiverList = new ArrayList<>();
+
+                if(coachingSessionEntity.getFirstManagerEmail() != null &&
+                        coachingSessionEntity.getFirstManagerEmail() != ""){
+                    receiverList.add(coachingSessionEntity.getFirstManagerEmail());
+                }
+
+                if(coachingSessionEntity.getSecondManagerEmail() != null &&
+                        coachingSessionEntity.getSecondManagerEmail() != ""){
+                    receiverList.add(coachingSessionEntity.getSecondManagerEmail());
+                }
+
+                if(coachingSessionEntity.getCdCapabilityTeamEmail() != null &&
+                        coachingSessionEntity.getCdCapabilityTeamEmail() != ""){
+                    receiverList.add(coachingSessionEntity.getCdCapabilityTeamEmail());
+                }
+
+                if(receiverList.size() > 0) {
+                    email.putExtra(Intent.EXTRA_EMAIL, receiverList.toArray());
+                    email.putExtra(Intent.EXTRA_SUBJECT, "COACHING");
+                    email.putExtra(Intent.EXTRA_TEXT, "");
+                    Uri uri = Uri.fromFile(new File(path));
+                    email.putExtra(Intent.EXTRA_STREAM, uri);
+                    email.setType("application/pdf");
+                    email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    activity.startActivity(email);
+                }
+            }
+        });
+
     }
 
     public interface SyncCoachingListener {
