@@ -2,6 +2,7 @@ package utility;
 
 import android.content.res.Resources;
 import android.os.Environment;
+import android.util.Pair;
 
 import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
@@ -20,6 +21,7 @@ import com.itextpdf.text.pdf.draw.VerticalPositionMark;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.List;
+import java.util.Map;
 
 import dao.CoachingQuestionAnswerDAO;
 import dao.CoachingSessionDAO;
@@ -49,14 +51,15 @@ public class PDFUtil {
                     @Override
                     public void onCoachingReceived(final CoachingSessionEntity coachingSessionEntity) {
                         if (coachingSessionEntity != null) {
-                            CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
+
+                            CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAMapListener() {
                                 @Override
-                                public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
-                                    if (coachingQuestionAnswerEntityList.size() > 0) {
+                                public void onQAMapReceived(Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap) {
+                                    if (qaMap.size() > 0) {
                                         if (coachingSessionEntity.getCoachingGuideline() == 1) {
-                                            createFASAPDF(coachingSessionEntity, coachingQuestionAnswerEntityList, listener);
+                                            createFASAPDF(coachingSessionEntity, qaMap, listener);
                                         } else {
-                                            createDSRPDF(coachingSessionEntity, coachingQuestionAnswerEntityList, listener);
+                                            createDSRPDF(coachingSessionEntity, qaMap, listener);
                                         }
                                     }
                                 }
@@ -68,7 +71,7 @@ public class PDFUtil {
     }
 
     public static void createFASAPDF(CoachingSessionEntity coachingSession,
-                                     List<CoachingQuestionAnswerEntity> coachingQAs,
+                                     Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap,
                                      GeneratePDFListener listener) {
         Document doc = new Document();
         String path = Environment.getExternalStorageDirectory() + "/test.pdf";
@@ -76,7 +79,8 @@ public class PDFUtil {
             PdfWriter.getInstance(doc, new FileOutputStream(path));
             doc.open();
 
-            int lang = coachingQAs.get(0).getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity)qaMap.values().toArray()[0];
+            int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
 
             Chunk chunk = new Chunk("COACHING FORM - MODERN TRADE \n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -229,7 +233,7 @@ public class PDFUtil {
     }
 
     public static void createDSRPDF(CoachingSessionEntity coachingSession,
-                                     List<CoachingQuestionAnswerEntity> coachingQAs,
+                                    Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap,
                                      GeneratePDFListener listener) {
 
         Document doc = new Document();
@@ -239,7 +243,11 @@ public class PDFUtil {
             PdfWriter.getInstance(doc, new FileOutputStream(path));
             doc.open();
 
-            int lang = coachingQAs.get(0).getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity)qaMap.values()
+                    .toArray()[0];
+
+            int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            String langS = lang == BAHASA ? "bahasa_" : "english_";
 
             Chunk chunk = new Chunk("DSR Assessment form\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -262,14 +270,18 @@ public class PDFUtil {
                 table.addCell(createTableHeader(String.valueOf(i)));
             }
 
-
             String[] sebelumID = {"1","2","3","4","4a","4b","4c","4d","4e"};
             table.addCell(createRowSpanCell("",sebelumID.length));
 
             for(String id : sebelumID){
-                table.addCell(createNormalCell(getString("dsr_sebelum_" + id, lang)));
+                String temp = "dsr_sebelum_" + id;
+                table.addCell(createNormalCell(getString(temp, lang)));
                 for(int i = 1; i <= 10; i++){
-                    table.addCell("");
+                    String questionID = langS + temp;
+                    String columnID = "customer_ke_" + i;
+                    String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
+                            .isTickAnswer());
+                    table.addCell(createNormalCell(value));
                 }
             }
 
@@ -282,9 +294,14 @@ public class PDFUtil {
             table.addCell(createRowSpanCell("",saatID.length));
 
             for(String id : saatID){
-                table.addCell(createNormalCell(getString("dsr_saat_" + id, lang)));
+                String temp = "dsr_saat_" + id;
+                table.addCell(createNormalCell(getString(temp, lang)));
                 for(int i = 1; i <= 10; i++){
-                    table.addCell("");
+                    String questionID = langS + temp;
+                    String columnID = "customer_ke_" + i;
+                    String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
+                            .isTickAnswer());
+                    table.addCell(createNormalCell(value));
                 }
             }
 
@@ -298,9 +315,14 @@ public class PDFUtil {
             table.addCell(createRowSpanCell("",setelahID.length));
 
             for(String id : setelahID){
-                table.addCell(createNormalCell(getString("dsr_setelah_" + id, lang)));
+                String temp = "dsr_setelah_" + id;
+                table.addCell(createNormalCell(getString(temp, lang)));
                 for(int i = 1; i <= 10; i++){
-                    table.addCell("");
+                    String questionID = langS + temp;
+                    String columnID = "customer_ke_" + i;
+                    String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
+                            .isTickAnswer());
+                    table.addCell(createNormalCell(value));
                 }
             }
 
@@ -331,8 +353,6 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
             cell2.addElement(new Paragraph("\n\n\n"));
             table1.addCell(cell2);
-
-
 
             chapter.add(table1);
             doc.add(chapter);

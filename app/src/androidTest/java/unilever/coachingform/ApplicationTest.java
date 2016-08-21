@@ -156,17 +156,52 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal3 = new CountDownLatch(1);
         final CountDownLatch signal4 = new CountDownLatch(2);
 
-        List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
-            coachingQA.setId(RealmUtil.generateID());
-            coachingQA.setCoachingSessionID(coachingSessionID);
-            coachingQA.setColumnID("Column 1");
-            coachingQA.setQuestionID("bahasa_Question" + i);
-            coachingQA.setTextAnswer("Right");
-            coachingQA.setTickAnswer(false);
-            coachingQA.setHasTickAnswer(true);
-            coachingQAs.add(coachingQA);
+        String[] sebelumID = {"1","2","3","4","4a","4b","4c","4d","4e"};
+        String[] saatID = {"1","2","3","3a","3b","3c","3d","3e","4","5","6"};
+        String[] setelahID = {"1","2"};
+
+        final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+
+        for(String id : sebelumID){
+            for(int i = 1; i <= 10; i++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("customer_ke_" + i);
+                coachingQA.setQuestionID("bahasa_dsr_sebelum_" + id);
+                coachingQA.setTextAnswer("Right");
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+            }
+        }
+
+        for(String id : saatID){
+            for(int i = 1; i <= 10; i++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("customer_ke_" + i);
+                coachingQA.setQuestionID("bahasa_dsr_saat_" + id);
+                coachingQA.setTextAnswer("Right");
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+            }
+        }
+
+        for(String id : setelahID){
+            for(int i = 1; i <= 10; i++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("customer_ke_" + i);
+                coachingQA.setQuestionID("bahasa_dsr_setelah_" + id);
+                coachingQA.setTextAnswer("Right");
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+            }
         }
 
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
@@ -183,7 +218,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         CoachingQuestionAnswerDAO.getCoachingQA(coachingSessionID, new CoachingQuestionAnswerDAO.GetCoachingQAListener() {
             @Override
             public void onQuestionAnswerReceived(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {
-                assertEquals(coachingQuestionAnswerEntityList.size(), 5);
+                assertEquals(coachingQuestionAnswerEntityList.size(), coachingQAs.size());
                 signal4.countDown();
             }
         });
