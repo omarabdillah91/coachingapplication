@@ -162,16 +162,16 @@
     <string name="product_8">Produk H</string>
     <string name="product_9">Produk I</string>
     <string name="product_10">Produk J</string>
-    <string name="size_1">Produk A</string>
-    <string name="size_2">Produk B</string>
-    <string name="size_3">Produk C</string>
-    <string name="size_4">Produk D</string>
-    <string name="size_5">Produk E</string>
-    <string name="size_6">Produk F</string>
-    <string name="size_7">Produk G</string>
-    <string name="size_8">Produk H</string>
-    <string name="size_9">Produk I</string>
-    <string name="size_10">Produk J</string>
+    <string name="size_1">Size A</string>
+    <string name="size_2">Size B</string>
+    <string name="size_3">Size C</string>
+    <string name="size_4">Size D</string>
+    <string name="size_5">Size E</string>
+    <string name="size_6">Size F</string>
+    <string name="size_7">Size G</string>
+    <string name="size_8">Size H</string>
+    <string name="size_9">Size I</string>
+    <string name="size_10">Size J</string>
     <string name="title_activity_rsmcoaching">RSM Coaching Guideline</string>
     <string name="title_activity_coachee_history">Coachee History</string>
 </resources>

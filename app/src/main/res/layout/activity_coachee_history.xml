@@ -28,19 +28,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
             android:text="Coached By"
-            style="@style/header_box"/>
+            style="@style/header_box"
+            android:textSize="12dp"/>
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:text="Date"
-            style="@style/header_box"/>
+            style="@style/header_box"
+            android:textSize="12dp"/>
         <TextView
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.45"
             android:text="Action"
-            style="@style/header_box"/>
+            style="@style/header_box"
+            android:textSize="12dp"/>
     </LinearLayout>
     <LinearLayout
         android:id="@+id/button"

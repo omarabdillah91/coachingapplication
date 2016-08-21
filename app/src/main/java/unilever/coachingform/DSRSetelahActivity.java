@@ -21,7 +21,7 @@ public class DSRSetelahActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                Intent intent = new Intent(DSRSetelahActivity.this, DSRCoachingSummaryActivity.class);
+                Intent intent = new Intent(DSRSetelahActivity.this, CoachingSummaryActivity.class);
                 intent.putExtra("coach", coach_email);
                 intent.putExtra("job", job);
                 intent.putExtra("coachee", coachee_email);

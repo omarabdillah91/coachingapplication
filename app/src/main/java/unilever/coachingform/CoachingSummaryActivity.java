@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class DSRCoachingSummaryActivity extends AppCompatActivity {
+public class CoachingSummaryActivity extends AppCompatActivity {
     Button next, back;
     EditText coach, coachee, area, distributor, summary_1, summary_2, summary_3;
     boolean bahasa = false;
@@ -17,7 +17,7 @@ public class DSRCoachingSummaryActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                Intent intent = new Intent(DSRCoachingSummaryActivity.this, ProfileActivity.class);
+                Intent intent = new Intent(CoachingSummaryActivity.this, ProfileActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);
                 intent.putExtra("coachee", coachee.getText().toString());
@@ -27,7 +27,7 @@ public class DSRCoachingSummaryActivity extends AppCompatActivity {
                 intent.putExtra("distributor", distributor.getText());
                 startActivity(intent);
             } else if (v.getId() == R.id.back) {
-                Intent intent = new Intent(DSRCoachingSummaryActivity.this, DSRSetelahActivity.class);
+                Intent intent = new Intent(CoachingSummaryActivity.this, DSRSetelahActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);
                 intent.putExtra("coachee", coachee.getText().toString());
@@ -45,9 +45,9 @@ public class DSRCoachingSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_dsr_coaching_summary_english);
+            setContentView(R.layout.activity_coaching_summary_english);
         } else {
-            setContentView(R.layout.activity_dsr_coaching_summary_bahasa);
+            setContentView(R.layout.activity_coaching_summary_bahasa);
         }
         next = (Button) findViewById(R.id.next);
         back = (Button) findViewById(R.id.back);
