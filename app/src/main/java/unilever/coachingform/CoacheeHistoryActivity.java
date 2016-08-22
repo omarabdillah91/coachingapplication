@@ -15,9 +15,11 @@ import service.CoachingSessionService;
 
 public class CoacheeHistoryActivity extends AppCompatActivity {
     String coach, job, coachee, coaching = "";
+    String coachingSessionID = "";
     boolean bahasa, english = false;
     Button next;
     ListView history;
+    Bundle profile;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -32,7 +34,22 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coachee_history);
         if (getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
+            getExtra(getIntent().getExtras());
+        }
+        next = (Button) findViewById(R.id.next);
+        history = (ListView) findViewById(R.id.listView);
+        next.setOnClickListener(onClick);
+        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
+            @Override
+            public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
+                onCoacheeHistoryReceived(coacheeHistories);
+            }
+        });
+    }
+
+
+    private void getExtra(Bundle bundle) {
+        if(bundle != null) {
             if(bundle.getString("coach") != null) {
                 coach = bundle.getString("coach");
             }
@@ -45,18 +62,18 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             if(bundle.getString("coaching") != null) {
                 coaching = bundle.getString("coaching");
             }
-            bahasa = bundle.getBoolean("bahasa");
-            english = bundle.getBoolean("english");
+            if(bundle.getBoolean("english")) {
+                english = bundle.getBoolean("english");
+            }else {
+                bahasa = bundle.getBoolean("bahasa");
+            }
+            if(bundle.getBundle("profile") != null) {
+                profile = bundle.getBundle("profile");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
+            }
         }
-        next = (Button) findViewById(R.id.next);
-        history = (ListView) findViewById(R.id.listView);
-        next.setOnClickListener(onClick);
-//        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
-//            @Override
-//            public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-//                onCoacheeHistoryReceived(coacheeHistories);
-//            }
-//        });
     }
 
     public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
@@ -72,6 +89,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("asm_push")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
@@ -80,6 +98,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("asm_pull")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
@@ -88,6 +107,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("dsr")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, DSRSebelumActivity.class);
@@ -96,6 +116,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("dts")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
@@ -104,6 +125,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("fa")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, MerchandiserActivity.class);
@@ -112,6 +134,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("sr")) {
             Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
@@ -120,6 +143,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("coachee", coachee);
             intent.putExtra("bahasa",bahasa);
             intent.putExtra("english",english);
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         }
     }

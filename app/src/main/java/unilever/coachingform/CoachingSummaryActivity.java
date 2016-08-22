@@ -13,6 +13,7 @@ public class CoachingSummaryActivity extends AppCompatActivity {
     boolean bahasa = false;
     boolean english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
+    String coachingSessionID = "";
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -76,6 +77,9 @@ public class CoachingSummaryActivity extends AppCompatActivity {
             }
             if(bundle.getString("distributor") != null) {
                 text_distributor = bundle.getString("distributor");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
             }
         }
     }

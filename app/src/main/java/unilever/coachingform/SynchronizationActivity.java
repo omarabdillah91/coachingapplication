@@ -72,14 +72,6 @@ public class SynchronizationActivity extends AppCompatActivity {
                 onCoachingReceived(coachingList);
             }
         });
-//        ArrayList<Coaching> coachingList = new ArrayList<Coaching>();
-//        coachingList.add(new Coaching("1", "A","2016-09-06","Submit"));
-//        coachingList.add(new Coaching("2", "B","2016-09-05","Submit"));
-//        coachingList.add(new Coaching("3", "C", "2016-09-06", "Submit"));
-//        coachingList.add(new Coaching("4", "D", "2016-09-07", "Submit"));
-//        CoachAdapter adapter = new CoachAdapter(this,
-//                R.layout.synchronization_list, coachingList);
-//        listView.setAdapter(adapter);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             if(bundle.getString("email") != null) {

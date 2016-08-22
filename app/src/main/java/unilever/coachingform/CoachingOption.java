@@ -6,9 +6,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import dao.CoachingSessionDAO;
 
 public class CoachingOption extends AppCompatActivity {
     Button rsm, asm_pull, asm_push, fa, dsr, dts, sr, next, bahasa, english;
@@ -139,6 +142,13 @@ public class CoachingOption extends AppCompatActivity {
         } else if (asm_push_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (dsr_status) {
+            CoachingSessionDAO.updateGuideline(coachingSessionID, 2,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
             Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
@@ -146,10 +156,18 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             intent.putExtra("coaching","dsr");
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (dts_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (fa_status) {
+            CoachingSessionDAO.updateGuideline(coachingSessionID, 1,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
             Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
@@ -157,6 +175,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("bahasa",bahasa_status);
             intent.putExtra("english",english_status);
             intent.putExtra("coaching","fa");
+            intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (sr_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();

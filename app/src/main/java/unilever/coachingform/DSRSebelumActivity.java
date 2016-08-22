@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import dao.CoachingSessionDAO;
+
 public class DSRSebelumActivity extends AppCompatActivity {
     Button next;
     Button setelah, saat;
@@ -16,6 +18,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
     boolean bahasa = false;
     boolean english = false;
     String job, coach_email, coachee_email = "";
+    String coachingSessionID = "";
     RadioButton satu, dua, tiga, empat_a, empat_b, empat_c, empat_d, empat_e;
     boolean status_1,status_2,status_3,status_4a,status_4b,status_4c,status_4d,status_4e = false;
     EditText text_satu, text_dua, text_tiga, text_empat_a, text_empat_b, text_empat_c, text_empat_d, text_empat_e;
@@ -23,6 +26,13 @@ public class DSRSebelumActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.next) {
+                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, distributor.getText().toString(), area.getText().toString(),
+                        "", new CoachingSessionDAO.UpdateCoachingListener() {
+                            @Override
+                            public void onGuidelineUpdated(boolean isSuccess) {
+    
+                            }
+                        });
                 Intent intent = new Intent(DSRSebelumActivity.this, DSRSaatActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);
@@ -31,6 +41,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.on_coaching) {
                 Intent intent = new Intent(DSRSebelumActivity.this, DSRSaatActivity.class);
@@ -41,6 +52,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.after_coaching) {
                 Intent intent = new Intent(DSRSebelumActivity.this, DSRSetelahActivity.class);
@@ -51,6 +63,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.dsr_sebelum_1) {
                 if(status_1) {
@@ -182,6 +195,9 @@ public class DSRSebelumActivity extends AppCompatActivity {
         }
         if(bundle.getString("job") != null) {
             job = bundle.getString("job");
+        }
+        if(bundle.getString("id") != null) {
+            coachingSessionID = bundle.getString("id");
         }
     }
 

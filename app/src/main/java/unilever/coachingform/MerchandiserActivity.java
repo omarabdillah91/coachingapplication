@@ -23,6 +23,7 @@ public class MerchandiserActivity extends AppCompatActivity {
     Button action_1,action_2,action_3,action_4,action_5,action_6,action_7,action_8,action_9,action_10,action_11,action_12;
     Boolean bahasa, english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
+    String coachingSessionID = "";
     boolean satu_a,satu_b,dua_a,dua_b,tiga_a,empat_a,empat_b,lima_a,tujuh_c = false;
     RadioButton radio_1a, radio_1b, radio_2a, radio_2b, radio_3a, radio_4a, radio_5a, radio_7c;
     PopupWindow popupWindow;
@@ -38,6 +39,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText());
                 intent.putExtra("distributor", distributor.getText());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.product_1) {
                 showQuestion(1);
@@ -267,6 +269,9 @@ public class MerchandiserActivity extends AppCompatActivity {
             }
             if(bundle.getString("distributor") != null) {
                 text_distributor = bundle.getString("distributor");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
             }
         }
     }

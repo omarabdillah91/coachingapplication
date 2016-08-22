@@ -15,6 +15,7 @@ public class DSRSetelahActivity extends AppCompatActivity {
     boolean bahasa = false;
     boolean english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
+    String coachingSessionID = "";
     RadioButton satu, dua;
     boolean status_1, status_2 = false;
     View.OnClickListener onClick = new View.OnClickListener() {
@@ -29,6 +30,7 @@ public class DSRSetelahActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.on_coaching) {
                 Intent intent = new Intent(DSRSetelahActivity.this, DSRSaatActivity.class);
@@ -39,6 +41,7 @@ public class DSRSetelahActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.before_coaching) {
                 Intent intent = new Intent(DSRSetelahActivity.this, DSRSebelumActivity.class);
@@ -49,6 +52,7 @@ public class DSRSetelahActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText());
                 intent.putExtra("distributor", distributor.getText());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.dsr_setelah_1) {
                 if(status_1) {
@@ -124,6 +128,9 @@ public class DSRSetelahActivity extends AppCompatActivity {
             }
             if(bundle.getString("distributor") != null) {
                 text_distributor = bundle.getString("distributor");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
             }
         }
     }

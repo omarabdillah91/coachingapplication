@@ -26,6 +26,7 @@ public class DSRSaatActivity extends AppCompatActivity {
     boolean bahasa = false;
     boolean english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
+    String coachingSessionID = "";
     boolean status[][] = new boolean[11][11];
     RadioButton radio[][] = new RadioButton[11][11];
     int radio_id[][] = new int[11][11];
@@ -41,6 +42,7 @@ public class DSRSaatActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.before_coaching) {
                 Intent intent = new Intent(DSRSaatActivity.this, DSRSebelumActivity.class);
@@ -51,6 +53,7 @@ public class DSRSaatActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             } else if (v.getId() == R.id.after_coaching) {
                 Intent intent = new Intent(DSRSaatActivity.this, DSRSetelahActivity.class);
@@ -61,6 +64,7 @@ public class DSRSaatActivity extends AppCompatActivity {
                 intent.putExtra("english", english);
                 intent.putExtra("area", area.getText().toString());
                 intent.putExtra("distributor", distributor.getText().toString());
+                intent.putExtra("id", coachingSessionID);
                 startActivity(intent);
             }
         }
@@ -150,6 +154,9 @@ public class DSRSaatActivity extends AppCompatActivity {
             }
             if(bundle.getString("distributor") != null) {
                 text_distributor = bundle.getString("distributor");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
             }
         }
     }
