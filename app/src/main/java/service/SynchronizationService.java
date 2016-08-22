@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import dao.CoachingQuestionAnswerDAO;
@@ -21,6 +23,8 @@ import model.Coaching;
  * Created by adrianch on 15/08/2016.
  */
 public class SynchronizationService {
+
+    private static final String TAG = "SynchronizationService";
 
     public static void syncCoachingSession(final String coachingSessionID,
                                            final SyncCoachingListener listener) {
@@ -88,8 +92,13 @@ public class SynchronizationService {
                     receiverList.add(coachingSessionEntity.getCdCapabilityTeamEmail());
                 }
 
+
+                String[] receiverArray = Arrays.copyOf(receiverList.toArray(), receiverList.size(), String[].class);
+
+                Log.d(TAG, receiverArray.toString());
+
                 if(receiverList.size() > 0) {
-                    email.putExtra(Intent.EXTRA_EMAIL, receiverList.toArray());
+                    email.putExtra(Intent.EXTRA_EMAIL, receiverArray);
                     email.putExtra(Intent.EXTRA_SUBJECT, "COACHING");
                     email.putExtra(Intent.EXTRA_TEXT, "");
                     Uri uri = Uri.fromFile(new File(path));
