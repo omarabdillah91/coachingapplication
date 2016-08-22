@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MerchandiserActivity extends AppCompatActivity {
     private ArrayList<String> questions = new ArrayList<>();
-    Button next, back;
+    Button next;
     EditText coach, coachee, area, distributor, edit_product_11,edit_product_12,edit_size_11,edit_size_12;
     Button action_1,action_2,action_3,action_4,action_5,action_6,action_7,action_8,action_9,action_10,action_11,action_12;
     Boolean bahasa, english = false;
@@ -31,16 +31,6 @@ public class MerchandiserActivity extends AppCompatActivity {
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
                 Intent intent = new Intent(MerchandiserActivity.this, CoachingSummaryActivity.class);
-                intent.putExtra("coach", coach.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee.getText().toString());
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
-                startActivity(intent);
-            } else if (v.getId() == R.id.back) {
-                Intent intent = new Intent(MerchandiserActivity.this, CoacheeHistoryActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);
                 intent.putExtra("coachee", coachee.getText().toString());
@@ -164,7 +154,6 @@ public class MerchandiserActivity extends AppCompatActivity {
             setContentView(R.layout.activity_merchandiser_bahasa);
         }
         next = (Button) findViewById(R.id.next);
-        back = (Button) findViewById(R.id.back);
         action_1 = (Button) findViewById(R.id.product_1);
         action_2 = (Button) findViewById(R.id.product_2);
         action_3 = (Button) findViewById(R.id.product_3);
@@ -190,7 +179,6 @@ public class MerchandiserActivity extends AppCompatActivity {
         distributor.setText(text_distributor);
         distributor.setEnabled(false);
         next.setOnClickListener(onClick);
-        back.setOnClickListener(onClick);
         action_1.setOnClickListener(onClick);
         action_2.setOnClickListener(onClick);
         action_3.setOnClickListener(onClick);

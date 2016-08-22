@@ -50,31 +50,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
         android:layout_alignParentBottom="true">
-        <Button
-            android:id="@+id/next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/orange"
-            android:textColor="@color/white"
-            android:text="Sync"
-            android:textAllCaps="false"/>
         <ImageView
             style="@style/image_sync_page"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_below="@+id/sync"></ImageView>
+            android:layout_marginTop="10dp">
+        </ImageView>
     </LinearLayout>
+    <Button
+        android:id="@+id/next"
+        style="@style/next_button_1"
+        android:layout_above="@+id/button"
+        />
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_above="@+id/button"
+        android:layout_above="@+id/next"
         android:layout_below="@+id/header"/>
 
 </RelativeLayout>

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class CoachingSummaryActivity extends AppCompatActivity {
-    Button next, back;
+    Button next;
     EditText coach, coachee, area, distributor, summary_1, summary_2, summary_3;
     boolean bahasa = false;
     boolean english = false;
@@ -23,18 +23,8 @@ public class CoachingSummaryActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee.getText().toString());
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
-                startActivity(intent);
-            } else if (v.getId() == R.id.back) {
-                Intent intent = new Intent(CoachingSummaryActivity.this, DSRSetelahActivity.class);
-                intent.putExtra("coach", coach.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee.getText().toString());
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
+                intent.putExtra("area", area.getText().toString());
+                intent.putExtra("distributor", distributor.getText().toString());
                 startActivity(intent);
             }
         }
@@ -50,7 +40,6 @@ public class CoachingSummaryActivity extends AppCompatActivity {
             setContentView(R.layout.activity_coaching_summary_bahasa);
         }
         next = (Button) findViewById(R.id.next);
-        back = (Button) findViewById(R.id.back);
         coach = (EditText) findViewById(R.id.coach);
         coachee = (EditText) findViewById(R.id.coachee);
         area = (EditText) findViewById(R.id.area);
@@ -64,7 +53,6 @@ public class CoachingSummaryActivity extends AppCompatActivity {
         distributor.setText(text_distributor);
         distributor.setEnabled(false);
         next.setOnClickListener(onClick);
-        back.setOnClickListener(onClick);
     }
 
     private void getExtra(Bundle bundle) {

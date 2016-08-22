@@ -25,6 +25,9 @@
         style="@style/synchronization_list"/>
     <Button
         android:id="@+id/sync_button"
+        android:text="Sync"
+        android:textAllCaps="false"
+        android:textSize="12dp"
         android:layout_width="0px"
         android:layout_weight="0.25"
         android:layout_height="wrap_content"

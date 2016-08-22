@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 public class DSRSetelahActivity extends AppCompatActivity {
-    Button next, back;
+    Button next;
     Button sebelum, saat;
     EditText coach, coachee, area, distributor, text_satu, text_dua;
     boolean bahasa = false;
@@ -27,18 +27,8 @@ public class DSRSetelahActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee_email);
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
-                startActivity(intent);
-            } else if (v.getId() == R.id.back) {
-                Intent intent = new Intent(DSRSetelahActivity.this, DSRSaatActivity.class);
-                intent.putExtra("coach", coach_email);
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee_email);
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
+                intent.putExtra("area", area.getText().toString());
+                intent.putExtra("distributor", distributor.getText().toString());
                 startActivity(intent);
             } else if (v.getId() == R.id.on_coaching) {
                 Intent intent = new Intent(DSRSetelahActivity.this, DSRSaatActivity.class);
@@ -47,8 +37,8 @@ public class DSRSetelahActivity extends AppCompatActivity {
                 intent.putExtra("coachee", coachee_email);
                 intent.putExtra("bahasa",bahasa);
                 intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
+                intent.putExtra("area", area.getText().toString());
+                intent.putExtra("distributor", distributor.getText().toString());
                 startActivity(intent);
             } else if (v.getId() == R.id.before_coaching) {
                 Intent intent = new Intent(DSRSetelahActivity.this, DSRSebelumActivity.class);
@@ -89,7 +79,6 @@ public class DSRSetelahActivity extends AppCompatActivity {
             setContentView(R.layout.activity_dsr_setelah_bahasa);
         }
         next = (Button) findViewById(R.id.next);
-        back = (Button) findViewById(R.id.back);
         sebelum = (Button) findViewById(R.id.before_coaching);
         saat = (Button) findViewById(R.id.on_coaching);
         coach = (EditText) findViewById(R.id.coach);
@@ -108,7 +97,6 @@ public class DSRSetelahActivity extends AppCompatActivity {
         area.setEnabled(false);
         distributor.setText(text_distributor);
         distributor.setEnabled(false);
-        back.setOnClickListener(onClick);
         next.setOnClickListener(onClick);
         sebelum.setOnClickListener(onClick);
         saat.setOnClickListener(onClick);

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class CoachingOption extends AppCompatActivity {
-    Button rsm, asm_pull, asm_push, fa, dsr, dts, sr, next, back, bahasa, english;
+    Button rsm, asm_pull, asm_push, fa, dsr, dts, sr, next, bahasa, english;
     boolean rsm_status, asm_pull_status, asm_push_status, fa_status, dsr_status, dts_status, sr_status, bahasa_status, english_status = false;
     String coach, coachee = "";
     String job = "";
@@ -40,12 +40,6 @@ public class CoachingOption extends AppCompatActivity {
                 } else {
                     Toast.makeText(CoachingOption.this, "Please select only 1 Coaching Guideline and 1 language", Toast.LENGTH_SHORT).show();
                 }
-            } else if (v.getId() == R.id.back) {
-                Intent intent = new Intent(CoachingOption.this, ProfileActivity.class);
-                intent.putExtra("email", coach);
-                intent.putExtra("job", job);
-                intent.putExtra("profile",profile);
-                startActivity(intent);
             } else if (v.getId() == R.id.indonesian) {
                 bahasa_status = reverseStatus(v,bahasa_status);
             } else if (v.getId() == R.id.english) {
@@ -67,7 +61,6 @@ public class CoachingOption extends AppCompatActivity {
         dts = (Button) findViewById(R.id.dts_coaching);
         sr = (Button) findViewById(R.id.sr_pull_coaching);
         next = (Button) findViewById(R.id.next);
-        back = (Button) findViewById(R.id.back);
         bahasa = (Button) findViewById(R.id.indonesian);
         english = (Button) findViewById(R.id.english);
         rsm.setOnClickListener(onClick);
@@ -78,7 +71,6 @@ public class CoachingOption extends AppCompatActivity {
         dts.setOnClickListener(onClick);
         sr.setOnClickListener(onClick);
         next.setOnClickListener(onClick);
-        back.setOnClickListener(onClick);
         bahasa.setOnClickListener(onClick);
         english.setOnClickListener(onClick);
     }
@@ -141,32 +133,11 @@ public class CoachingOption extends AppCompatActivity {
 
     private void goCoaching() {
         if(rsm_status) {
-            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
-            intent.putExtra("coach", coach);
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee);
-            intent.putExtra("bahasa",bahasa_status);
-            intent.putExtra("english",english_status);
-            intent.putExtra("coaching","rsm");
-            startActivity(intent);
+            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (asm_pull_status) {
-            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
-            intent.putExtra("coach", coach);
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee);
-            intent.putExtra("bahasa",bahasa_status);
-            intent.putExtra("english",english_status);
-            intent.putExtra("coaching","asm_pull");
-            startActivity(intent);
+            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (asm_push_status) {
-            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
-            intent.putExtra("coach", coach);
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee);
-            intent.putExtra("bahasa",bahasa_status);
-            intent.putExtra("english",english_status);
-            intent.putExtra("coaching","asm_push");
-            startActivity(intent);
+            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (dsr_status) {
             Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
@@ -177,14 +148,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("coaching","dsr");
             startActivity(intent);
         } else if (dts_status) {
-            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
-            intent.putExtra("coach", coach);
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee);
-            intent.putExtra("bahasa",bahasa_status);
-            intent.putExtra("english",english_status);
-            intent.putExtra("coaching","dts");
-            startActivity(intent);
+            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (fa_status) {
             Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
             intent.putExtra("coach", coach);
@@ -195,14 +159,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("coaching","fa");
             startActivity(intent);
         } else if (sr_status) {
-            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
-            intent.putExtra("coach", coach);
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee);
-            intent.putExtra("bahasa",bahasa_status);
-            intent.putExtra("english",english_status);
-            intent.putExtra("coaching","sr");
-            startActivity(intent);
+            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         }
     }
 

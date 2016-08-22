@@ -2,10 +2,12 @@ package adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,6 +45,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
             holder.date = (TextView)row.findViewById(R.id.date);
             holder.coache = (TextView)row.findViewById(R.id.coache);
             holder.status = (TextView)row.findViewById(R.id.status);
+            holder.sync = (Button)row.findViewById(R.id.sync_button);
             //row.setTag(holder);
         }
         else
@@ -54,7 +57,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
         holder.date.setText(input.date);
         holder.coache.setText(input.coachee);
         holder.status.setText(input.status);
-        row.setTag(input.getId());
+        holder.sync.setTag(input.getId());
         return row;
     }
 
@@ -62,5 +65,6 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
         TextView date;
         TextView coache;
         TextView status;
+        Button sync;
     }
 }

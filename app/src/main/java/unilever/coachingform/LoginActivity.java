@@ -119,7 +119,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         job = position;
         this.position = parent.getItemAtPosition(position).toString();
-        Log.d("Position", job+"");
     }
 
     @Override

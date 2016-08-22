@@ -20,17 +20,14 @@ import service.SynchronizationService;
 
 public class SynchronizationActivity extends AppCompatActivity {
     ListView listView;
-    Button sync;
+    Button next;
     String email = "";
     int job = 0;
     ArrayList<String> coachingSession = new ArrayList<String>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (v.getId() == R.id.sync) {
-                for(String id:coachingSession) {
-
-                }
+            if (v.getId() == R.id.next) {
                 Intent intent = new Intent(SynchronizationActivity.this, ProfileActivity.class);
                 intent.putExtra("email", email);
                 intent.putExtra("job", job);
@@ -41,24 +38,26 @@ public class SynchronizationActivity extends AppCompatActivity {
 
     public void onSync(View v)
     {
-        //get the row the clicked button is in
         String id = (String) v.getTag();
         LinearLayout vwParentRow = (LinearLayout)v.getParent();
-        TextView child = (TextView)vwParentRow.getChildAt(2);
+        TextView status = (TextView)vwParentRow.getChildAt(2);
         Button btnChild = (Button)vwParentRow.getChildAt(3);
-        SynchronizationService.syncCoachingSession(id, new SynchronizationService.SyncCoachingListener() {
-            @Override
-            public void onSyncCoachingCompleted(boolean isSucceed) {
-                if(!isSucceed) {
-
-                    Toast.makeText(SynchronizationActivity.this, "Synchronization is fail",
-                            Toast.LENGTH_SHORT).show();
+        if(status.getText().toString().equals("Sent")) {
+            Toast.makeText(SynchronizationActivity.this, "The coaching activity has been sent",
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            SynchronizationService.syncCoachingSession(id, new SynchronizationService.SyncCoachingListener() {
+                @Override
+                public void onSyncCoachingCompleted(boolean isSucceed) {
+                    if(!isSucceed) {
+                        Toast.makeText(SynchronizationActivity.this, "Synchronization is fail",
+                                Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
-        btnChild.setText("Synched");
-        btnChild.setText("Sent");
-        vwParentRow.refreshDrawableState();
+            });
+            status.setText("Sent");
+            vwParentRow.refreshDrawableState();
+        }
     }
 
     @Override
@@ -66,12 +65,21 @@ public class SynchronizationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_synchronization);
         listView = (ListView)findViewById(R.id.listView);
+        next = (Button) findViewById(R.id.next);
         CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
             @Override
             public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
                 onCoachingReceived(coachingList);
             }
         });
+//        ArrayList<Coaching> coachingList = new ArrayList<Coaching>();
+//        coachingList.add(new Coaching("1", "A","2016-09-06","Submit"));
+//        coachingList.add(new Coaching("2", "B","2016-09-05","Submit"));
+//        coachingList.add(new Coaching("3", "C", "2016-09-06", "Submit"));
+//        coachingList.add(new Coaching("4", "D", "2016-09-07", "Submit"));
+//        CoachAdapter adapter = new CoachAdapter(this,
+//                R.layout.synchronization_list, coachingList);
+//        listView.setAdapter(adapter);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             if(bundle.getString("email") != null) {
@@ -81,14 +89,10 @@ public class SynchronizationActivity extends AppCompatActivity {
                 job = bundle.getInt("job");
             }
         }
-        sync.setOnClickListener(onClick);
-
+        next.setOnClickListener(onClick);
     }
 
     public void onCoachingReceived(List<Coaching> coachingList) {
-        for(Coaching list:coachingList) {
-            coachingSession.add(list.getId());
-        }
         CoachAdapter adapter = new CoachAdapter(this,
                 R.layout.synchronization_list, coachingList);
         listView.setAdapter(adapter);
