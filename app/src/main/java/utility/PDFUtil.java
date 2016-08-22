@@ -74,7 +74,8 @@ public class PDFUtil {
                                      Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap,
                                      GeneratePDFListener listener) {
         Document doc = new Document();
-        String path = Environment.getExternalStorageDirectory() + "/test.pdf";
+        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+                + ".pdf";
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path));
             doc.open();
@@ -237,7 +238,8 @@ public class PDFUtil {
                                      GeneratePDFListener listener) {
 
         Document doc = new Document();
-        String path = Environment.getExternalStorageDirectory() + "/test.pdf";
+        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+                + ".pdf";
 
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path));
