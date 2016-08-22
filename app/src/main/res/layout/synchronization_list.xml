@@ -8,13 +8,13 @@
     <TextView
         android:id="@+id/coache"
         android:layout_width="0px"
-        android:layout_weight="0.45"
+        android:layout_weight="0.25"
         android:layout_height="wrap_content"
         style="@style/synchronization_list"/>
     <TextView
         android:id="@+id/date"
         android:layout_width="0px"
-        android:layout_weight="0.3"
+        android:layout_weight="0.25"
         android:layout_height="wrap_content"
         style="@style/synchronization_list"/>
     <TextView
@@ -23,4 +23,10 @@
         android:layout_weight="0.25"
         android:layout_height="wrap_content"
         style="@style/synchronization_list"/>
+    <Button
+        android:id="@+id/sync_button"
+        android:layout_width="0px"
+        android:layout_weight="0.25"
+        android:layout_height="wrap_content"
+        android:onClick="onSync"/>
 </LinearLayout>

@@ -26,11 +26,15 @@ import java.util.List;
 
 import dao.CoachingSessionDAO;
 import model.Coaching;
+import utility.ConstantUtil;
+import utility.RealmUtil;
+import utility.SharedPreferenceUtil;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "Login";
     String email = "";
     int job = 0;
+    String position = "";
     String password;
     EditText edit_email, edit_password;
     Button login;
@@ -44,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             if (v.getId() == R.id.login) {
                 email = edit_email.getText().toString();
                 password = edit_password.getText().toString();
-                if (!email.equalsIgnoreCase("") && !edit_password.getText().toString().equalsIgnoreCase("")) {
+                if (!email.equalsIgnoreCase("") || !edit_password.getText().toString().equalsIgnoreCase("")) {
                     signIn(email, password);
                 } else {
                     Toast.makeText(LoginActivity.this, "First Name, Last Name, and ID Number must be filled", Toast.LENGTH_SHORT).show();
@@ -72,7 +76,10 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser temp = firebaseAuth.getCurrentUser();
                 if (temp != null) {
-                    // User is signed in
+                    String id = RealmUtil.generateID();
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_POSITION, position);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + temp.getUid());
                 } else {
                     // User is signed out
@@ -111,6 +118,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         job = position;
+        this.position = parent.getItemAtPosition(position).toString();
         Log.d("Position", job+"");
     }
 

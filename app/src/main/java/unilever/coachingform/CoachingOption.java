@@ -16,6 +16,7 @@ public class CoachingOption extends AppCompatActivity {
     String coach, coachee = "";
     String job = "";
     Bundle profile;
+    String coachingSessionID = "";
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -57,6 +58,7 @@ public class CoachingOption extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coaching_option);
+        getExtra(getIntent().getExtras());
         rsm = (Button) findViewById(R.id.rsm_coaching);
         asm_pull = (Button) findViewById(R.id.asm_pull_coaching);
         asm_push = (Button) findViewById(R.id.asm_push_coaching);
@@ -68,21 +70,6 @@ public class CoachingOption extends AppCompatActivity {
         back = (Button) findViewById(R.id.back);
         bahasa = (Button) findViewById(R.id.indonesian);
         english = (Button) findViewById(R.id.english);
-        if (getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
-            if(bundle.getString("coach") != null) {
-                coach = bundle.getString("coach");
-            }
-            if(bundle.getString("coachee") != null) {
-                coachee = bundle.getString("coachee");
-            }
-            if(bundle.getString("job") != null) {
-                job = bundle.getString("job");
-            }
-            if(bundle.getBundle("profile") != null) {
-                profile = bundle.getBundle("profile");
-            }
-        }
         rsm.setOnClickListener(onClick);
         asm_pull.setOnClickListener(onClick);
         asm_push.setOnClickListener(onClick);
@@ -130,6 +117,26 @@ public class CoachingOption extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    private void getExtra(Bundle bundle) {
+        if(bundle != null) {
+            if(bundle.getString("coach") != null) {
+                coach = bundle.getString("coach");
+            }
+            if(bundle.getString("coachee") != null) {
+                coachee = bundle.getString("coachee");
+            }
+            if(bundle.getString("job") != null) {
+                job = bundle.getString("job");
+            }
+            if(bundle.getBundle("profile") != null) {
+                profile = bundle.getBundle("profile");
+            }
+            if(bundle.getString("id") != null) {
+                coachingSessionID = bundle.getString("id");
+            }
+        }
     }
 
     private void goCoaching() {

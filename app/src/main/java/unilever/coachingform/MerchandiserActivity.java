@@ -23,6 +23,9 @@ public class MerchandiserActivity extends AppCompatActivity {
     Button action_1,action_2,action_3,action_4,action_5,action_6,action_7,action_8,action_9,action_10,action_11,action_12;
     Boolean bahasa, english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
+    boolean satu_a,satu_b,dua_a,dua_b,tiga_a,empat_a,empat_b,lima_a,tujuh_c = false;
+    RadioButton radio_1a, radio_1b, radio_2a, radio_2b, radio_3a, radio_4a, radio_5a, radio_7c;
+    PopupWindow popupWindow;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -74,6 +77,83 @@ public class MerchandiserActivity extends AppCompatActivity {
         }
     };
 
+    View.OnClickListener radioOnClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (v.getId() == R.id.fa_1a) {
+                if(satu_a) {
+                    radio_1a.setChecked(false);
+                    satu_a = false;
+                } else {
+                    satu_a = true;
+                    radio_1a.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_1b) {
+                if(satu_b) {
+                    radio_1b.setChecked(false);
+                    satu_b = false;
+                } else {
+                    satu_b = true;
+                    radio_1b.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_2a) {
+                if(dua_a) {
+                    radio_2a.setChecked(false);
+                    satu_b = false;
+                } else {
+                    dua_a = true;
+                    radio_2a.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_2b) {
+                if(dua_b) {
+                    radio_2b.setChecked(false);
+                    dua_b = false;
+                } else {
+                    dua_b = true;
+                    radio_2b.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_3a) {
+                if(tiga_a) {
+                    radio_3a.setChecked(false);
+                    tiga_a = false;
+                } else {
+                    tiga_a = true;
+                    radio_3a.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_4a) {
+                if(empat_a) {
+                    radio_4a.setChecked(false);
+                    empat_a = false;
+                } else {
+                    empat_a = true;
+                    radio_4a.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_5a) {
+                if(lima_a) {
+                    radio_5a.setChecked(false);
+                    lima_a = false;
+                } else {
+                    lima_a = true;
+                    radio_5a.setChecked(true);
+                }
+            }
+            if (v.getId() == R.id.fa_7c) {
+                if(tujuh_c) {
+                    radio_7c.setChecked(false);
+                    tujuh_c = false;
+                } else {
+                    tujuh_c = true;
+                    radio_7c.setChecked(true);
+                }
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,12 +207,11 @@ public class MerchandiserActivity extends AppCompatActivity {
 
     private void showQuestion(int indeks) {
         Log.d("masuk",indeks+"");
-        RadioButton radio_1a, radio_1b, radio_2a, radio_2b, radio_3a, radio_4a, radio_5a, radio_7c;
+        resetBoolean();
         EditText edit_6a,edit_6b,edit_6c,edit_6d,edit_rpi,edit_7a,edit_7b;
-        boolean satu_a,satu_b,dua_a,dua_b,tiga_a,tiga_b,empat_a,empat_b,lima_a,tujuh_c = false;
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = layoutInflater.inflate(R.layout.merchandiser_question_1, null);
-        final PopupWindow popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
         popupWindow.setFocusable(true);
         popupWindow.update();
@@ -152,11 +231,31 @@ public class MerchandiserActivity extends AppCompatActivity {
         edit_7a = (EditText) popupView.findViewById(R.id.fa_7a);
         edit_7b = (EditText) popupView.findViewById(R.id.fa_7b);
         edit_rpi = (EditText) popupView.findViewById(R.id.fa_rpi);
+        radio_1a.setOnClickListener(radioOnClick);
+        radio_1b.setOnClickListener(radioOnClick);
+        radio_2a.setOnClickListener(radioOnClick);
+        radio_2b.setOnClickListener(radioOnClick);
+        radio_3a.setOnClickListener(radioOnClick);
+        radio_4a.setOnClickListener(radioOnClick);
+        radio_5a.setOnClickListener(radioOnClick);
+        radio_7c.setOnClickListener(radioOnClick);
         btnDismiss.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
                 popupWindow.dismiss();
             }});
+    }
+
+    private void resetBoolean() {
+        satu_a = false;
+        satu_b = false;
+        dua_a = false;
+        dua_b = false;
+        tiga_a = false;
+        empat_a = false;
+        empat_b = false;
+        lima_a = false;
+        tujuh_c = false;
     }
 
     private void getExtra(Bundle bundle) {
@@ -182,33 +281,5 @@ public class MerchandiserActivity extends AppCompatActivity {
                 text_distributor = bundle.getString("distributor");
             }
         }
-    }
-
-    public void prepareData() {
-        questions.add(getResources().getString(R.string.bahasa_fa_title_1));
-        questions.add(getResources().getString(R.string.bahasa_fa_1a));
-        questions.add(getResources().getString(R.string.bahasa_fa_1b));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_2));
-        questions.add(getResources().getString(R.string.bahasa_fa_2a));
-        questions.add(getResources().getString(R.string.bahasa_fa_2b));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_3));
-        questions.add(getResources().getString(R.string.bahasa_fa_3a));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_4));
-        questions.add(getResources().getString(R.string.bahasa_fa_4a));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_5));
-        questions.add(getResources().getString(R.string.bahasa_fa_5a));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_6));
-        questions.add(getResources().getString(R.string.bahasa_fa_6a));
-        questions.add(getResources().getString(R.string.bahasa_fa_6a));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_6_1));
-        questions.add(getResources().getString(R.string.bahasa_fa_6c));
-        questions.add(getResources().getString(R.string.bahasa_fa_6d));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_6_2));
-        questions.add(getResources().getString(R.string.bahasa_rpi));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_7));
-        questions.add(getResources().getString(R.string.bahasa_fa_7a));
-        questions.add(getResources().getString(R.string.bahasa_fa_title_7_1));
-        questions.add(getResources().getString(R.string.bahasa_fa_7b));
-        questions.add(getResources().getString(R.string.bahasa_fa_7c));
     }
 }

@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import dao.CoachingSessionDAO;
+
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner coach_job, coachee_job, first_job,second_job, cd_job;
     EditText coach_name, coachee_name, first_name,second_name, cd_name;
@@ -23,17 +25,31 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     int job_id = -1;
     ArrayAdapter<CharSequence> job_adapter;
     String coach_position, coachee_position, first_position, second_position, cd_position = "";
+    String coachingSessionID = "";
+    final String TAG = "Profile";
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.next) {
-                Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
-                Bundle profile = getBundle();
-                intent.putExtra("coach", coach_email.getText().toString());
-                intent.putExtra("coachee", coachee_email.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("profile", profile);
-                startActivity(intent);
+                CoachingSessionDAO.insertNewCoaching(coachee_name.getText().toString(), coachee_email.getText().toString(), coachee_position,
+                        first_name.getText().toString(), first_email.getText().toString(), first_position,
+                        second_name.getText().toString(), second_email.getText().toString(), second_position,
+                        cd_name.getText().toString(), cd_email.getText().toString(), cd_position,
+                        new CoachingSessionDAO.InsertCoachingListener() {
+                            @Override
+                            public void onInsertCoachingCompleted(String id) {
+                                coachingSessionID = id;
+                                Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
+                                Bundle profile = getBundle();
+                                intent.putExtra("coach", coach_email.getText().toString());
+                                intent.putExtra("coachee", coachee_email.getText().toString());
+                                intent.putExtra("job", job);
+                                intent.putExtra("id", coachingSessionID);
+                                intent.putExtra("profile", profile);
+                                startActivity(intent);
+                                Log.d(TAG, " " + id);
+                            }
+                        });
             }
         }
     };

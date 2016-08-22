@@ -43,7 +43,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
             holder.date = (TextView)row.findViewById(R.id.date);
             holder.coache = (TextView)row.findViewById(R.id.coache);
             holder.status = (TextView)row.findViewById(R.id.status);
-            row.setTag(holder);
+            //row.setTag(holder);
         }
         else
         {
@@ -54,7 +54,7 @@ public class CoachAdapter extends ArrayAdapter<Coaching> {
         holder.date.setText(input.date);
         holder.coache.setText(input.coachee);
         holder.status.setText(input.status);
-
+        row.setTag(input.getId());
         return row;
     }
 

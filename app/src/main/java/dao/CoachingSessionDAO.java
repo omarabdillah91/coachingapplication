@@ -35,7 +35,7 @@ public class CoachingSessionDAO {
             format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
             String date_formatted = format.format(date);
             String status = "";
-            coachingList.add(new Coaching(cs.getCoacheeName(),
+            coachingList.add(new Coaching(cs.getId(), cs.getCoacheeName(),
                     date_formatted, (cs.isSubmitted()) ? "Unsent" : "Sent"));
         }
         listener.onUnsubmittedCoachingReceived(coachingList);
