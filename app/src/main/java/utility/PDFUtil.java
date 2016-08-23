@@ -238,7 +238,9 @@ public class PDFUtil {
                                      GeneratePDFListener listener) {
 
         Document doc = new Document();
-        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+        /*String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+                + ".pdf";*/
+        String path = Environment.getExternalStorageDirectory() + "/" + "test"
                 + ".pdf";
 
         try {
@@ -255,89 +257,94 @@ public class PDFUtil {
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
             chapter.setNumberDepth(0);
 
-            chapter.add(new Paragraph("Nama Leader [DTS] :", heading2Font));
-            chapter.add(new Paragraph("Nama DSR :", heading2Font));
-            chapter.add(new Paragraph("Hari, Tanggal Kunjungan :", heading2Font));
+            chapter.add(createLeftRight("Coach : " + coachingSession.getCoachName(),
+                    "Distributor : " + coachingSession.getDistributor()));
+            chapter.add(createLeftRight("Coachee : " + coachingSession.getCoacheeName(),
+                    "Area : " + coachingSession.getArea()));
 
             chapter.add(new Paragraph("\n"));
 
-            float[] columnWidths = {1,8,1,1,1,1,1,1,1,1,1,1};
-            PdfPTable table = new PdfPTable(columnWidths);
-            table.setWidthPercentage(100);
+            float[] columnSebelum = {4,1,3};
+            PdfPTable tableSebelum = new PdfPTable(columnSebelum);
+            tableSebelum.setWidthPercentage(100);
 
-            table.addCell(createRowColSpanCell(getString("sebelum_kunjungan","title", lang),2 ,2));
-            table.addCell(createColSpanCell("Customer ke-", 10));
+            tableSebelum.addCell(createTableHeader(getString("sebelum_kunjungan","title", lang)));
+            tableSebelum.addCell(createTableHeader("Tick if \n Done/Know"));
+            tableSebelum.addCell(createTableHeader("Remarks"));
 
-            for(int i = 1; i <= 10; i++){
-                table.addCell(createTableHeader(String.valueOf(i)));
-            }
 
             String[] sebelumID = {"1","2","3","4","4a","4b","4c","4d","4e"};
-            table.addCell(createRowSpanCell("",sebelumID.length));
 
             for(String id : sebelumID){
                 String temp = "dsr_sebelum_" + id;
-                table.addCell(createNormalCell(getString(temp, lang)));
-                for(int i = 1; i <= 10; i++){
-                    String questionID = langS + temp;
-                    String columnID = "customer_ke_" + i;
-                    String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
-                            .isTickAnswer());
-                    table.addCell(createNormalCell(value));
-                }
+                tableSebelum.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = langS + temp;
+                String columnID = "";
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                String value = String.valueOf(answerEntity.isTickAnswer());
+                tableSebelum.addCell(createNormalCell(value));
+                tableSebelum.addCell(createNormalCell(answerEntity.getTextAnswer()));
             }
 
-            table.addCell(createColSpanCell(getString("saat_kunjungan","title", lang),2));
+            chapter.add(tableSebelum);
+            doc.add(chapter);
+
+            doc.newPage();
+
+            float[] columnSaat = {8,1,1,1,1,1,1,1,1,1,1};
+            PdfPTable tableSaat = new PdfPTable(columnSaat);
+            tableSaat.setWidthPercentage(100);
+
+            tableSaat.addCell(createRowColSpanCell(getString("saat_kunjungan","title", lang),2 ,1));
+            tableSaat.addCell(createColSpanCell("Customer ke-", 10));
+
             for(int i = 1; i <= 10; i++){
-                table.addCell("");
+                tableSaat.addCell(createTableHeader(String.valueOf(i)));
             }
 
             String[] saatID = {"1","2","3","3a","3b","3c","3d","3e","4","5","6"};
-            table.addCell(createRowSpanCell("",saatID.length));
 
             for(String id : saatID){
                 String temp = "dsr_saat_" + id;
-                table.addCell(createNormalCell(getString(temp, lang)));
+                tableSaat.addCell(createNormalCell(getString(temp, lang)));
                 for(int i = 1; i <= 10; i++){
                     String questionID = langS + temp;
                     String columnID = "customer_ke_" + i;
                     String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
                             .isTickAnswer());
-                    table.addCell(createNormalCell(value));
+                    tableSaat.addCell(createNormalCell(value));
                 }
             }
 
-            table.addCell(createColSpanCell(getString("setelah_kunjungan","title", lang),2));
-            for(int i = 1; i <= 10; i++){
-                table.addCell("");
-            }
+            doc.add(tableSaat);
+            doc.newPage();
+
+            float[] columnSetelah = {4,1,3};
+            PdfPTable tableSetelah = new PdfPTable(columnSetelah);
+            tableSetelah.setWidthPercentage(100);
+
+            tableSetelah.addCell(createTableHeader(getString("setelah_kunjungan","title", lang)));
+            tableSetelah.addCell(createTableHeader("Tick if \n Done/Know"));
+            tableSetelah.addCell(createTableHeader("Remarks"));
 
 
             String[] setelahID = {"1","2"};
-            table.addCell(createRowSpanCell("",setelahID.length));
 
             for(String id : setelahID){
                 String temp = "dsr_setelah_" + id;
-                table.addCell(createNormalCell(getString(temp, lang)));
-                for(int i = 1; i <= 10; i++){
-                    String questionID = langS + temp;
-                    String columnID = "customer_ke_" + i;
-                    String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
-                            .isTickAnswer());
-                    table.addCell(createNormalCell(value));
-                }
+                tableSetelah.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = langS + temp;
+                String columnID = "";
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                String value = String.valueOf(answerEntity.isTickAnswer());
+                tableSetelah.addCell(createNormalCell(value));
+                tableSetelah.addCell(createNormalCell(answerEntity.getTextAnswer()));
             }
 
-            table.addCell(createColSpanCell("Total",2));
-            for(int i = 1; i <= 10; i++){
-                table.addCell("");
-            }
+            doc.add(tableSetelah);
+            doc.newPage();
 
-            chapter.add(table);
-
-            chapter.add(Chunk.NEWLINE);
-
-            chapter.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
+            doc.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
 
             PdfPTable table1 = new PdfPTable(1);
             table1.setWidthPercentage(100);
@@ -356,8 +363,7 @@ public class PDFUtil {
             cell2.addElement(new Paragraph("\n\n\n"));
             table1.addCell(cell2);
 
-            chapter.add(table1);
-            doc.add(chapter);
+            doc.add(table1);
             doc.close();
 
 
