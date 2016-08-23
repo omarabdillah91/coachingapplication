@@ -167,9 +167,9 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
                 coachingQA.setId(RealmUtil.generateID());
                 coachingQA.setCoachingSessionID(coachingSessionID);
-                coachingQA.setColumnID("customer_ke_" + i);
+                coachingQA.setColumnID("");
                 coachingQA.setQuestionID("bahasa_dsr_sebelum_" + id);
-                coachingQA.setTextAnswer("Right");
+                coachingQA.setTextAnswer("Remarks " + i);
                 coachingQA.setTickAnswer(true);
                 coachingQA.setHasTickAnswer(true);
                 coachingQAs.add(coachingQA);
@@ -195,9 +195,9 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
                 coachingQA.setId(RealmUtil.generateID());
                 coachingQA.setCoachingSessionID(coachingSessionID);
-                coachingQA.setColumnID("customer_ke_" + i);
+                coachingQA.setColumnID("");
                 coachingQA.setQuestionID("bahasa_dsr_setelah_" + id);
-                coachingQA.setTextAnswer("Right");
+                coachingQA.setTextAnswer("Remarks " + i);
                 coachingQA.setTickAnswer(true);
                 coachingQA.setHasTickAnswer(true);
                 coachingQAs.add(coachingQA);
