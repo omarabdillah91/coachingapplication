@@ -238,10 +238,10 @@ public class PDFUtil {
                                      GeneratePDFListener listener) {
 
         Document doc = new Document();
-        /*String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
-                + ".pdf";*/
-        String path = Environment.getExternalStorageDirectory() + "/" + "test"
+        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
                 + ".pdf";
+        /*String path = Environment.getExternalStorageDirectory() + "/" + "test"
+                + ".pdf";*/
 
         try {
             PdfWriter.getInstance(doc, new FileOutputStream(path));
@@ -288,8 +288,8 @@ public class PDFUtil {
 
             chapter.add(tableSebelum);
             doc.add(chapter);
-
-            doc.newPage();
+            doc.add(new Paragraph("\n"));
+           // doc.newPage();
 
             float[] columnSaat = {8,1,1,1,1,1,1,1,1,1,1};
             PdfPTable tableSaat = new PdfPTable(columnSaat);
@@ -317,8 +317,8 @@ public class PDFUtil {
             }
 
             doc.add(tableSaat);
-            doc.newPage();
-
+           // doc.newPage();
+            doc.add(new Paragraph("\n"));
             float[] columnSetelah = {4,1,3};
             PdfPTable tableSetelah = new PdfPTable(columnSetelah);
             tableSetelah.setWidthPercentage(100);
@@ -343,7 +343,7 @@ public class PDFUtil {
 
             doc.add(tableSetelah);
             doc.newPage();
-
+            //doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
 
             PdfPTable table1 = new PdfPTable(1);
