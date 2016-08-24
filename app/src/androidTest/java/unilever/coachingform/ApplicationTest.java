@@ -105,7 +105,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
         signal1.await(30, TimeUnit.SECONDS);
 
-        final int guideline = ConstantUtil.GUIDELINE_DSR;
+        final int guideline = ConstantUtil.GUIDELINE_FASA;
         final String area = "area1";
         final String distributor = "dist1";
         final String store = "Store1";
@@ -162,7 +162,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
         final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
 
-        for (String id : sebelumID) {
+        /*for (String id : sebelumID) {
             CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
@@ -198,6 +198,23 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             coachingQA.setTickAnswer(true);
             coachingQA.setHasTickAnswer(true);
             coachingQAs.add(coachingQA);
+        }*/
+
+        String[] faID = {"1a","1b","2a","2b","3a","4a","5a","6a","6b","6c",
+                "6d","7a","7b","7c"};
+
+        for (String id : faID){
+            for (int i = 1; i <= 5; i++) {
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("Product " + i);
+                coachingQA.setQuestionID("bahasa_fa_" + id);
+                coachingQA.setTextAnswer("Remarks " + id);
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+            }
         }
 
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
