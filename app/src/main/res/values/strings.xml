@@ -7,6 +7,8 @@
     <string name="title_activity_merchandiser">FA/SA/Merchandiser Coaching Guidelines</string>
     <string name="title_activity_dsr">DSR Coaching Guidel</string>
 
+    <string name="title_login">Coaching at Your Fingertips\n“Coach the team regularly, for best performance”</string>
+
     <string-array name="job_title">
         <item>Managing Director</item>
         <item>NSM Push</item>
@@ -162,6 +164,16 @@
     <string name="product_8">Produk H</string>
     <string name="product_9">Produk I</string>
     <string name="product_10">Produk J</string>
+    <string name="kompetitor_1">Kompetitor A</string>
+    <string name="kompetitor_2">Kompetitor B</string>
+    <string name="kompetitor_3">Kompetitor C</string>
+    <string name="kompetitor_4">Kompetitor D</string>
+    <string name="kompetitor_5">Kompetitor E</string>
+    <string name="kompetitor_6">Kompetitor F</string>
+    <string name="kompetitor_7">Kompetitor G</string>
+    <string name="kompetitor_8">Kompetitor H</string>
+    <string name="kompetitor_9">Kompetitor I</string>
+    <string name="kompetitor_10">Kompetitor J</string>
     <string name="size_1">Size A</string>
     <string name="size_2">Size B</string>
     <string name="size_3">Size C</string>
@@ -174,4 +186,5 @@
     <string name="size_10">Size J</string>
     <string name="title_activity_rsmcoaching">RSM Coaching Guideline</string>
     <string name="title_activity_coachee_history">Coachee History</string>
+    <string name="title_activity_coaching_summary_merchandiser">Coaching Summary</string>
 </resources>

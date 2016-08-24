@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -42,7 +43,13 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
             public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-                onCoacheeHistoryReceived(coacheeHistories);
+                if(coacheeHistories.size() >0) {
+                    onCoacheeHistoryReceived(coacheeHistories);
+                } else {
+                    Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

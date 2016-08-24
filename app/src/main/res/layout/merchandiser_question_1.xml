@@ -142,13 +142,11 @@
                 android:layout_weight="0.8"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"/>
-            <TextView
+            <EditText
                 android:id="@+id/competitor_1"
-                android:text="Product"
+                android:hint="Product"
                 android:gravity="center_horizontal"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"/>
+                style="@style/fa_edittext"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -216,13 +214,11 @@
                 android:layout_weight="0.8"
                 android:layout_height="wrap_content"
                 android:textSize="15dp" />
-            <TextView
+            <EditText
                 android:id="@+id/competitor_2"
-                android:text="Product"
+                android:hint="Product"
                 android:gravity="center_horizontal"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"/>
+                style="@style/fa_edittext"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

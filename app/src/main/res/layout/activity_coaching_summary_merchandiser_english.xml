@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".CoachingSummaryActivity">
+    tools:context=".CoachingSummaryMerchandiserActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -80,31 +80,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="Distributor"
+                    android:text="Store"
                     android:textSize="15dp"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
-                    android:id="@+id/distributor"
+                    android:id="@+id/store"
                     style="@style/table_edittext_type"
-                    android:hint="Distributor"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Area"
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/area"
-                    style="@style/table_edittext_type"
-                    android:hint="Area"
+                    android:hint="Store"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"/>
             </TableRow>
@@ -145,24 +129,24 @@
             android:id="@+id/edittext_summary_3"
             style="@style/multiline_summary"
             android:layout_below="@id/summary_3"/>
-        <Button
-            android:id="@+id/back"
-            android:text="Back"
-            style="@style/back_button"
-            android:layout_below="@+id/edittext_summary_3"
-            />
-        <ImageView
-            style="@style/image_page"
-            android:layout_below="@+id/edittext_summary_3"/>
-        <Button
-            android:id="@+id/next"
-            android:text="Next"
-            style="@style/next_button"
-            android:layout_below="@+id/edittext_summary_3"
-            />
+        <LinearLayout
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/edittext_summary_3">
+            <Button
+                android:id="@+id/next"
+                style="@style/next_button_1"/>
+            <ImageView
+                style="@style/image_sync_page"
+                android:layout_marginTop="10dp">
+            </ImageView>
+        </LinearLayout>
         <TextView
             android:id="@+id/date"
-            android:layout_below="@+id/next"
+            android:layout_below="@+id/button"
             style="@style/date_coaching"
             android:text="Date: 03 September 2016"
             />

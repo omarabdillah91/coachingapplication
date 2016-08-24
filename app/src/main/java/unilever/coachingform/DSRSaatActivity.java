@@ -12,11 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import adapter.DSRSaatQuestionAdapter;
 import adapter.QuestionAdapter;
+import dao.CoachingQuestionAnswerDAO;
+import entity.CoachingQuestionAnswerEntity;
+import utility.RealmUtil;
 
 public class DSRSaatActivity extends AppCompatActivity {
     Context context;
@@ -30,20 +35,32 @@ public class DSRSaatActivity extends AppCompatActivity {
     boolean status[][] = new boolean[11][11];
     RadioButton radio[][] = new RadioButton[11][11];
     int radio_id[][] = new int[11][11];
+    final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                Intent intent = new Intent(DSRSaatActivity.this, DSRSetelahActivity.class);
-                intent.putExtra("coach", coach.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee.getText().toString());
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText().toString());
-                intent.putExtra("distributor", distributor.getText().toString());
-                intent.putExtra("id", coachingSessionID);
-                startActivity(intent);
+                saveQA();
+                CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
+                    @Override
+                    public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                        if (isSuccess) {
+                            Intent intent = new Intent(DSRSaatActivity.this, DSRSetelahActivity.class);
+                            intent.putExtra("coach", coach.getText().toString());
+                            intent.putExtra("job", job);
+                            intent.putExtra("coachee", coachee.getText().toString());
+                            intent.putExtra("bahasa", bahasa);
+                            intent.putExtra("english", english);
+                            intent.putExtra("area", area.getText().toString());
+                            intent.putExtra("distributor", distributor.getText().toString());
+                            intent.putExtra("id", coachingSessionID);
+                            startActivity(intent);
+                        } else {
+                            Toast.makeText(DSRSaatActivity.this, "Failed to save the data!!!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             } else if (v.getId() == R.id.before_coaching) {
                 Intent intent = new Intent(DSRSaatActivity.this, DSRSebelumActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
@@ -70,6 +87,27 @@ public class DSRSaatActivity extends AppCompatActivity {
         }
 
     };
+
+    private void saveQA() {
+        for(int i = 1; i < status.length;i++) {
+            for (int j = 1;j < status[0].length;j++) {
+                addingQA("customer_"+j, "dsr_saat_"+i, status[i][j], "", true);
+            }
+        }
+    }
+
+    private void addingQA(String column_id, String question_id, boolean status, String remarks, boolean b) {
+        CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+        coachingQA.setId(RealmUtil.generateID());
+        coachingQA.setCoachingSessionID(coachingSessionID);
+        coachingQA.setColumnID(column_id);
+        coachingQA.setQuestionID(question_id);
+        coachingQA.setTextAnswer(remarks);
+        coachingQA.setTickAnswer(status);
+        coachingQA.setHasTickAnswer(b);
+        coachingQAs.add(coachingQA);
+    }
+
     View.OnClickListener onRadioClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

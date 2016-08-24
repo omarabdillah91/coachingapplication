@@ -46,15 +46,7 @@ public class SynchronizationActivity extends AppCompatActivity {
             Toast.makeText(SynchronizationActivity.this, "The coaching activity has been sent",
                     Toast.LENGTH_SHORT).show();
         } else {
-            SynchronizationService.syncCoachingSession(id, new SynchronizationService.SyncCoachingListener() {
-                @Override
-                public void onSyncCoachingCompleted(boolean isSucceed) {
-                    if(!isSucceed) {
-                        Toast.makeText(SynchronizationActivity.this, "Synchronization is fail",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
+            SynchronizationService.sendEmail(id,this);
             status.setText("Sent");
             vwParentRow.refreshDrawableState();
         }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".CoachingSummaryActivity">
+    tools:context=".CoachingSummaryMerchandiserActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -80,31 +80,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="Distributor"
+                    android:text="Store"
                     android:textSize="15dp"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
-                    android:id="@+id/distributor"
+                    android:id="@+id/store"
                     style="@style/table_edittext_type"
-                    android:hint="Distributor"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Area"
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/area"
-                    style="@style/table_edittext_type"
-                    android:hint="Area"
+                    android:hint="Store"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"/>
             </TableRow>

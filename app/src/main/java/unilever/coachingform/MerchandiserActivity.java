@@ -1,6 +1,5 @@
 package unilever.coachingform;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,34 +12,52 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import dao.CoachingQuestionAnswerDAO;
+import dao.CoachingSessionDAO;
+import entity.CoachingQuestionAnswerEntity;
+import model.MerchandiserAnswer;
+import utility.RealmUtil;
 
 public class MerchandiserActivity extends AppCompatActivity {
     private ArrayList<String> questions = new ArrayList<>();
     Button next;
-    EditText coach, coachee, area, distributor, edit_product_11,edit_product_12,edit_size_11,edit_size_12;
+    EditText coach, coachee, store, edit_product_11,edit_product_12,edit_size_11,edit_size_12;
+    EditText edit_6a,edit_6b,edit_6c,edit_6d,edit_rpi,edit_7a,edit_7b;
     Button action_1,action_2,action_3,action_4,action_5,action_6,action_7,action_8,action_9,action_10,action_11,action_12;
     Boolean bahasa, english = false;
-    String job, coach_email, coachee_email, text_area, text_distributor = "";
+    String job, coach_email, coachee_email, text_store = "";
     String coachingSessionID = "";
     boolean satu_a,satu_b,dua_a,dua_b,tiga_a,empat_a,empat_b,lima_a,tujuh_c = false;
     RadioButton radio_1a, radio_1b, radio_2a, radio_2b, radio_3a, radio_4a, radio_5a, radio_7c;
     PopupWindow popupWindow;
+    String kom_1 = "";
+    String kom_2 = "";
+    ArrayList<MerchandiserAnswer> answers = new ArrayList<MerchandiserAnswer>();
+    final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                Intent intent = new Intent(MerchandiserActivity.this, CoachingSummaryActivity.class);
-                intent.putExtra("coach", coach.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee.getText().toString());
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText());
-                intent.putExtra("distributor", distributor.getText());
-                intent.putExtra("id", coachingSessionID);
-                startActivity(intent);
+                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, "", "",
+                        store.getText().toString(), new CoachingSessionDAO.UpdateCoachingListener() {
+                            @Override
+                            public void onGuidelineUpdated(boolean isSuccess) {
+                                if (isSuccess) {
+                                    saveQA();
+                                } else {
+                                    Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             } else if (v.getId() == R.id.product_1) {
                 showQuestion(1);
             } else if (v.getId() == R.id.product_2) {
@@ -68,6 +85,58 @@ public class MerchandiserActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void saveQA() {
+        for(MerchandiserAnswer answer : answers) {
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isSatu_a(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isSatu_b(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isDua_a(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isDua_b(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isTiga_a(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isEmpat_a(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isLima_a(),"", true);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getEnam_a(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getEnam_b(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getEnam_c(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getEnam_d(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getRpi(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getTujuh_a(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),false,answer.getTujuh_b(), false);
+            addingQA(answer.getProduct(), answer.getIndeks(),answer.isTujuh_c(),"", true);
+            addingQA(answer.getProduct(), "kompetitor_"+answer.getIndeks(),false,answer.getKompetitor(), false);
+        }
+        CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
+            @Override
+            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                if (isSuccess) {
+                    Intent intent = new Intent(MerchandiserActivity.this, CoachingSummaryMerchandiserActivity.class);
+                    intent.putExtra("coach", coach.getText().toString());
+                    intent.putExtra("job", job);
+                    intent.putExtra("coachee", coachee.getText().toString());
+                    intent.putExtra("bahasa",bahasa);
+                    intent.putExtra("english", english);
+                    intent.putExtra("store", store.getText().toString());
+                    intent.putExtra("id", coachingSessionID);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void addingQA(String s, String dsr_sebelum_1, boolean status_1, String remarks, boolean b) {
+        CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+        coachingQA.setId(RealmUtil.generateID());
+        coachingQA.setCoachingSessionID(coachingSessionID);
+        coachingQA.setColumnID(s);
+        coachingQA.setQuestionID(dsr_sebelum_1);
+        coachingQA.setTextAnswer(remarks);
+        coachingQA.setTickAnswer(status_1);
+        coachingQA.setHasTickAnswer(b);
+        coachingQAs.add(coachingQA);
+    }
 
     View.OnClickListener radioOnClick = new View.OnClickListener() {
         @Override
@@ -170,16 +239,11 @@ public class MerchandiserActivity extends AppCompatActivity {
         action_12 = (Button) findViewById(R.id.product_12);
         coach = (EditText) findViewById(R.id.coach);
         coachee = (EditText) findViewById(R.id.coachee);
-        area = (EditText) findViewById(R.id.area);
-        distributor = (EditText) findViewById(R.id.distributor);
+        store = (EditText) findViewById(R.id.store);
         coach.setText(coach_email);
         coach.setEnabled(false);
         coachee.setText(coachee_email);
         coachee.setEnabled(false);
-        area.setText(text_area);
-        area.setEnabled(false);
-        distributor.setText(text_distributor);
-        distributor.setEnabled(false);
         next.setOnClickListener(onClick);
         action_1.setOnClickListener(onClick);
         action_2.setOnClickListener(onClick);
@@ -196,15 +260,17 @@ public class MerchandiserActivity extends AppCompatActivity {
     }
 
     private void showQuestion(int indeks) {
-        Log.d("masuk",indeks+"");
+        final String in = "fa_"+indeks;
+        final int n = indeks;
         resetBoolean();
-        EditText edit_6a,edit_6b,edit_6c,edit_6d,edit_rpi,edit_7a,edit_7b;
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
         View popupView = layoutInflater.inflate(R.layout.merchandiser_question_1, null);
         popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
         popupWindow.setFocusable(true);
         popupWindow.update();
+        final EditText kompetitor_1 = (EditText) popupView.findViewById(R.id.competitor_1);
+        final EditText kompetitor_2 = (EditText) popupView.findViewById(R.id.competitor_2);
         Button btnDismiss = (Button) popupView.findViewById(R.id.next);
         radio_1a = (RadioButton) popupView.findViewById(R.id.fa_1a);
         radio_1b = (RadioButton) popupView.findViewById(R.id.fa_1b);
@@ -229,11 +295,65 @@ public class MerchandiserActivity extends AppCompatActivity {
         radio_4a.setOnClickListener(radioOnClick);
         radio_5a.setOnClickListener(radioOnClick);
         radio_7c.setOnClickListener(radioOnClick);
+        if(n <=10) {
+            kom_1 = getKompetitor(n);
+            kom_2 = getKompetitor(n);
+            kompetitor_1.setText(kom_1);
+            kompetitor_2.setText(kom_2);
+            kompetitor_1.setEnabled(false);
+            kompetitor_2.setEnabled(false);
+        } else {
+            kompetitor_2.setText(kompetitor_1.getText().toString());
+            kompetitor_2.setEnabled(false);
+            kom_1 = kompetitor_1.getText().toString();
+            kom_2 = kompetitor_2.getText().toString();
+        }
         btnDismiss.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(n >10) {
+                    kom_1 = kompetitor_1.getText().toString();
+                    kom_2 = kompetitor_2.getText().toString();
+                }
+                int A = Integer.parseInt(edit_6a.getText().toString());
+                int B = Integer.parseInt(edit_6b.getText().toString());
+                int C = Integer.parseInt(edit_6c.getText().toString());
+                int D = Integer.parseInt(edit_6d.getText().toString());
+                double rpi = (double) ((double)(A/B) / (double) (C/D));
+                edit_rpi.setText(rpi + "");
+                answers.add(new MerchandiserAnswer(in, getResources().getString(R.string.product_1), getResources().getString(R.string.size_1),
+                        kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
+                        edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
+                        edit_rpi.getText().toString(), tujuh_c));
+                Log.d("Kompetitor 1", kom_1);
                 popupWindow.dismiss();
             }});
+    }
+
+    private String getKompetitor(int indeks) {
+        String result = "";
+        if(indeks == 1) {
+            result = getResources().getString(R.string.kompetitor_1);
+        } else if (indeks == 2) {
+            result = getResources().getString(R.string.kompetitor_2);
+        } else if (indeks == 3) {
+            result = getResources().getString(R.string.kompetitor_3);
+        } else if (indeks == 4) {
+            result = getResources().getString(R.string.kompetitor_4);
+        } else if (indeks == 5) {
+            result = getResources().getString(R.string.kompetitor_5);
+        } else if (indeks == 6) {
+            result = getResources().getString(R.string.kompetitor_6);
+        } else if (indeks == 7) {
+            result = getResources().getString(R.string.kompetitor_7);
+        } else if (indeks == 8) {
+            result = getResources().getString(R.string.kompetitor_8);
+        } else if (indeks == 9) {
+            result = getResources().getString(R.string.kompetitor_9);
+        } else if (indeks == 10) {
+            result = getResources().getString(R.string.kompetitor_10);
+        }
+        return result;
     }
 
     private void resetBoolean() {
@@ -264,11 +384,8 @@ public class MerchandiserActivity extends AppCompatActivity {
             if(bundle.getString("job") != null) {
                 job = bundle.getString("job");
             }
-            if(bundle.getString("area") != null) {
-                text_area = bundle.getString("area");
-            }
-            if(bundle.getString("distributor") != null) {
-                text_distributor = bundle.getString("distributor");
+            if(bundle.getString("store") != null) {
+                text_store = bundle.getString("store");
             }
             if(bundle.getString("id") != null) {
                 coachingSessionID = bundle.getString("id");

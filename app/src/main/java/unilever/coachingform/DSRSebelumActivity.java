@@ -8,8 +8,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.CoachingQuestionAnswerDAO;
 import dao.CoachingSessionDAO;
+import entity.CoachingQuestionAnswerEntity;
+import utility.RealmUtil;
 
 public class DSRSebelumActivity extends AppCompatActivity {
     Button next;
@@ -22,6 +29,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
     RadioButton satu, dua, tiga, empat_a, empat_b, empat_c, empat_d, empat_e;
     boolean status_1,status_2,status_3,status_4a,status_4b,status_4c,status_4d,status_4e = false;
     EditText text_satu, text_dua, text_tiga, text_empat_a, text_empat_b, text_empat_c, text_empat_d, text_empat_e;
+    final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -30,19 +38,14 @@ public class DSRSebelumActivity extends AppCompatActivity {
                         "", new CoachingSessionDAO.UpdateCoachingListener() {
                             @Override
                             public void onGuidelineUpdated(boolean isSuccess) {
-    
+                                if (isSuccess) {
+                                    saveQA();
+                                } else {
+                                    Toast.makeText(DSRSebelumActivity.this, "Failed to save the data!!!",
+                                            Toast.LENGTH_SHORT).show();
+                                }
                             }
                         });
-                Intent intent = new Intent(DSRSebelumActivity.this, DSRSaatActivity.class);
-                intent.putExtra("coach", coach.getText().toString());
-                intent.putExtra("job", job);
-                intent.putExtra("coachee", coachee.getText().toString());
-                intent.putExtra("bahasa",bahasa);
-                intent.putExtra("english", english);
-                intent.putExtra("area", area.getText().toString());
-                intent.putExtra("distributor", distributor.getText().toString());
-                intent.putExtra("id", coachingSessionID);
-                startActivity(intent);
             } else if (v.getId() == R.id.on_coaching) {
                 Intent intent = new Intent(DSRSebelumActivity.this, DSRSaatActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
@@ -132,6 +135,49 @@ public class DSRSebelumActivity extends AppCompatActivity {
             }
         }
     };
+
+    private void saveQA() {
+        addingQA("","dsr_sebelum_1",status_1,text_satu.getText().toString(),true);
+        addingQA("","dsr_sebelum_2",status_2,text_dua.getText().toString(),true);
+        addingQA("","dsr_sebelum_3",status_3,text_tiga.getText().toString(),true);
+        addingQA("","dsr_sebelum_4a",status_4a,text_empat_a.getText().toString(),true);
+        addingQA("","dsr_sebelum_4b",status_4b,text_empat_b.getText().toString(),true);
+        addingQA("","dsr_sebelum_4c",status_4c,text_empat_c.getText().toString(),true);
+        addingQA("","dsr_sebelum_4d",status_4d,text_empat_d.getText().toString(),true);
+        addingQA("","dsr_sebelum_4e",status_4e,text_empat_e.getText().toString(),true);
+        CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
+            @Override
+            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                if(isSuccess) {
+                    Intent intent = new Intent(DSRSebelumActivity.this, DSRSaatActivity.class);
+                    intent.putExtra("coach", coach.getText().toString());
+                    intent.putExtra("job", job);
+                    intent.putExtra("coachee", coachee.getText().toString());
+                    intent.putExtra("bahasa",bahasa);
+                    intent.putExtra("english", english);
+                    intent.putExtra("area", area.getText().toString());
+                    intent.putExtra("distributor", distributor.getText().toString());
+                    intent.putExtra("id", coachingSessionID);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(DSRSebelumActivity.this, "Failed to save the data!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void addingQA(String s, String dsr_sebelum_1, boolean status_1, String remarks, boolean b) {
+        CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+        coachingQA.setId(RealmUtil.generateID());
+        coachingQA.setCoachingSessionID(coachingSessionID);
+        coachingQA.setColumnID(s);
+        coachingQA.setQuestionID(dsr_sebelum_1);
+        coachingQA.setTextAnswer(remarks);
+        coachingQA.setTickAnswer(status_1);
+        coachingQA.setHasTickAnswer(b);
+        coachingQAs.add(coachingQA);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
