@@ -2,9 +2,14 @@ package dao;
 
 import android.util.Pair;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import entity.CoachingQuestionAnswerEntity;
 import io.realm.Realm;
@@ -37,6 +42,40 @@ public class CoachingQuestionAnswerDAO {
 
         listener.onQAMapReceived(map);
 
+    }
+
+    public static List<CoachingQuestionAnswerEntity> filterQAByQuestionID(Collection<CoachingQuestionAnswerEntity> entityList,
+                                                                           String questionID){
+        List<CoachingQuestionAnswerEntity> result = new ArrayList<>();
+        for(CoachingQuestionAnswerEntity entity : entityList){
+            if(entity.getQuestionID() == questionID){
+                result.add(entity);
+            }
+        }
+        return result;
+    }
+
+    public static List<CoachingQuestionAnswerEntity> filterQAByColumnID(Collection<CoachingQuestionAnswerEntity> entityList,
+                                                                          String columnID){
+        List<CoachingQuestionAnswerEntity> result = new ArrayList<>();
+        for(CoachingQuestionAnswerEntity entity : entityList){
+            if(entity.getColumnID() == columnID){
+                result.add(entity);
+            }
+        }
+        return result;
+    }
+
+    public static String[] uniqueColumnID(Collection<CoachingQuestionAnswerEntity> entityList){
+        Set<String> result = new HashSet<>();
+        for(CoachingQuestionAnswerEntity entity : entityList){
+            if(entity.getColumnID() == ""){
+                continue;
+            }
+            result.add(entity.getColumnID());
+        }
+
+        return Arrays.copyOf(result.toArray(), result.size(), String[].class);
     }
 
     public static void insertCoachingQA(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntities,
