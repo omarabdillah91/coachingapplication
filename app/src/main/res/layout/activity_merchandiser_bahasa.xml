@@ -80,31 +80,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="Distributor"
+                    android:text="Store"
                     android:textSize="15dp"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <EditText
-                    android:id="@+id/distributor"
+                    android:id="@+id/store"
                     style="@style/table_edittext_type"
-                    android:hint="Distributor"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"/>
-            </TableRow>
-            <TableRow
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="Area"
-                    android:textSize="15dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-                <EditText
-                    android:id="@+id/area"
-                    style="@style/table_edittext_type"
-                    android:hint="Area"
+                    android:hint="Store"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="1"/>
             </TableRow>
@@ -352,18 +336,22 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/edit_product_11"
+                    android:textSize="15dp"
                     android:layout_width="0px"
                     android:layout_weight="0.5"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/apptheme_edit_text_holo_light"/>
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:textCursorDrawable="@null"/>
                 <EditText
                     android:id="@+id/edit_size_11"
+                    android:textSize="15dp"
                     android:layout_width="0px"
                     android:layout_weight="0.25"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/apptheme_edit_text_holo_light"/>
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:textCursorDrawable="@null"/>
                 <Button
                     android:id="@+id/product_11"
                     style="@style/fa_box"/>
@@ -374,18 +362,22 @@
                 android:orientation="horizontal">
                 <EditText
                     android:id="@+id/edit_product_12"
+                    android:textSize="15dp"
                     android:layout_width="0px"
                     android:layout_weight="0.5"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/apptheme_edit_text_holo_light"/>
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:textCursorDrawable="@null"/>
                 <EditText
                     android:id="@+id/edit_size_12"
+                    android:textSize="15dp"
                     android:layout_width="0px"
                     android:layout_weight="0.25"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/apptheme_edit_text_holo_light"/>
+                    android:background="@drawable/apptheme_edit_text_holo_light"
+                    android:textCursorDrawable="@null"/>
                 <Button
                     android:id="@+id/product_12"
                     style="@style/fa_box"/>

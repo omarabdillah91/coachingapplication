@@ -80,6 +80,9 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
         coachee = (EditText) findViewById(R.id.coachee);
         area = (EditText) findViewById(R.id.area);
         distributor = (EditText) findViewById(R.id.distributor);
+        summary_1 = (EditText) findViewById(R.id.edittext_summary_1);
+        summary_2 = (EditText) findViewById(R.id.edittext_summary_2);
+        summary_3 = (EditText) findViewById(R.id.edittext_summary_3);
         coach.setText(coach_email);
         coach.setEnabled(false);
         coachee.setText(coachee_email);

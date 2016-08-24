@@ -3,6 +3,8 @@ package unilever.coachingform;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -79,9 +81,23 @@ public class MerchandiserActivity extends AppCompatActivity {
             } else if (v.getId() == R.id.product_10) {
                 showQuestion(10);
             } else if (v.getId() == R.id.product_11) {
-                showQuestion(11);
+                if(edit_product_11.getText().toString().isEmpty()|| edit_size_11.getText().toString().isEmpty()) {
+                    Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    edit_product_11.setEnabled(false);
+                    edit_size_11.setEnabled(false);
+                    showQuestion(11);
+                }
             } else if (v.getId() == R.id.product_12) {
-                showQuestion(12);
+                if(!edit_product_12.getText().toString().isEmpty() && !edit_size_12.getText().toString().isEmpty()) {
+                    edit_product_12.setEnabled(false);
+                    edit_size_12.setEnabled(false);
+                    showQuestion(12);
+                } else {
+                    Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         }
     };
@@ -218,7 +234,7 @@ public class MerchandiserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getExtra(getIntent().getExtras());
+        getExtra(getIntent().getExtras());
         if(english) {
             setContentView(R.layout.activity_merchandiser_bahasa);
         } else {
@@ -240,6 +256,10 @@ public class MerchandiserActivity extends AppCompatActivity {
         coach = (EditText) findViewById(R.id.coach);
         coachee = (EditText) findViewById(R.id.coachee);
         store = (EditText) findViewById(R.id.store);
+        edit_product_11 = (EditText) findViewById(R.id.edit_product_11);
+        edit_product_12 = (EditText) findViewById(R.id.edit_product_12);
+        edit_size_11 = (EditText) findViewById(R.id.edit_size_11);
+        edit_size_12 = (EditText) findViewById(R.id.edit_size_12);
         coach.setText(coach_email);
         coach.setEnabled(false);
         coachee.setText(coachee_email);
@@ -271,6 +291,8 @@ public class MerchandiserActivity extends AppCompatActivity {
         popupWindow.update();
         final EditText kompetitor_1 = (EditText) popupView.findViewById(R.id.competitor_1);
         final EditText kompetitor_2 = (EditText) popupView.findViewById(R.id.competitor_2);
+        kompetitor_1.setAllCaps(true);
+        kompetitor_2.setAllCaps(true);
         Button btnDismiss = (Button) popupView.findViewById(R.id.next);
         radio_1a = (RadioButton) popupView.findViewById(R.id.fa_1a);
         radio_1b = (RadioButton) popupView.findViewById(R.id.fa_1b);
@@ -303,10 +325,23 @@ public class MerchandiserActivity extends AppCompatActivity {
             kompetitor_1.setEnabled(false);
             kompetitor_2.setEnabled(false);
         } else {
-            kompetitor_2.setText(kompetitor_1.getText().toString());
-            kompetitor_2.setEnabled(false);
-            kom_1 = kompetitor_1.getText().toString();
-            kom_2 = kompetitor_2.getText().toString();
+            kompetitor_1.addTextChangedListener(new TextWatcher() {
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    kompetitor_2.setText(kompetitor_1.getText().toString());
+                    kompetitor_2.setEnabled(false);
+                }
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count,
+                                              int after) {
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                }
+            });
         }
         btnDismiss.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -315,17 +350,44 @@ public class MerchandiserActivity extends AppCompatActivity {
                     kom_1 = kompetitor_1.getText().toString();
                     kom_2 = kompetitor_2.getText().toString();
                 }
-                int A = Integer.parseInt(edit_6a.getText().toString());
-                int B = Integer.parseInt(edit_6b.getText().toString());
-                int C = Integer.parseInt(edit_6c.getText().toString());
-                int D = Integer.parseInt(edit_6d.getText().toString());
+                int A = 1;
+                if(!edit_6a.getText().toString().isEmpty()) {
+                    A = Integer.parseInt(edit_6a.getText().toString());
+                }
+                int B = 1;
+                if (!edit_6b.getText().toString().isEmpty()) {
+                    B = Integer.parseInt(edit_6b.getText().toString());
+                    if (B ==0) B = 1;
+                }
+                int C = 1;
+                int D = 1;
+                if (!edit_6c.getText().toString().isEmpty()) {
+                    C = Integer.parseInt(edit_6c.getText().toString());
+                    if (C ==0) C = 1;
+                }
+                if (!edit_6d.getText().toString().isEmpty()) {
+                    D = Integer.parseInt(edit_6d.getText().toString());
+                    if (D ==0) D = 1;
+                }
                 double rpi = (double) ((double)(A/B) / (double) (C/D));
                 edit_rpi.setText(rpi + "");
-                answers.add(new MerchandiserAnswer(in, getResources().getString(R.string.product_1), getResources().getString(R.string.size_1),
-                        kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
-                        edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
-                        edit_rpi.getText().toString(), tujuh_c));
-                Log.d("Kompetitor 1", kom_1);
+                if(n == 11){
+                    answers.add(new MerchandiserAnswer(in, edit_product_11.getText().toString(), edit_size_11.getText().toString(),
+                            kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
+                            edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
+                            edit_rpi.getText().toString(), tujuh_c));
+                } else if (n == 12) {
+                    answers.add(new MerchandiserAnswer(in, edit_product_12.getText().toString(), edit_size_12.getText().toString(),
+                            kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
+                            edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
+                            edit_rpi.getText().toString(), tujuh_c));
+                } else {
+                    answers.add(new MerchandiserAnswer(in, getResources().getString(R.string.product_1), getResources().getString(R.string.size_1),
+                            kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
+                            edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
+                            edit_rpi.getText().toString(), tujuh_c));
+                }
+
                 popupWindow.dismiss();
             }});
     }

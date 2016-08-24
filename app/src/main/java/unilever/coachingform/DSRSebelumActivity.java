@@ -207,8 +207,9 @@ public class DSRSebelumActivity extends AppCompatActivity {
         text_dua = (EditText) findViewById(R.id.remarks_dsr_sebelum_2);
         text_tiga = (EditText) findViewById(R.id.remarks_dsr_sebelum_3);
         text_empat_a = (EditText) findViewById(R.id.remarks_dsr_sebelum_4a);
-        text_empat_b = (EditText) findViewById(R.id.remarks_dsr_sebelum_4c);
-        text_empat_c = (EditText) findViewById(R.id.remarks_dsr_sebelum_4d);
+        text_empat_b = (EditText) findViewById(R.id.remarks_dsr_sebelum_4b);
+        text_empat_c = (EditText) findViewById(R.id.remarks_dsr_sebelum_4c);
+        text_empat_d = (EditText) findViewById(R.id.remarks_dsr_sebelum_4d);
         text_empat_e = (EditText) findViewById(R.id.remarks_dsr_sebelum_4e);
         coach.setText(coach_email);
         coach.setEnabled(false);

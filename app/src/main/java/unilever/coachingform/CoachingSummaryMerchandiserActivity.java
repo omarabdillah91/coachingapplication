@@ -82,6 +82,9 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
         coach = (EditText) findViewById(R.id.coach);
         coachee = (EditText) findViewById(R.id.coachee);
         store = (EditText) findViewById(R.id.store);
+        summary_1 = (EditText) findViewById(R.id.edittext_summary_1);
+        summary_2 = (EditText) findViewById(R.id.edittext_summary_2);
+        summary_3 = (EditText) findViewById(R.id.edittext_summary_3);
         coach.setText(coach_email);
         coach.setEnabled(false);
         coachee.setText(coachee_email);
