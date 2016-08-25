@@ -38,17 +38,23 @@ public class SynchronizationActivity extends AppCompatActivity {
 
     public void onSync(View v)
     {
-        String id = (String) v.getTag();
-        LinearLayout vwParentRow = (LinearLayout)v.getParent();
-        TextView status = (TextView)vwParentRow.getChildAt(2);
+        final String id = (String) v.getTag();
+        final LinearLayout vwParentRow = (LinearLayout)v.getParent();
+        final TextView status = (TextView)vwParentRow.getChildAt(2);
         Button btnChild = (Button)vwParentRow.getChildAt(3);
         if(status.getText().toString().equals("Sent")) {
             Toast.makeText(SynchronizationActivity.this, "The coaching activity has been sent",
                     Toast.LENGTH_SHORT).show();
         } else {
-            SynchronizationService.sendEmail(id,this);
-            status.setText("Sent");
-            vwParentRow.refreshDrawableState();
+            SynchronizationService.syncCoachingSession(id, new SynchronizationService.SyncCoachingListener() {
+                @Override
+                public void onSyncCoachingCompleted(boolean isSucceed) {
+                    SynchronizationService.sendEmail(id, SynchronizationActivity.this);
+                    status.setText("Sent");
+                    vwParentRow.refreshDrawableState();
+                }
+            });
+
         }
     }
 

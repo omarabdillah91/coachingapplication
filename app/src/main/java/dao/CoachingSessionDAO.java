@@ -36,7 +36,7 @@ public class CoachingSessionDAO {
             String date_formatted = format.format(date);
             String status = "";
             coachingList.add(new Coaching(cs.getId(), cs.getCoacheeName(),
-                    date_formatted, (cs.isSubmitted()) ? "Unsent" : "Sent"));
+                    date_formatted, (cs.isSubmitted()) ? "Sent" : "Submitted"));
         }
         listener.onUnsubmittedCoachingReceived(coachingList);
     }

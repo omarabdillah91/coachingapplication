@@ -1,6 +1,9 @@
 package unilever.coachingform;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -12,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CoachingQuestionAnswerDAO;
+import dao.CoachingSessionDAO;
 import entity.CoachingQuestionAnswerEntity;
+import service.SynchronizationService;
 import utility.RealmUtil;
 
 public class CoachingSummaryDSRActivity extends AppCompatActivity {
@@ -27,22 +32,14 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                saveQA();
-                CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
-                    @Override
-                    public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
-                        if (isSuccess) {
-                            Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
-                            intent.putExtra("coach", coach.getText().toString());
-                            intent.putExtra("job", job);
-                            intent.putExtra("coachee", coachee.getText().toString());
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(CoachingSummaryDSRActivity.this, "Failed to save the data!!!",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
+                        new CoachingSessionDAO.UpdateCoachingListener() {
+                            @Override
+                            public void onGuidelineUpdated(boolean isSuccess) {
+                                saveQA();
+                            }
+                        });
+
             }
         }
 
@@ -52,6 +49,44 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
         addingQA("","dsr_summary_1",false,summary_1.getText().toString(),false);
         addingQA("","dsr_summary_2",false,summary_2.getText().toString(),false);
         addingQA("","dsr_summary_3",false,summary_3.getText().toString(),false);
+        CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
+            @Override
+            public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
+                if (isSuccess) {
+                    if(isNetworkAvailable()) {
+                        SynchronizationService.syncCoachingSession(coachingSessionID, new SynchronizationService.SyncCoachingListener() {
+                            @Override
+                            public void onSyncCoachingCompleted(boolean isSucceed) {
+                                SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryDSRActivity.this);
+                                Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+                                intent.putExtra("coach", coach.getText().toString());
+                                intent.putExtra("job", job);
+                                intent.putExtra("coachee", coachee.getText().toString());
+                                startActivity(intent);
+                            }
+                        });
+                    } else {
+                        Toast.makeText(CoachingSummaryDSRActivity.this, "Your coaching from will be saved locally",
+                                Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+                        intent.putExtra("coach", coach.getText().toString());
+                        intent.putExtra("job", job);
+                        intent.putExtra("coachee", coachee.getText().toString());
+                        startActivity(intent);
+                    }
+                } else {
+                    Toast.makeText(CoachingSummaryDSRActivity.this, "Failed to save the data!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
     }
 
     private void addingQA(String s, String dsr_sebelum_1, boolean status_1, String remarks, boolean b) {

@@ -1,6 +1,9 @@
 package unilever.coachingform;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -93,6 +96,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         };
     }
 
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -179,12 +189,20 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
-                @Override
-                public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
-                    onCoachingReceived(coachingList);
-                }
-            });
+            if(isNetworkAvailable()) {
+                CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
+                    @Override
+                    public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
+                        onCoachingReceived(coachingList);
+                    }
+                });
+            } else {
+                Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                intent.putExtra("email", user.getEmail());
+                intent.putExtra("job", job);
+                startActivity(intent);
+            }
+
         }
     }
 
