@@ -1,6 +1,10 @@
 package unilever.coachingform;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +25,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
     Button next;
     ListView history;
     Bundle profile;
+    private ProgressDialog progressBar;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -40,18 +45,32 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         next = (Button) findViewById(R.id.next);
         history = (ListView) findViewById(R.id.listView);
         next.setOnClickListener(onClick);
-        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
-            @Override
-            public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-                if(coacheeHistories.size() >0) {
-                    onCoacheeHistoryReceived(coacheeHistories);
-                } else {
-                    Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
-                            Toast.LENGTH_SHORT).show();
-                }
+        if(isNetworkAvailable()) {
+            progressBar = new ProgressDialog(this);
+            progressBar.setCancelable(true);
+            progressBar.setMessage("Loading .....");
+            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressBar.setProgress(0);
+            progressBar.setMax(100);
+            progressBar.show();
+            CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
+                @Override
+                public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
+                    progressBar.dismiss();
+                    if(coacheeHistories.size() >0) {
+                        onCoacheeHistoryReceived(coacheeHistories);
+                    } else {
+                        Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
+                                Toast.LENGTH_SHORT).show();
+                    }
 
-            }
-        });
+                }
+            });
+        } else {
+            Toast.makeText(CoacheeHistoryActivity.this, "No internet access to load the the data!!!",
+                    Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 
@@ -154,5 +173,10 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting();
+    }
 }

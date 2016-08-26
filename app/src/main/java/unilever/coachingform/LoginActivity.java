@@ -1,5 +1,6 @@
 package unilever.coachingform;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     private FirebaseUser user;
     private FirebaseAuth.AuthStateListener mAuthListener;
     ArrayAdapter<CharSequence> job_adapter;
+    private ProgressDialog progressBar;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -83,6 +85,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
                     SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
                     SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_POSITION, position);
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_POSITION_ID, job+"");
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + temp.getUid());
                 } else {
                     // User is signed out
@@ -170,6 +173,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         }
     }
     private void signIn(String email, String password) {
+        progressBar = new ProgressDialog(this);
+        progressBar.setCancelable(true);
+        progressBar.setMessage("Login .....");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.setProgress(0);
+        progressBar.setMax(100);
+        progressBar.show();
         if (!validateForm()) {
             return;
         }
@@ -177,6 +187,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                progressBar.dismiss();
                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                 if (!task.isSuccessful()) {
                     Log.w(TAG, "signInWithEmail:failed", task.getException());

@@ -1,5 +1,6 @@
 package unilever.coachingform;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class SynchronizationActivity extends AppCompatActivity {
     Button next;
     String email = "";
     int job = 0;
+    private ProgressDialog progressBar;
     ArrayList<String> coachingSession = new ArrayList<String>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override

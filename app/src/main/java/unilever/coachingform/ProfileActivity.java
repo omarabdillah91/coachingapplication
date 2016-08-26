@@ -1,6 +1,7 @@
 package unilever.coachingform;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import dao.CoachingSessionDAO;
+import utility.ConstantUtil;
+import utility.SharedPreferenceUtil;
 
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner coach_job, coachee_job, first_job,second_job, cd_job;
@@ -113,6 +116,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             if(bundle.getBundle("profile")!= null) {
                 setField(bundle.getBundle("profile"));
             }
+        }
+        coach_email.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL));
+        if(job_id != -1) {
+            job_id = Integer.parseInt(SharedPreferenceUtil.getString(ConstantUtil.SP_POSITION_ID));
         }
         coach_job.setSelection(job_id);
         coach_position = coach_job.getSelectedItem().toString();
