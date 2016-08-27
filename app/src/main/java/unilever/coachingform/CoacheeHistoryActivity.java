@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -55,25 +56,26 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
     }
 
     private void getData() {
-//        progressBar = new ProgressDialog(this);
-//        progressBar.setCancelable(false);
-//        progressBar.setMessage("Loading .....");
-//        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-//        progressBar.setProgress(0);
-//        progressBar.show();
-/*        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
+        progressBar = new ProgressDialog(this);
+        progressBar.setCancelable(false);
+        progressBar.setMessage("Loading .....");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.setProgress(0);
+        progressBar.show();
+        Log.d("CoacheeHistory", coachee);
+        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
             public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-
+                progressBar.hide();
                 if(coacheeHistories.size() >0) {
-                    onCoacheeHistoryReceived(coacheeHistories);
+                    onHistoryReceived(coacheeHistories);
                 } else {
                     Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
                             Toast.LENGTH_SHORT).show();
                 }
 
             }
-        });*/
+        });
     }
 
 
@@ -105,7 +107,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         }
     }
 
-    public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
+    public void onHistoryReceived(List<CoacheeHistory> coacheeHistories) {
         CoacheeHistoryAdapter adapter = new CoacheeHistoryAdapter(this,
                 R.layout.coachee_history, coacheeHistories);
         history.setAdapter(adapter);
