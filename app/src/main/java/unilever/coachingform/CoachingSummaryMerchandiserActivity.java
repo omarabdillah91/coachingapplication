@@ -1,5 +1,6 @@
 package unilever.coachingform;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -36,10 +37,17 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
     String job, coach_email, coachee_email, text_store = "";
     String coachingSessionID = "";
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+    public ProgressDialog progressBar;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
+                progressBar = new ProgressDialog(v.getContext());
+                progressBar.setCancelable(false);
+                progressBar.setMessage("Loading .....");
+                progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressBar.setProgress(0);
+                progressBar.show();
                 CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
                         new CoachingSessionDAO.UpdateCoachingListener() {
                             @Override
@@ -53,9 +61,24 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
     };
 
     private void saveQA() {
-        addingQA("","dsr_summary_1",false,summary_1.getText().toString(),false);
-        addingQA("","dsr_summary_2",false,summary_2.getText().toString(),false);
-        addingQA("","dsr_summary_3",false,summary_3.getText().toString(),false);
+        addingQA("","fa_summary_1",false,summary_1.getText().toString(),false);
+        addingQA("","fa_summary_2",false,summary_2.getText().toString(),false);
+        addingQA("","fa_summary_3", false, summary_3.getText().toString(), false);
+        CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
+                new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        if (isSuccess) {
+                            insert();
+                        } else {
+                            Toast.makeText(CoachingSummaryMerchandiserActivity.this, "Failed to save the data!!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void insert() {
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
@@ -71,6 +94,7 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
                                                 PDFUtil.createPDF(coachingSessionID, new PDFUtil.GeneratePDFListener() {
                                                     @Override
                                                     public void onPDFGenerated(boolean isSuccess) {
+                                                        progressBar.dismiss();
                                                         SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryMerchandiserActivity.this);
                                                         Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
                                                         intent.putExtra("coach", coach.getText().toString());

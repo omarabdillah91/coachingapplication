@@ -2,6 +2,7 @@ package utility;
 
 import android.content.res.Resources;
 import android.os.Environment;
+import android.util.Log;
 import android.util.Pair;
 
 import com.itextpdf.text.Chapter;
@@ -118,6 +119,7 @@ public class PDFUtil {
             table.addCell(createTableHeader("DETAIL"));
 
             for (int i = 0; i < nProduct; i++) {
+                Log.d("Procuct " + i, columns[i]);
                 table.addCell(createTableHeader(columns[i]));
             }
 
@@ -127,14 +129,14 @@ public class PDFUtil {
 
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_1a", columns[i]));
+                        qaMap.get(new Pair<>("fa_1a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
             table.addCell(createNormalCell(getString("fa_1b", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_1b", columns[i]));
+                        qaMap.get(new Pair<>("fa_1b", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -143,14 +145,14 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_2a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_2a", columns[i]));
+                        qaMap.get(new Pair<>("fa_2a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
             table.addCell(createNormalCell(getString("fa_2b", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_2b", columns[i]));
+                        qaMap.get(new Pair<>("fa_2b", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -159,7 +161,7 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_3a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_3a", columns[i]));
+                        qaMap.get(new Pair<>("fa_3a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -168,7 +170,7 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_4a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_4a", columns[i]));
+                        qaMap.get(new Pair<>("fa_4a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -177,7 +179,7 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_5a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_5a", columns[i]));
+                        qaMap.get(new Pair<>("fa_5a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -186,14 +188,14 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_6a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_6a", columns[i]));
+                        qaMap.get(new Pair<>("fa_6a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
             table.addCell(createNormalCell(getString("fa_6b", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_6b", columns[i]));
+                        qaMap.get(new Pair<>("fa_6b", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -202,14 +204,14 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_6c", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_6c", columns[i]));
+                        qaMap.get(new Pair<>("fa_6c", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
             table.addCell(createNormalCell(getString("fa_6d", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_6d", columns[i]));
+                        qaMap.get(new Pair<>("fa_6d", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -218,7 +220,7 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_7a", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_7a", columns[i]));
+                        qaMap.get(new Pair<>("fa_7a", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -226,14 +228,14 @@ public class PDFUtil {
             table.addCell(createNormalCell(getString("fa_7b", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_7b", columns[i]));
+                        qaMap.get(new Pair<>("fa_7b", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
             table.addCell(createNormalCell(getString("fa_7c", lang)));
             for (int i = 0; i < nProduct; i++) {
                 CoachingQuestionAnswerEntity entity =
-                        qaMap.get(new Pair<>(langS + "fa_7c", columns[i]));
+                        qaMap.get(new Pair<>("fa_7c", columns[i]));
                 table.addCell(createNormalCell(String.valueOf(entity.isTickAnswer())));
             }
 
@@ -248,15 +250,21 @@ public class PDFUtil {
             PdfPCell cell = new PdfPCell();
             cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
-            cell.addElement(new Paragraph("\n\n\n"));
+            CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("fa_summary_1", ""));
+            String value = String.valueOf(answerEntity.getTextAnswer());
+            cell.addElement(new Paragraph(value));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
-            cell.addElement(new Paragraph("\n\n\n"));
+            answerEntity = qaMap.get(new Pair<>("fa_summary_2", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            cell.addElement(new Paragraph(value));
             table1.addCell(cell);
 
             PdfPCell cell2 = new PdfPCell();
             cell2.addElement(new Paragraph("NEXT ACTION PLAN", heading3Font));
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
-            cell2.addElement(new Paragraph("\n\n\n"));
+            answerEntity = qaMap.get(new Pair<>("fa_summary_3", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            cell2.addElement(new Paragraph(value));
             table1.addCell(cell2);
 
             chapter.add(table1);
@@ -395,15 +403,21 @@ public class PDFUtil {
             PdfPCell cell = new PdfPCell();
             cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
-            cell.addElement(new Paragraph("\n\n\n"));
+            CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("dsr_summary_1", ""));
+            String value = String.valueOf(answerEntity.getTextAnswer());
+            cell.addElement(new Paragraph(value));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
-            cell.addElement(new Paragraph("\n\n\n"));
+            answerEntity = qaMap.get(new Pair<>("dsr_summary_2", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            cell.addElement(new Paragraph(value));
             table1.addCell(cell);
 
             PdfPCell cell2 = new PdfPCell();
             cell2.addElement(new Paragraph("NEXT ACTION PLAN", heading3Font));
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
-            cell2.addElement(new Paragraph("\n\n\n"));
+            answerEntity = qaMap.get(new Pair<>("dsr_summary_3", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            cell2.addElement(new Paragraph(value));
             table1.addCell(cell2);
 
             doc.add(table1);

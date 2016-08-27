@@ -162,7 +162,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                 job_id = Integer.parseInt(SharedPreferenceUtil.getString(ConstantUtil.SP_POSITION_ID));
             }
         } else {
-            
+
         }
         coach_name.setText(coach_email.getText().toString());
         coach_job.setSelection(job_id);

@@ -107,22 +107,22 @@ public class MerchandiserActivity extends AppCompatActivity {
 
     private void saveQA() {
         for(MerchandiserAnswer answer : answers) {
-            addingQA(answer.getProduct() +"\n"+answer.getSize(), answer.getIndeks(),answer.isSatu_a(),"", true);
-            addingQA(answer.getProduct() +"\n"+answer.getSize(), answer.getIndeks(),answer.isSatu_b(),"", true);
-            addingQA(answer.getProduct() +"\n"+answer.getSize(), answer.getIndeks(),answer.isDua_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),answer.isDua_b(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),answer.isTiga_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),answer.isEmpat_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),answer.isLima_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getEnam_a(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getEnam_b(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getEnam_c(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getEnam_d(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getRpi(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getTujuh_a(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),false,answer.getTujuh_b(), false);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), answer.getIndeks(),answer.isTujuh_c(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), "kompetitor_"+answer.getIndeks(),false,answer.getKompetitor(), false);
+            addingQA(answer.getProduct() +"\n"+answer.getSize(), "fa_1a",answer.isSatu_a(),"", true);
+            addingQA(answer.getProduct() +"\n"+answer.getSize(), "fa_1b",answer.isSatu_b(),"", true);
+            addingQA(answer.getProduct() +"\n"+answer.getSize(), "fa_2a",answer.isDua_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_2b",answer.isDua_b(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_3a",answer.isTiga_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_4a",answer.isEmpat_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_5b",answer.isLima_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6a",false,answer.getEnam_a(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6b",false,answer.getEnam_b(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6c",false,answer.getEnam_c(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6d",false,answer.getEnam_d(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_rpi",false,answer.getRpi(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_7a",false,answer.getTujuh_a(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_7b",false,answer.getTujuh_b(), false);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_7c",answer.isTujuh_c(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_kompetitor",false,answer.getKompetitor(), false);
         }
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override

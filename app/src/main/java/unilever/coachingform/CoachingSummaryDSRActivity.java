@@ -61,7 +61,22 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
     private void saveQA() {
         addingQA("","dsr_summary_1",false,summary_1.getText().toString(),false);
         addingQA("","dsr_summary_2",false,summary_2.getText().toString(),false);
-        addingQA("","dsr_summary_3",false,summary_3.getText().toString(),false);
+        addingQA("", "dsr_summary_3", false, summary_3.getText().toString(), false);
+        CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
+                new CoachingSessionDAO.UpdateCoachingListener() {
+                    @Override
+                    public void onGuidelineUpdated(boolean isSuccess) {
+                        if (isSuccess) {
+                            insert();
+                        } else {
+                            Toast.makeText(CoachingSummaryDSRActivity.this, "Failed to save the data!!",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void insert() {
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
