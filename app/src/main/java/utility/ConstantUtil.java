@@ -10,6 +10,7 @@ public class ConstantUtil {
     public static final String SP_COACH_EMAIL = "SP_COACH_EMAIL";
     public static final String SP_COACH_POSITION = "SP_COACH_POSITION";
     public static final String SP_POSITION_ID = "SP_POSITION_ID";
+    public static final String SP_DATE = "SP_DATE";
 
     public static final int GUIDELINE_FASA = 1;
     public static final int GUIDELINE_DSR = 2;

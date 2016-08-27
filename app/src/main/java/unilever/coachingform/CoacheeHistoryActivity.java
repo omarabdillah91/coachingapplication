@@ -25,7 +25,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
     Button next;
     ListView history;
     Bundle profile;
-    private ProgressDialog progressBar;
+    public ProgressDialog progressBar;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -46,31 +46,34 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         history = (ListView) findViewById(R.id.listView);
         next.setOnClickListener(onClick);
         if(isNetworkAvailable()) {
-            progressBar = new ProgressDialog(this);
-            progressBar.setCancelable(true);
-            progressBar.setMessage("Loading .....");
-            progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressBar.setProgress(0);
-            progressBar.setMax(100);
-            progressBar.show();
-            CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
-                @Override
-                public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-                    progressBar.dismiss();
-                    if(coacheeHistories.size() >0) {
-                        onCoacheeHistoryReceived(coacheeHistories);
-                    } else {
-                        Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
-                                Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-            });
+            getData();
         } else {
             Toast.makeText(CoacheeHistoryActivity.this, "No internet access to load the the data!!!",
                     Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private void getData() {
+//        progressBar = new ProgressDialog(this);
+//        progressBar.setCancelable(false);
+//        progressBar.setMessage("Loading .....");
+//        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        progressBar.setProgress(0);
+//        progressBar.show();
+/*        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
+            @Override
+            public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
+
+                if(coacheeHistories.size() >0) {
+                    onCoacheeHistoryReceived(coacheeHistories);
+                } else {
+                    Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });*/
     }
 
 

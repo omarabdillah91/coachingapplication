@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,12 +15,15 @@ import java.util.List;
 
 import dao.CoachingQuestionAnswerDAO;
 import entity.CoachingQuestionAnswerEntity;
+import utility.ConstantUtil;
 import utility.RealmUtil;
+import utility.SharedPreferenceUtil;
 
 public class DSRSetelahActivity extends AppCompatActivity {
     Button next;
     Button sebelum, saat;
     EditText coach, coachee, area, distributor, text_satu, text_dua;
+    TextView date;
     boolean bahasa = false;
     boolean english = false;
     String job, coach_email, coachee_email, text_area, text_distributor = "";
@@ -131,6 +135,8 @@ public class DSRSetelahActivity extends AppCompatActivity {
         dua = (RadioButton) findViewById(R.id.dsr_setelah_2);
         text_satu = (EditText) findViewById(R.id.remarks_dsr_setelah_1);
         text_dua = (EditText) findViewById(R.id.remarks_dsr_setelah_2);
+        date = (TextView) findViewById(R.id.date);
+        date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         coach.setText(coach_email);
         coach.setEnabled(false);
         coachee.setText(coachee_email);

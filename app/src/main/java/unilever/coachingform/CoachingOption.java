@@ -9,9 +9,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import dao.CoachingSessionDAO;
+import utility.ConstantUtil;
+import utility.SharedPreferenceUtil;
 
 public class CoachingOption extends AppCompatActivity {
     Button rsm, asm_pull, asm_push, fa, dsr, dts, sr, next, bahasa, english;
@@ -20,6 +23,7 @@ public class CoachingOption extends AppCompatActivity {
     String job = "";
     Bundle profile;
     String coachingSessionID = "";
+    TextView date;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -66,6 +70,8 @@ public class CoachingOption extends AppCompatActivity {
         next = (Button) findViewById(R.id.next);
         bahasa = (Button) findViewById(R.id.indonesian);
         english = (Button) findViewById(R.id.english);
+        date = (TextView) findViewById(R.id.date);
+        date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         rsm.setOnClickListener(onClick);
         asm_pull.setOnClickListener(onClick);
         asm_push.setOnClickListener(onClick);
@@ -142,7 +148,7 @@ public class CoachingOption extends AppCompatActivity {
         } else if (asm_push_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (dsr_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, 2,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DSR,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -161,7 +167,7 @@ public class CoachingOption extends AppCompatActivity {
         } else if (dts_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (fa_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, 1,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_FASA,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {

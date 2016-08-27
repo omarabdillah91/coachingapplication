@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,6 +19,7 @@ import adapter.CoachAdapter;
 import dao.CoachingSessionDAO;
 import model.Coaching;
 import service.SynchronizationService;
+import utility.PDFUtil;
 
 public class SynchronizationActivity extends AppCompatActivity {
     ListView listView;
@@ -25,6 +27,7 @@ public class SynchronizationActivity extends AppCompatActivity {
     String email = "";
     int job = 0;
     private ProgressDialog progressBar;
+    CoachAdapter adapter;
     ArrayList<String> coachingSession = new ArrayList<String>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -40,20 +43,42 @@ public class SynchronizationActivity extends AppCompatActivity {
 
     public void onSync(View v)
     {
+        progressBar = new ProgressDialog(this);
+        progressBar.setCancelable(false);
+        progressBar.setMessage("Generate PDF .....");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressBar.setProgress(0);
         final String id = (String) v.getTag();
         final LinearLayout vwParentRow = (LinearLayout)v.getParent();
+        ListView listView = (ListView) vwParentRow.getParent();
+        final int position = listView.getPositionForView(vwParentRow);
         final TextView status = (TextView)vwParentRow.getChildAt(2);
         Button btnChild = (Button)vwParentRow.getChildAt(3);
+        Log.d("ID",id);
         if(status.getText().toString().equals("Sent")) {
             Toast.makeText(SynchronizationActivity.this, "The coaching activity has been sent",
                     Toast.LENGTH_SHORT).show();
         } else {
+            progressBar.show();
             SynchronizationService.syncCoachingSession(id, new SynchronizationService.SyncCoachingListener() {
                 @Override
                 public void onSyncCoachingCompleted(boolean isSucceed) {
-                    SynchronizationService.sendEmail(id, SynchronizationActivity.this);
-                    status.setText("Sent");
-                    vwParentRow.refreshDrawableState();
+                    CoachingSessionDAO.updateSubmitted(id, true,
+                            new CoachingSessionDAO.UpdateCoachingListener() {
+                                @Override
+                                public void onGuidelineUpdated(boolean isSuccess) {
+                                    PDFUtil.createPDF(id, new PDFUtil.GeneratePDFListener() {
+                                        @Override
+                                        public void onPDFGenerated(boolean isSuccess) {
+                                            progressBar.dismiss();
+                                            SynchronizationService.sendEmail(id, SynchronizationActivity.this);
+                                            adapter.remove(adapter.getItem(position));
+        //                                    status.setText("Sent");
+        //                                    vwParentRow.refreshDrawableState();
+                                        }
+                                    });
+                                }
+                            });
                 }
             });
 
@@ -85,7 +110,7 @@ public class SynchronizationActivity extends AppCompatActivity {
     }
 
     public void onCoachingReceived(List<Coaching> coachingList) {
-        CoachAdapter adapter = new CoachAdapter(this,
+        adapter = new CoachAdapter(this,
                 R.layout.synchronization_list, coachingList);
         listView.setAdapter(adapter);
     }

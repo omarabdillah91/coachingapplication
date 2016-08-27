@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
     private void signIn(String email, String password) {
         progressBar = new ProgressDialog(this);
-        progressBar.setCancelable(true);
+        progressBar.setCancelable(false);
         progressBar.setMessage("Login .....");
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressBar.setProgress(0);

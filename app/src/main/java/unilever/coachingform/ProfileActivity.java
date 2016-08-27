@@ -3,10 +3,13 @@ package unilever.coachingform;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,9 +17,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 import dao.CoachingSessionDAO;
 import utility.ConstantUtil;
+import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -30,32 +43,53 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     String coach_position, coachee_position, first_position, second_position, cd_position = "";
     String coachingSessionID = "";
     final String TAG = "Profile";
+    private FirebaseAuth.AuthStateListener mAuthListener;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v.getId() == R.id.next) {
-                CoachingSessionDAO.insertNewCoaching(coachee_name.getText().toString(), coachee_email.getText().toString(), coachee_position,
-                        first_name.getText().toString(), first_email.getText().toString(), first_position,
-                        second_name.getText().toString(), second_email.getText().toString(), second_position,
-                        cd_name.getText().toString(), cd_email.getText().toString(), cd_position,
-                        new CoachingSessionDAO.InsertCoachingListener() {
-                            @Override
-                            public void onInsertCoachingCompleted(String id) {
-                                coachingSessionID = id;
-                                Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
-                                Bundle profile = getBundle();
-                                intent.putExtra("coach", coach_email.getText().toString());
-                                intent.putExtra("coachee", coachee_email.getText().toString());
-                                intent.putExtra("job", job);
-                                intent.putExtra("id", coachingSessionID);
-                                intent.putExtra("profile", profile);
-                                startActivity(intent);
-                                Log.d(TAG, " " + id);
-                            }
-                        });
+                if(validate()) {
+                    Date date = new Date(System.currentTimeMillis());
+                    DateFormat format = new SimpleDateFormat("yyyy MMM dd");
+                    format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
+                    String date_formatted = format.format(date);
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_DATE,date_formatted);
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, coach_name.getText().toString());
+                    CoachingSessionDAO.insertNewCoaching(coachee_name.getText().toString(), coachee_email.getText().toString(), coachee_position,
+                            first_name.getText().toString(), first_email.getText().toString(), first_position,
+                            second_name.getText().toString(), second_email.getText().toString(), second_position,
+                            cd_name.getText().toString(), cd_email.getText().toString(), cd_position,
+                            new CoachingSessionDAO.InsertCoachingListener() {
+                                @Override
+                                public void onInsertCoachingCompleted(String id) {
+                                    coachingSessionID = id;
+                                    Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
+                                    Bundle profile = getBundle();
+                                    intent.putExtra("coach", coach_email.getText().toString());
+                                    intent.putExtra("coachee", coachee_email.getText().toString());
+                                    intent.putExtra("job", job);
+                                    intent.putExtra("id", coachingSessionID);
+                                    intent.putExtra("profile", profile);
+                                    startActivity(intent);
+                                    Log.d(TAG, " " + id);
+                                }
+                            });
+                } else {
+                    Toast.makeText(ProfileActivity.this, "Email of every roles should not be empty!!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         }
     };
+
+    private boolean validate() {
+        if(!coach_email.getText().toString().equalsIgnoreCase("") && !coachee_email.getText().toString().equalsIgnoreCase("")  &&
+                !first_email.getText().toString().equalsIgnoreCase("") && !second_email.getText().toString().equalsIgnoreCase("")  &&
+                !cd_email.getText().toString().equalsIgnoreCase("") ) {
+            return true;
+        }
+        return false;
+    }
 
     private Bundle getBundle() {
         Bundle outState = new Bundle();
@@ -88,10 +122,15 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         second_job = (Spinner) findViewById(R.id.secondlinemanager_position);
         cd_job = (Spinner) findViewById(R.id.cdteam_position);
         coach_name = (EditText) findViewById(R.id.coach_name);
+        coach_name.setEnabled(false);
         coachee_name = (EditText) findViewById(R.id.coachee_name);
+        coachee_name.setEnabled(false);
         first_name = (EditText) findViewById(R.id.firstlm_name);
+        first_name.setEnabled(false);
         second_name = (EditText) findViewById(R.id.secondlm_name);
+        second_name.setEnabled(false);
         cd_name = (EditText) findViewById(R.id.cdteam_name);
+        cd_name.setEnabled(false);
         coach_email = (EditText) findViewById(R.id.coach_email);
         coachee_email = (EditText) findViewById(R.id.coachee_email);
         first_email = (EditText) findViewById(R.id.firstlinemanager_email);
@@ -117,10 +156,15 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                 setField(bundle.getBundle("profile"));
             }
         }
-        coach_email.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL));
-        if(job_id != -1) {
-            job_id = Integer.parseInt(SharedPreferenceUtil.getString(ConstantUtil.SP_POSITION_ID));
+        if (!SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL).equalsIgnoreCase("")) {
+            coach_email.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL));
+            if(job_id != -1) {
+                job_id = Integer.parseInt(SharedPreferenceUtil.getString(ConstantUtil.SP_POSITION_ID));
+            }
+        } else {
+            
         }
+        coach_name.setText(coach_email.getText().toString());
         coach_job.setSelection(job_id);
         coach_position = coach_job.getSelectedItem().toString();
         coach_job.setOnItemSelectedListener(this);
@@ -129,6 +173,90 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         second_job.setOnItemSelectedListener(this);
         cd_job.setOnItemSelectedListener(this);
         next.setOnClickListener(onClick);
+        setAutomatic();
+    }
+
+    private void setAutomatic() {
+        coach_email.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                coach_name.setText(coach_email.getText().toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        coachee_email.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                coachee_name.setText(coachee_email.getText().toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        first_email.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                first_name.setText(first_email.getText().toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        second_email.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                second_name.setText(second_email.getText().toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
+        cd_email.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                cd_name.setText(cd_email.getText().toString());
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        });
     }
 
     private void setField(Bundle savedState) {

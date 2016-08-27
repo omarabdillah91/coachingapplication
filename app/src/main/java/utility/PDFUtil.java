@@ -313,12 +313,12 @@ public class PDFUtil {
             tableSebelum.addCell(createTableHeader("Remarks"));
 
 
-            String[] sebelumID = {"1", "2", "3", "4", "4a", "4b", "4c", "4d", "4e"};
+            String[] sebelumID = {"1", "2", "3", "4a", "4b", "4c", "4d", "4e"};
 
             for (String id : sebelumID) {
                 String temp = "dsr_sebelum_" + id;
                 tableSebelum.addCell(createNormalCell(getString(temp, lang)));
-                String questionID = langS + temp;
+                String questionID = temp;
                 String columnID = "";
                 CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
                 String value = String.valueOf(answerEntity.isTickAnswer());
@@ -342,18 +342,21 @@ public class PDFUtil {
                 tableSaat.addCell(createTableHeader(String.valueOf(i)));
             }
 
-            String[] saatID = {"1", "2", "3", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
-
+            String[] saatID = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+            String[] text_saatID = {"1", "2", "3a", "3b", "3c", "3d", "3e", "4", "5","6"};
+            int in = 0;
             for (String id : saatID) {
                 String temp = "dsr_saat_" + id;
-                tableSaat.addCell(createNormalCell(getString(temp, lang)));
+                String temp_1 =  "dsr_saat_" + text_saatID[in];
+                tableSaat.addCell(createNormalCell(getString(temp_1, lang)));
                 for (int i = 1; i <= 10; i++) {
-                    String questionID = langS + temp;
-                    String columnID = "customer_ke_" + i;
+                    String questionID = temp;
+                    String columnID = "customer_" + i;
                     String value = String.valueOf(qaMap.get(new Pair<>(questionID, columnID))
                             .isTickAnswer());
                     tableSaat.addCell(createNormalCell(value));
                 }
+                in++;
             }
 
             doc.add(tableSaat);
@@ -373,7 +376,7 @@ public class PDFUtil {
             for (String id : setelahID) {
                 String temp = "dsr_setelah_" + id;
                 tableSetelah.addCell(createNormalCell(getString(temp, lang)));
-                String questionID = langS + temp;
+                String questionID = temp;
                 String columnID = "";
                 CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
                 String value = String.valueOf(answerEntity.isTickAnswer());

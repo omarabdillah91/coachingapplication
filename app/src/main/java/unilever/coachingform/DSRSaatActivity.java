@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,12 +22,15 @@ import adapter.DSRSaatQuestionAdapter;
 import adapter.QuestionAdapter;
 import dao.CoachingQuestionAnswerDAO;
 import entity.CoachingQuestionAnswerEntity;
+import utility.ConstantUtil;
 import utility.RealmUtil;
+import utility.SharedPreferenceUtil;
 
 public class DSRSaatActivity extends AppCompatActivity {
     Context context;
     Button next;
     Button sebelum, setelah;
+    TextView date;
     EditText coach, coachee, area, distributor, text_satu, text_dua;
     boolean bahasa = false;
     boolean english = false;
@@ -166,6 +170,8 @@ public class DSRSaatActivity extends AppCompatActivity {
                 radio[i][j].setOnClickListener(onRadioClick);
             }
         }
+        date = (TextView) findViewById(R.id.date);
+        date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         next.setOnClickListener(onClick);
         sebelum.setOnClickListener(onClick);
         setelah.setOnClickListener(onClick);
