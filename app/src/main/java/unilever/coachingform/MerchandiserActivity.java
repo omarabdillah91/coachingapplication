@@ -113,7 +113,7 @@ public class MerchandiserActivity extends AppCompatActivity {
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_2b",answer.isDua_b(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_3a",answer.isTiga_a(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_4a",answer.isEmpat_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_5b",answer.isLima_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_5a",answer.isLima_a(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6a",false,answer.getEnam_a(), false);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6b",false,answer.getEnam_b(), false);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6c",false,answer.getEnam_c(), false);
