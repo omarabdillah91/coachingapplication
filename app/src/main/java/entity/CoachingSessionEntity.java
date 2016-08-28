@@ -261,9 +261,9 @@ public class CoachingSessionEntity extends RealmObject {
     public String getGuidelineRep(){
         String guideline = "";
         if(getCoachingGuideline() == ConstantUtil.GUIDELINE_DSR){
-            guideline = "DSR Coaching";
+            guideline = "DSR";
         } else {
-            guideline = "FA/SA/Merchandiser Coaching";
+            guideline = "FA_SA_Merchandiser";
         }
         return guideline;
     }
