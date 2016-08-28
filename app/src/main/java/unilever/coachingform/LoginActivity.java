@@ -82,11 +82,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 FirebaseUser temp = firebaseAuth.getCurrentUser();
                 if (temp != null) {
                     String id = RealmUtil.generateID();
-                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
-                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
-                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_POSITION, position);
-                    SharedPreferenceUtil.putString(ConstantUtil.SP_POSITION_ID, job+"");
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + temp.getUid());
+                    if(email != null && !email.equals("")) {
+                        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, email);
+                        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
+                        SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_POSITION, position);
+                        SharedPreferenceUtil.putString(ConstantUtil.SP_POSITION_ID, job + "");
+                        Log.d(TAG, "onAuthStateChanged:signed_in:" + temp.getUid());
+                    }
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");

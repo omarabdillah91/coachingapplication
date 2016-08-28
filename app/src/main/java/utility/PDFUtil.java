@@ -281,10 +281,12 @@ public class PDFUtil {
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
             CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("fa_summary_1", ""));
             String value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("fa_summary_2", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell);
 
@@ -293,6 +295,7 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("fa_summary_3", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell2.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell2);
 
@@ -349,17 +352,23 @@ public class PDFUtil {
             tableSebelum.addCell(createTableHeader("Remarks"));
 
 
-            String[] sebelumID = {"1", "2", "3", "4a", "4b", "4c", "4d", "4e"};
+            String[] sebelumID = {"1", "2", "3", "4", "4a", "4b", "4c", "4d", "4e"};
 
             for (String id : sebelumID) {
                 String temp = "dsr_sebelum_" + id;
                 tableSebelum.addCell(createNormalCell(getString(temp, lang)));
                 String questionID = temp;
                 String columnID = "";
-                CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
-                String value = answerEntity.getTickStringRep();
-                tableSebelum.addCell(createNormalCell(value));
-                tableSebelum.addCell(createNormalCell(answerEntity.getTextAnswer()));
+
+                if (id.equals("4")) {
+                    tableSebelum.addCell("");
+                    tableSebelum.addCell("");
+                } else {
+                    CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                    String value = answerEntity.getTickStringRep();
+                    tableSebelum.addCell(createNormalCell(value));
+                    tableSebelum.addCell(createNormalCell(answerEntity.getTextAnswer()));
+                }
             }
 
             chapter.add(tableSebelum);
@@ -378,18 +387,22 @@ public class PDFUtil {
                 tableSaat.addCell(createTableHeader(String.valueOf(i)));
             }
 
-            String[] saatID = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-            String[] text_saatID = {"1", "2", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
+            String[] saatID = {"1", "2","3", "3", "4", "5", "6", "7", "8", "9", "10"};
+            String[] text_saatID = {"1", "2","3", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
             int in = 0;
             for (String id : saatID) {
                 String temp = "dsr_saat_" + id;
                 String temp_1 = "dsr_saat_" + text_saatID[in];
                 tableSaat.addCell(createNormalCell(getString(temp_1, lang)));
                 for (int i = 1; i <= 10; i++) {
-                    String questionID = temp;
-                    String columnID = "customer_" + i;
-                    String value = qaMap.get(new Pair<>(questionID, columnID)).getTickStringRep();
-                    tableSaat.addCell(createNormalCell(value));
+                    if(text_saatID[in].equals("3")){
+                        tableSaat.addCell("");
+                    } else {
+                        String questionID = temp;
+                        String columnID = "customer_" + i;
+                        String value = qaMap.get(new Pair<>(questionID, columnID)).getTickStringRep();
+                        tableSaat.addCell(createNormalCell(value));
+                    }
                 }
                 in++;
             }
@@ -420,7 +433,7 @@ public class PDFUtil {
             }
 
             doc.add(tableSetelah);
-            doc.newPage();
+            //doc.newPage();
             //doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
 
@@ -432,10 +445,12 @@ public class PDFUtil {
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
             CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("dsr_summary_1", ""));
             String value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_2", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell);
 
@@ -444,6 +459,7 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_3", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell2.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell2);
 
