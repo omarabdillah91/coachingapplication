@@ -24,11 +24,20 @@ public class CoachingSessionDAO {
     private static final String TAG ="CoachingSessionDAO";
     //private static final Realm realm = Realm.getDefaultInstance();
 
+    public static void deleteUnfinishedCoaching(){
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<CoachingSessionEntity> sessionList = realm.where(CoachingSessionEntity.class).
+                equalTo("isFinished",false).findAll();
+        realm.beginTransaction();
+        sessionList.deleteAllFromRealm();
+        realm.commitTransaction();
+    }
+
     public static void getUnsubmittedCoaching(GetListCoachingListener listener) {
         Realm realm = Realm.getDefaultInstance();
         ArrayList<Coaching> coachingList = new ArrayList<>();
         RealmResults<CoachingSessionEntity> sessionList = realm.where(CoachingSessionEntity.class)
-                .equalTo("isSubmitted", false).findAll();
+                .equalTo("isSubmitted", false).equalTo("isFinished", true).findAll();
         for (CoachingSessionEntity cs : sessionList) {
             Date date = new Date(cs.getDate());
             DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -192,6 +201,7 @@ public class CoachingSessionDAO {
         if(entity != null){
             realm.beginTransaction();
             entity.setAction(action);
+            entity.setFinished(true);
             realm.commitTransaction();
         }
 

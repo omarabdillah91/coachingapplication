@@ -14,4 +14,6 @@ public class ConstantUtil {
 
     public static final int GUIDELINE_FASA = 1;
     public static final int GUIDELINE_DSR = 2;
+
+    public static final int REQ_SEND_EMAIL = 91;
 }

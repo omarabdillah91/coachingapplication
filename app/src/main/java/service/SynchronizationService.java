@@ -18,6 +18,9 @@ import dto.CoachingQuestionAnswerDTO;
 import entity.CoachingQuestionAnswerEntity;
 import entity.CoachingSessionEntity;
 import model.Coaching;
+import unilever.coachingform.CoachingSummaryDSRActivity;
+import unilever.coachingform.CoachingSummaryMerchandiserActivity;
+import utility.ConstantUtil;
 
 /**
  * Created by adrianch on 15/08/2016.
@@ -109,7 +112,12 @@ public class SynchronizationService {
                     email.putExtra(Intent.EXTRA_STREAM, uri);
                     email.setType("application/pdf");
                     email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    activity.startActivity(email);
+
+                    if(activity instanceof CoachingSummaryDSRActivity || activity instanceof CoachingSummaryMerchandiserActivity){
+                        activity.startActivityForResult(email, ConstantUtil.REQ_SEND_EMAIL);
+                    } else {
+                        activity.startActivity(email);
+                    }
                 }
             }
         });

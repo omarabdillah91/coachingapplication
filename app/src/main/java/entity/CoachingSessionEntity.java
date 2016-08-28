@@ -39,6 +39,7 @@ public class CoachingSessionEntity extends RealmObject {
     private long dateCreated;
     private int coachingGuideline;
     private boolean isSubmitted;
+    private boolean isFinished;
 
     public CoachingSessionEntity(){}
 
@@ -65,6 +66,7 @@ public class CoachingSessionEntity extends RealmObject {
         this.coachID = coachID;
         this.coachName = coachName;
         this.isSubmitted = false;
+        this.isFinished = false;
         this.date = System.currentTimeMillis();
     }
 
@@ -250,6 +252,14 @@ public class CoachingSessionEntity extends RealmObject {
 
     public void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
+    }
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 
     public String getFormattedDate(){
