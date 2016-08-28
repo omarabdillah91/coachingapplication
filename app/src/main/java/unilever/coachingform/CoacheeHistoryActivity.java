@@ -62,11 +62,10 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressBar.setProgress(0);
         progressBar.show();
-        Log.d("CoacheeHistory", coachee);
         CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
             public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
-                progressBar.hide();
+                progressBar.dismiss();
                 if(coacheeHistories.size() >0) {
                     onHistoryReceived(coacheeHistories);
                 } else {
