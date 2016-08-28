@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,7 @@ import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
 public class CoachingSummaryDSRActivity extends AppCompatActivity {
+    private static final String TAG = "SummaryDSRActivity";
     Button next;
     EditText coach, coachee, area, distributor, summary_1, summary_2, summary_3;
     TextView date;
@@ -125,6 +127,7 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
+            Log.d(TAG, "Result Received");
             Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
             intent.putExtra("coach", coach.getText().toString());
             intent.putExtra("job", job);
