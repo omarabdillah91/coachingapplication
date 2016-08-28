@@ -1,5 +1,9 @@
 package entity;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.TimeZone;
+
 import dto.CoachingSessionDTO;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
@@ -245,6 +249,16 @@ public class CoachingSessionEntity extends RealmObject {
 
     public void setSubmitted(boolean submitted) {
         isSubmitted = submitted;
+    }
+
+    public String getFormattedDate(){
+        DateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
+        return format.format(getDate());
+    }
+
+    public String getPdfFileName(){
+        return getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
     }
 
     public CoachingSessionDTO toDTO(){

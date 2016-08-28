@@ -69,7 +69,7 @@ public class CoachingQuestionAnswerDAO {
     public static String[] uniqueColumnID(Collection<CoachingQuestionAnswerEntity> entityList){
         Set<String> result = new HashSet<>();
         for(CoachingQuestionAnswerEntity entity : entityList){
-            if(entity.getColumnID() == ""){
+            if(entity.getColumnID().contentEquals("")){
                 continue;
             }
             result.add(entity.getColumnID());

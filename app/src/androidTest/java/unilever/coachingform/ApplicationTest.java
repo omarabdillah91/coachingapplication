@@ -156,8 +156,8 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal3 = new CountDownLatch(1);
         final CountDownLatch signal4 = new CountDownLatch(2);
 
-        String[] sebelumID = {"1", "2", "3", "4", "4a", "4b", "4c", "4d", "4e"};
-        String[] saatID = {"1", "2", "3", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
+        String[] sebelumID = {"1", "2", "3", "4a", "4b", "4c", "4d", "4e"};
+        String[] saatID = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
         String[] setelahID = {"1", "2"};
 
         final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
@@ -167,7 +167,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("");
-            coachingQA.setQuestionID("bahasa_dsr_sebelum_" + id);
+            coachingQA.setQuestionID("dsr_sebelum_" + id);
             coachingQA.setTextAnswer("Remarks " + id);
             coachingQA.setTickAnswer(true);
             coachingQA.setHasTickAnswer(true);
@@ -179,8 +179,8 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
                 coachingQA.setId(RealmUtil.generateID());
                 coachingQA.setCoachingSessionID(coachingSessionID);
-                coachingQA.setColumnID("customer_ke_" + i);
-                coachingQA.setQuestionID("bahasa_dsr_saat_" + id);
+                coachingQA.setColumnID("customer_" + i);
+                coachingQA.setQuestionID("dsr_saat_" + id);
                 coachingQA.setTextAnswer("Right");
                 coachingQA.setTickAnswer(true);
                 coachingQA.setHasTickAnswer(true);
@@ -193,15 +193,27 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("");
-            coachingQA.setQuestionID("bahasa_dsr_setelah_" + id);
+            coachingQA.setQuestionID("dsr_setelah_" + id);
             coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        for(int i = 1; i <= 3; i++){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dsr_summary_" + i);
+            coachingQA.setTextAnswer("Summary" + i);
             coachingQA.setTickAnswer(true);
             coachingQA.setHasTickAnswer(true);
             coachingQAs.add(coachingQA);
         }*/
 
         String[] faID = {"1a","1b","2a","2b","3a","4a","5a","6a","6b","6c",
-                "6d","7a","7b","7c"};
+                "6d","rpi","7a","7b","7c","kompetitor"};
 
         for (String id : faID){
             for (int i = 1; i <= 5; i++) {
@@ -209,12 +221,24 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                 coachingQA.setId(RealmUtil.generateID());
                 coachingQA.setCoachingSessionID(coachingSessionID);
                 coachingQA.setColumnID("Product " + i);
-                coachingQA.setQuestionID("bahasa_fa_" + id);
+                coachingQA.setQuestionID("fa_" + id);
                 coachingQA.setTextAnswer("Remarks " + id);
                 coachingQA.setTickAnswer(true);
                 coachingQA.setHasTickAnswer(true);
                 coachingQAs.add(coachingQA);
             }
+        }
+
+        for(int i = 1; i <= 3; i++){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("fa_summary_" + i);
+            coachingQA.setTextAnswer("Summary" + i);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
         }
 
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
