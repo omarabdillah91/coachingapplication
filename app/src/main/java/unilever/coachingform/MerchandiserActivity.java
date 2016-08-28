@@ -348,13 +348,20 @@ public class MerchandiserActivity extends AppCompatActivity {
                 }
             });
         }
-        btnDismiss.setOnClickListener(new Button.OnClickListener() {
+        edit_6d.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onClick(View v) {
-                if(n >10) {
-                    kom_1 = kompetitor_1.getText().toString();
-                    kom_2 = kompetitor_2.getText().toString();
-                }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
                 int A = 1;
                 if(!edit_6a.getText().toString().isEmpty()) {
                     A = Integer.parseInt(edit_6a.getText().toString());
@@ -376,6 +383,15 @@ public class MerchandiserActivity extends AppCompatActivity {
                 }
                 double rpi = (double) ((double)(A/B) / (double) (C/D));
                 edit_rpi.setText(rpi + "");
+            }
+        });
+        btnDismiss.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(n >10) {
+                    kom_1 = kompetitor_1.getText().toString();
+                    kom_2 = kompetitor_2.getText().toString();
+                }
                 if(n == 11){
                     answers.add(new MerchandiserAnswer(in, edit_product_11.getText().toString(), edit_size_11.getText().toString(),
                             kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
