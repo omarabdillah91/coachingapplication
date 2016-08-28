@@ -281,10 +281,12 @@ public class PDFUtil {
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
             CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("fa_summary_1", ""));
             String value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("fa_summary_2", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell);
 
@@ -293,6 +295,7 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("fa_summary_3", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell2.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell2);
 
@@ -430,7 +433,7 @@ public class PDFUtil {
             }
 
             doc.add(tableSetelah);
-            doc.newPage();
+            //doc.newPage();
             //doc.add(Chunk.NEWLINE);
             doc.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
 
@@ -442,10 +445,12 @@ public class PDFUtil {
             cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
             CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("dsr_summary_1", ""));
             String value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_2", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell);
 
@@ -454,6 +459,7 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_3", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
             cell2.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell2);
 
