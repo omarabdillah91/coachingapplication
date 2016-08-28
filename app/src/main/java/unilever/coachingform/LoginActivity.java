@@ -201,6 +201,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         // [END sign_in_with_email]
     }
     private void updateUI(FirebaseUser user) {
+        CoachingSessionDAO.deleteUnfinishedCoaching();
         if (user != null) {
             if(isNetworkAvailable()) {
                 CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
