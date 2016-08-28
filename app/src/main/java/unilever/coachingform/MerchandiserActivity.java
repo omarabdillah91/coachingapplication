@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +32,11 @@ import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
 public class MerchandiserActivity extends AppCompatActivity {
+    private static DecimalFormat df2 = new DecimalFormat(".##");
     private ArrayList<String> questions = new ArrayList<>();
     Button next;
     TextView date;
+    boolean checked_1, checked_2, checked_3, checked_4, checked_5, checked_6, checked_7, checked_8, checked_9, checked_10, checked_11, checked_12;
     EditText coach, coachee, store, edit_product_11,edit_product_12,edit_size_11,edit_size_12;
     EditText edit_6a,edit_6b,edit_6c,edit_6d,edit_rpi,edit_7a,edit_7b;
     Button action_1,action_2,action_3,action_4,action_5,action_6,action_7,action_8,action_9,action_10,action_11,action_12;
@@ -51,38 +54,53 @@ public class MerchandiserActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, "", "",
-                        store.getText().toString(), new CoachingSessionDAO.UpdateCoachingListener() {
-                            @Override
-                            public void onGuidelineUpdated(boolean isSuccess) {
-                                if (isSuccess) {
-                                    saveQA();
-                                } else {
-                                    Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
-                                            Toast.LENGTH_SHORT).show();
+                if(cekButton()) {
+                    CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, "", "",
+                            store.getText().toString(), new CoachingSessionDAO.UpdateCoachingListener() {
+                                @Override
+                                public void onGuidelineUpdated(boolean isSuccess) {
+                                    if (isSuccess) {
+                                        saveQA();
+                                    } else {
+                                        Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-                            }
-                        });
+                            });
+                } else {
+                    Toast.makeText(MerchandiserActivity.this, "Please fill at least 10 products!!",
+                            Toast.LENGTH_SHORT).show();
+                }
             } else if (v.getId() == R.id.product_1) {
                 showQuestion(1);
+                checked_1 = true;
             } else if (v.getId() == R.id.product_2) {
                 showQuestion(2);
+                checked_2 = true;
             } else if (v.getId() == R.id.product_3) {
                 showQuestion(3);
+                checked_3 = true;
             } else if (v.getId() == R.id.product_4) {
                 showQuestion(4);
+                checked_4 = true;
             } else if (v.getId() == R.id.product_5) {
                 showQuestion(5);
+                checked_5 = true;
             } else if (v.getId() == R.id.product_6) {
                 showQuestion(6);
+                checked_6 = true;
             } else if (v.getId() == R.id.product_7) {
                 showQuestion(7);
+                checked_7 = true;
             } else if (v.getId() == R.id.product_8) {
                 showQuestion(8);
+                checked_8 = true;
             } else if (v.getId() == R.id.product_9) {
                 showQuestion(9);
+                checked_9 = true;
             } else if (v.getId() == R.id.product_10) {
                 showQuestion(10);
+                checked_10 = true;
             } else if (v.getId() == R.id.product_11) {
                 if(edit_product_11.getText().toString().isEmpty()|| edit_size_11.getText().toString().isEmpty()) {
                     Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
@@ -91,12 +109,14 @@ public class MerchandiserActivity extends AppCompatActivity {
                     edit_product_11.setEnabled(false);
                     edit_size_11.setEnabled(false);
                     showQuestion(11);
+                    checked_11 = true;
                 }
             } else if (v.getId() == R.id.product_12) {
                 if(!edit_product_12.getText().toString().isEmpty() && !edit_size_12.getText().toString().isEmpty()) {
                     edit_product_12.setEnabled(false);
                     edit_size_12.setEnabled(false);
                     showQuestion(12);
+                    checked_12 = true;
                 } else {
                     Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
                             Toast.LENGTH_SHORT).show();
@@ -104,6 +124,11 @@ public class MerchandiserActivity extends AppCompatActivity {
             }
         }
     };
+
+    private boolean cekButton() {
+        return checked_1 && checked_2 && checked_3 && checked_4 && checked_5 && checked_6 && checked_7 && checked_8 && checked_9
+                && checked_10;
+    }
 
     private void saveQA() {
         for(MerchandiserAnswer answer : answers) {
@@ -113,7 +138,7 @@ public class MerchandiserActivity extends AppCompatActivity {
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_2b",answer.isDua_b(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_3a",answer.isTiga_a(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_4a",answer.isEmpat_a(),"", true);
-            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_5b",answer.isLima_a(),"", true);
+            addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_5a",answer.isLima_a(),"", true);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6a",false,answer.getEnam_a(), false);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6b",false,answer.getEnam_b(), false);
             addingQA(answer.getProduct()+"\n"+answer.getSize(), "fa_6c",false,answer.getEnam_c(), false);
@@ -348,43 +373,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                 }
             });
         }
-        edit_6d.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                int A = 1;
-                if(!edit_6a.getText().toString().isEmpty()) {
-                    A = Integer.parseInt(edit_6a.getText().toString());
-                }
-                int B = 1;
-                if (!edit_6b.getText().toString().isEmpty()) {
-                    B = Integer.parseInt(edit_6b.getText().toString());
-                    if (B ==0) B = 1;
-                }
-                int C = 1;
-                int D = 1;
-                if (!edit_6c.getText().toString().isEmpty()) {
-                    C = Integer.parseInt(edit_6c.getText().toString());
-                    if (C ==0) C = 1;
-                }
-                if (!edit_6d.getText().toString().isEmpty()) {
-                    D = Integer.parseInt(edit_6d.getText().toString());
-                    if (D ==0) D = 1;
-                }
-                double rpi = (double) ((double)(A/B) / (double) (C/D));
-                edit_rpi.setText(rpi + "");
-            }
-        });
+        addTextLister();
         btnDismiss.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -392,6 +381,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                     kom_1 = kompetitor_1.getText().toString();
                     kom_2 = kompetitor_2.getText().toString();
                 }
+
                 if(n == 11){
                     answers.add(new MerchandiserAnswer(in, edit_product_11.getText().toString(), edit_size_11.getText().toString(),
                             kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
@@ -411,6 +401,101 @@ public class MerchandiserActivity extends AppCompatActivity {
 
                 popupWindow.dismiss();
             }});
+    }
+
+    private void addTextLister() {
+        edit_6d.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setRPI();
+            }
+        });
+        edit_6a.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setRPI();
+            }
+        });
+        edit_6b.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setRPI();
+            }
+        });
+        edit_6c.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                setRPI();
+            }
+        });
+    }
+
+    private void setRPI() {
+        int A = 1;
+        if(!edit_6a.getText().toString().isEmpty()) {
+            A = Integer.parseInt(edit_6a.getText().toString());
+        }
+        int B = 1;
+        if (!edit_6b.getText().toString().isEmpty()) {
+            B = Integer.parseInt(edit_6b.getText().toString());
+            if (B ==0) B = 1;
+        }
+        int C = 1;
+        int D = 1;
+        if (!edit_6c.getText().toString().isEmpty()) {
+            C = Integer.parseInt(edit_6c.getText().toString());
+            if (C ==0) C = 1;
+        }
+        if (!edit_6d.getText().toString().isEmpty()) {
+            D = Integer.parseInt(edit_6d.getText().toString());
+            if (D ==0) D = 1;
+        }
+        double rpi = (double) ((double)(A/B) / (double) (C/D));
+        edit_rpi.setText(df2.format(rpi) + "");
     }
 
     private String getKompetitor(int indeks) {

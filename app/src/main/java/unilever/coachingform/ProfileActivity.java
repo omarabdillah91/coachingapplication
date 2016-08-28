@@ -63,6 +63,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                                 @Override
                                 public void onInsertCoachingCompleted(String id) {
                                     coachingSessionID = id;
+                                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_EMAIL, coach_email.getText().toString());
+                                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_ID, id);
+                                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_POSITION, job);
+                                    SharedPreferenceUtil.putString(ConstantUtil.SP_POSITION_ID, job_id+"");
                                     Intent intent = new Intent(ProfileActivity.this, CoachingOption.class);
                                     Bundle profile = getBundle();
                                     intent.putExtra("coach", coach_email.getText().toString());
