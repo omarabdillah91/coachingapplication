@@ -7,6 +7,7 @@ import java.util.TimeZone;
 import dto.CoachingSessionDTO;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
+import utility.ConstantUtil;
 import utility.RealmUtil;
 
 /**
@@ -257,8 +258,18 @@ public class CoachingSessionEntity extends RealmObject {
         return format.format(getDate());
     }
 
+    public String getGuidelineRep(){
+        String guideline = "";
+        if(getCoachingGuideline() == ConstantUtil.GUIDELINE_DSR){
+            guideline = "DSR Coaching";
+        } else {
+            guideline = "FA/SA/Merchandiser Coaching";
+        }
+        return guideline;
+    }
+
     public String getPdfFileName(){
-        return getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
+        return getGuidelineRep() + " - " + getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
     }
 
     public CoachingSessionDTO toDTO(){
