@@ -111,14 +111,15 @@ public class SynchronizationService {
                     Uri uri = Uri.fromFile(new File(path));
                     email.putExtra(Intent.EXTRA_STREAM, uri);
                     email.setType("application/pdf");
-                    email.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     if(activity instanceof CoachingSummaryDSRActivity ||
                             activity instanceof CoachingSummaryMerchandiserActivity){
-                        activity.startActivityForResult(email, ConstantUtil.REQ_SEND_EMAIL);
-                    } else {
+                        Log.d(TAG, "Start activity for result");
+                        activity.startActivityForResult(email, ConstantUtil.REQ_SEND_EMAIL );
+                   } else {
+                        Log.d(TAG, "Start activity with no result");
                         activity.startActivity(email);
-                    }
+                   }
                 }
             }
         });
