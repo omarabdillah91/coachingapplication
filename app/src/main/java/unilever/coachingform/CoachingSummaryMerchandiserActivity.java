@@ -96,11 +96,11 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
                                                     public void onPDFGenerated(boolean isSuccess) {
                                                         progressBar.dismiss();
                                                         SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryMerchandiserActivity.this);
-                                                        Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
+                                                        /*Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
                                                         intent.putExtra("coach", coach.getText().toString());
                                                         intent.putExtra("job", job);
                                                         intent.putExtra("coachee", coachee.getText().toString());
-                                                        startActivity(intent);
+                                                        startActivity(intent);*/                                    
                                                     }
                                                 });
                                             }
@@ -123,6 +123,17 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
+            Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
+            intent.putExtra("coach", coach.getText().toString());
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee.getText().toString());
+            startActivity(intent);
+        }
     }
 
     private boolean isNetworkAvailable() {

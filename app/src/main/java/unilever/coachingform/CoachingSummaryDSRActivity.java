@@ -94,11 +94,11 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
                                                     public void onPDFGenerated(boolean isSuccess) {
                                                         progressBar.dismiss();
                                                         SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryDSRActivity.this);
-                                                        Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+                                                        /*Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
                                                         intent.putExtra("coach", coach.getText().toString());
                                                         intent.putExtra("job", job);
                                                         intent.putExtra("coachee", coachee.getText().toString());
-                                                        startActivity(intent);
+                                                        startActivity(intent);*/
                                                     }
                                                 });
                                             }
@@ -120,6 +120,17 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
+            Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+            intent.putExtra("coach", coach.getText().toString());
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee.getText().toString());
+            startActivity(intent);
+        }
     }
 
     private boolean isNetworkAvailable() {
