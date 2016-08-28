@@ -102,7 +102,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
                     status_4a = false;
                 } else {
                     status_4a = true;
-                    empat_b.setChecked(true);
+                    empat_a.setChecked(true);
                 }
             } else if (v.getId() == R.id.dsr_sebelum_4b) {
                 if(status_4b) {

@@ -73,34 +73,44 @@ public class MerchandiserActivity extends AppCompatActivity {
                 }
             } else if (v.getId() == R.id.product_1) {
                 showQuestion(1);
+                action_1.setBackgroundColor(getResources().getColor(R.color.orange));
                 checked_1 = true;
             } else if (v.getId() == R.id.product_2) {
                 showQuestion(2);
                 checked_2 = true;
+                action_2.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_3) {
                 showQuestion(3);
                 checked_3 = true;
+                action_3.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_4) {
                 showQuestion(4);
                 checked_4 = true;
+                action_4.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_5) {
                 showQuestion(5);
                 checked_5 = true;
+                action_5.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_6) {
                 showQuestion(6);
                 checked_6 = true;
+                action_6.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_7) {
                 showQuestion(7);
                 checked_7 = true;
+                action_7.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_8) {
                 showQuestion(8);
                 checked_8 = true;
+                action_8.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_9) {
                 showQuestion(9);
                 checked_9 = true;
+                action_9.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_10) {
                 showQuestion(10);
                 checked_10 = true;
+                action_10.setBackgroundColor(getResources().getColor(R.color.orange));
             } else if (v.getId() == R.id.product_11) {
                 if(edit_product_11.getText().toString().isEmpty()|| edit_size_11.getText().toString().isEmpty()) {
                     Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
@@ -110,6 +120,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                     edit_size_11.setEnabled(false);
                     showQuestion(11);
                     checked_11 = true;
+                    action_11.setBackgroundColor(getResources().getColor(R.color.orange));
                 }
             } else if (v.getId() == R.id.product_12) {
                 if(!edit_product_12.getText().toString().isEmpty() && !edit_size_12.getText().toString().isEmpty()) {
@@ -117,6 +128,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                     edit_size_12.setEnabled(false);
                     showQuestion(12);
                     checked_12 = true;
+                    action_12.setBackgroundColor(getResources().getColor(R.color.orange));
                 } else {
                     Toast.makeText(MerchandiserActivity.this, "Fill in the product and size",
                             Toast.LENGTH_SHORT).show();
@@ -157,7 +169,7 @@ public class MerchandiserActivity extends AppCompatActivity {
                     intent.putExtra("coach", coach.getText().toString());
                     intent.putExtra("job", job);
                     intent.putExtra("coachee", coachee.getText().toString());
-                    intent.putExtra("bahasa",bahasa);
+                    intent.putExtra("bahasa", bahasa);
                     intent.putExtra("english", english);
                     intent.putExtra("store", store.getText().toString());
                     intent.putExtra("id", coachingSessionID);
@@ -393,14 +405,65 @@ public class MerchandiserActivity extends AppCompatActivity {
                             edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
                             edit_rpi.getText().toString(), tujuh_c));
                 } else {
-                    answers.add(new MerchandiserAnswer(in, getResources().getString(R.string.product_1), getResources().getString(R.string.size_1),
+                    answers.add(new MerchandiserAnswer(in, getProduct(n), getSize(n),
                             kom_1, satu_a, satu_b, dua_a, dua_b, tiga_a, empat_a, lima_a, edit_6a.getText().toString(), edit_6b.getText().toString(),
                             edit_6c.getText().toString(), edit_6d.getText().toString(), edit_7a.getText().toString(), edit_7b.getText().toString(),
                             edit_rpi.getText().toString(), tujuh_c));
                 }
-
                 popupWindow.dismiss();
             }});
+    }
+
+    private String getSize(int n) {
+        String hasil = "";
+        if(n == 1) {
+            hasil = getResources().getString(R.string.size_1);
+        } else if(n == 2) {
+            hasil = getResources().getString(R.string.size_2);
+        } else if (n == 3) {
+            hasil = getResources().getString(R.string.size_3);
+        } else if (n == 4) {
+            hasil = getResources().getString(R.string.size_4);
+        } else if (n == 5) {
+            hasil = getResources().getString(R.string.size_5);
+        } else if (n == 6) {
+            hasil = getResources().getString(R.string.size_6);
+        } else if (n == 7) {
+            hasil = getResources().getString(R.string.size_7);
+        } else if (n == 8) {
+            hasil = getResources().getString(R.string.size_8);
+        } else if (n == 9) {
+            hasil = getResources().getString(R.string.size_9);
+        } else if (n == 10) {
+            hasil = getResources().getString(R.string.size_10);
+        }
+        return hasil;
+    }
+
+    private String getProduct(int n) {
+        String hasil = "";
+        if(n == 1) {
+            hasil = getResources().getString(R.string.product_1);
+        } else if(n == 2) {
+            hasil = getResources().getString(R.string.product_2);
+        } else if (n == 3) {
+            hasil = getResources().getString(R.string.product_3);
+        } else if (n == 4) {
+            hasil = getResources().getString(R.string.product_4);
+        } else if (n == 5) {
+            hasil = getResources().getString(R.string.product_5);
+        } else if (n == 6) {
+            hasil = getResources().getString(R.string.product_6);
+        } else if (n == 7) {
+            hasil = getResources().getString(R.string.product_7);
+        } else if (n == 8) {
+            hasil = getResources().getString(R.string.product_8);
+        } else if (n == 9) {
+            hasil = getResources().getString(R.string.product_9);
+        } else if (n == 10) {
+            hasil = getResources().getString(R.string.product_10);
+        }
+        return hasil;
     }
 
     private void addTextLister() {
