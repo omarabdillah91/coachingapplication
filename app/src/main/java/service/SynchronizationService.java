@@ -77,6 +77,8 @@ public class SynchronizationService {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 List<String> receiverList = new ArrayList<>();
 
+                receiverList.add(coachingSessionEntity.getCoacheeEmail());
+
                 if(coachingSessionEntity.getFirstManagerEmail() != null &&
                         coachingSessionEntity.getFirstManagerEmail() != ""){
                     receiverList.add(coachingSessionEntity.getFirstManagerEmail());
@@ -91,6 +93,7 @@ public class SynchronizationService {
                         coachingSessionEntity.getCdCapabilityTeamEmail() != ""){
                     receiverList.add(coachingSessionEntity.getCdCapabilityTeamEmail());
                 }
+
 
 
                 String[] receiverArray = Arrays.copyOf(receiverList.toArray(), receiverList.size(), String[].class);
