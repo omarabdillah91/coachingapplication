@@ -54,7 +54,6 @@ public class SynchronizationActivity extends AppCompatActivity {
         final int position = listView.getPositionForView(vwParentRow);
         final TextView status = (TextView)vwParentRow.getChildAt(2);
         Button btnChild = (Button)vwParentRow.getChildAt(3);
-        Log.d("ID",id);
         if(status.getText().toString().equals("Sent")) {
             Toast.makeText(SynchronizationActivity.this, "The coaching activity has been sent",
                     Toast.LENGTH_SHORT).show();
@@ -73,8 +72,6 @@ public class SynchronizationActivity extends AppCompatActivity {
                                             progressBar.dismiss();
                                             SynchronizationService.sendEmail(id, SynchronizationActivity.this);
                                             adapter.remove(adapter.getItem(position));
-        //                                    status.setText("Sent");
-        //                                    vwParentRow.refreshDrawableState();
                                         }
                                     });
                                 }

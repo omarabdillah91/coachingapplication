@@ -92,13 +92,19 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
                                                 PDFUtil.createPDF(coachingSessionID, new PDFUtil.GeneratePDFListener() {
                                                     @Override
                                                     public void onPDFGenerated(boolean isSuccess) {
-                                                        progressBar.dismiss();
-                                                        SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryDSRActivity.this);
-                                                        Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
-                                                        intent.putExtra("coach", coach.getText().toString());
-                                                        intent.putExtra("job", job);
-                                                        intent.putExtra("coachee", coachee.getText().toString());
-                                                        startActivity(intent);
+                                                        if(isSuccess) {
+                                                            progressBar.dismiss();
+                                                            SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryDSRActivity.this);
+                                                            Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+                                                            intent.putExtra("coach", coach.getText().toString());
+                                                            intent.putExtra("job", job);
+                                                            intent.putExtra("coachee", coachee.getText().toString());
+                                                            startActivity(intent);
+                                                        } else {
+                                                            Toast.makeText(CoachingSummaryDSRActivity.this, "Failed to generate PDF!!",
+                                                                    Toast.LENGTH_SHORT).show();
+                                                        }
+
                                                     }
                                                 });
                                             }
