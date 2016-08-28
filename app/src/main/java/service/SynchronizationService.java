@@ -68,14 +68,15 @@ public class SynchronizationService {
 
     public static void sendEmail(String coachingSessionID, final Activity activity){
 
-        final String path = Environment.getExternalStorageDirectory() + "/" +
-                coachingSessionID + ".pdf";
 
         CoachingSessionDAO.getCoachingSession(coachingSessionID, new CoachingSessionDAO.GetCoachingListener() {
             @Override
             public void onCoachingReceived(CoachingSessionEntity coachingSessionEntity) {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 List<String> receiverList = new ArrayList<>();
+                
+                String path = Environment.getExternalStorageDirectory() + "/" +
+                        coachingSessionEntity.getPdfFileName();
 
                 receiverList.add(coachingSessionEntity.getCoacheeEmail());
 
