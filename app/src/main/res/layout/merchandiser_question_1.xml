@@ -117,6 +117,7 @@
             <EditText
                 android:id="@+id/fa_6a"
                 android:hint="rupiah"
+                android:inputType="number"
                 style="@style/fa_edittext"/>
         </LinearLayout>
         <LinearLayout
@@ -129,6 +130,7 @@
             <EditText
                 android:id="@+id/fa_6b"
                 android:hint="gr/ml"
+                android:inputType="number"
                 style="@style/fa_edittext"/>
         </LinearLayout>
         <LinearLayout
@@ -158,6 +160,7 @@
             <EditText
                 android:id="@+id/fa_6c"
                 android:hint="rupiah"
+                android:inputType="number"
                 style="@style/fa_edittext"/>
         </LinearLayout>
         <LinearLayout
@@ -170,6 +173,7 @@
             <EditText
                 android:id="@+id/fa_6d"
                 android:hint="gr/ml"
+                android:inputType="number"
                 style="@style/fa_edittext"/>
         </LinearLayout>
         <TextView
@@ -187,6 +191,7 @@
             <EditText
                 android:id="@+id/fa_rpi"
                 android:editable="false"
+                android:inputType="number"
                 style="@style/fa_edittext"/>
         </LinearLayout>
         <TextView
