@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Unilever Coaching Application</string>
+    <string name="app_name">Be The Coach</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_synchronization">Coaching Synchronization</string>
     <string name="title_activity_profile">Profile</string>
@@ -33,7 +33,12 @@
         <item>Marketing</item>
         <item>Finance</item>
         <item>R&amp;D</item>
+    </string-array>
 
+    <string-array name="cdteam_title">
+        <item>CD Capability Team</item>
+        <item>CD Capability Building Manager</item>
+        <item>Asst. CD Capability Building Manager</item>
     </string-array>
 
     <string name="description_coaching_option">**The following questions is a guidelines for you to coach the team to develop better</string>
@@ -88,17 +93,17 @@
     <string name="english_dsr_saat_5">5. Melakukan merchandising</string>
     <string name="english_dsr_saat_6">6. Mengisi TRC</string>
 
-    <string name="bahasa_dsr_setelah_1">1. Perkenalan</string>
-    <string name="bahasa_dsr_setelah_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
-    <string name="english_dsr_setelah_1">1. Perkenalan</string>
-    <string name="english_dsr_setelah_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
+    <string name="bahasa_dsr_setelah_1">1. Melaporkan dan mereview hasil kunjungan kepada OM dan DTS</string>
+    <string name="bahasa_dsr_setelah_2">2. Mengisi laporan dinding</string>
+    <string name="english_dsr_setelah_1">1. Melaporkan dan mereview hasil kunjungan kepada OM dan DTS</string>
+    <string name="english_dsr_setelah_2">2. Mengisi laporan dinding</string>
 
-    <string name="bahasa_summary_1">Apa telah dilakukan dengan baik</string>
-    <string name="bahasa_summary_2">Apa yang perlu ditingkatkan</string>
-    <string name="bahasa_summary_3">Apa yang perlu dilakukan untuk perbaikan</string>
-    <string name="english_summary_1">Yang sudah berjalan dengan baik</string>
-    <string name="english_summary_2">Yang perlu diperbaiki</string>
-    <string name="english_summary_3">Yang akan dilakukan selanjutnya</string>
+    <string name="bahasa_summary_1">Tuliskan apa yang telah dilakukan dengan baik (max. 3hal)</string>
+    <string name="bahasa_summary_2">Tuliskan apa yang dapat dilakukan dengan lebih baik (max.3hal)</string>
+    <string name="bahasa_summary_3">Tuliskan apa yang perlu dilakukan untuk mendukung point 2 di atas (max.3action)</string>
+    <string name="english_summary_1">Tuliskan apa yang telah dilakukan dengan baik (max. 3hal)</string>
+    <string name="english_summary_2">Tuliskan apa yang dapat dilakukan dengan lebih baik (max.3hal)</string>
+    <string name="english_summary_3">Tuliskan apa yang perlu dilakukan untuk mendukung point 2 di atas (max.3action)</string>
     <string name="title_activity_dsrsaat">DSR Coaching Guideline</string>
     <string name="title_activity_dsrsetelah">DSR Coaching Guideline</string>
     <string name="title_activity_coaching_summary">Coaching Summary</string>

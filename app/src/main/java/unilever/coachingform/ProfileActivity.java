@@ -31,12 +31,11 @@ import utility.SharedPreferenceUtil;
 
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Spinner coach_job, coachee_job, first_job,second_job, cd_job;
-    EditText coach_name, coachee_name, first_name,second_name, cd_name;
     EditText coach_email, coachee_email, first_email,second_email, cd_email;
     Button next;
     String job = "";
     int job_id = -1;
-    ArrayAdapter<CharSequence> job_adapter;
+    ArrayAdapter<CharSequence> job_adapter, cdteam_adapter;
     String coach_position, coachee_position, first_position, second_position, cd_position = "";
     String coachingSessionID = "";
     final String TAG = "Profile";
@@ -51,11 +50,11 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                     format.setTimeZone(TimeZone.getTimeZone("Indonesia"));
                     String date_formatted = format.format(date);
                     SharedPreferenceUtil.putString(ConstantUtil.SP_DATE,date_formatted);
-                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, coach_name.getText().toString());
-                    CoachingSessionDAO.insertNewCoaching(coachee_name.getText().toString(), coachee_email.getText().toString(), coachee_position,
-                            first_name.getText().toString(), first_email.getText().toString(), first_position,
-                            second_name.getText().toString(), second_email.getText().toString(), second_position,
-                            cd_name.getText().toString(), cd_email.getText().toString(), cd_position,
+                    SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, coach_email.getText().toString());
+                    CoachingSessionDAO.insertNewCoaching(coachee_email.getText().toString(), coachee_email.getText().toString(), coachee_position,
+                            first_email.getText().toString(), first_email.getText().toString(), first_position,
+                            second_email.getText().toString(), second_email.getText().toString(), second_position,
+                            cd_email.getText().toString(), cd_email.getText().toString(), cd_position,
                             new CoachingSessionDAO.InsertCoachingListener() {
                                 @Override
                                 public void onInsertCoachingCompleted(String id) {
@@ -94,17 +93,11 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 
     private Bundle getBundle() {
         Bundle outState = new Bundle();
-        outState.putString("coach_name", coach_name.getText().toString());
-        outState.putString("coachee_name", coachee_name.getText().toString());
-        outState.putString("first_name", first_name.getText().toString());
-        outState.putString("second_name", second_name.getText().toString());
-        outState.putString("cd_name", cd_name.getText().toString());
         outState.putString("coach_email", coach_email.getText().toString());
         outState.putString("coachee_email", coachee_email.getText().toString());
         outState.putString("first_email", first_email.getText().toString());
         outState.putString("second_email", second_email.getText().toString());
         outState.putString("cd_email", cd_email.getText().toString());
-        outState.putString("coach_name", coach_name.getText().toString());
         outState.putString("coach_position", coach_position);
         outState.putString("coachee_position", coachee_position);
         outState.putString("first_position", first_position);
@@ -122,16 +115,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         first_job = (Spinner) findViewById(R.id.firstlinemanager_position);
         second_job = (Spinner) findViewById(R.id.secondlinemanager_position);
         cd_job = (Spinner) findViewById(R.id.cdteam_position);
-        coach_name = (EditText) findViewById(R.id.coach_name);
-        coach_name.setEnabled(false);
-        coachee_name = (EditText) findViewById(R.id.coachee_name);
-        coachee_name.setEnabled(false);
-        first_name = (EditText) findViewById(R.id.firstlm_name);
-        first_name.setEnabled(false);
-        second_name = (EditText) findViewById(R.id.secondlm_name);
-        second_name.setEnabled(false);
-        cd_name = (EditText) findViewById(R.id.cdteam_name);
-        cd_name.setEnabled(false);
         coach_email = (EditText) findViewById(R.id.coach_email);
         coachee_email = (EditText) findViewById(R.id.coachee_email);
         first_email = (EditText) findViewById(R.id.firstlinemanager_email);
@@ -139,11 +122,12 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         cd_email = (EditText) findViewById(R.id.cdteam_email);
         next = (Button) findViewById(R.id.next);
         job_adapter = ArrayAdapter.createFromResource(this, R.array.job_title, android.R.layout.simple_spinner_item);
+        cdteam_adapter = ArrayAdapter.createFromResource(this, R.array.cdteam_title, android.R.layout.simple_spinner_item);
         coach_job.setAdapter(job_adapter);
         coachee_job.setAdapter(job_adapter);
         first_job.setAdapter(job_adapter);
         second_job.setAdapter(job_adapter);
-        cd_job.setAdapter(job_adapter);
+        cd_job.setAdapter(cdteam_adapter);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
             if(bundle.getString("email") != null) {
@@ -151,7 +135,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             }
             if(bundle.getInt("job") != -1) {
                 job_id = bundle.getInt("job");
-                //coach_job.setS;
             }
             if(bundle.getBundle("profile")!= null) {
                 setField(bundle.getBundle("profile"));
@@ -163,7 +146,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                 job_id = Integer.parseInt(SharedPreferenceUtil.getString(ConstantUtil.SP_POSITION_ID));
             }
         }
-        coach_name.setText(coach_email.getText().toString());
         coach_job.setSelection(job_id);
         coach_position = coach_job.getSelectedItem().toString();
         coach_job.setOnItemSelectedListener(this);
@@ -172,7 +154,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         second_job.setOnItemSelectedListener(this);
         cd_job.setOnItemSelectedListener(this);
         next.setOnClickListener(onClick);
-        setAutomatic();
 
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED){
@@ -191,6 +172,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         }
     }
 
+    /**
     private void setAutomatic() {
         coach_email.addTextChangedListener(new TextWatcher() {
 
@@ -272,14 +254,14 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             public void afterTextChanged(Editable s) {
             }
         });
-    }
+    }*/
 
     private void setField(Bundle savedState) {
-        coach_name.setText(savedState.getString("coach_name"));
-        coachee_name.setText(savedState.getString("coachee_name"));
-        first_name.setText(savedState.getString("first_name"));
-        second_name.setText(savedState.getString("second_name"));
-        cd_name.setText(savedState.getString("cd_name"));
+//        coach_name.setText(savedState.getString("coach_name"));
+//        coachee_name.setText(savedState.getString("coachee_name"));
+//        first_name.setText(savedState.getString("first_name"));
+//        second_name.setText(savedState.getString("second_name"));
+//        cd_name.setText(savedState.getString("cd_name"));
         coach_email.setText(savedState.getString("coach_email"));
         coachee_email.setText(savedState.getString("coachee_email"));
         first_email.setText(savedState.getString("first_email"));
@@ -314,17 +296,16 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("coach_name", coach_name.getText().toString());
-        outState.putString("coachee_name", coachee_name.getText().toString());
-        outState.putString("first_name", first_name.getText().toString());
-        outState.putString("second_name", second_name.getText().toString());
-        outState.putString("cdname", cd_name.getText().toString());
+//        outState.putString("coach_name", coach_name.getText().toString());
+//        outState.putString("coachee_name", coachee_name.getText().toString());
+//        outState.putString("first_name", first_name.getText().toString());
+//        outState.putString("second_name", second_name.getText().toString());
+//        outState.putString("cdname", cd_name.getText().toString());
         outState.putString("coach_email", coach_email.getText().toString());
         outState.putString("coachee_email", coachee_email.getText().toString());
         outState.putString("first_email", first_email.getText().toString());
         outState.putString("second_email", second_email.getText().toString());
         outState.putString("cd_email", cd_email.getText().toString());
-        outState.putString("coach_name", coach_name.getText().toString());
         outState.putString("coach_position", coach_position);
         outState.putString("coachee_position", coachee_position);
         outState.putString("first_position", first_position);
@@ -333,11 +314,11 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
     }
 
     protected void onRestoreInstanceState(Bundle savedState) {
-        coach_name.setText(savedState.getString("coach_name"));
-        coachee_name.setText(savedState.getString("coachee_name"));
-        first_name.setText(savedState.getString("first_name"));
-        second_name.setText(savedState.getString("second_name"));
-        cd_name.setText(savedState.getString("cd_name"));
+//        coach_name.setText(savedState.getString("coach_name"));
+//        coachee_name.setText(savedState.getString("coachee_name"));
+//        first_name.setText(savedState.getString("first_name"));
+//        second_name.setText(savedState.getString("second_name"));
+//        cd_name.setText(savedState.getString("cd_name"));
         coach_email.setText(savedState.getString("coach_email"));
         coachee_email.setText(savedState.getString("coachee_email"));
         first_email.setText(savedState.getString("first_email"));
