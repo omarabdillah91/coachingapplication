@@ -81,6 +81,7 @@
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/apptheme_edit_text_holo_light</item>
         <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@drawable/edit_text_selector</item>
     </style>
 
     <style name="profile_field_type">

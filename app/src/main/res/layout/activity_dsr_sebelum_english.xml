@@ -267,6 +267,21 @@
             <EditText
                 android:id="@+id/remarks_dsr_sebelum_4e"
                 style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/bahasa_dsr_sebelum_4f"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dsr_sebelum_4f"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_dsr_sebelum_4f"
+                style="@style/remarks" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/button"

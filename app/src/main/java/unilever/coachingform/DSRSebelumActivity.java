@@ -30,9 +30,9 @@ public class DSRSebelumActivity extends AppCompatActivity {
     boolean english = false;
     String job, coach_email, coachee_email = "";
     String coachingSessionID = "";
-    RadioButton satu, dua, tiga, empat_a, empat_b, empat_c, empat_d, empat_e;
-    boolean status_1,status_2,status_3,status_4a,status_4b,status_4c,status_4d,status_4e = false;
-    EditText text_satu, text_dua, text_tiga, text_empat_a, text_empat_b, text_empat_c, text_empat_d, text_empat_e;
+    RadioButton satu, dua, tiga, empat_a, empat_b, empat_c, empat_d, empat_e, empat_f;
+    boolean status_1,status_2,status_3,status_4a,status_4b,status_4c,status_4d,status_4e,status_4f = false;
+    EditText text_satu, text_dua, text_tiga, text_empat_a, text_empat_b, text_empat_c, text_empat_d, text_empat_e,text_empat_f;
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -136,6 +136,14 @@ public class DSRSebelumActivity extends AppCompatActivity {
                     status_4e = true;
                     empat_e.setChecked(true);
                 }
+            }else if (v.getId() == R.id.dsr_sebelum_4f) {
+                if(status_4f) {
+                    empat_f.setChecked(false);
+                    status_4f = false;
+                } else {
+                    status_4f = true;
+                    empat_f.setChecked(true);
+                }
             }
         }
     };
@@ -149,6 +157,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
         addingQA("","dsr_sebelum_4c",status_4c,text_empat_c.getText().toString(),true);
         addingQA("","dsr_sebelum_4d",status_4d,text_empat_d.getText().toString(),true);
         addingQA("","dsr_sebelum_4e",status_4e,text_empat_e.getText().toString(),true);
+        addingQA("","dsr_sebelum_4f",status_4f,text_empat_f.getText().toString(),true);
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
@@ -207,6 +216,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
         empat_c = (RadioButton) findViewById(R.id.dsr_sebelum_4c);
         empat_d = (RadioButton) findViewById(R.id.dsr_sebelum_4d);
         empat_e = (RadioButton) findViewById(R.id.dsr_sebelum_4e);
+        empat_f = (RadioButton) findViewById(R.id.dsr_sebelum_4f);
         text_satu = (EditText) findViewById(R.id.remarks_dsr_sebelum_1);
         text_dua = (EditText) findViewById(R.id.remarks_dsr_sebelum_2);
         text_tiga = (EditText) findViewById(R.id.remarks_dsr_sebelum_3);
@@ -215,6 +225,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
         text_empat_c = (EditText) findViewById(R.id.remarks_dsr_sebelum_4c);
         text_empat_d = (EditText) findViewById(R.id.remarks_dsr_sebelum_4d);
         text_empat_e = (EditText) findViewById(R.id.remarks_dsr_sebelum_4e);
+        text_empat_f = (EditText) findViewById(R.id.remarks_dsr_sebelum_4f);
         date = (TextView) findViewById(R.id.date);
         date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         coach.setText(coach_email);
@@ -232,6 +243,7 @@ public class DSRSebelumActivity extends AppCompatActivity {
         empat_c.setOnClickListener(onClick);
         empat_d.setOnClickListener(onClick);
         empat_e.setOnClickListener(onClick);
+        empat_f.setOnClickListener(onClick);
     }
 
     private void getExtra(Bundle bundle) {

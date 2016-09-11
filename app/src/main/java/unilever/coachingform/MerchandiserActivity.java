@@ -54,23 +54,18 @@ public class MerchandiserActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                if(cekButton()) {
-                    CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, "", "",
-                            store.getText().toString(), new CoachingSessionDAO.UpdateCoachingListener() {
-                                @Override
-                                public void onGuidelineUpdated(boolean isSuccess) {
-                                    if (isSuccess) {
-                                        saveQA();
-                                    } else {
-                                        Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
+                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, "", "",
+                        store.getText().toString(), new CoachingSessionDAO.UpdateCoachingListener() {
+                            @Override
+                            public void onGuidelineUpdated(boolean isSuccess) {
+                                if (isSuccess) {
+                                    saveQA();
+                                } else {
+                                    Toast.makeText(MerchandiserActivity.this, "Failed to save the data!!!",
+                                            Toast.LENGTH_SHORT).show();
                                 }
-                            });
-                } else {
-                    Toast.makeText(MerchandiserActivity.this, "Please fill at least 10 products!!",
-                            Toast.LENGTH_SHORT).show();
-                }
+                            }
+                        });
             } else if (v.getId() == R.id.product_1) {
                 showQuestion(1);
                 action_1.setBackgroundColor(getResources().getColor(R.color.orange));

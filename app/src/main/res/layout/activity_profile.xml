@@ -29,19 +29,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="Coach Email"
+                android:text="Coach"
                 style="@style/profile_field_type"/>
             <EditText
                 android:id="@+id/coach_email"
                 style="@style/profile_email_type"
-                android:hint="Coach email"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="Coach Position"
+                android:text=""
                 style="@style/profile_field_type"/>
             <Spinner
                 android:id="@+id/coach_position"
@@ -52,19 +52,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="Coachee Email"
+                android:text="Coachee"
                 style="@style/profile_field_type"/>
             <EditText
                 android:id="@+id/coachee_email"
                 style="@style/profile_email_type"
-                android:hint="Coachee email"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="Coachee Position"
+                android:text=""
                 style="@style/profile_field_type"/>
             <Spinner
                 android:id="@+id/coachee_position"
@@ -75,19 +75,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="1st Line Manager Email"
+                android:text="1st Line Manager"
                 style="@style/profile_field_type"/>
             <EditText
                 android:id="@+id/firstlinemanager_email"
                 style="@style/profile_email_type"
-                android:hint="1st Line Manager email"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="1st Line Manager Position"
+                android:text=""
                 style="@style/profile_field_type"/>
             <Spinner
                 android:id="@+id/firstlinemanager_position"
@@ -98,19 +98,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="2nd Line Manager Email"
+                android:text="2nd Line Manager"
                 style="@style/profile_field_type"/>
             <EditText
                 android:id="@+id/secondlinemanager_email"
                 style="@style/profile_email_type"
-                android:hint="1st Line Manager email"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="2nd Line Manager Position"
+                android:text=""
                 style="@style/profile_field_type"/>
             <Spinner
                 android:id="@+id/secondlinemanager_position"
@@ -121,19 +121,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="CD Capability Team Email"
+                android:text="CD Capability Team"
                 style="@style/profile_field_type"/>
             <EditText
                 android:id="@+id/cdteam_email"
                 style="@style/profile_email_type"
-                android:hint="1st Line Manager email"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:text="CD Capability Team Position"
+                android:text=""
                 style="@style/profile_field_type"/>
             <Spinner
                 android:id="@+id/cdteam_position"

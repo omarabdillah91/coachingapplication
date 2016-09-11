@@ -55,11 +55,12 @@
     <string name="bahasa_dsr_sebelum_2">2. Men-cek stock availability yang ada di gudang</string>
     <string name="bahasa_dsr_sebelum_3">3. Mengetahui dan memahami promo-promo yang sedang berlangsung</string>
     <string name="bahasa_dsr_sebelum_4">4. Mempersiapkan tools untuk kunjungan</string>
-    <string name="bahasa_dsr_sebelum_4a">\t a. TRC, Alat Tulis, dan Kalkulator</string>
-    <string name="bahasa_dsr_sebelum_4b">\t b.Kartu Nama</string>
+    <string name="bahasa_dsr_sebelum_4a">\t a. TRC/LE Mobility, Alat Tulis, dan Kalkulator</string>
+    <string name="bahasa_dsr_sebelum_4b">\t b.Kartu Nama (bila ada)</string>
     <string name="bahasa_dsr_sebelum_4c">\t c.Katalog Produk</string>
     <string name="bahasa_dsr_sebelum_4d">\t d.Marketing Program</string>
     <string name="bahasa_dsr_sebelum_4e">\t e.Price List</string>
+    <string name="bahasa_dsr_sebelum_4f">\t f. Contoh Produk NPI (bila ada)</string>
     <string name="english_dsr_sebelum_1">1. Menganalisa kembali tujuan dari kunjungan</string>
     <string name="english_dsr_sebelum_2">2. Men-cek stock availability yang ada di gudang</string>
     <string name="english_dsr_sebelum_3">3. Mengetahui dan memahami promo-promo yang sedang berlangsung</string>
@@ -69,6 +70,7 @@
     <string name="english_dsr_sebelum_4c">\t c. Katalog Produk</string>
     <string name="english_dsr_sebelum_4d">\t d. Marketing Program</string>
     <string name="english_dsr_sebelum_4e">\t e. Price List</string>
+    <string name="english_dsr_sebelum_4f">\t f. Contoh Produk NPI (bila ada)</string>
 
     <string name="bahasa_dsr_saat_1">1. Perkenalan</string>
     <string name="bahasa_dsr_saat_2">2. Check stock produk UFS baik yang sudah didisplay di shelf maupun di gudang</string>
@@ -93,10 +95,10 @@
     <string name="english_dsr_saat_5">5. Melakukan merchandising</string>
     <string name="english_dsr_saat_6">6. Mengisi TRC</string>
 
-    <string name="bahasa_dsr_setelah_1">1. Melaporkan dan mereview hasil kunjungan kepada OM dan DTS</string>
-    <string name="bahasa_dsr_setelah_2">2. Mengisi laporan dinding</string>
-    <string name="english_dsr_setelah_1">1. Melaporkan dan mereview hasil kunjungan kepada OM dan DTS</string>
-    <string name="english_dsr_setelah_2">2. Mengisi laporan dinding</string>
+    <string name="bahasa_dsr_setelah_1">1. Melakukan sync LE Mobility atau menginformasikan semua order ke Admin DMS</string>
+    <string name="bahasa_dsr_setelah_2">2. Merangkum hasil penjualan hari itu</string>
+    <string name="english_dsr_setelah_1">1. Melakukan sync LE Mobility atau Menginformasikan semua order ke Admin DMS</string>
+    <string name="english_dsr_setelah_2">2. Merangkum hasil penjualan hari itu</string>
 
     <string name="bahasa_summary_1">Tuliskan apa yang telah dilakukan dengan baik (max. 3hal)</string>
     <string name="bahasa_summary_2">Tuliskan apa yang dapat dilakukan dengan lebih baik (max.3hal)</string>
