@@ -76,7 +76,7 @@ public class CoachingQuestionAnswerEntity extends RealmObject {
     }
 
     public String getTickStringRep(){
-        return isTickAnswer() ? "Ya" : "Tidak";
+        return isTickAnswer() ? "V" : "X";
     }
 
     public static List<CoachingQuestionAnswerDTO> toDTOs(List<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntityList) {

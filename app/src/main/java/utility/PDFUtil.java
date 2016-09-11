@@ -271,7 +271,7 @@ public class PDFUtil {
             chapter.add(table);
             chapter.add(Chunk.NEWLINE);
 
-            chapter.add(new Paragraph("FA/SA/MD yang mendapat Coaching \n\n", heading3Font));
+            /*chapter.add(new Paragraph("FA/SA/MD yang mendapat Coaching \n\n", heading3Font));
 
             PdfPTable table1 = new PdfPTable(1);
             table1.setWidthPercentage(100);
@@ -299,9 +299,44 @@ public class PDFUtil {
             cell2.addElement(new Paragraph(value, normalFont));
             table1.addCell(cell2);
 
-            chapter.add(table1);
+            chapter.add(table1);*/
+
 
             doc.add(chapter);
+
+            doc.add(new Paragraph("\n COACHING SUMMARY \n\n", heading3Font));
+
+            PdfPTable table1 = new PdfPTable(1);
+            table1.setWidthPercentage(100);
+
+            PdfPCell cell = new PdfPCell();
+            //cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
+            cell.addElement(new Paragraph(getString("summary_1", lang), heading3Font));
+            CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("fa_summary_1", ""));
+            String value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
+            cell.addElement(new Paragraph(value, normalFont));
+            table1.addCell(cell);
+
+            PdfPCell cell3 = new PdfPCell();
+            cell3.addElement(new Paragraph(getString("summary_2", lang), heading3Font));
+            answerEntity = qaMap.get(new Pair<>("fa_summary_2", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
+            cell3.addElement(new Paragraph(value, normalFont));
+            table1.addCell(cell3);
+
+            PdfPCell cell2 = new PdfPCell();
+            //cell2.addElement(new Paragraph("Next Action Plan", heading3Font));
+            cell2.addElement(new Paragraph(getString("summary_3", lang), heading3Font));
+            answerEntity = qaMap.get(new Pair<>("fa_summary_3", ""));
+            value = String.valueOf(answerEntity.getTextAnswer());
+            value = "".equals(value) ? "\n\n" : value;
+            cell2.addElement(new Paragraph(value, normalFont));
+            table1.addCell(cell2);
+
+            doc.add(table1);
+
             doc.close();
 
         } catch (DocumentException e) {
@@ -435,28 +470,31 @@ public class PDFUtil {
             doc.add(tableSetelah);
             //doc.newPage();
             //doc.add(Chunk.NEWLINE);
-            doc.add(new Paragraph("DSR yang mendapat Coaching \n\n", heading3Font));
+            doc.add(new Paragraph("\n COACHING SUMMARY \n\n", heading3Font));
 
             PdfPTable table1 = new PdfPTable(1);
             table1.setWidthPercentage(100);
 
             PdfPCell cell = new PdfPCell();
-            cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
-            cell.addElement(new Paragraph(getString("summary_1", lang), normalFont));
+            //cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
+            cell.addElement(new Paragraph(getString("summary_1", lang), heading3Font));
             CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>("dsr_summary_1", ""));
             String value = String.valueOf(answerEntity.getTextAnswer());
             value = "".equals(value) ? "\n\n" : value;
             cell.addElement(new Paragraph(value, normalFont));
-            cell.addElement(new Paragraph(getString("summary_2", lang), normalFont));
+            table1.addCell(cell);
+
+            PdfPCell cell3 = new PdfPCell();
+            cell3.addElement(new Paragraph(getString("summary_2", lang), heading3Font));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_2", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
             value = "".equals(value) ? "\n\n" : value;
-            cell.addElement(new Paragraph(value, normalFont));
-            table1.addCell(cell);
+            cell3.addElement(new Paragraph(value, normalFont));
+            table1.addCell(cell3);
 
             PdfPCell cell2 = new PdfPCell();
-            cell2.addElement(new Paragraph("NEXT ACTION PLAN", heading3Font));
-            cell2.addElement(new Paragraph(getString("summary_3", lang), normalFont));
+            //cell2.addElement(new Paragraph("Next Action Plan", heading3Font));
+            cell2.addElement(new Paragraph(getString("summary_3", lang), heading3Font));
             answerEntity = qaMap.get(new Pair<>("dsr_summary_3", ""));
             value = String.valueOf(answerEntity.getTextAnswer());
             value = "".equals(value) ? "\n\n" : value;
