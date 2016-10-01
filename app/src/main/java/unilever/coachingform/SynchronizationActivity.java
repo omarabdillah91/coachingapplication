@@ -28,6 +28,7 @@ public class SynchronizationActivity extends AppCompatActivity {
     int job = 0;
     private ProgressDialog progressBar;
     CoachAdapter adapter;
+    TextView no_coachee;
     ArrayList<String> coachingSession = new ArrayList<String>();
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -88,6 +89,7 @@ public class SynchronizationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_synchronization);
         listView = (ListView)findViewById(R.id.listView);
         next = (Button) findViewById(R.id.next);
+        no_coachee = (TextView) findViewById(R.id.no_coachee);
         CoachingSessionDAO.getUnsubmittedCoaching(new CoachingSessionDAO.GetListCoachingListener() {
             @Override
             public void onUnsubmittedCoachingReceived(List<Coaching> coachingList) {
@@ -107,8 +109,13 @@ public class SynchronizationActivity extends AppCompatActivity {
     }
 
     public void onCoachingReceived(List<Coaching> coachingList) {
-        adapter = new CoachAdapter(this,
-                R.layout.synchronization_list, coachingList);
-        listView.setAdapter(adapter);
+        if(coachingList.size() == 0) {
+            no_coachee.setVisibility(View.VISIBLE);
+        } else {
+            adapter = new CoachAdapter(this,
+                    R.layout.synchronization_list, coachingList);
+            listView.setAdapter(adapter);
+        }
+
     }
 }

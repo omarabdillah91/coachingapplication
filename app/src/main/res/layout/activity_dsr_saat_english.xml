@@ -132,10 +132,10 @@
             android:layout_marginBottom="10dp"
             android:layout_below="@+id/profile_line">
             <TextView
-                android:text="@string/title_bahasa_saat_kunjungan"
+                android:text="@string/title_english_saat_kunjungan"
                 style="@style/dsr_saat_question"/>
             <TextView
-                android:text="@string/bahasa_dsr_saat_1"
+                android:text="@string/english_dsr_saat_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -211,7 +211,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_2"
+                android:text="@string/english_dsr_saat_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -287,13 +287,13 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3"
+                android:text="@string/english_dsr_saat_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
                 android:layout_marginTop="5dp"/>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3a"
+                android:text="@string/english_dsr_saat_3a"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -369,7 +369,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3b"
+                android:text="@string/english_dsr_saat_3b"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -445,7 +445,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3c"
+                android:text="@string/english_dsr_saat_3c"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -521,7 +521,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3d"
+                android:text="@string/english_dsr_saat_3d"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -597,7 +597,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_3e"
+                android:text="@string/english_dsr_saat_3e"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -673,7 +673,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_4"
+                android:text="@string/english_dsr_saat_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -749,7 +749,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_5"
+                android:text="@string/english_dsr_saat_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -825,7 +825,7 @@
                     android:text="Customer 10"/>
             </LinearLayout>
             <TextView
-                android:text="@string/bahasa_dsr_saat_6"
+                android:text="@string/english_dsr_saat_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"

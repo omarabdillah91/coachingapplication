@@ -165,7 +165,22 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (dts_status) {
-            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DTS_PULL,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
+            intent.putExtra("coach", coach);
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
+            intent.putExtra("bahasa",bahasa_status);
+            intent.putExtra("english",english_status);
+            intent.putExtra("coaching","dts_pull");
+            intent.putExtra("id", coachingSessionID);
+            startActivity(intent);
         } else if (fa_status) {
             CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_FASA,
                     new CoachingSessionDAO.UpdateCoachingListener() {

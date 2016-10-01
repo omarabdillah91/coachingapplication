@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
     Button next;
     ListView history;
     Bundle profile;
+    TextView no_coachee;
     public ProgressDialog progressBar;
     View.OnClickListener onClick = new View.OnClickListener() {
         @Override
@@ -45,10 +47,13 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         }
         next = (Button) findViewById(R.id.next);
         history = (ListView) findViewById(R.id.listView);
+        no_coachee = (TextView) findViewById(R.id.no_coachee);
         next.setOnClickListener(onClick);
         if(isNetworkAvailable()) {
             getData();
         } else {
+            no_coachee.setText("Tidak dapat mendapatkan coaching history");
+            no_coachee.setVisibility(View.VISIBLE);
             Toast.makeText(CoacheeHistoryActivity.this, "No internet access to load the the data!!!",
                     Toast.LENGTH_SHORT).show();
         }
@@ -69,6 +74,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
                 if(coacheeHistories.size() >0) {
                     onHistoryReceived(coacheeHistories);
                 } else {
+                    no_coachee.setVisibility(View.VISIBLE);
                     Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -148,8 +154,8 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("english",english);
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
-        } else if (coaching.equalsIgnoreCase("dts")) {
-            Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
+        } else if (coaching.equalsIgnoreCase("dts_pull")) {
+            Intent intent = new Intent(CoacheeHistoryActivity.this, DTSPullSebelumActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);

@@ -25,8 +25,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SynchronizationActivity"
             android:label="@string/title_activity_synchronization"
@@ -42,7 +41,7 @@
         <activity
             android:name=".MerchandiserActivity"
             android:label="@string/title_activity_merchandiser"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DSRSebelumActivity"
             android:label="@string/title_activity_dsr"
@@ -71,6 +70,27 @@
             android:name=".CoachingSummaryMerchandiserActivity"
             android:label="@string/title_activity_coaching_summary_merchandiser"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DTSPullSebelumActivity"
+            android:label="@string/title_activity_dtspull_sebelum"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".DTSPullReportActivity"
+            android:label="@string/title_activity_dtspull_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DTSPullInfraActivity"
+            android:label="@string/title_activity_dtspull_infra"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DTSPullMarketActivity"
+            android:label="@string/title_activity_dtspull_market"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoachingSummaryDTSPullActivity"
+            android:label="@string/title_activity_coaching_summary_dtspull"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

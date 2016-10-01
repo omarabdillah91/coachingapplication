@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/title_bahasa_sebelum_kunjungan"
+                    android:text="@string/title_english_sebelum_kunjungan"
                     style="@style/text_questions"/>
                 <TextView
                     android:text="Thick if\nDone/know"
@@ -147,7 +147,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_1"
+                    android:text="@string/english_dsr_sebelum_1"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_1"
@@ -162,7 +162,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_2"
+                    android:text="@string/english_dsr_sebelum_2"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_2"
@@ -177,7 +177,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_3"
+                    android:text="@string/english_dsr_sebelum_3"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_3"
@@ -187,7 +187,7 @@
                 android:id="@+id/remarks_dsr_sebelum_3"
                 style="@style/remarks" />
             <TextView
-                android:text="@string/bahasa_dsr_sebelum_4"
+                android:text="@string/english_dsr_sebelum_4"
                 android:textSize="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -198,7 +198,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4a"
+                    android:text="@string/english_dsr_sebelum_4a"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4a"
@@ -213,7 +213,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4b"
+                    android:text="@string/english_dsr_sebelum_4b"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4b"
@@ -228,7 +228,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4c"
+                    android:text="@string/english_dsr_sebelum_4c"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4c"
@@ -243,7 +243,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4d"
+                    android:text="@string/english_dsr_sebelum_4d"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4d"
@@ -258,7 +258,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4e"
+                    android:text="@string/english_dsr_sebelum_4e"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4e"
@@ -273,7 +273,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dsr_sebelum_4f"
+                    android:text="@string/english_dsr_sebelum_4f"
                     style="@style/text_questions"/>
                 <RadioButton
                     android:id="@+id/dsr_sebelum_4f"

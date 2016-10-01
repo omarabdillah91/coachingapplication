@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,6 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -321,7 +318,12 @@ public class MerchandiserActivity extends AppCompatActivity {
         final int n = indeks;
         resetBoolean();
         LayoutInflater layoutInflater = (LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = layoutInflater.inflate(R.layout.merchandiser_question_1, null);
+        View popupView;
+        if(english) {
+            popupView = layoutInflater.inflate(R.layout.merchandiser_english_question, null);
+        } else {
+            popupView = layoutInflater.inflate(R.layout.merchandiser_bahasa_question, null);
+        }
         popupWindow = new PopupWindow(popupView,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
         popupWindow.setFocusable(true);

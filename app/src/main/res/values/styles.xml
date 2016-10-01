@@ -87,7 +87,7 @@
     <style name="profile_field_type">
         <item name="android:layout_width">0px</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_weight">0.4</item>
         <item name="android:textSize">15dp</item>
     </style>
 
@@ -95,7 +95,7 @@
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:layout_width">0px</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_weight">0.6</item>
         <item name="android:textSize">15dp</item>
         <item name="android:padding">5dp</item>
         <item name="android:gravity">center</item>
@@ -106,7 +106,7 @@
     <style name="profile_spinner_type">
         <item name="android:layout_width">0px</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_weight">0.6</item>
         <item name="android:textSize">15dp</item>
         <item name="android:background">@drawable/apptheme_spinner_background_holo_light</item>
     </style>
@@ -194,7 +194,7 @@
     <style name="sub_page_coaching">
         <item name="android:layout_width">0px</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/orange</item>
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginRight">5dp</item>

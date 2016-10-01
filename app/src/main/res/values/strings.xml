@@ -6,40 +6,10 @@
     <string name="title_activity_coaching_option">Coaching Guideline Option</string>
     <string name="title_activity_merchandiser">FA/SA/Merchandiser Coaching Guidelines</string>
     <string name="title_activity_dsr">DSR Coaching Guidel</string>
-
+    <string name="title_activity_coachee_history">Coachee History</string>
+    <string name="title_activity_coaching_summary_merchandiser">Coaching Summary</string>
+    <string name="title_activity_rsmcoaching">RSM Coaching Guideline</string>
     <string name="title_login">Coaching at Your Fingertips\n“Coach the team regularly, for best performance”</string>
-
-    <string-array name="job_title">
-        <item>Managing Director</item>
-        <item>NSM Push</item>
-        <item>NSM Pull</item>
-        <item>NSM Chain</item>
-        <item>NSM Hotel</item>
-        <item>CD Capability Building Manager</item>
-        <item>RSM Pull</item>
-        <item>RSM Push</item>
-        <item>ASM Pull</item>
-        <item>ASM Push</item>
-        <item>Asst. CD Capability Building Manager</item>
-        <item>DTS Push</item>
-        <item>SR Pull Bareca</item>
-        <item>SR Pull Hotel</item>
-        <item>OM Dist.</item>
-        <item>DSS</item>
-        <item>DSR</item>
-        <item>CD Ops Manager</item>
-        <item>Asst. CD Ops Manager</item>
-        <item>Supply Chain</item>
-        <item>Marketing</item>
-        <item>Finance</item>
-        <item>R&amp;D</item>
-    </string-array>
-
-    <string-array name="cdteam_title">
-        <item>CD Capability Team</item>
-        <item>CD Capability Building Manager</item>
-        <item>Asst. CD Capability Building Manager</item>
-    </string-array>
 
     <string name="description_coaching_option">**The following questions is a guidelines for you to coach the team to develop better</string>
     <string name="dsr_description">**The following questions is a guidelines for you to coach the team to develop better in Selling Skills (Basic Call Procedure)</string>
@@ -161,37 +131,403 @@
     <string name="english_fa_7b">\t\tb. Berapa jumlah tier yang digunakan competitor sejenis untuk men-display produknya di Shelf</string>
     <string name="english_fa_7c">\t\tc. Apakah SOS (jumlah tier) produk UFS lebih dari produk competitor?</string>
 
-    <string name="product_1">Produk A</string>
-    <string name="product_2">Produk B</string>
-    <string name="product_3">Produk C</string>
-    <string name="product_4">Produk D</string>
-    <string name="product_5">Produk E</string>
-    <string name="product_6">Produk F</string>
-    <string name="product_7">Produk G</string>
-    <string name="product_8">Produk H</string>
-    <string name="product_9">Produk I</string>
-    <string name="product_10">Produk J</string>
-    <string name="kompetitor_1">Kompetitor A</string>
-    <string name="kompetitor_2">Kompetitor B</string>
-    <string name="kompetitor_3">Kompetitor C</string>
-    <string name="kompetitor_4">Kompetitor D</string>
-    <string name="kompetitor_5">Kompetitor E</string>
-    <string name="kompetitor_6">Kompetitor F</string>
-    <string name="kompetitor_7">Kompetitor G</string>
-    <string name="kompetitor_8">Kompetitor H</string>
-    <string name="kompetitor_9">Kompetitor I</string>
-    <string name="kompetitor_10">Kompetitor J</string>
-    <string name="size_1">Size A</string>
-    <string name="size_2">Size B</string>
-    <string name="size_3">Size C</string>
-    <string name="size_4">Size D</string>
-    <string name="size_5">Size E</string>
-    <string name="size_6">Size F</string>
-    <string name="size_7">Size G</string>
-    <string name="size_8">Size H</string>
-    <string name="size_9">Size I</string>
-    <string name="size_10">Size J</string>
-    <string name="title_activity_rsmcoaching">RSM Coaching Guideline</string>
-    <string name="title_activity_coachee_history">Coachee History</string>
-    <string name="title_activity_coaching_summary_merchandiser">Coaching Summary</string>
+    <string name="product_1">Blue Band MCM (kg)</string>
+    <string name="product_2">Bango Kecap Manis (kg)</string>
+    <string name="product_3">PBlue Band Original (kg)</string>
+    <string name="product_4">Knorr Chicken Powder Refill (kg)</string>
+    <string name="product_5">Royco Chicken (kg)</string>
+    <string name="product_6">Knorr Mashed Potato (kg)</string>
+    <string name="product_7">Knorr Oyster Sauce Bottle (gr)</string>
+    <string name="product_8">Sari Wangi Celup</string>
+    <string name="product_9">Royco Ayam Kuning (gr)</string>
+    <string name="product_10">Royco Rendang (gr)</string>
+    <string name="kompetitor_1">Simas Palmia (kg)</string>
+    <string name="kompetitor_2">Kecap Manis ABC (ml)</string>
+    <string name="kompetitor_3">Simas Palmia (kg)</string>
+    <string name="kompetitor_4">Maggi Chicken Bouillon (kg)</string>
+    <string name="kompetitor_5">Masako Penyedap Ayam &amp; Sapi (kg)</string>
+    <string name="kompetitor_6"> </string>
+    <string name="kompetitor_7">Saori Saus Tiram (ltr)</string>
+    <string name="kompetitor_8">Teh Botol Sosro</string>
+    <string name="kompetitor_9"> </string>
+    <string name="kompetitor_10"> </string>
+    <string name="size_1">15</string>
+    <string name="size_2">1.7</string>
+    <string name="size_3">4.5</string>
+    <string name="size_4">1</string>
+    <string name="size_5">1</string>
+    <string name="size_6">4</string>
+    <string name="size_7">975</string>
+    <string name="size_8">Jumbo</string>
+    <string name="size_9">600</string>
+    <string name="size_10">525</string>
+
+    <string name="dtspull_description">**The following questions is a guidelines for you to coach the team to develop better in territory management, distributor management, and chefmanship</string>
+
+    <string name="title_bahasa_dtspull_sebelum_kunjungan">BEFORE</string>
+    <string name="title_bahasa_dtspull_saat_report_kunjungan">REPORT</string>
+    <string name="title_bahasa_dtspull_saat_infra_kunjungan">INFRA</string>
+    <string name="title_bahasa_dtspull_pasar_kunjungan">MARKET</string>
+    <string name="title_english_dtspull_sebelum_kunjungan">BEFORE ARRIVING TO DIST</string>
+    <string name="title_english_dtspull_saat_report_kunjungan">IN DISTRIBUTOR\n(REPORT)</string>
+    <string name="title_english_dtspull_saat_infra_kunjungan">IN DISTRIBUTOR\n(INFRASTRUCTURE)</string>
+    <string name="title_english_dtspull_pasar_kunjungan">IN WET MARKET</string>
+
+    <string name="bahasa_dts_title_sebelum">SEBELUM TIBA DI DISTRIBUTOR</string>
+    <string name="bahasa_dts_sebelum_title_1">TERRITORY PROFILE </string>
+    <string name="bahasa_dts_sebelum_1_1">1. Coverage</string>
+    <string name="bahasa_dts_sebelum_1_1_a">a. Berapa banyak wholesaler yang dicover oleh distributor?</string>
+    <string name="bahasa_dts_sebelum_1_1_b">b. Berapa banyak wholesaler bakery yang dicover?</string>
+    <string name="bahasa_dts_sebelum_1_1_c">c. Berapa banyak wholesaLer Horeca yang dicover?</string>
+    <string name="bahasa_dts_sebelum_1_1_d">d. Berapa banyak pasar yang terdapat di territory Anda? Berapa banyak yang sudah dicover? </string>
+    <string name="bahasa_dts_sebelum_1_1_e">e. Berapa banyak Local Cash &amp; Carry (LCC) yang terdapat di territory Anda? Berapa banyak yang sudah dicover?</string>
+    <string name="bahasa_dts_sebelum_1_2">2. Target </string>
+    <string name="bahasa_dts_sebelum_1_2_a">a. Berapa target full year Anda?</string>
+    <string name="bahasa_dts_sebelum_1_2_b">b. Berapa RPP (rata-rata penjualan per pekan) distributor Anda?</string>
+    <string name="bahasa_dts_sebelum_1_2_c">c. Berapa persen pencapaiannya di minggu lalu?</string>
+
+    <string name="bahasa_dts_sebelum_title_2">BRAND UFS </string>
+    <string name="bahasa_dts_sebelum_2_1">1. Apakah Anda tahu Top 20 UFS? Apa saja?</string>
+    <string name="bahasa_dts_sebelum_2_2">2 Apakah Anda tahu target &amp; achievement penetrasi dari produk TLC berikut :</string>
+    <string name="bahasa_dts_sebelum_2_2_a">a. Royco Bumbu Dasar Ayam Kuning</string>
+    <string name="bahasa_dts_sebelum_2_2_b">b. Royco Bumbu Dasar Rendang</string>
+    <string name="bahasa_dts_sebelum_2_2_c">c. Sari Wangi Celup Jombo</string>
+    <string name="bahasa_dts_sebelum_2_2_d">d. Knorr Oyster</string>
+    <string name="bahasa_dts_sebelum_2_2_e">e. KMP 500Gr</string>
+
+    <string name="bahasa_dts_title_di_distributor_report">DI DISTRIBUTOR (REPORT)</string>
+    <string name="bahasa_dts_distributor_report_1">1. Dalam monitoring tim :</string>
+    <string name="bahasa_dts_distributor_report_1_a">a. Seberapa sering Anda melakukan morning dan afternoon briefing?</string>
+    <string name="bahasa_dts_distributor_report_1_b">b. Apakah Anda dapat menjelaskan point apa saja yang terdapat dalam wall report?\n*Minta DTS untuk menunjukan dan menjelaskan Wall Report yang ada di distributor</string>
+    <string name="bahasa_dts_distributor_report_2">2. Memonitor kedisiplinan tim :</string>
+    <string name="bahasa_dts_distributor_report_2_a">a. Berapa persen pencapaian kunjungan DSR yang sesuai dengan PJP? </string>
+    <string name="bahasa_dts_distributor_report_2_b">b. Berapa persen rata-rata effective call (EC) masing-masing DSR Anda?\n*Minta DTS untuk menunjukan dan menjelaskan konten yang ada pada TRC atau Leveredge Mobility</string>
+    <string name="bahasa_dts_distributor_report_3">3. Pengembangan kapabilitas tim :</string>
+    <string name="bahasa_dts_distributor_report_3_a">a.Seberapa sering Anda melakukan coaching untuk DSR? </string>
+    <string name="bahasa_dts_distributor_report_3_b">b. Seberapa sering Anda melakukan coaching untuk DSS? </string>
+    <string name="bahasa_dts_distributor_report_3_c">c. Apakah Anda menggunakan aplikasi ini untuk mendokumentasikan hasil coaching tersebut?\n*DTS sebaiknya melakukan coaching kepada DSR 2x/minggu dan kepada DSS/OM 1x/minggu</string>
+
+    <string name="bahasa_dts_title_di_distributor_infra">DI DISTRIBUTOR (INFRASTRUKTUR)</string>
+    <string name="bahasa_dts_distributor_infra_title">MANAJEMEN GUDANG &amp; KONDISI VAN DELIVERY</string>
+    <string name="bahasa_dts_distributor_infra_1">1. Seberapa baik Anda mengetahui kondisi dan rencana perbaikan (bila ada) dari :</string>
+    <string name="bahasa_dts_distributor_infra_1_a">a. Kondisi gudang (Racking, dinding, lantai, ceiling/plafon, dan ventilasi)</string>
+    <string name="bahasa_dts_distributor_infra_1_b">b. Perlakukan untuk produk rusak (adanya label dan pemisahan di tempat khusus)</string>
+    <string name="bahasa_dts_distributor_infra_1_c">c. Penerapan FEFO di gudang</string>
+    <string name="bahasa_dts_distributor_infra_1_d">d. Monitoring expiry date</string>
+    <string name="bahasa_dts_distributor_infra_1_e">e. Penataan produk dalam gudang (foods dan non-foods tidak tercampur)</string>
+    <string name="bahasa_dts_distributor_infra_1_f">f. Stacking produk sesuai dengan yang direkomendasikan di karton</string>
+    <string name="bahasa_dts_distributor_infra_1_g">g. Jadwal pembersihan dan perawatan gudang</string>
+    <string name="bahasa_dts_distributor_infra_2">2. Kondisi dan kebersihan Van  :</string>
+    <string name="bahasa_dts_distributor_infra_2_a">a. Apakah kondisi kendaraan bebas dari rembesan oli, ban botak?</string>
+    <string name="bahasa_dts_distributor_infra_2_b">b. Apakah body, Atap, pintu &amp; Lantai kendaaran bebas dari kerusakan &amp; berfungsi baik?</string>
+    <string name="bahasa_dts_distributor_infra_2_c">c. Apakah bagian dalam kendaraan bebas dari basah dan lembab?</string>
+    <string name="bahasa_dts_distributor_infra_2_d">d. Apakah lantai Kendaraan bebas dari serpihan kasar, kaca, paku, staples?</string>
+    <string name="bahasa_dts_distributor_infra_2_e">e. Apakah lendaraan dalam kondisi  bebas bekas terserang hama (misal: rayap, sarang serangga /laba laba)?</string>
+    <string name="bahasa_dts_distributor_infra_3">3. Apakah Anda sebagai bisnis partner pernah mendiskusikan perbaikan ini dengan owner distributor?</string>
+
+    <string name="bahasa_dts_title_di_pasar">DI PASAR (dengan DSR)</string>
+    <string name="bahasa_dts_di_pasar_1">a. Apakah DSR melakukan kunjungan sesuai PJP dan mengisi TRC/LeverEdge Mobility?</string>
+    <string name="bahasa_dts_di_pasar_2">b. Saat DSR menwarkan produk, apakah Product Knowledge sesuai Selling Story?</string>
+    <string name="bahasa_dts_di_pasar_3">c. Seberapa dekat relasi Anda dengan Top 10 wholesaler Anda?</string>
+
+    <string name="bahasa_asm_push_title_sebelum">SEBELUM TIBA DI DISTRIBUTOR</string>
+    <string name="bahasa_asm_push_sebelum_title_1">DISTRIBUTOR PROFILE (seperti yang tertera dalam JBP)</string>
+    <string name="bahasa_asm_push_sebelum_1_1">1. Coverage</string>
+    <string name="bahasa_asm_push_sebelum_1_1_a">a. Berapa banyak wholesaler yang dicover oleh distributor?</string>
+    <string name="bahasa_asm_push_sebelum_1_1_b">b. Berapa banyak wholesaler bakery yang dicover?</string>
+    <string name="bahasa_asm_push_sebelum_1_1_c">c. Berapa banyak wholesaLer Horeca yang dicover?</string>
+    <string name="bahasa_asm_push_sebelum_1_1_d">d. Berapa banyak pasar yang terdapat di territory Anda? Berapa banyak yang sudah dicover? </string>
+    <string name="bahasa_asm_push_sebelum_1_1_e">e. Berapa banyak Local Cash &amp; Carry (LCC) yang terdapat di territory Anda? Berapa banyak yang sudah dicover?</string>
+    <string name="bahasa_asm_push_sebelum_1_2">2. Target :</string>
+    <string name="bahasa_asm_push_sebelum_1_2_a">a. Berapa target full year Anda?</string>
+    <string name="bahasa_asm_push_sebelum_1_2_b">b. Berapa RPP (rata-rata penjualan per pekan) distributor Anda?</string>
+    <string name="bahasa_asm_push_sebelum_1_2_c">c. Berapa persen pencapaiannya di minggu lalu?</string>
+    <string name="bahasa_asm_push_sebelum_1_3">3. UFS Business vs. Total Business :</string>
+    <string name="bahasa_asm_push_sebelum_1_3_a">a. Berapa persen kontribusi bisnis UFS dibandingkan total bisnis distributor?</string>
+    <string name="bahasa_asm_push_sebelum_1_3_b">b. Pada urutan keberapa UFS dibandingkan dengan principle lain?</string>
+    <string name="bahasa_asm_push_sebelum_1_4">4. Joint Business Plan (JBP)</string>
+    <string name="bahasa_asm_push_sebelum_1_4_a">a. Apa saja perbaikan yang disetujui dengan distributor yang terdapat pada JBP tahun ini?</string>
+    <string name="bahasa_asm_push_sebelum_1_4_b">b. Apa saja kesulitan yang dihadapi pada saat melakukan JBP?</string>
+    <string name="bahasa_asm_push_sebelum_1_5">5. Distributor Profitability</string>
+    <string name="bahasa_asm_push_sebelum_1_5_a">a. Apakah Anda telah menghitung Distributor Profitability kuartal lalu? Ada kesulitan?</string>
+    <string name="bahasa_asm_push_sebelum_1_5_b">b. Bagaimana hasil Return of Investmentnya (ROI) &amp; apa maksudnya?</string>
+    <string name="bahasa_asm_push_sebelum_1_5_c">c. Bagaimana hasil Net Profit Before Tax (NPBT) &amp; apa maksudnya?</string>
+    <string name="bahasa_asm_push_sebelum_1_5_d">d. Bagaimana hasil Return of Working Capital (ROWC) &amp; apa maksudnya?</string>
+    <string name="bahasa_asm_push_sebelum_1_5_e">e. Apa rencana Anda setelah melihat hasilnya?</string>
+    <string name="bahasa_asm_push_sebelum_1_6">6. Area Work Plan (AWP)</string>
+    <string name="bahasa_asm_push_sebelum_1_6_a">a. Berapa rencana penambahan wholesaler/Stock Point di area Anda dan bagiamana realisasinya?</string>
+    <string name="bahasa_asm_push_sebelum_1_6_b">b. Berapa rencana peningkatan fokus program di tahun ini dan bagaimana realisasinya?</string>
+
+    <string name="bahasa_asm_push_sebelum_title_2">PENGUASAAN BRAND UFS </string>
+    <string name="bahasa_asm_push_sebelum_2_1">1. Apakah Anda tahu Top 20 UFS? Apa saja?</string>
+    <string name="bahasa_asm_push_sebelum_2_2">2. Apakah Anda tahu target &amp; achievement penetrasi dari produk TLC berikut :</string>
+    <string name="bahasa_asm_push_sebelum_2_2_a">a. Royco Bumbu Dasar Ayam Kuning</string>
+    <string name="bahasa_asm_push_sebelum_2_2_b">b. Royco Bumbu Dasar Rendang</string>
+    <string name="bahasa_asm_push_sebelum_2_2_c">c. Sari Wangi Celup Jombo</string>
+    <string name="bahasa_asm_push_sebelum_2_2_d">d. Knorr Oyster</string>
+    <string name="bahasa_asm_push_sebelum_2_2_e">e. KMP 500Gr</string>
+
+    <string name="bahasa_asm_push_title_di_distributor_report">DI DISTRIBUTOR (REPORT)</string>
+    <string name="bahasa_asm_push_distributor_report_1">1. Dalam monitoring tim :</string>
+    <string name="bahasa_asm_push_distributor_report_1_a">a. Seberapa sering tim Anda melakukan morning dan afternoon briefing di distributor?</string>
+    <string name="bahasa_asm_push_distributor_report_1_b">b. Apakah Anda dapat menjelaskan point apa saja yang terdapat dalam wall report?\n*Minta DTS untuk menunjukan dan menjelaskan Wall Report yang ada di distributor</string>
+    <string name="bahasa_asm_push_distributor_report_2">2. Memonitor kedisiplinan tim :</string>
+    <string name="bahasa_asm_push_distributor_report_2_a">a. Berapa persen rata-rata pencapaian kunjungan DSR yang sesuai dengan PJP di area Anda? </string>
+    <string name="bahasa_asm_push_distributor_report_2_b">b. Berapa persen rata-rata effective call (EC) masing-masing DSR di area Anda?\n*Minta DTS untuk menunjukan dan menjelaskan konten yang ada pada TRC atau Leveredge Mobility</string>
+    <string name="bahasa_asm_push_distributor_report_3">3. Pengembangan kapabilitas tim :</string>
+    <string name="bahasa_asm_push_distributor_report_3_a">a. Seberapa sering Anda melakukan coaching untuk DTS? </string>
+    <string name="bahasa_asm_push_distributor_report_3_b">b. Seberapa sering Anda melakukan coaching untuk DSS/OM? </string>
+    <string name="bahasa_asm_push_distributor_report_3_c">c. Seberapa sering tim DTS melakukan coaching ke DSR?</string>
+    <string name="bahasa_asm_push_distributor_report_3_d">d. Apakah Anda dan tim DTS Anda menggunakan aplikasi ini untuk mendokumentasikan hasil coaching tersebut?\n*ASM sebaiknya melakukan coaching kepada DTS 3x/minggu</string>
+
+    <string name="bahasa_asm_push_title_di_distributor_infra">DI DISTRIBUTOR (INFRASTRUKTUR)</string>
+    <string name="bahasa_asm_push_distributor_infra_title">MANAJEMEN GUDANG &amp; KONDISI VAN DELIVERY</string>
+    <string name="bahasa_asm_push_distributor_infra_1">1. Seberapa baik Anda mengetahui kondisi dan rencana perbaikan (bila ada) dari :</string>
+    <string name="bahasa_asm_push_distributor_infra_1_a">a. Kondisi gudang (Racking, dinding, lantai, ceiling/plafon, dan ventilasi)</string>
+    <string name="bahasa_asm_push_distributor_infra_1_b">b. Perlakukan untuk produk rusak (adanya label dan pemisahan di tempat khusus)</string>
+    <string name="bahasa_asm_push_distributor_infra_1_c">c. Penerapan FEFO di gudang</string>
+    <string name="bahasa_asm_push_distributor_infra_1_d">d. Monitoring expiry date</string>
+    <string name="bahasa_asm_push_distributor_infra_1_e">e. Penataan produk dalam gudang (foods dan non-foods tidak tercampur)</string>
+    <string name="bahasa_asm_push_distributor_infra_1_f">f. Stacking produk sesuai dengan yang direkomendasikan di karton</string>
+    <string name="bahasa_asm_push_distributor_infra_1_g">g. Jadwal pembersihan dan perawatan gudang</string>
+    <string name="bahasa_asm_push_distributor_infra_2">2. Kondisi dan kebersihan Van  :</string>
+    <string name="bahasa_asm_push_distributor_infra_2_a">a. Apakah kondisi kendaraan bebas dari rembesan oli, ban botak?</string>
+    <string name="bahasa_asm_push_distributor_infra_2_b">b. Apakah body, Atap, pintu &amp; Lantai kendaaran bebas dari kerusakan &amp; berfungsi baik?</string>
+    <string name="bahasa_asm_push_distributor_infra_2_c">c. Apakah bagian dalam kendaraan bebas dari basah dan lembab?</string>
+    <string name="bahasa_asm_push_distributor_infra_2_d">d. Apakah lantai Kendaraan bebas dari serpihan kasar, kaca, paku, staples?</string>
+    <string name="bahasa_asm_push_distributor_infra_2_e">e. Apakah kendaraan dalam kondisi  bebas bekas terserang hama (misal: rayap, sarang serangga /laba laba)?</string>
+    <string name="bahasa_asm_push_distributor_infra_3">3. Apakah Anda sebagai bisnis partner pernah mendiskusikan perbaikan ini dengan owner distributor?</string>
+
+    <string name="bahasa_asm_push_title_di_pasar">DI PASAR (dengan DSR)</string>
+    <string name="bahasa_asm_push_di_pasar_1">a. Apakah DSR melakukan kunjungan sesuai PJP dan mengisi TRC/LeverEdge Mobility?</string>
+    <string name="bahasa_asm_push_di_pasar_2">b. Saat DSR menwarkan produk, apakah Product Knowledge sesuai Selling Story?</string>
+    <string name="bahasa_asm_push_di_pasar_3">c. Apakah Anda tahu aktifitas kompetitor dari produk Top 10?</string>
+    <string name="bahasa_asm_push_di_pasar_4">d. Apakah Anda tahu aktifitas kompetitor dari produk TLC?</string>
+    <string name="bahasa_asm_push_di_pasar_5">e. Apa rencana Anda untuk meningkatkan penetrasi Top 10 dan penetrasi TLC?</string>
+
+    <string name="bahasa_asm_pull_title_report">Pemahaman Report di Armstrong</string>
+    <string name="bahasa_asm_pull_report_title_1">A Minta ASM untuk menjelaskan "Summary Report Achievement" pada bulan ini</string>
+    <string name="bahasa_asm_pull_report_how_1">*how: Home > Reports > Choose Report Type : All-in-One Transaction > Choose Month</string>
+    <string name="bahasa_asm_pull_report_1_1">1. Call Time Optimization</string>
+    <string name="bahasa_asm_pull_report_1_1_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_1_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_1_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_1_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_2">2. Call Period</string>
+    <string name="bahasa_asm_pull_report_1_2_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_2_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_2_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_2_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_3">3. OTM Call Frequency</string>
+    <string name="bahasa_asm_pull_report_1_3_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_3_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_3_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_3_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_4">4. Pantry Efficiency</string>
+    <string name="bahasa_asm_pull_report_1_4_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_4_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_4_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_4_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_5">5. TFO Sources</string>
+    <string name="bahasa_asm_pull_report_1_5_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_5_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_5_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_5_d">d. </string>
+    <string name="bahasa_asm_pull_report_1_6">6. TFO SKU (# of SKU per TFO, same SKU counted as 1)</string>
+    <string name="bahasa_asm_pull_report_1_6_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_6_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_6_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_6_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_7">7. Sampling</string>
+    <string name="bahasa_asm_pull_report_1_7_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_7_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_7_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_7_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_8">8. Call Assessment (P, O, R/D, C)</string>
+    <string name="bahasa_asm_pull_report_1_8_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_1_8_b">b. Siapa yang terbaik di tim Anda?</string>
+    <string name="bahasa_asm_pull_report_1_8_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
+    <string name="bahasa_asm_pull_report_1_8_d">d. Bagiamana rencana pengembangannya?</string>
+
+    <string name="bahasa_asm_pull_report_title_2">B Minta ASM untuk menjelaskan "KPI Under Reports" pada bulan ini</string>
+    <string name="bahasa_asm_pull_report_how_2">*how : home > Reports > KPI</string>
+    <string name="bahasa_asm_pull_report_2_1">1. Total Calls</string>
+    <string name="bahasa_asm_pull_report_2_1_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_1_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_2">2. Average Calls per working day</string>
+    <string name="bahasa_asm_pull_report_2_2_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_2_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_3">3. Average Calls per actual working day</string>
+    <string name="bahasa_asm_pull_report_2_3_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_3_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_4">4. Strike rate (#TFO over #Total Calls)</string>
+    <string name="bahasa_asm_pull_report_2_4_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_4_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_5">5. Pantry Check</string>
+    <string name="bahasa_asm_pull_report_2_5_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_5_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_6">6. Sampling</string>
+    <string name="bahasa_asm_pull_report_2_6_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_6_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_7">7. OTM A fulfillment rate</string>
+    <string name="bahasa_asm_pull_report_2_7_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_7_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_8">8. OTM B fulfillment rate</string>
+    <string name="bahasa_asm_pull_report_2_8_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_8_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_9">9.OTM A call frequency</string>
+    <string name="bahasa_asm_pull_report_2_9_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_9_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_10">10. OTM B call frequency</string>
+    <string name="bahasa_asm_pull_report_2_10_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_10_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_11">11. OTM A Average Call Time </string>
+    <string name="bahasa_asm_pull_report_2_11_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_11_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_12">12. OTM B Average Call time </string>
+    <string name="bahasa_asm_pull_report_2_12_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_12_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_13">13. Total TFO Counts </string>
+    <string name="bahasa_asm_pull_report_2_13_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_13_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_14">14. Total TFO Value </string>
+    <string name="bahasa_asm_pull_report_2_14_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_14_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_15">15. Total Grip </string>
+    <string name="bahasa_asm_pull_report_2_15_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_15_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_16">16. New Grip </string>
+    <string name="bahasa_asm_pull_report_2_16_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_16_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_17">17. Total Grab </string>
+    <string name="bahasa_asm_pull_report_2_17_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_17_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_18">18. New Grab </string>
+    <string name="bahasa_asm_pull_report_2_18_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_18_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_asm_pull_report_2_19">19. Average Grab </string>
+    <string name="bahasa_asm_pull_report_2_19_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_asm_pull_report_2_19_b">b. Apa rencana untuk meningkatkannya?</string>
+
+    <string name="bahasa_asm_pull_title_habit">Pengembangan Kapabilitas Tim</string>
+    <string name="bahasa_asm_pull_habit_1">A. Seberapa sering Anda melakukan coaching?</string>
+    <string name="bahasa_asm_pull_habit_2">B. Seberapa sering Anda memberikan training/wet sampling kepada tim Anda?</string>
+
+    <string name="bahasa_sr_pull_title_report">Kefasihan Penggunaan Armstrong</string>
+    <string name="bahasa_sr_pull_report_title_1">A. Kelengkapan customer profile\n(5 informasi utama untuk digital : contact person name, Customer/business name, postal code address, contact person telp/email, type of business/Channel)\n(and tanyakan tipe OTM setiap customer)</string>
+    <string name="bahasa_sr_pull_report_how_1">*how: home>customers> click on Customer name> search the info under "Basic" &amp; "Contact"</string>
+    <string name="bahasa_sr_pull_report_1_1">1. Minta SR untuk menunjukan data customer yang telah memiliki 5 informasi utama untuk digital</string>
+    <string name="bahasa_sr_pull_report_1_1_a">a. Customer 1</string>
+    <string name="bahasa_sr_pull_report_1_1_b">b. Customer 2</string>
+    <string name="bahasa_sr_pull_report_1_1_c">c. Customer 3</string>
+    <string name="bahasa_sr_pull_report_1_1_d">d. Customer 4</string>
+    <string name="bahasa_sr_pull_report_1_1_e">e. Customer 5</string>
+    <string name="bahasa_sr_pull_report_1_2">2. Berapa customer yang belum lengkap dan mengapa?</string>
+
+    <string name="bahasa_sr_pull_report_title_2">B. Minta SR untuk menjelaskan mengenai pencapaian sejak menggunakan Armstrong</string>
+    <string name="bahasa_sr_pull_report_how_2">*how : home > KPIs</string>
+    <string name="bahasa_sr_pull_report_2_1">1.Total Calls</string>
+    <string name="bahasa_sr_pull_report_2_1_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_1_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_2">2. Average Calls per working day</string>
+    <string name="bahasa_sr_pull_report_2_2_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_2_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_3">3. Average Calls per actual working day</string>
+    <string name="bahasa_sr_pull_report_2_3_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_3_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_4">4. Strike rate (#TFO over #Total Calls)</string>
+    <string name="bahasa_sr_pull_report_2_4_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_4_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_5">5. Pantry Check</string>
+    <string name="bahasa_sr_pull_report_2_5_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_5_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_6">6. Sampling</string>
+    <string name="bahasa_sr_pull_report_2_6_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_6_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_7">7. OTM A fulfillment rate</string>
+    <string name="bahasa_sr_pull_report_2_7_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_7_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_8">8. OTM B fulfillment rate</string>
+    <string name="bahasa_sr_pull_report_2_8_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_8_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_9">9. OTM A call frequency</string>
+    <string name="bahasa_sr_pull_report_2_9_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_9_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_10">10. OTM B call frequency</string>
+    <string name="bahasa_sr_pull_report_2_10_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_10_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_11">11. OTM A Average Call Time </string>
+    <string name="bahasa_sr_pull_report_2_11_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_11_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_12">12. OTM B Average Call time </string>
+    <string name="bahasa_sr_pull_report_2_12_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_12_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_13">13. Total TFO Counts </string>
+    <string name="bahasa_sr_pull_report_2_13_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_13_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_14">14. Total TFO Value </string>
+    <string name="bahasa_sr_pull_report_2_14_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_14_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_15">15. Total Grip </string>
+    <string name="bahasa_sr_pull_report_2_15_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_15_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_16">16. New Grip </string>
+    <string name="bahasa_sr_pull_report_2_16_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_16_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_17">17. New Grab </string>
+    <string name="bahasa_sr_pull_report_2_17_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_17_b">b. Apa rencana untuk meningkatkannya?</string>
+    <string name="bahasa_sr_pull_report_2_18">18. Average Grab </string>
+    <string name="bahasa_sr_pull_report_2_18_a">a. Apa pengertiannya?</string>
+    <string name="bahasa_sr_pull_report_2_18_b">b. Apa rencana untuk meningkatkannya?</string>
+
+    <string name="bahasa_sr_pull_title_saat">Pada saat kunjungan ke operator</string>
+    <string name="bahasa_sr_pull_saat_1">A. Minta SR untuk menjelaskan apa yang telah dipersiapkan di Armstrong</string>
+    <string name="bahasa_sr_pull_saat_1_a">a. Minta SR untuk menjelaskan apa yang telah dipersiapkan di Armstrong</string>
+    <string name="bahasa_sr_pull_saat_1_b">b. Minta SR untuk menjelaskan apa yang telah dipersiapkan di Armstrong</string>
+
+    <string name="bahasa_sr_pull_saat_2">B. Ikuti aktifitas SR dan memastikan SR menggunakan Armstrong secara maksimal (min. SR menggunakan Armstrong pada 4 aktifitas dibawah ini)</string>
+    <string name="bahasa_sr_pull_saat_2_a">a. Pantry Check &amp; Competitor Check </string>
+    <string name="bahasa_sr_pull_saat_3_b">b. Presentasi ke decision maker menggunakan Media Demo di Armstrong </string>
+    <string name="bahasa_sr_pull_saat_4_c">c. Melakukan Wet Sampling / cooking demo dan me-record di Armstrong </string>
+    <string name="bahasa_sr_pull_saat_2_d">d. Mencatat TFO (Transfer Form Order) di Armstrong </string>
+
+
+    <string-array name="job_title">
+        <item>Managing Director</item>
+        <item>NSM Push</item>
+        <item>NSM Pull</item>
+        <item>NSM Chain</item>
+        <item>NSM Hotel</item>
+        <item>CD Capability Building Manager</item>
+        <item>RSM Pull</item>
+        <item>RSM Push</item>
+        <item>ASM Pull</item>
+        <item>ASM Push</item>
+        <item>Asst. CD Capability Building Manager</item>
+        <item>DTS Push</item>
+        <item>SR Pull Bareca</item>
+        <item>SR Pull Hotel</item>
+        <item>OM Dist.</item>
+        <item>DSS</item>
+        <item>DSR</item>
+        <item>CD Ops Manager</item>
+        <item>Asst. CD Ops Manager</item>
+        <item>Supply Chain</item>
+        <item>Marketing</item>
+        <item>Finance</item>
+        <item>R&amp;D</item>
+    </string-array>
+
+    <string-array name="cdteam_title">
+        <item>CD Capability Team</item>
+        <item>CD Capability Building Manager</item>
+        <item>Asst. CD Capability Building Manager</item>
+    </string-array>
+    <string name="title_activity_dtspull_sebelum">DTS Pull Before Activity</string>
+    <string name="title_activity_dtspull_report">DTS Pull Report Activity</string>
+    <string name="title_activity_dtspull_infra">DTS Pull Infra Activity</string>
+    <string name="title_activity_dtspull_market">DTS Pull Market Activity</string>
+    <string name="title_activity_coaching_summary_dtspull">Coaching Summary DTS Pull Activity
+    </string>
 </resources>
