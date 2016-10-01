@@ -73,8 +73,7 @@
         <activity
             android:name=".DTSPullSebelumActivity"
             android:label="@string/title_activity_dtspull_sebelum"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".DTSPullReportActivity"
             android:label="@string/title_activity_dtspull_report"
@@ -90,6 +89,26 @@
         <activity
             android:name=".CoachingSummaryDTSPullActivity"
             android:label="@string/title_activity_coaching_summary_dtspull"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPushSebelumActivity"
+            android:label="@string/title_activity_asmpush_sebelum"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPushReportActivity"
+            android:label="@string/title_activity_asmpush_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPushInfraActivity"
+            android:label="@string/title_activity_asmpush_infra"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPushMarketActivity"
+            android:label="@string/title_activity_asmpush_market"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoachingSummaryASMPushActivity"
+            android:label="@string/title_activity_coaching_summary_asmpush"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

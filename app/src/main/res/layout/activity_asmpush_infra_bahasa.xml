@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="unilever.coachingform.DTSPullInfraActivity">
+    tools:context="unilever.coachingform.ASMPushInfraActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -140,7 +140,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_title"
+                    android:text="@string/bahasa_asm_push_distributor_infra_title"
                     android:textStyle="italic"
                     style="@style/text_questions"/>
                 <TextView
@@ -151,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -160,11 +160,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_a"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_a"
+                    android:id="@+id/asm_push_infra_1_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -177,11 +177,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_b"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_b"
+                    android:id="@+id/asm_push_infra_1_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -194,11 +194,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_c"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_c"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_c"
+                    android:id="@+id/asm_push_infra_1_c"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -211,11 +211,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_d"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_d"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_d"
+                    android:id="@+id/asm_push_infra_1_d"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -228,11 +228,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_e"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_e"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_e"
+                    android:id="@+id/asm_push_infra_1_e"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -245,11 +245,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_f"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_f"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_f"
+                    android:id="@+id/asm_push_infra_1_f"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -262,11 +262,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_1_g"
+                    android:text="@string/bahasa_asm_push_distributor_infra_1_g"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_1_g"
+                    android:id="@+id/asm_push_infra_1_g"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -277,7 +277,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -286,11 +286,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2_a"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_2_a"
+                    android:id="@+id/asm_push_infra_2_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -303,11 +303,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2_b"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_2_b"
+                    android:id="@+id/asm_push_infra_2_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -320,11 +320,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2_c"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2_c"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_2_c"
+                    android:id="@+id/asm_push_infra_2_c"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -337,11 +337,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2_d"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2_d"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_2_d"
+                    android:id="@+id/asm_push_infra_2_d"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -354,11 +354,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_2_e"
+                    android:text="@string/bahasa_asm_push_distributor_infra_2_e"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_2_e"
+                    android:id="@+id/asm_push_infra_2_e"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -371,10 +371,10 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_distributor_infra_3"
+                    android:text="@string/bahasa_asm_push_distributor_infra_3"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/dts_infra_3"
+                    android:id="@+id/asm_push_infra_3"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText

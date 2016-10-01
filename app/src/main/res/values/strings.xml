@@ -231,7 +231,7 @@
     <string name="bahasa_dts_di_pasar_3">c. Seberapa dekat relasi Anda dengan Top 10 wholesaler Anda?</string>
 
     <string name="bahasa_asm_push_title_sebelum">SEBELUM TIBA DI DISTRIBUTOR</string>
-    <string name="bahasa_asm_push_sebelum_title_1">DISTRIBUTOR PROFILE (seperti yang tertera dalam JBP)</string>
+    <string name="bahasa_asm_push_sebelum_title_1">DISTRIBUTOR PROFILE\n (seperti yang tertera dalam JBP)</string>
     <string name="bahasa_asm_push_sebelum_1_1">1. Coverage</string>
     <string name="bahasa_asm_push_sebelum_1_1_a">a. Berapa banyak wholesaler yang dicover oleh distributor?</string>
     <string name="bahasa_asm_push_sebelum_1_1_b">b. Berapa banyak wholesaler bakery yang dicover?</string>
@@ -529,5 +529,11 @@
     <string name="title_activity_dtspull_infra">DTS Pull Infra Activity</string>
     <string name="title_activity_dtspull_market">DTS Pull Market Activity</string>
     <string name="title_activity_coaching_summary_dtspull">Coaching Summary DTS Pull Activity
+    </string>
+    <string name="title_activity_asmpush_sebelum">ASM Push Sebelum Activity</string>
+    <string name="title_activity_asmpush_report">ASM Push Report Activity</string>
+    <string name="title_activity_asmpush_infra">ASM Push Infra Activity</string>
+    <string name="title_activity_asmpush_market">ASM Push Market Activity</string>
+    <string name="title_activity_coaching_summary_asmpush">Coaching Summary ASM Push Activity
     </string>
 </resources>

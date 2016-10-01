@@ -128,7 +128,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("asm_push")) {
-            Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
+            Intent intent = new Intent(CoacheeHistoryActivity.this, ASMPushSebelumActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);

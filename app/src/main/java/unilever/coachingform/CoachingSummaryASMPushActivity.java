@@ -29,8 +29,8 @@ import utility.PDFUtil;
 import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
-public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
-    private static final String TAG = "SummaryDTSPullActivity";
+public class CoachingSummaryASMPushActivity extends AppCompatActivity {
+    private static final String TAG = "SummaryASMPushActivity";
     Button next;
     EditText coach, coachee, area, distributor, summary_1, summary_2, summary_3;
     TextView date;
@@ -68,9 +68,9 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_coaching_summary_dtspull_bahasa);
+            setContentView(R.layout.activity_coaching_summary_asmpush_bahasa);
         } else {
-            setContentView(R.layout.activity_coaching_summary_dtspull_bahasa);
+            setContentView(R.layout.activity_coaching_summary_asmpush_bahasa);
         }
         next = (Button) findViewById(R.id.next);
         coach = (EditText) findViewById(R.id.coach);
@@ -94,9 +94,9 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
     }
 
     private void saveQA() {
-        addingQA("","dts_pull_summary_1",false,summary_1.getText().toString(),false);
-        addingQA("","dts_pull_summary_2",false,summary_2.getText().toString(),false);
-        addingQA("","dts_pull_summary_3",false, summary_3.getText().toString(), false);
+        addingQA("","asm_push_summary_1",false,summary_1.getText().toString(),false);
+        addingQA("","asm_push_summary_2",false,summary_2.getText().toString(),false);
+        addingQA("","asm_push_summary_3",false, summary_3.getText().toString(), false);
         CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
                 new CoachingSessionDAO.UpdateCoachingListener() {
                     @Override
@@ -104,7 +104,7 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
                         if (isSuccess) {
                             insert();
                         } else {
-                            Toast.makeText(CoachingSummaryDTSPullActivity.this, "Failed to save the data!!",
+                            Toast.makeText(CoachingSummaryASMPushActivity.this, "Failed to save the data!!",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -129,9 +129,9 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
                                                     public void onPDFGenerated(boolean isSuccess) {
                                                         if (isSuccess) {
                                                             progressBar.dismiss();
-                                                            SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryDTSPullActivity.this);
+                                                            SynchronizationService.sendEmail(coachingSessionID, CoachingSummaryASMPushActivity.this);
                                                         } else {
-                                                            Toast.makeText(CoachingSummaryDTSPullActivity.this, "Failed to generate PDF!!",
+                                                            Toast.makeText(CoachingSummaryASMPushActivity.this, "Failed to generate PDF!!",
                                                                     Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
@@ -141,16 +141,16 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
                             }
                         });
                     } else {
-                        Toast.makeText(CoachingSummaryDTSPullActivity.this, "Your coaching from will be saved locally",
+                        Toast.makeText(CoachingSummaryASMPushActivity.this, "Your coaching from will be saved locally",
                                 Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(CoachingSummaryDTSPullActivity.this, ProfileActivity.class);
+                        Intent intent = new Intent(CoachingSummaryASMPushActivity.this, ProfileActivity.class);
                         intent.putExtra("coach", coach.getText().toString());
                         intent.putExtra("job", job);
                         intent.putExtra("coachee", coachee.getText().toString());
                         startActivity(intent);
                     }
                 } else {
-                    Toast.makeText(CoachingSummaryDTSPullActivity.this, "Failed to save the data!!!",
+                    Toast.makeText(CoachingSummaryASMPushActivity.this, "Failed to save the data!!!",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -161,7 +161,7 @@ public class CoachingSummaryDTSPullActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
             Log.d(TAG, "Result Received");
-            Intent intent = new Intent(CoachingSummaryDTSPullActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(CoachingSummaryASMPushActivity.this, ProfileActivity.class);
             intent.putExtra("coach", coach.getText().toString());
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee.getText().toString());
