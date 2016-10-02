@@ -272,15 +272,23 @@ public class CoachingSessionEntity extends RealmObject {
         String guideline = "";
         if(getCoachingGuideline() == ConstantUtil.GUIDELINE_DSR){
             guideline = "DSR";
-        } else {
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_FASA) {
             guideline = "FA_SA_Merchandiser";
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_DTS_PULL){
+            guideline = "DTS_PULL";
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_SR_PULL){
+            guideline = "SR_PULL";
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_ASM_PULL){
+            guideline = "ASM_PULL";
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_ASM_PUSH){
+            guideline = "ASM_PUSH";
         }
         return guideline;
     }
 
     public String getPdfFileName(){
-       // return getGuidelineRep() + " - " + getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
-       return "test.pdf";
+       return getGuidelineRep() + " - " + getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
+       //return "test.pdf";
     }
 
     public CoachingSessionDTO toDTO(){

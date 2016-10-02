@@ -105,7 +105,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
         signal1.await(30, TimeUnit.SECONDS);
 
-        final int guideline = ConstantUtil.GUIDELINE_ASM_PULL;
+        final int guideline = ConstantUtil.GUIDELINE_SR_PULL;
         final String area = "area1";
         final String distributor = "dist1";
         final String store = "Store1";
@@ -157,7 +157,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal4 = new CountDownLatch(2);
 
         //final List<CoachingQuestionAnswerEntity> coachingQAs = dummyDSRQA();
-        final List<CoachingQuestionAnswerEntity> coachingQAs = dummyASMPULLQA();
+        final List<CoachingQuestionAnswerEntity> coachingQAs = dummySRPULLQA();
 
         Log.d(TAG, "QA : " + coachingQAs.size());
 
@@ -527,6 +527,71 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
             coachingQA.setHasTickAnswer(true);
             coachingQAs.add(coachingQA);
         }
+
+        return coachingQAs;
+    }
+
+    private static List<CoachingQuestionAnswerEntity> dummySRPULLQA(){
+        final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+
+        String index[] = new String[]{"","a","b","c","d"};
+
+
+        String[] report = {"1_a","1_b","1_c","1_d","1_e","2"};
+
+        for(String id: report){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("sr_pull_report_1_"+id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        for (int i = 1; i <= 18; i++){
+            for(int j = 1; j <= 2; j++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("");
+                coachingQA.setQuestionID("sr_pull_report_2_"+i+"_"+index[j]);
+                coachingQA.setTextAnswer("Remarks " + i);
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+
+            }
+        }
+
+        String[] kunjungan = {"1_a", "1_b", "2_a", "2_b", "2_c", "2_d"};
+        for(String id: kunjungan){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("sr_pull_kunjungan_"+id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        String[] srPullSummary = {"1","2","3"};
+        for (String id : srPullSummary){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("sr_pull_summary_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
 
         return coachingQAs;
     }

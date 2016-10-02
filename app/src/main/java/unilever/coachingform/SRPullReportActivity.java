@@ -188,7 +188,7 @@ public class SRPullReportActivity extends AppCompatActivity {
         addingQA("","sr_pull_report_1_1_a",status_1_1_a,remarks_1_1_a.getText().toString(),true);
         addingQA("","sr_pull_report_1_1_b",status_1_1_b,remarks_1_1_b.getText().toString(),true);
         addingQA("","sr_pull_report_1_1_c",status_1_1_c,remarks_1_1_c.getText().toString(),true);
-        addingQA("","sr_pull_report_1_1_b",status_1_1_d,remarks_1_1_d.getText().toString(),true);
+        addingQA("","sr_pull_report_1_1_d",status_1_1_d,remarks_1_1_d.getText().toString(),true);
         addingQA("","sr_pull_report_1_1_e",status_1_1_e,remarks_1_1_e.getText().toString(),true);
         addingQA("","sr_pull_report_1_2",status_1_2,remarks_1_2.getText().toString(),true);
         for(int i = 1; i < status_2.length;i++) {
