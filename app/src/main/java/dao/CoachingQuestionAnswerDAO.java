@@ -1,5 +1,6 @@
 package dao;
 
+import android.util.Log;
 import android.util.Pair;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ import io.realm.RealmResults;
  */
 public class CoachingQuestionAnswerDAO {
 
+    private static final String TAG = "CoachingQuestionAnswer";
+
     public static void getCoachingQA(String coachingSessionID, GetCoachingQAListener listener) {
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CoachingQuestionAnswerEntity> coachingQuestionAnswerEntities =
@@ -36,9 +39,16 @@ public class CoachingQuestionAnswerDAO {
 
         Map<Pair<String, String>, CoachingQuestionAnswerEntity> map = new HashMap<>();
 
+        Log.d(TAG, "size : " + coachingQuestionAnswerEntities.size());
+
         for(CoachingQuestionAnswerEntity entity: coachingQuestionAnswerEntities){
             map.put(new Pair<>(entity.getQuestionID(), entity.getColumnID()), entity);
         }
+
+        /*for(int i = 0; i < map.size(); i++){
+            Pair<String, String> temp = (Pair)map.keySet().toArray()[i];
+            Log.d(TAG, "MAP size : " + temp.first + temp.second);
+        }*/
 
         listener.onQAMapReceived(map);
 

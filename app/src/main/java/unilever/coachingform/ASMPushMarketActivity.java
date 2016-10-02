@@ -23,7 +23,7 @@ import utility.ConstantUtil;
 import utility.RealmUtil;
 import utility.SharedPreferenceUtil;
 
-public class ASMPushMarketActivity extends AppCompatActivity {
+public class  ASMPushMarketActivity extends AppCompatActivity {
     Context context;
     Button next;
     Button sebelum,report, infra;
