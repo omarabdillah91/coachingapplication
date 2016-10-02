@@ -71,6 +71,8 @@ public class PDFUtil {
                                             createASMPULLPDF(coachingSessionEntity, qaMap, listener);
                                         } else if (coachingSessionEntity.getCoachingGuideline() == ConstantUtil.GUIDELINE_SR_PULL){
                                             createSRPULLPDF(coachingSessionEntity, qaMap, listener);
+                                        } else if (coachingSessionEntity.getCoachingGuideline() == ConstantUtil.GUIDELINE_RSM){
+                                            createRSMPDF(coachingSessionEntity, qaMap, listener);
                                         }
                                     }
                                 }
@@ -79,6 +81,65 @@ public class PDFUtil {
                     }
                 });
 
+    }
+
+    private static void createRSMPDF(CoachingSessionEntity coachingSession,
+                                     Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap,
+                                     GeneratePDFListener listener) {
+        Document doc = new Document();
+        /*String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+                + ".pdf";*/
+        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getPdfFileName();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path));
+            doc.open();
+
+            CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity) qaMap.values()
+                    .toArray()[0];
+
+            //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            int lang = BAHASA;
+
+            Chunk chunk = new Chunk("RSM COACHING GUIDELINES\n\n", heading1Font);
+            Chapter chapter = new Chapter(new Paragraph(chunk), 1);
+            chapter.setNumberDepth(0);
+
+            chapter.add(createLeftRight("Coach : " + coachingSession.getCoachName(),
+                    "Area : " + coachingSession.getArea()));
+            chapter.add(createLeftRight("Coachee : " + coachingSession.getCoacheeName(),
+                    "Tanggal : " + coachingSession.getFormattedDate()));
+
+            doc.add(chapter);
+
+            doc.add(new Paragraph("\n COACHING SUMMARY \n\n", heading3Font));
+
+            PdfPTable table1 = new PdfPTable(1);
+            table1.setWidthPercentage(100);
+
+            for(int i = 1; i <= 3; i++){
+                PdfPCell cell = new PdfPCell();
+                //cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
+                cell.addElement(new Paragraph(getString("summary_" + i, lang), heading3Font));
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(
+                        new Pair<>("rsm_summary_" + i, ""));
+                String value = String.valueOf(answerEntity.getTextAnswer());
+                value = "".equals(value) ? "\n\n" : value;
+                cell.addElement(new Paragraph(value, normalFont));
+                table1.addCell(cell);
+
+            }
+
+            doc.add(table1);
+            doc.close();
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        listener.onPDFGenerated(true);
     }
 
     public static void createFASAPDF(CoachingSessionEntity coachingSession,

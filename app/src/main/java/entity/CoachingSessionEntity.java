@@ -282,6 +282,8 @@ public class CoachingSessionEntity extends RealmObject {
             guideline = "ASM_PULL";
         } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_ASM_PUSH){
             guideline = "ASM_PUSH";
+        } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_RSM){
+            guideline = "RSM";
         }
         return guideline;
     }
