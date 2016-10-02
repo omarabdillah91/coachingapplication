@@ -557,4 +557,5 @@
     <string name="title_activity_srpull_report">SRPullReportActivity</string>
     <string name="title_activity_srpull_kunjungan">SRPullKunjunganActivity</string>
     <string name="title_activity_coaching_summary_srpull">CoachingSummarySRPullActivity</string>
+    <string name="title_activity_rsm">RSM Activity</string>
 </resources>

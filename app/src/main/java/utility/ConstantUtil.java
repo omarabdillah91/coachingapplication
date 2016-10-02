@@ -18,6 +18,7 @@ public class ConstantUtil {
     public static final int GUIDELINE_ASM_PULL = 4;
     public static final int GUIDELINE_ASM_PUSH = 5;
     public static final int GUIDELINE_SR_PULL = 6;
+    public static final int GUIDELINE_RSM = 7;
 
     public static final int REQ_SEND_EMAIL = 91;
     public static final int PERM_WRITE_STORAGE = 88;

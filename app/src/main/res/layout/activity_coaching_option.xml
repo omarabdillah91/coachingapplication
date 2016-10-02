@@ -120,6 +120,7 @@
         <Button
             android:id="@+id/next"
             android:text="Next"
+            android:layout_centerInParent="true"
             style="@style/next_button_1"
             android:layout_below="@+id/language_option"
             />

@@ -146,7 +146,22 @@ public class CoachingOption extends AppCompatActivity {
 
     private void goCoaching() {
         if(rsm_status) {
-            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_RSM,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
+            intent.putExtra("coach", coach);
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
+            intent.putExtra("bahasa",bahasa_status);
+            intent.putExtra("english",english_status);
+            intent.putExtra("coaching","rsm");
+            intent.putExtra("id", coachingSessionID);
+            startActivity(intent);
         } else if (asm_pull_status) {
             CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PULL,
                     new CoachingSessionDAO.UpdateCoachingListener() {

@@ -133,7 +133,7 @@
         <activity
             android:name=".CoachingSummarySRPullActivity"
             android:label="@string/title_activity_coaching_summary_srpull"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
