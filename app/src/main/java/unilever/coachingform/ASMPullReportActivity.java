@@ -123,12 +123,12 @@ public class ASMPullReportActivity extends AppCompatActivity {
     private void saveQA() {
         for(int i = 1; i < status_1.length;i++) {
             for (int j = 1;j < status_1[0].length;j++) {
-                addingQA("","asm_push_report_1_"+i+"_"+index[j], status_1[i][j], remarks_1[i][j].getText().toString(), true);
+                addingQA("","asm_pull_report_1_"+i+"_"+index[j], status_1[i][j], remarks_1[i][j].getText().toString(), true);
             }
         }
         for(int i = 1; i < status_2.length;i++) {
             for (int j = 1;j < status_2[0].length;j++) {
-                addingQA("","asm_push_report_2_"+i+"_"+index[j], status_2[i][j], remarks_2[i][j].getText().toString(), true);
+                addingQA("","asm_pull_report_2_"+i+"_"+index[j], status_2[i][j], remarks_2[i][j].getText().toString(), true);
             }
         }
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
