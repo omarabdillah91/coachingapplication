@@ -1197,6 +1197,7 @@ public class PDFUtil {
 
             doc.add(tableHabbit);
 
+            /*
             doc.add(new Paragraph("\n COACHING SUMMARY \n\n", heading3Font));
 
             PdfPTable table1 = new PdfPTable(1);
@@ -1215,7 +1216,7 @@ public class PDFUtil {
 
             }
 
-            doc.add(table1);
+            doc.add(table1);*/
             doc.close();
 
         } catch (DocumentException e) {
