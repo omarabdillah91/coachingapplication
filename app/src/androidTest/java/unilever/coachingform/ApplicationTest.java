@@ -470,71 +470,58 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
     private static List<CoachingQuestionAnswerEntity> dummyASMPULLQA(){
         final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
 
-        String[] dtsSebelum = {"1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e", "1_2_a", "1_2_b"
-                , "1_2_c", "2_1", "2_2_a", "2_2_b", "2_2_c"
-                , "2_2_d", "2_2_e"};
+        String index[] = new String[]{"","a","b","c","d"};
 
-        for (String id : dtsSebelum){
+        for (int i = 1; i <= 8; i++){
+            for(int j = 1; j <= 4; j++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("");
+                coachingQA.setQuestionID("asm_pull_report_1_"+i+"_"+index[j]);
+                coachingQA.setTextAnswer("Remarks " + i);
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+
+            }
+        }
+
+        for (int i = 1; i <= 19; i++){
+            for(int j = 1; j <= 2; j++){
+                CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+                coachingQA.setId(RealmUtil.generateID());
+                coachingQA.setCoachingSessionID(coachingSessionID);
+                coachingQA.setColumnID("");
+                coachingQA.setQuestionID("asm_pull_report_2_"+i+"_"+index[j]);
+                coachingQA.setTextAnswer("Remarks " + i);
+                coachingQA.setTickAnswer(true);
+                coachingQA.setHasTickAnswer(true);
+                coachingQAs.add(coachingQA);
+
+            }
+        }
+
+        for(int j = 1; j <= 2; j++){
             CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("");
-            coachingQA.setQuestionID("dts_pull_sebelum_" + id);
-            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setQuestionID("asm_pull_habbit_"+j);
+            coachingQA.setTextAnswer("Remarks " + j);
             coachingQA.setTickAnswer(true);
             coachingQA.setHasTickAnswer(true);
             coachingQAs.add(coachingQA);
+
         }
 
-        String[] dtsReport = {"1_a","1_b","2_a","2_b","3_a","3_b","3_c"};
-
-        for (String id : dtsReport){
+        String[] asmPullSummary = {"1","2","3"};
+        for (String id : asmPullSummary){
             CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
             coachingQA.setId(RealmUtil.generateID());
             coachingQA.setCoachingSessionID(coachingSessionID);
             coachingQA.setColumnID("");
-            coachingQA.setQuestionID("dts_pull_report_" + id);
-            coachingQA.setTextAnswer("Remarks " + id);
-            coachingQA.setTickAnswer(true);
-            coachingQA.setHasTickAnswer(true);
-            coachingQAs.add(coachingQA);
-        }
-
-        String[] dtsInfra = {"1_a","1_b","1_c","1_d","1_e","1_f","1_g","2_a","2_b","2_c","2_d"
-                ,"2_e","3"};
-
-        for (String id : dtsInfra){
-            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
-            coachingQA.setId(RealmUtil.generateID());
-            coachingQA.setCoachingSessionID(coachingSessionID);
-            coachingQA.setColumnID("");
-            coachingQA.setQuestionID("dts_pull_infra_" + id);
-            coachingQA.setTextAnswer("Remarks " + id);
-            coachingQA.setTickAnswer(true);
-            coachingQA.setHasTickAnswer(true);
-            coachingQAs.add(coachingQA);
-        }
-
-        String[] dtsMarket = {"1","2","3"};
-        for (String id : dtsMarket){
-            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
-            coachingQA.setId(RealmUtil.generateID());
-            coachingQA.setCoachingSessionID(coachingSessionID);
-            coachingQA.setColumnID("");
-            coachingQA.setQuestionID("dts_pull_market_" + id);
-            coachingQA.setTextAnswer("Remarks " + id);
-            coachingQA.setTickAnswer(true);
-            coachingQA.setHasTickAnswer(true);
-            coachingQAs.add(coachingQA);
-        }
-
-        String[] asmSummary = {"1","2","3"};
-        for (String id : asmSummary){
-            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
-            coachingQA.setId(RealmUtil.generateID());
-            coachingQA.setCoachingSessionID(coachingSessionID);
-            coachingQA.setColumnID("");
-            coachingQA.setQuestionID("dts_pull_summary_" + id);
+            coachingQA.setQuestionID("asm_pull_summary_" + id);
             coachingQA.setTextAnswer("Remarks " + id);
             coachingQA.setTickAnswer(true);
             coachingQA.setHasTickAnswer(true);
