@@ -61,8 +61,10 @@ public class PDFUtil {
                                     if (qaMap.size() > 0) {
                                         if (coachingSessionEntity.getCoachingGuideline() == ConstantUtil.GUIDELINE_FASA) {
                                             createFASAPDF(coachingSessionEntity, qaMap, listener);
-                                        } else {
+                                        } else if (coachingSessionEntity.getCoachingGuideline() == ConstantUtil.GUIDELINE_DSR) {
                                             createDSRPDF(coachingSessionEntity, qaMap, listener);
+                                        } else if (coachingSessionEntity.getCoachingGuideline() == ConstantUtil.GUIDELINE_ASM_PUSH){
+                                            createASMPUSHPDF(coachingSessionEntity, qaMap, listener);
                                         }
                                     }
                                 }
@@ -422,15 +424,15 @@ public class PDFUtil {
                 tableSaat.addCell(createTableHeader(String.valueOf(i)));
             }
 
-            String[] saatID = {"1", "2","3", "3", "4", "5", "6", "7", "8", "9", "10"};
-            String[] text_saatID = {"1", "2","3", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
+            String[] saatID = {"1", "2", "3", "3", "4", "5", "6", "7", "8", "9", "10"};
+            String[] text_saatID = {"1", "2", "3", "3a", "3b", "3c", "3d", "3e", "4", "5", "6"};
             int in = 0;
             for (String id : saatID) {
                 String temp = "dsr_saat_" + id;
                 String temp_1 = "dsr_saat_" + text_saatID[in];
                 tableSaat.addCell(createNormalCell(getString(temp_1, lang)));
                 for (int i = 1; i <= 10; i++) {
-                    if(text_saatID[in].equals("3")){
+                    if (text_saatID[in].equals("3")) {
                         tableSaat.addCell("");
                     } else {
                         String questionID = temp;
@@ -512,6 +514,200 @@ public class PDFUtil {
         }
 
         listener.onPDFGenerated(true);
+    }
+
+    public static void createASMPUSHPDF(CoachingSessionEntity coachingSession,
+                                        Map<Pair<String, String>, CoachingQuestionAnswerEntity> qaMap,
+                                        GeneratePDFListener listener) {
+
+        Document doc = new Document();
+        /*String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getId()
+                + ".pdf";*/
+        String path = Environment.getExternalStorageDirectory() + "/" + coachingSession.getPdfFileName();
+
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path));
+            doc.open();
+
+            CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity) qaMap.values()
+                    .toArray()[0];
+
+            //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            int lang = BAHASA;
+
+            Chunk chunk = new Chunk("ASM PUSH COACHING GUIDELINES\n\n", heading1Font);
+            Chapter chapter = new Chapter(new Paragraph(chunk), 1);
+            chapter.setNumberDepth(0);
+
+            chapter.add(createLeftRight("Coach : " + coachingSession.getCoachName(),
+                    "Distributor : " + coachingSession.getDistributor()));
+            chapter.add(createLeftRight("Coachee : " + coachingSession.getCoacheeName(),
+                    "Area : " + coachingSession.getArea()));
+            chapter.add(createLeftRight("Tanggal : " + coachingSession.getFormattedDate(), ""));
+
+            chapter.add(new Paragraph("\n"));
+
+            float[] columnSebelum = {4, 1, 3};
+            PdfPTable tableSebelum = new PdfPTable(columnSebelum);
+            tableSebelum.setWidthPercentage(100);
+
+            Log.d(TAG, "MAP SIZE: " + qaMap.size());
+
+            tableSebelum.addCell(createTableHeader(getString("asm_push_title_sebelum", lang)));
+            tableSebelum.addCell(createTableHeader("Tick if \n Done/Know"));
+            tableSebelum.addCell(createTableHeader("Remarks"));
+
+            String[] asmSebelum = {"title_1", "1_1", "1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e"
+                    ,"1_2", "1_2_a", "1_2_b", "1_2_c"
+                    ,"1_3", "1_3_a", "1_3_b"
+                    ,"1_4", "1_4_a", "1_4_b"
+                    ,"1_5", "1_5_a", "1_5_b", "1_5_c", "1_5_d", "1_5_e"
+                    ,"1_6", "1_6_a", "1_6_b"
+                    ,"title_2","2_1"
+                    ,"2_2", "2_2_a", "2_2_b", "2_2_c", "2_2_d", "2_2_e"};
+
+
+            for (String id : asmSebelum) {
+                String temp = "asm_push_sebelum_" + id;
+                tableSebelum.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = temp;
+                String columnID = "";
+
+                if (id.equals("title_1") || id.equals("1_1") || id.equals("1_2")
+                        || id.equals("1_3") || id.equals("1_4") || id.equals("1_5")
+                        || id.equals("1_6") || id.equals("title_2") || id.equals("2_2")) {
+                    tableSebelum.addCell("");
+                    tableSebelum.addCell("");
+                } else {
+                    CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                    String value = answerEntity.getTickStringRep();
+                    tableSebelum.addCell(createNormalCell(value));
+                    tableSebelum.addCell(createNormalCell(answerEntity.getTextAnswer()));
+                }
+            }
+
+            chapter.add(tableSebelum);
+            doc.add(chapter);
+            doc.add(new Paragraph("\n"));
+
+            float[] columnDistributor = {4, 1, 3};
+            PdfPTable tableDistributor = new PdfPTable(columnDistributor);
+            tableDistributor.setWidthPercentage(100);
+
+            tableDistributor.addCell(createTableHeader(getString("asm_push_title_di_distributor_report", lang)));
+            tableDistributor.addCell(createTableHeader("Tick if \n Done/Know"));
+            tableDistributor.addCell(createTableHeader("Remarks"));
+
+            String[] asmDistributor = {"1","1_a","1_b"
+                    ,"2","2_a","2_b"
+                    ,"3","3_a","3_b","3_c","3_d"};
+
+
+            for (String id : asmDistributor) {
+                String temp = "asm_push_distributor_report_" + id;
+                tableDistributor.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = "asm_push_report_" + id;
+                String columnID = "";
+
+                if (id.equals("1") || id.equals("2") || id.equals("3")) {
+                    tableDistributor.addCell("");
+                    tableDistributor.addCell("");
+                } else {
+                    CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                    String value = answerEntity.getTickStringRep();
+                    tableDistributor.addCell(createNormalCell(value));
+                    tableDistributor.addCell(createNormalCell(answerEntity.getTextAnswer()));
+                }
+            }
+
+            doc.add(tableDistributor);
+            doc.add(new Paragraph("\n"));
+
+            float[] columnInfra = {4, 1, 3};
+            PdfPTable tableInfra = new PdfPTable(columnInfra);
+            tableInfra.setWidthPercentage(100);
+
+            tableInfra.addCell(createTableHeader(getString("asm_push_title_di_distributor_infra", lang)));
+            tableInfra.addCell(createTableHeader("Tick if \n Done/Know"));
+            tableInfra.addCell(createTableHeader("Remarks"));
+
+            String[] asmInfra = {"title","1","1_a","1_b","1_c","1_d","1_e","1_f","1_g"
+                    ,"2","2_a","2_b","2_c","2_d","2_e"
+                    ,"3"};
+
+            for (String id : asmInfra) {
+                String temp = "asm_push_distributor_infra_" + id;
+                tableInfra.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = "asm_push_infra_" + id;
+                String columnID = "";
+
+                if (id.equals("title") || id.equals("1") || id.equals("2")) {
+                    tableInfra.addCell("");
+                    tableInfra.addCell("");
+                } else {
+                    CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                    String value = answerEntity.getTickStringRep();
+                    tableInfra.addCell(createNormalCell(value));
+                    tableInfra.addCell(createNormalCell(answerEntity.getTextAnswer()));
+                }
+            }
+
+            doc.add(tableInfra);
+            doc.add(new Paragraph("\n"));
+
+            float[] columnPasar = {4, 1, 3};
+            PdfPTable tablePasar = new PdfPTable(columnPasar);
+            tablePasar.setWidthPercentage(100);
+
+            tablePasar.addCell(createTableHeader(getString("asm_push_title_di_pasar", lang)));
+            tablePasar.addCell(createTableHeader("Tick if \n Done/Know"));
+            tablePasar.addCell(createTableHeader("Remarks"));
+
+            String[] asmPasar = {"1","2","3","4","5"};
+
+            for (String id : asmPasar) {
+                String temp = "asm_push_di_pasar_" + id;
+                tablePasar.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = "asm_push_market_" + id;
+                String columnID = "";
+
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                String value = answerEntity.getTickStringRep();
+                tablePasar.addCell(createNormalCell(value));
+                tablePasar.addCell(createNormalCell(answerEntity.getTextAnswer()));
+            }
+
+            doc.add(tablePasar);
+
+            doc.add(new Paragraph("\n COACHING SUMMARY \n\n", heading3Font));
+
+            PdfPTable table1 = new PdfPTable(1);
+            table1.setWidthPercentage(100);
+
+            for(int i = 1; i <= 3; i++){
+                PdfPCell cell = new PdfPCell();
+                //cell.addElement(new Paragraph("COACHING SUMMARY", heading3Font));
+                cell.addElement(new Paragraph(getString("summary_" + i, lang), heading3Font));
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(
+                        new Pair<>("asm_push_summary_" + i, ""));
+                String value = String.valueOf(answerEntity.getTextAnswer());
+                value = "".equals(value) ? "\n\n" : value;
+                cell.addElement(new Paragraph(value, normalFont));
+                table1.addCell(cell);
+
+            }
+
+            doc.add(table1);
+            doc.close();
+
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        listener.onPDFGenerated(true);
+
     }
 
     private static Paragraph createLeftRight(String left, String right) {
