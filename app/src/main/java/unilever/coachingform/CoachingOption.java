@@ -42,10 +42,14 @@ public class CoachingOption extends AppCompatActivity {
             } else if (v.getId() == R.id.sr_pull_coaching) {
                 sr_status = reverseStatus(v,sr_status);
             } else if (v.getId() == R.id.next) {
-                if(validSelection()) {
-                    goCoaching();
+                if(english_status) {
+                    Toast.makeText(CoachingOption.this, "English version will release soon", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(CoachingOption.this, "Please select only 1 Coaching Guideline and 1 language", Toast.LENGTH_SHORT).show();
+                    if(validSelection()) {
+                        goCoaching();
+                    } else {
+                        Toast.makeText(CoachingOption.this, "Please select only 1 Coaching Guideline and 1 language", Toast.LENGTH_SHORT).show();
+                    }
                 }
             } else if (v.getId() == R.id.indonesian) {
                 bahasa_status = reverseStatus(v,bahasa_status);
@@ -144,7 +148,22 @@ public class CoachingOption extends AppCompatActivity {
         if(rsm_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (asm_pull_status) {
-            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PULL,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
+            intent.putExtra("coach", coach);
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
+            intent.putExtra("bahasa",bahasa_status);
+            intent.putExtra("english",english_status);
+            intent.putExtra("coaching","asm_pull");
+            intent.putExtra("id", coachingSessionID);
+            startActivity(intent);
         } else if (asm_push_status) {
             CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PUSH,
                     new CoachingSessionDAO.UpdateCoachingListener() {
@@ -214,7 +233,22 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (sr_status) {
-            Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_SR_PULL,
+                    new CoachingSessionDAO.UpdateCoachingListener() {
+                        @Override
+                        public void onGuidelineUpdated(boolean isSuccess) {
+
+                        }
+                    });
+            Intent intent = new Intent(CoachingOption.this, CoacheeHistoryActivity.class);
+            intent.putExtra("coach", coach);
+            intent.putExtra("job", job);
+            intent.putExtra("coachee", coachee);
+            intent.putExtra("bahasa",bahasa_status);
+            intent.putExtra("english",english_status);
+            intent.putExtra("coaching","sr_pull");
+            intent.putExtra("id", coachingSessionID);
+            startActivity(intent);
         }
     }
 

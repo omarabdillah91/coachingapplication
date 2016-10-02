@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="unilever.coachingform.ASMPullReportActivity">
+    tools:context="unilever.coachingform.SRPullReportActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,11 +18,11 @@
             android:layout_marginTop="20dp">
             <Button
                 android:id="@+id/report_coaching"
-                android:text="@string/title_bahasa_asmpull_report"
-                style="@style/sub_page_coaching"/>
+                android:text="@string/title_bahasa_rspull_report"
+                style="@style/sub_page_coaching" />
             <Button
-                android:id="@+id/habbit_coaching"
-                android:text="@string/title_bahasa_asmpull_habit"
+                android:id="@+id/on_coaching"
+                android:text="@string/title_bahasa_rspull_kunjungan"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
         </LinearLayout>
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:text="@string/asmpull_description"
+            android:text="@string/srpull_description"
             android:layout_below="@+id/sub_page_option"
             android:gravity="center_horizontal"
             android:textColor="@color/orange"
@@ -121,12 +121,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/bahasa_asm_pull_report_title_1"/>
+                        android:text="@string/bahasa_sr_pull_report_title_1"/>
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="13dp"
-                        android:text="@string/bahasa_asm_pull_report_how_1"
+                        android:text="@string/bahasa_sr_pull_report_how_1"
                         android:textColor="@color/gray_dark"/>
                 </LinearLayout>
                 <TextView
@@ -137,7 +137,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_1"
+                    android:text="@string/bahasa_sr_pull_report_1_1"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -146,11 +146,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_1_a"
+                    android:text="@string/bahasa_sr_pull_report_1_1_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_1_a"
+                    android:id="@+id/sr_pull_report_1_1_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -163,11 +163,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_1_b"
+                    android:text="@string/bahasa_sr_pull_report_1_1_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_1_b"
+                    android:id="@+id/sr_pull_report_1_1_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -180,11 +180,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_1_c"
+                    android:text="@string/bahasa_sr_pull_report_1_1_c"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_1_c"
+                    android:id="@+id/sr_pull_report_1_1_c"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -197,11 +197,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_1_d"
+                    android:text="@string/bahasa_sr_pull_report_1_1_d"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_1_d"
+                    android:id="@+id/sr_pull_report_1_1_d"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -210,26 +210,19 @@
                 style="@style/remarks" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_2"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_2_a"
+                    android:text="@string/bahasa_sr_pull_report_1_1_e"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_2_a"
+                    android:id="@+id/sr_pull_report_1_1_e"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
-                android:id="@+id/remarks_report_1_2_a"
+                android:id="@+id/remarks_report_1_1_e"
                 android:layout_marginLeft="15dp"
                 style="@style/remarks" />
             <LinearLayout
@@ -238,500 +231,14 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_2_b"
-                    android:layout_marginLeft="15dp"
+                    android:text="@string/bahasa_sr_pull_report_1_2"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_1_2_b"
+                    android:id="@+id/sr_pull_report_1_2"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
-                android:id="@+id/remarks_report_1_2_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_2_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_2_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_2_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_2_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_2_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_2_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_3"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_3_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_3_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_3_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_3_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_3_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_3_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_3_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_3_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_3_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_3_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_3_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_3_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_4"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_4_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_4_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_4_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_4_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_4_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_4_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_4_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_4_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_4_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_4_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_4_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_4_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_5"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_5_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_5_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_5_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_5_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_5_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_5_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_5_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_5_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_5_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_5_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_5_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_5_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_6"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_6_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_6_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_6_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_6_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_6_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_6_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_6_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_6_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_6_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_6_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_6_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_6_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_7"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_7_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_7_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_7_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_7_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_7_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_7_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_7_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_7_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_7_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_7_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_7_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_7_d"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_8"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_8_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_8_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_8_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_8_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_8_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_8_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_8_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_8_c"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_8_c"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_1_8_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_1_8_d"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_1_8_d"
-                android:layout_marginLeft="15dp"
+                android:id="@+id/remarks_report_1_2"
                 style="@style/remarks" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -742,19 +249,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="@string/bahasa_asm_pull_report_title_2"/>
+                    android:text="@string/bahasa_sr_pull_report_title_2"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="13dp"
-                    android:text="@string/bahasa_asm_pull_report_how_2"
+                    android:text="@string/bahasa_sr_pull_report_how_2"
                     android:textColor="@color/gray_dark"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_1"
+                    android:text="@string/bahasa_sr_pull_report_2_1"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -763,11 +270,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_1_a"
+                    android:text="@string/bahasa_sr_pull_report_2_1_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_1_a"
+                    android:id="@+id/sr_pull_report_2_1_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -780,11 +287,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_1_b"
+                    android:text="@string/bahasa_sr_pull_report_2_1_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_1_b"
+                    android:id="@+id/sr_pull_report_2_1_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -795,7 +302,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_2"
+                    android:text="@string/bahasa_sr_pull_report_2_2"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -804,11 +311,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_2_a"
+                    android:text="@string/bahasa_sr_pull_report_2_2_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_2_a"
+                    android:id="@+id/sr_pull_report_2_2_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -821,11 +328,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_2_b"
+                    android:text="@string/bahasa_sr_pull_report_2_2_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_2_b"
+                    android:id="@+id/sr_pull_report_2_2_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -836,7 +343,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_3"
+                    android:text="@string/bahasa_sr_pull_report_2_3"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -845,11 +352,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_3_a"
+                    android:text="@string/bahasa_sr_pull_report_2_3_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_3_a"
+                    android:id="@+id/sr_pull_report_2_3_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -862,11 +369,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_3_b"
+                    android:text="@string/bahasa_sr_pull_report_2_3_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_3_b"
+                    android:id="@+id/sr_pull_report_2_3_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -877,7 +384,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_4"
+                    android:text="@string/bahasa_sr_pull_report_2_4"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -886,11 +393,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_4_a"
+                    android:text="@string/bahasa_sr_pull_report_2_4_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_4_a"
+                    android:id="@+id/sr_pull_report_2_4_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -903,11 +410,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_4_b"
+                    android:text="@string/bahasa_sr_pull_report_2_4_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_4_b"
+                    android:id="@+id/sr_pull_report_2_4_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -918,7 +425,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_5"
+                    android:text="@string/bahasa_sr_pull_report_2_5"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -927,11 +434,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_5_a"
+                    android:text="@string/bahasa_sr_pull_report_2_5_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_5_a"
+                    android:id="@+id/sr_pull_report_2_5_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -944,11 +451,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_5_b"
+                    android:text="@string/bahasa_sr_pull_report_2_5_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_5_b"
+                    android:id="@+id/sr_pull_report_2_5_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -959,7 +466,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_6"
+                    android:text="@string/bahasa_sr_pull_report_2_6"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -968,11 +475,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_6_a"
+                    android:text="@string/bahasa_sr_pull_report_2_6_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_6_a"
+                    android:id="@+id/sr_pull_report_2_6_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -985,11 +492,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_6_b"
+                    android:text="@string/bahasa_sr_pull_report_2_6_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_6_b"
+                    android:id="@+id/sr_pull_report_2_6_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1000,7 +507,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_7"
+                    android:text="@string/bahasa_sr_pull_report_2_7"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1009,11 +516,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_7_a"
+                    android:text="@string/bahasa_sr_pull_report_2_7_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_7_a"
+                    android:id="@+id/sr_pull_report_2_7_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1026,11 +533,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_7_b"
+                    android:text="@string/bahasa_sr_pull_report_2_7_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_7_b"
+                    android:id="@+id/sr_pull_report_2_7_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1041,7 +548,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_8"
+                    android:text="@string/bahasa_sr_pull_report_2_8"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1050,11 +557,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_8_a"
+                    android:text="@string/bahasa_sr_pull_report_2_8_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_8_a"
+                    android:id="@+id/sr_pull_report_2_8_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1067,11 +574,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_8_b"
+                    android:text="@string/bahasa_sr_pull_report_2_8_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_8_b"
+                    android:id="@+id/sr_pull_report_2_8_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1082,7 +589,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_9"
+                    android:text="@string/bahasa_sr_pull_report_2_9"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1091,11 +598,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_9_a"
+                    android:text="@string/bahasa_sr_pull_report_2_9_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_9_a"
+                    android:id="@+id/sr_pull_report_2_9_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1108,11 +615,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_9_b"
+                    android:text="@string/bahasa_sr_pull_report_2_9_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_9_b"
+                    android:id="@+id/sr_pull_report_2_9_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1123,7 +630,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_10"
+                    android:text="@string/bahasa_sr_pull_report_2_10"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1132,11 +639,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_10_a"
+                    android:text="@string/bahasa_sr_pull_report_2_10_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_10_a"
+                    android:id="@+id/sr_pull_report_2_10_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1149,11 +656,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_10_b"
+                    android:text="@string/bahasa_sr_pull_report_2_10_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_10_b"
+                    android:id="@+id/sr_pull_report_2_10_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1164,7 +671,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_11"
+                    android:text="@string/bahasa_sr_pull_report_2_11"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1173,11 +680,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_11_a"
+                    android:text="@string/bahasa_sr_pull_report_2_11_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_11_a"
+                    android:id="@+id/sr_pull_report_2_11_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1190,11 +697,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_11_b"
+                    android:text="@string/bahasa_sr_pull_report_2_11_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_11_b"
+                    android:id="@+id/sr_pull_report_2_11_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1205,7 +712,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_12"
+                    android:text="@string/bahasa_sr_pull_report_2_12"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1214,11 +721,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_12_a"
+                    android:text="@string/bahasa_sr_pull_report_2_12_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_12_a"
+                    android:id="@+id/sr_pull_report_2_12_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1231,11 +738,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_12_b"
+                    android:text="@string/bahasa_sr_pull_report_2_12_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_12_b"
+                    android:id="@+id/sr_pull_report_2_12_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1246,7 +753,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_13"
+                    android:text="@string/bahasa_sr_pull_report_2_13"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1255,11 +762,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_13_a"
+                    android:text="@string/bahasa_sr_pull_report_2_13_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_13_a"
+                    android:id="@+id/sr_pull_report_2_13_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1272,11 +779,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_13_b"
+                    android:text="@string/bahasa_sr_pull_report_2_13_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_13_b"
+                    android:id="@+id/sr_pull_report_2_13_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1287,7 +794,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_14"
+                    android:text="@string/bahasa_sr_pull_report_2_14"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1296,11 +803,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_14_a"
+                    android:text="@string/bahasa_sr_pull_report_2_14_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_14_a"
+                    android:id="@+id/sr_pull_report_2_14_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1313,11 +820,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_14_b"
+                    android:text="@string/bahasa_sr_pull_report_2_14_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_14_b"
+                    android:id="@+id/sr_pull_report_2_14_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1328,7 +835,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_15"
+                    android:text="@string/bahasa_sr_pull_report_2_15"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1337,11 +844,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_15_a"
+                    android:text="@string/bahasa_sr_pull_report_2_15_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_15_a"
+                    android:id="@+id/sr_pull_report_2_15_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1354,11 +861,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_15_b"
+                    android:text="@string/bahasa_sr_pull_report_2_15_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_15_b"
+                    android:id="@+id/sr_pull_report_2_15_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1369,7 +876,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_16"
+                    android:text="@string/bahasa_sr_pull_report_2_16"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1378,11 +885,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_16_a"
+                    android:text="@string/bahasa_sr_pull_report_2_16_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_16_a"
+                    android:id="@+id/sr_pull_report_2_16_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1395,11 +902,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_16_b"
+                    android:text="@string/bahasa_sr_pull_report_2_16_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_16_b"
+                    android:id="@+id/sr_pull_report_2_16_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1410,7 +917,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_17"
+                    android:text="@string/bahasa_sr_pull_report_2_17"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1419,11 +926,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_17_a"
+                    android:text="@string/bahasa_sr_pull_report_2_17_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_17_a"
+                    android:id="@+id/sr_pull_report_2_17_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1436,11 +943,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_17_b"
+                    android:text="@string/bahasa_sr_pull_report_2_17_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_17_b"
+                    android:id="@+id/sr_pull_report_2_17_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1451,7 +958,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_18"
+                    android:text="@string/bahasa_sr_pull_report_2_18"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -1460,11 +967,11 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_18_a"
+                    android:text="@string/bahasa_sr_pull_report_2_18_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_18_a"
+                    android:id="@+id/sr_pull_report_2_18_a"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
@@ -1477,56 +984,15 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_18_b"
+                    android:text="@string/bahasa_sr_pull_report_2_18_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
-                    android:id="@+id/asm_pull_report_2_18_b"
+                    android:id="@+id/sr_pull_report_2_18_b"
                     style="@style/radio_questions" />
             </LinearLayout>
             <EditText
                 android:id="@+id/remarks_report_2_18_b"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_19"
-                    style="@style/text_questions"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_19_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_2_19_a"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_2_19_a"
-                android:layout_marginLeft="15dp"
-                style="@style/remarks" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <TextView
-                    android:text="@string/bahasa_asm_pull_report_2_19_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/text_questions"/>
-                <RadioButton
-                    android:id="@+id/asm_pull_report_2_19_b"
-                    style="@style/radio_questions" />
-            </LinearLayout>
-            <EditText
-                android:id="@+id/remarks_report_2_19_b"
                 android:layout_marginLeft="15dp"
                 style="@style/remarks" />
         </LinearLayout>

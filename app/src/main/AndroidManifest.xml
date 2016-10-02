@@ -113,6 +113,26 @@
         <activity
             android:name=".ASMPullReportActivity"
             android:label="@string/title_activity_asmpull_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPullHabbitActivity"
+            android:label="@string/title_activity_asmpull_habbit_acivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoachingSummaryASMPullActivity"
+            android:label="@string/title_activity_coaching_summary_asmpull"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SRPullReportActivity"
+            android:label="@string/title_activity_srpull_report"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SRPullKunjunganActivity"
+            android:label="@string/title_activity_srpull_kunjungan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CoachingSummarySRPullActivity"
+            android:label="@string/title_activity_coaching_summary_srpull"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

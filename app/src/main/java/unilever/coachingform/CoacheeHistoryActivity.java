@@ -137,7 +137,7 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (coaching.equalsIgnoreCase("asm_pull")) {
-            Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
+            Intent intent = new Intent(CoacheeHistoryActivity.this, ASMPullReportActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);
@@ -172,8 +172,8 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
             intent.putExtra("english",english);
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
-        } else if (coaching.equalsIgnoreCase("sr")) {
-            Intent intent = new Intent(CoacheeHistoryActivity.this, RSMCoachingActivity.class);
+        } else if (coaching.equalsIgnoreCase("sr_pull")) {
+            Intent intent = new Intent(CoacheeHistoryActivity.this, SRPullReportActivity.class);
             intent.putExtra("coach", coach);
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee);

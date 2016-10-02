@@ -31,7 +31,7 @@
         android:padding="2dp"
         android:textColor="@color/white"
         android:textAllCaps="false"
-        android:background="@color/dark_green"
+        android:background="@color/orange"
         android:layout_below="@+id/logo"/>
 
     <TableLayout
@@ -138,7 +138,7 @@
         android:padding="2dp"
         android:textColor="@color/white"
         android:textAllCaps="false"
-        android:background="@color/dark_green"
+        android:background="@color/orange"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"/>
 

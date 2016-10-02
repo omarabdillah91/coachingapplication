@@ -305,52 +305,59 @@
     <string name="bahasa_asm_push_di_pasar_4">d. Apakah Anda tahu aktifitas kompetitor dari produk TLC?</string>
     <string name="bahasa_asm_push_di_pasar_5">e. Apa rencana Anda untuk meningkatkan penetrasi Top 10 dan penetrasi TLC?</string>
 
+    <string name="title_bahasa_asmpull_report">REPORT in Amstrong</string>
+    <string name="title_bahasa_asmpull_habit">HABBIT</string>
+    <string name="title_english_asmpull_report">REPORT in Amstrong</string>
+    <string name="title_english_asmpull_habit">HABBIT</string>
+
+    <string name="asmpull_description">**The following questions is a guidelines for you to coach the team to develop better in Amstrong usage and Habbit</string>
+
     <string name="bahasa_asm_pull_title_report">Pemahaman Report di Armstrong</string>
-    <string name="bahasa_asm_pull_report_title_1">A Minta ASM untuk menjelaskan "Summary Report Achievement" pada bulan ini</string>
-    <string name="bahasa_asm_pull_report_how_1">*how: Home > Reports > Choose Report Type : All-in-One Transaction > Choose Month</string>
+    <string name="bahasa_asm_pull_report_title_1">A. Minta ASM untuk menjelaskan \"Summary Report Achievement\" pada bulan ini</string>
+    <string name="bahasa_asm_pull_report_how_1">*How: Home > Reports > Choose Report Type : All-in-One Transaction > Choose Month</string>
     <string name="bahasa_asm_pull_report_1_1">1. Call Time Optimization</string>
     <string name="bahasa_asm_pull_report_1_1_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_1_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_1_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_1_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_1_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_2">2. Call Period</string>
     <string name="bahasa_asm_pull_report_1_2_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_2_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_2_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_2_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_2_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_3">3. OTM Call Frequency</string>
     <string name="bahasa_asm_pull_report_1_3_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_3_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_3_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_3_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_3_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_4">4. Pantry Efficiency</string>
     <string name="bahasa_asm_pull_report_1_4_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_4_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_4_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_4_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_4_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_5">5. TFO Sources</string>
     <string name="bahasa_asm_pull_report_1_5_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_5_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_5_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_5_d">d. </string>
+    <string name="bahasa_asm_pull_report_1_5_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_6">6. TFO SKU (# of SKU per TFO, same SKU counted as 1)</string>
     <string name="bahasa_asm_pull_report_1_6_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_6_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_6_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_6_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_6_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_7">7. Sampling</string>
     <string name="bahasa_asm_pull_report_1_7_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_7_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_7_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_7_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_7_d">d. Bagaimana rencana pengembangannya?</string>
     <string name="bahasa_asm_pull_report_1_8">8. Call Assessment (P, O, R/D, C)</string>
     <string name="bahasa_asm_pull_report_1_8_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_8_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_8_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
-    <string name="bahasa_asm_pull_report_1_8_d">d. Bagiamana rencana pengembangannya?</string>
+    <string name="bahasa_asm_pull_report_1_8_d">d. Bagaimana rencana pengembangannya?</string>
 
-    <string name="bahasa_asm_pull_report_title_2">B Minta ASM untuk menjelaskan "KPI Under Reports" pada bulan ini</string>
-    <string name="bahasa_asm_pull_report_how_2">*how : home > Reports > KPI</string>
+    <string name="bahasa_asm_pull_report_title_2">B. Minta ASM untuk menjelaskan "KPI Under Reports" pada bulan ini</string>
+    <string name="bahasa_asm_pull_report_how_2">*How : Home > Reports > KPI</string>
     <string name="bahasa_asm_pull_report_2_1">1. Total Calls</string>
     <string name="bahasa_asm_pull_report_2_1_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_2_1_b">b. Apa rencana untuk meningkatkannya?</string>
@@ -375,7 +382,7 @@
     <string name="bahasa_asm_pull_report_2_8">8. OTM B fulfillment rate</string>
     <string name="bahasa_asm_pull_report_2_8_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_2_8_b">b. Apa rencana untuk meningkatkannya?</string>
-    <string name="bahasa_asm_pull_report_2_9">9.OTM A call frequency</string>
+    <string name="bahasa_asm_pull_report_2_9">9. OTM A call frequency</string>
     <string name="bahasa_asm_pull_report_2_9_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_2_9_b">b. Apa rencana untuk meningkatkannya?</string>
     <string name="bahasa_asm_pull_report_2_10">10. OTM B call frequency</string>
@@ -413,9 +420,16 @@
     <string name="bahasa_asm_pull_habit_1">A. Seberapa sering Anda melakukan coaching?</string>
     <string name="bahasa_asm_pull_habit_2">B. Seberapa sering Anda memberikan training/wet sampling kepada tim Anda?</string>
 
+    <string name="srpull_description">**The following questions is a guidelines for you to coach the team to develop better in Amstrong usage and Call Procedure</string>
+
+    <string name="title_bahasa_rspull_report">Amstrong Usage Capability</string>
+    <string name="title_bahasa_rspull_kunjungan">Going to Customer</string>
+    <string name="title_english_rspull_report">Amstrong Usage Capability</string>
+    <string name="title_english_srpull_kunjungan">Going to Customer</string>
+
     <string name="bahasa_sr_pull_title_report">Kefasihan Penggunaan Armstrong</string>
-    <string name="bahasa_sr_pull_report_title_1">A. Kelengkapan customer profile\n(5 informasi utama untuk digital : contact person name, Customer/business name, postal code address, contact person telp/email, type of business/Channel)\n(and tanyakan tipe OTM setiap customer)</string>
-    <string name="bahasa_sr_pull_report_how_1">*how: home>customers> click on Customer name> search the info under "Basic" &amp; "Contact"</string>
+    <string name="bahasa_sr_pull_report_title_1">A. Kelengkapan customer profile\n(5 informasi utama untuk digital : contact person name, Customer/business name, postal code address, contact person telp/email, type of business/Channel)\n(dan tanyakan tipe OTM setiap customer)</string>
+    <string name="bahasa_sr_pull_report_how_1">*How: Home>customers> click on Customer name> search the info under \"Basic\" &amp; \"Contact\"</string>
     <string name="bahasa_sr_pull_report_1_1">1. Minta SR untuk menunjukan data customer yang telah memiliki 5 informasi utama untuk digital</string>
     <string name="bahasa_sr_pull_report_1_1_a">a. Customer 1</string>
     <string name="bahasa_sr_pull_report_1_1_b">b. Customer 2</string>
@@ -488,8 +502,8 @@
 
     <string name="bahasa_sr_pull_saat_2">B. Ikuti aktifitas SR dan memastikan SR menggunakan Armstrong secara maksimal (min. SR menggunakan Armstrong pada 4 aktifitas dibawah ini)</string>
     <string name="bahasa_sr_pull_saat_2_a">a. Pantry Check &amp; Competitor Check </string>
-    <string name="bahasa_sr_pull_saat_3_b">b. Presentasi ke decision maker menggunakan Media Demo di Armstrong </string>
-    <string name="bahasa_sr_pull_saat_4_c">c. Melakukan Wet Sampling / cooking demo dan me-record di Armstrong </string>
+    <string name="bahasa_sr_pull_saat_2_b">b. Presentasi ke decision maker menggunakan Media Demo di Armstrong </string>
+    <string name="bahasa_sr_pull_saat_2_c">c. Melakukan Wet Sampling / cooking demo dan me-record di Armstrong </string>
     <string name="bahasa_sr_pull_saat_2_d">d. Mencatat TFO (Transfer Form Order) di Armstrong </string>
 
 
@@ -537,4 +551,10 @@
     <string name="title_activity_coaching_summary_asmpush">Coaching Summary ASM Push Activity
     </string>
     <string name="title_activity_asmpull_report">ASM Pull Report Activity</string>
+    <string name="title_activity_asmpull_habbit_acivity">ASM Pull Habbit Acivity</string>
+    <string name="title_activity_coaching_summary_asmpull">Coaching Summary ASM Pull Activity
+    </string>
+    <string name="title_activity_srpull_report">SRPullReportActivity</string>
+    <string name="title_activity_srpull_kunjungan">SRPullKunjunganActivity</string>
+    <string name="title_activity_coaching_summary_srpull">CoachingSummarySRPullActivity</string>
 </resources>
