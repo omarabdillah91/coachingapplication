@@ -536,4 +536,5 @@
     <string name="title_activity_asmpush_market">ASM Push Market Activity</string>
     <string name="title_activity_coaching_summary_asmpush">Coaching Summary ASM Push Activity
     </string>
+    <string name="title_activity_asmpull_report">ASM Pull Report Activity</string>
 </resources>

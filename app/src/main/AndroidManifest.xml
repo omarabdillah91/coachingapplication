@@ -109,6 +109,10 @@
         <activity
             android:name=".CoachingSummaryASMPushActivity"
             android:label="@string/title_activity_coaching_summary_asmpush"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ASMPullReportActivity"
+            android:label="@string/title_activity_asmpull_report"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

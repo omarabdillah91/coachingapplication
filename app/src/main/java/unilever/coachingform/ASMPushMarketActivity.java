@@ -64,12 +64,16 @@ public class ASMPushMarketActivity extends AppCompatActivity {
         distributor.setEnabled(false);
         date = (TextView) findViewById(R.id.date);
         date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
-        radio_1 = (RadioButton) findViewById(R.id.dts_pasar_1);
-        radio_2 = (RadioButton) findViewById(R.id.dts_pasar_2);
-        radio_3 = (RadioButton) findViewById(R.id.dts_pasar_3);
+        radio_1 = (RadioButton) findViewById(R.id.asm_push_pasar_1);
+        radio_2 = (RadioButton) findViewById(R.id.asm_push_pasar_2);
+        radio_3 = (RadioButton) findViewById(R.id.asm_push_pasar_3);
+        radio_4 = (RadioButton) findViewById(R.id.asm_push_pasar_4);
+        radio_5 = (RadioButton) findViewById(R.id.asm_push_pasar_5);
         remarks_1 = (EditText) findViewById(R.id.remarks_pasar_1);
         remarks_2 = (EditText) findViewById(R.id.remarks_pasar_2);
         remarks_3 = (EditText) findViewById(R.id.remarks_pasar_3);
+        remarks_4 = (EditText) findViewById(R.id.remarks_pasar_4);
+        remarks_5 = (EditText) findViewById(R.id.remarks_pasar_5);
         next.setOnClickListener(onClick);
         sebelum.setOnClickListener(onClick);
         report.setOnClickListener(onClick);
@@ -77,6 +81,8 @@ public class ASMPushMarketActivity extends AppCompatActivity {
         radio_1.setOnClickListener(onClick);
         radio_2.setOnClickListener(onClick);
         radio_3.setOnClickListener(onClick);
+        radio_4.setOnClickListener(onClick);
+        radio_5.setOnClickListener(onClick);
     }
 
     private void getExtra(Bundle bundle) {

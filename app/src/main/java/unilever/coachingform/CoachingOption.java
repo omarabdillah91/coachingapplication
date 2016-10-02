@@ -146,7 +146,7 @@ public class CoachingOption extends AppCompatActivity {
         } else if (asm_pull_status) {
             Toast.makeText(CoachingOption.this, "Will be released soon!!", Toast.LENGTH_SHORT).show();
         } else if (asm_push_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DSR,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PUSH,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
