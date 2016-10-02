@@ -105,7 +105,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
 
         signal1.await(30, TimeUnit.SECONDS);
 
-        final int guideline = ConstantUtil.GUIDELINE_DTS_PULL;
+        final int guideline = ConstantUtil.GUIDELINE_ASM_PULL;
         final String area = "area1";
         final String distributor = "dist1";
         final String store = "Store1";
@@ -157,7 +157,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal4 = new CountDownLatch(2);
 
         //final List<CoachingQuestionAnswerEntity> coachingQAs = dummyDSRQA();
-        final List<CoachingQuestionAnswerEntity> coachingQAs = dummyDTSPULLQA();
+        final List<CoachingQuestionAnswerEntity> coachingQAs = dummyASMPULLQA();
 
         Log.d(TAG, "QA : " + coachingQAs.size());
 
@@ -391,6 +391,83 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
     }
 
     private static List<CoachingQuestionAnswerEntity> dummyDTSPULLQA(){
+        final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
+
+        String[] dtsSebelum = {"1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e", "1_2_a", "1_2_b"
+                , "1_2_c", "2_1", "2_2_a", "2_2_b", "2_2_c"
+                , "2_2_d", "2_2_e"};
+
+        for (String id : dtsSebelum){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dts_pull_sebelum_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        String[] dtsReport = {"1_a","1_b","2_a","2_b","3_a","3_b","3_c"};
+
+        for (String id : dtsReport){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dts_pull_report_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        String[] dtsInfra = {"1_a","1_b","1_c","1_d","1_e","1_f","1_g","2_a","2_b","2_c","2_d"
+                ,"2_e","3"};
+
+        for (String id : dtsInfra){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dts_pull_infra_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        String[] dtsMarket = {"1","2","3"};
+        for (String id : dtsMarket){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dts_pull_market_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        String[] asmSummary = {"1","2","3"};
+        for (String id : asmSummary){
+            CoachingQuestionAnswerEntity coachingQA = new CoachingQuestionAnswerEntity();
+            coachingQA.setId(RealmUtil.generateID());
+            coachingQA.setCoachingSessionID(coachingSessionID);
+            coachingQA.setColumnID("");
+            coachingQA.setQuestionID("dts_pull_summary_" + id);
+            coachingQA.setTextAnswer("Remarks " + id);
+            coachingQA.setTickAnswer(true);
+            coachingQA.setHasTickAnswer(true);
+            coachingQAs.add(coachingQA);
+        }
+
+        return coachingQAs;
+    }
+
+    private static List<CoachingQuestionAnswerEntity> dummyASMPULLQA(){
         final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
 
         String[] dtsSebelum = {"1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e", "1_2_a", "1_2_b"
