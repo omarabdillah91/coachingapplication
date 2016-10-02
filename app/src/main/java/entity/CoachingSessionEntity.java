@@ -279,8 +279,8 @@ public class CoachingSessionEntity extends RealmObject {
     }
 
     public String getPdfFileName(){
-        return getGuidelineRep() + " - " + getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
-       // return "test.pdf";
+       // return getGuidelineRep() + " - " + getCoacheeName() + " - " + getCoachName() + " - " + getFormattedDate() + ".pdf";
+       return "test.pdf";
     }
 
     public CoachingSessionDTO toDTO(){
