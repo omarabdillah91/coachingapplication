@@ -24,6 +24,7 @@ import unilever.coachingform.CoachingSummaryDSRActivity;
 import unilever.coachingform.CoachingSummaryDTSPullActivity;
 import unilever.coachingform.CoachingSummaryMerchandiserActivity;
 import unilever.coachingform.CoachingSummarySRPullActivity;
+import unilever.coachingform.RSMCoachingActivity;
 import utility.ConstantUtil;
 
 /**
@@ -120,7 +121,8 @@ public class SynchronizationService {
                             activity instanceof CoachingSummaryASMPullActivity ||
                             activity instanceof CoachingSummaryDTSPullActivity ||
                             activity instanceof CoachingSummaryASMPushActivity ||
-                            activity instanceof CoachingSummarySRPullActivity){
+                            activity instanceof CoachingSummarySRPullActivity ||
+                            activity instanceof RSMCoachingActivity){
                         Log.d(TAG, "Start activity for result");
                         activity.startActivityForResult(email, ConstantUtil.REQ_SEND_EMAIL );
                    } else {

@@ -106,9 +106,10 @@ public class PDFUtil {
             chapter.setNumberDepth(0);
 
             chapter.add(createLeftRight("Coach : " + coachingSession.getCoachName(),
-                    "Area : " + coachingSession.getArea()));
+                    "Distributor : " + coachingSession.getDistributor()));
             chapter.add(createLeftRight("Coachee : " + coachingSession.getCoacheeName(),
-                    "Tanggal : " + coachingSession.getFormattedDate()));
+                    "Area : " + coachingSession.getArea()));
+            chapter.add(createLeftRight("Tanggal : " + coachingSession.getFormattedDate(), ""));
 
             doc.add(chapter);
 
