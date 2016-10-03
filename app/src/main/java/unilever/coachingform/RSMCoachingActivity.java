@@ -54,7 +54,18 @@ public class RSMCoachingActivity extends AppCompatActivity {
                         new CoachingSessionDAO.UpdateCoachingListener() {
                             @Override
                             public void onGuidelineUpdated(boolean isSuccess) {
-                                saveQA();
+                                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, distributor.getText().toString(), area.getText().toString(),
+                                        "", new CoachingSessionDAO.UpdateCoachingListener() {
+                                            @Override
+                                            public void onGuidelineUpdated(boolean isSuccess) {
+                                                if (isSuccess) {
+                                                    saveQA();
+                                                } else {
+                                                    Toast.makeText(RSMCoachingActivity.this, "Failed to save the data!!!",
+                                                            Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
                             }
                         });
 

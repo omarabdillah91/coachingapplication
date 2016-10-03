@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.CoachingQuestionAnswerDAO;
+import dao.CoachingSessionDAO;
 import entity.CoachingQuestionAnswerEntity;
 import utility.ConstantUtil;
 import utility.RealmUtil;
@@ -213,7 +214,18 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
-                saveQA();
+                CoachingSessionDAO.updateDistributorStoreArea(coachingSessionID, distributor.getText().toString(), area.getText().toString(),
+                        "", new CoachingSessionDAO.UpdateCoachingListener() {
+                            @Override
+                            public void onGuidelineUpdated(boolean isSuccess) {
+                                if (isSuccess) {
+                                    saveQA();
+                                } else {
+                                    Toast.makeText(ASMPushSebelumActivity.this, "Failed to save the data!!!",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             } else if (v.getId() == R.id.on_report_coaching) {
                 Intent intent = new Intent(ASMPushSebelumActivity.this, ASMPushReportActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
