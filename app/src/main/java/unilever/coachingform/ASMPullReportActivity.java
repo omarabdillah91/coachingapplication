@@ -119,7 +119,7 @@ public class ASMPullReportActivity extends AppCompatActivity {
                             }
                         });
             } else if (v.getId() == R.id.habbit_coaching) {
-                Intent intent = new Intent(ASMPullReportActivity.this, ASMPullReportActivity.class);
+                Intent intent = new Intent(ASMPullReportActivity.this, ASMPullHabbitActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);
                 intent.putExtra("coachee", coachee.getText().toString());

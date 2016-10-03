@@ -48,7 +48,7 @@ public class SRPullKunjunganActivity extends AppCompatActivity {
             setContentView(R.layout.activity_srpull_kunjungan_bahasa);
         }
         next = (Button) findViewById(R.id.next);
-        report = (Button) findViewById(R.id.on_coaching);
+        report = (Button) findViewById(R.id.report_coaching);
         coach = (EditText) findViewById(R.id.coach);
         coachee = (EditText) findViewById(R.id.coachee);
         area = (EditText) findViewById(R.id.area);
