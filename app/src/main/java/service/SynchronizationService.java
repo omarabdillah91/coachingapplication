@@ -18,8 +18,12 @@ import dto.CoachingQuestionAnswerDTO;
 import entity.CoachingQuestionAnswerEntity;
 import entity.CoachingSessionEntity;
 import model.Coaching;
+import unilever.coachingform.CoachingSummaryASMPullActivity;
+import unilever.coachingform.CoachingSummaryASMPushActivity;
 import unilever.coachingform.CoachingSummaryDSRActivity;
+import unilever.coachingform.CoachingSummaryDTSPullActivity;
 import unilever.coachingform.CoachingSummaryMerchandiserActivity;
+import unilever.coachingform.CoachingSummarySRPullActivity;
 import utility.ConstantUtil;
 
 /**
@@ -112,7 +116,11 @@ public class SynchronizationService {
                     email.putExtra(Intent.EXTRA_STREAM, uri);
                     email.setType("application/pdf");
                     if(activity instanceof CoachingSummaryDSRActivity ||
-                            activity instanceof CoachingSummaryMerchandiserActivity){
+                            activity instanceof CoachingSummaryMerchandiserActivity ||
+                            activity instanceof CoachingSummaryASMPullActivity ||
+                            activity instanceof CoachingSummaryDTSPullActivity ||
+                            activity instanceof CoachingSummaryASMPushActivity ||
+                            activity instanceof CoachingSummarySRPullActivity){
                         Log.d(TAG, "Start activity for result");
                         activity.startActivityForResult(email, ConstantUtil.REQ_SEND_EMAIL );
                    } else {
