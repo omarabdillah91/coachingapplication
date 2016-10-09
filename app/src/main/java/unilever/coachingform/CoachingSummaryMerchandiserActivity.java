@@ -1,7 +1,9 @@
 package unilever.coachingform;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -10,11 +12,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,15 +135,38 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
-            Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            intent.putExtra("coach", coach.getText().toString());
-            intent.putExtra("job", job);
-            intent.putExtra("coachee", coachee.getText().toString());
-            startActivity(intent);
+            AlertDialog.Builder builder = new AlertDialog.Builder(CoachingSummaryMerchandiserActivity.this);
+            builder.setTitle("Logout");
+            builder.setMessage("Do you want to logout from application?")
+                    .setPositiveButton("Yes", dialogClickListener)
+                    .setNegativeButton("No", dialogClickListener).show();
         }
     }
+
+    DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+        Intent intent;
+        @Override
+        public void onClick(DialogInterface dialog, int choice) {
+            switch (choice) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    FirebaseAuth.getInstance().signOut();
+                    intent = new Intent(CoachingSummaryMerchandiserActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    break;
+                case DialogInterface.BUTTON_NEGATIVE:
+                    intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.putExtra("coach", coach.getText().toString());
+                    intent.putExtra("job", job);
+                    intent.putExtra("coachee", coachee.getText().toString());
+                    startActivity(intent);
+                    break;
+            }
+        }
+    };
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
