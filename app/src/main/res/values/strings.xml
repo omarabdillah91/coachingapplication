@@ -15,7 +15,7 @@
     <string name="dsr_description">**The following questions is a guidelines for you to coach the team to develop better in Selling Skills (Basic Call Procedure)</string>
 
     <string name="title_bahasa_sebelum_kunjungan">SEBELUM KUNJUNGAN\n<i>Perencanaan &amp; Persiapan</i></string>
-    <string name="title_bahasa_saat_kunjungan">PADA SAAT KUNJUNGAN\n<i>Pembukaan, Store Check, Presentasi, Penutup, Merchandising</i>\n<i>(Tick if Done/Know)</i></string>
+    <string name="title_bahasa_saat_kunjungan">PADA SAAT KUNJUNGAN\n<i>Pembukaan, Store Check, Presentasi, Penutup, Merchandising</i>\n<i>(Tandai Jika Mengetahui)</i></string>
     <string name="title_bahasa_setelah_kunjungan">SETELAH KUNJUNGAN\n<i>Finalisasi &amp; Evaluasi</i></string>
     <string name="title_english_sebelum_kunjungan">BEFORE VISIT\n<i>Planning &amp; Preparatin</i></string>
     <string name="title_english_saat_kunjungan">DURING VISIT\n<i>Opening, Store Check, Presentation, Closing, Merchandising</i></string>
@@ -166,14 +166,14 @@
 
     <string name="dtspull_description">**The following questions is a guidelines for you to coach the team to develop better in territory management, distributor management, and chefmanship</string>
 
-    <string name="title_bahasa_dtspull_sebelum_kunjungan">BEFORE</string>
-    <string name="title_bahasa_dtspull_saat_report_kunjungan">REPORT</string>
-    <string name="title_bahasa_dtspull_saat_infra_kunjungan">INFRA</string>
-    <string name="title_bahasa_dtspull_pasar_kunjungan">MARKET</string>
-    <string name="title_english_dtspull_sebelum_kunjungan">BEFORE</string>
-    <string name="title_english_dtspull_saat_report_kunjungan">REPORT</string>
-    <string name="title_english_dtspull_saat_infra_kunjungan">INFRA</string>
-    <string name="title_english_dtspull_pasar_kunjungan">MARKET</string>
+    <string name="title_bahasa_dtspull_sebelum_kunjungan">Sebelum</string>
+    <string name="title_bahasa_dtspull_saat_report_kunjungan">Report</string>
+    <string name="title_bahasa_dtspull_saat_infra_kunjungan">Infra</string>
+    <string name="title_bahasa_dtspull_pasar_kunjungan">Pasar</string>
+    <string name="title_english_dtspull_sebelum_kunjungan">Before</string>
+    <string name="title_english_dtspull_saat_report_kunjungan">Report</string>
+    <string name="title_english_dtspull_saat_infra_kunjungan">Infra</string>
+    <string name="title_english_dtspull_pasar_kunjungan">Market</string>
 
     <string name="bahasa_dts_title_sebelum">SEBELUM TIBA DI DISTRIBUTOR</string>
     <string name="bahasa_dts_sebelum_title_1">TERRITORY PROFILE </string>
@@ -439,7 +439,7 @@
     <string name="english_asm_push_di_pasar_4">d. Do you know the competitor activity of TLC products?</string>
     <string name="english_asm_push_di_pasar_5">e. What is your plan to improve the penetration of Top 10 and TLC?</string>
 
-    <string name="title_bahasa_asmpull_report">REPORT in Amstrong</string>
+    <string name="title_bahasa_asmpull_report">REPORT di Amstrong</string>
     <string name="title_bahasa_asmpull_habit">HABBIT</string>
     <string name="title_english_asmpull_report">REPORT in Amstrong</string>
     <string name="title_english_asmpull_habit">HABBIT</string>
@@ -664,8 +664,8 @@
 
     <string name="srpull_description">**The following questions is a guidelines for you to coach the team to develop better in Amstrong usage and Call Procedure</string>
 
-    <string name="title_bahasa_rspull_report">Amstrong Usage Capability</string>
-    <string name="title_bahasa_rspull_kunjungan">Going to Customer</string>
+    <string name="title_bahasa_rspull_report">Kemampuan Penggunaan Amstrong</string>
+    <string name="title_bahasa_rspull_kunjungan">Datang ke Customer</string>
     <string name="title_english_rspull_report">Amstrong Usage Capability</string>
     <string name="title_english_srpull_kunjungan">Going to Customer</string>
 

@@ -143,7 +143,7 @@
                     android:text="@string/bahasa_asm_push_sebelum_title_1"
                     style="@style/text_questions"/>
                 <TextView
-                    android:text="Thick if\nDone/know"
+                    android:text="Tandai Jika Mengetahui"
                     style="@style/tick_questions"/>
             </LinearLayout>
             <LinearLayout

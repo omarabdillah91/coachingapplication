@@ -116,7 +116,7 @@
                     android:text="@string/bahasa_sr_pull_title_saat"
                     style="@style/text_questions"/>
                 <TextView
-                    android:text="Thick if\nDone/know"
+                    android:text="Tandai jika mengetahui"
                     style="@style/tick_questions"/>
             </LinearLayout>
             <LinearLayout

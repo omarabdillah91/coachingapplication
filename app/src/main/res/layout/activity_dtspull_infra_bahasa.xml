@@ -144,7 +144,7 @@
                     android:textStyle="italic"
                     style="@style/text_questions"/>
                 <TextView
-                    android:text="Thick if\nDone/know"
+                    android:text="Tandai jika mengetahui"
                     style="@style/tick_questions"/>
             </LinearLayout>
             <LinearLayout

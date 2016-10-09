@@ -130,7 +130,7 @@
                         android:textColor="@color/gray_dark"/>
                 </LinearLayout>
                 <TextView
-                    android:text="Thick if\nDone/know"
+                    android:text="Tandai Jika Mengetahui"
                     style="@style/tick_questions"/>
             </LinearLayout>
             <LinearLayout
