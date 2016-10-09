@@ -45,8 +45,6 @@ public class PDFUtil {
     private static Font normalFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 10, Font.NORMAL);
     private static Font smallFont = FontFactory.getFont(FontFactory.TIMES_ROMAN, 6, Font.NORMAL);
 
-    private static final int BAHASA = 0;
-    private static final int ENGLISH = 1;
 
     public static void createPDF(final String coachingSessionID, final GeneratePDFListener listener) {
         CoachingSessionDAO.getCoachingSession(coachingSessionID,
@@ -99,7 +97,7 @@ public class PDFUtil {
                     .toArray()[0];
 
             //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            int lang = BAHASA;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("RSM COACHING GUIDELINES\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -160,8 +158,7 @@ public class PDFUtil {
             doc.open();
 
             CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity) qaMap.values().toArray()[0];
-            int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            String langS = lang == BAHASA ? "bahasa_" : "english_";
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("COACHING FORM - MODERN TRADE \n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -434,7 +431,7 @@ public class PDFUtil {
             CoachingQuestionAnswerEntity ent = (CoachingQuestionAnswerEntity) qaMap.values()
                     .toArray()[0];
 
-            int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("DSR Assessment form\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -601,7 +598,7 @@ public class PDFUtil {
                     .toArray()[0];
 
             //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            int lang = BAHASA;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("ASM PUSH COACHING GUIDELINES\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -795,7 +792,7 @@ public class PDFUtil {
                     .toArray()[0];
 
             //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            int lang = BAHASA;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("DTS COACHING GUIDELINES\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -984,7 +981,7 @@ public class PDFUtil {
                     .toArray()[0];
 
             //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            int lang = BAHASA;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("ASM PULL COACHING GUIDELINES\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -1143,7 +1140,7 @@ public class PDFUtil {
                     .toArray()[0];
 
             //int lang = ent.getQuestionID().contains("bahasa") ? BAHASA : ENGLISH;
-            int lang = BAHASA;
+            int lang = coachingSession.getLanguage();
 
             Chunk chunk = new Chunk("SR PULL COACHING GUIDELINES\n\n", heading1Font);
             Chapter chapter = new Chapter(new Paragraph(chunk), 1);
@@ -1348,7 +1345,7 @@ public class PDFUtil {
 
     private static String getString(String id, int lang) {
         String name;
-        if (lang == BAHASA) {
+        if (lang == ConstantUtil.BAHASA) {
             name = "bahasa_" + id;
         } else {
             name = "english_" + id;
@@ -1359,7 +1356,7 @@ public class PDFUtil {
 
     private static String getString(String id, String prefix, int lang) {
         String name;
-        if (lang == BAHASA) {
+        if (lang == ConstantUtil.BAHASA) {
             name = prefix + "_bahasa_" + id;
         } else {
             name = prefix + "_english_" + id;

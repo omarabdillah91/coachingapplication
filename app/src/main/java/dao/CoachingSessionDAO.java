@@ -112,6 +112,7 @@ public class CoachingSessionDAO {
 
     public static void updateGuideline(final String coachingSessionID,
                                                final int coachingGuideline,
+                                               final int language,
                                                final UpdateCoachingListener listener) {
         Realm realm = Realm.getDefaultInstance();
         CoachingSessionEntity entity = realm.where(CoachingSessionEntity.class)
@@ -120,6 +121,7 @@ public class CoachingSessionDAO {
         if(entity != null){
             realm.beginTransaction();
             entity.setCoachingGuideline(coachingGuideline);
+            entity.setLanguage(language);
             realm.commitTransaction();
         }
 

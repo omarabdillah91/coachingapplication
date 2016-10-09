@@ -13,6 +13,8 @@ import java.util.List;
 
 import dto.CoachingSessionDTO;
 import model.CoacheeHistory;
+import utility.ConstantUtil;
+import utility.SharedPreferenceUtil;
 
 /**
  * Created by adria on 8/13/2016.
@@ -33,8 +35,11 @@ public class CoachingSessionService {
                                 for (DataSnapshot d : dataSnapshot.getChildren()) {
                                     CoachingSessionDTO dto = d.getValue(CoachingSessionDTO.class);
                                     Log.d(TAG, dto.toString());
-                                    coacheeHistories.add(new CoacheeHistory(dto.getCoachName(),
-                                            dto.getDate(), dto.getAction()));
+
+                                    if(dto.getCoachName().equals(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL))){
+                                        coacheeHistories.add(new CoacheeHistory(dto.getCoachName(),
+                                                dto.getDate(), dto.getAction()));
+                                    }
                                 }
                                 listener.onCoacheeHistoryReceived(coacheeHistories);
                             }

@@ -20,6 +20,10 @@ public class ConstantUtil {
     public static final int GUIDELINE_SR_PULL = 6;
     public static final int GUIDELINE_RSM = 7;
 
+
+    public static final int BAHASA = 0;
+    public static final int ENGLISH = 1;
+
     public static final int REQ_SEND_EMAIL = 91;
     public static final int PERM_WRITE_STORAGE = 88;
 }

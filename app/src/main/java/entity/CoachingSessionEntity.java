@@ -40,6 +40,7 @@ public class CoachingSessionEntity extends RealmObject {
     private int coachingGuideline;
     private boolean isSubmitted;
     private boolean isFinished;
+    private int language;
 
     public CoachingSessionEntity(){}
 
@@ -68,6 +69,14 @@ public class CoachingSessionEntity extends RealmObject {
         this.isSubmitted = false;
         this.isFinished = false;
         this.date = System.currentTimeMillis();
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
     }
 
     public String getId() {
@@ -316,6 +325,7 @@ public class CoachingSessionEntity extends RealmObject {
         dto.setDate(date);
         dto.setDateCreated(System.currentTimeMillis() / 1000);
         dto.setCoachingGuideline(coachingGuideline);
+        dto.setLanguage(language);
 
         return dto;
     }

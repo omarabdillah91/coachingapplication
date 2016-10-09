@@ -141,8 +141,9 @@ public class CoachingOption extends AppCompatActivity {
     }
 
     private void goCoaching() {
+        int lang = bahasa_status ? ConstantUtil.BAHASA : ConstantUtil.ENGLISH;
         if(rsm_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_RSM,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_RSM, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -159,7 +160,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (asm_pull_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PULL,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PULL, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -176,7 +177,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (asm_push_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PUSH,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_ASM_PUSH, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -193,7 +194,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (dsr_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DSR,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DSR, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -210,7 +211,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (dts_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DTS_PULL,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_DTS_PULL, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -227,7 +228,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (fa_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_FASA,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_FASA, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {
@@ -244,7 +245,7 @@ public class CoachingOption extends AppCompatActivity {
             intent.putExtra("id", coachingSessionID);
             startActivity(intent);
         } else if (sr_status) {
-            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_SR_PULL,
+            CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_SR_PULL, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {
                         @Override
                         public void onGuidelineUpdated(boolean isSuccess) {

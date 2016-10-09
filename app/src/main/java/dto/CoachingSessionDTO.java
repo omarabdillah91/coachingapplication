@@ -26,6 +26,7 @@ public class CoachingSessionDTO {
     private long date;
     private long dateCreated;
     private int coachingGuideline;
+    private int language;
 
     public CoachingSessionDTO() {
     }
@@ -41,6 +42,14 @@ public class CoachingSessionDTO {
         this.date = System.currentTimeMillis() / 1000;
         this.dateCreated = System.currentTimeMillis() / 1000;
         this.coachingGuideline = coachingGuideline;
+    }
+
+    public int getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(int language) {
+        this.language = language;
     }
 
     public String getCoacheeName() {
