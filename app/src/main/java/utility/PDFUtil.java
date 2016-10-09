@@ -450,8 +450,8 @@ public class PDFUtil {
             tableSebelum.setWidthPercentage(100);
 
             tableSebelum.addCell(createTableHeader(getString("sebelum_kunjungan", "title", lang)));
-            tableSebelum.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableSebelum.addCell(createTableHeader("Remarks"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
 
             String[] sebelumID = {"1", "2", "3", "4", "4a", "4b", "4c", "4d", "4e"};
@@ -517,8 +517,8 @@ public class PDFUtil {
             tableSetelah.setWidthPercentage(100);
 
             tableSetelah.addCell(createTableHeader(getString("setelah_kunjungan", "title", lang)));
-            tableSetelah.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableSetelah.addCell(createTableHeader("Remarks"));
+            tableSetelah.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableSetelah.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
 
             String[] setelahID = {"1", "2"};
@@ -619,8 +619,8 @@ public class PDFUtil {
             Log.d(TAG, "MAP SIZE: " + qaMap.size());
 
             tableSebelum.addCell(createTableHeader(getString("asm_push_title_sebelum", lang)));
-            tableSebelum.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableSebelum.addCell(createTableHeader("Remarks"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] asmSebelum = {"title_1", "1_1", "1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e"
                     ,"1_2", "1_2_a", "1_2_b", "1_2_c"
@@ -660,8 +660,8 @@ public class PDFUtil {
             tableDistributor.setWidthPercentage(100);
 
             tableDistributor.addCell(createTableHeader(getString("asm_push_title_di_distributor_report", lang)));
-            tableDistributor.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableDistributor.addCell(createTableHeader("Remarks"));
+            tableDistributor.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableDistributor.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] asmDistributor = {"1","1_a","1_b"
                     ,"2","2_a","2_b"
@@ -693,8 +693,8 @@ public class PDFUtil {
             tableInfra.setWidthPercentage(100);
 
             tableInfra.addCell(createTableHeader(getString("asm_push_title_di_distributor_infra", lang)));
-            tableInfra.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableInfra.addCell(createTableHeader("Remarks"));
+            tableInfra.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableInfra.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] asmInfra = {"title","1","1_a","1_b","1_c","1_d","1_e","1_f","1_g"
                     ,"2","2_a","2_b","2_c","2_d","2_e"
@@ -725,8 +725,8 @@ public class PDFUtil {
             tablePasar.setWidthPercentage(100);
 
             tablePasar.addCell(createTableHeader(getString("asm_push_title_di_pasar", lang)));
-            tablePasar.addCell(createTableHeader("Tick if \n Done/Know"));
-            tablePasar.addCell(createTableHeader("Remarks"));
+            tablePasar.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tablePasar.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] asmPasar = {"1","2","3","4","5"};
 
@@ -813,8 +813,8 @@ public class PDFUtil {
             Log.d(TAG, "MAP SIZE: " + qaMap.size());
 
             tableSebelum.addCell(createTableHeader(getString("dts_title_sebelum", lang)));
-            tableSebelum.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableSebelum.addCell(createTableHeader("Remarks"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableSebelum.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] dtsSebelum = {"title_1","1_1","1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e"
                     ,"1_2","1_2_a", "1_2_b", "1_2_c"
@@ -849,8 +849,8 @@ public class PDFUtil {
             tableDistributor.setWidthPercentage(100);
 
             tableDistributor.addCell(createTableHeader(getString("dts_title_di_distributor_report", lang)));
-            tableDistributor.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableDistributor.addCell(createTableHeader("Remarks"));
+            tableDistributor.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableDistributor.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] dtsDistributor = {"1","1_a","1_b"
                     ,"2","2_a","2_b"
@@ -882,8 +882,8 @@ public class PDFUtil {
             tableInfra.setWidthPercentage(100);
 
             tableInfra.addCell(createTableHeader(getString("dts_title_di_distributor_infra", lang)));
-            tableInfra.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableInfra.addCell(createTableHeader("Remarks"));
+            tableInfra.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableInfra.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] dtsInfra = {"title","1","1_a","1_b","1_c","1_d","1_e","1_f","1_g"
                     ,"2","2_a","2_b","2_c","2_d","2_e"
@@ -914,8 +914,8 @@ public class PDFUtil {
             tablePasar.setWidthPercentage(100);
 
             tablePasar.addCell(createTableHeader(getString("dts_title_di_pasar", lang)));
-            tablePasar.addCell(createTableHeader("Tick if \n Done/Know"));
-            tablePasar.addCell(createTableHeader("Remarks"));
+            tablePasar.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tablePasar.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] dtsPasar = {"1","2","3"};
 
@@ -1003,8 +1003,8 @@ public class PDFUtil {
             Log.d(TAG, "MAP SIZE: " + qaMap.size());
 
             tableReport.addCell(createTableHeader(getString("asm_pull_title_report", lang)));
-            tableReport.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableReport.addCell(createTableHeader("Remarks"));
+            tableReport.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableReport.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
 
             tableReport.addCell(createNormalCell(getString("asm_pull_report_title_1", lang)));
@@ -1072,8 +1072,8 @@ public class PDFUtil {
             tableHabbit.setWidthPercentage(100);
 
             tableHabbit.addCell(createTableHeader(getString("asm_pull_title_habit", lang)));
-            tableHabbit.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableHabbit.addCell(createTableHeader("Remarks"));
+            tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] dtsDistributor = {"1", "2"};
 
@@ -1162,8 +1162,8 @@ public class PDFUtil {
             Log.d(TAG, "MAP SIZE: " + qaMap.size());
 
             tableReport.addCell(createTableHeader(getString("sr_pull_title_report", lang)));
-            tableReport.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableReport.addCell(createTableHeader("Remarks"));
+            tableReport.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableReport.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
 
             tableReport.addCell(createNormalCell(getString("sr_pull_report_title_1", lang)));
@@ -1232,8 +1232,8 @@ public class PDFUtil {
             tableHabbit.setWidthPercentage(100);
 
             tableHabbit.addCell(createTableHeader(getString("sr_pull_title_saat", lang)));
-            tableHabbit.addCell(createTableHeader("Tick if \n Done/Know"));
-            tableHabbit.addCell(createTableHeader("Remarks"));
+            tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
+            tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
             String[] srSaat = {"1","1_a", "1_b","2", "2_a", "2_b", "2_c", "2_d"};
 
