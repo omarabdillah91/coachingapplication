@@ -90,13 +90,13 @@ public class TestActivity extends AppCompatActivity {
                     }
                 });
 
-        CoachingSessionDAO.updateGuideline(coachingSessionID, guideline,
-                new CoachingSessionDAO.UpdateCoachingListener() {
-                    @Override
-                    public void onGuidelineUpdated(boolean isSuccess) {
-                        Log.d(TAG, "Update Guideline : " + isSuccess);
-                    }
-                });
+//        CoachingSessionDAO.updateGuideline(coachingSessionID, guideline,
+//                new CoachingSessionDAO.UpdateCoachingListener() {
+//                    @Override
+//                    public void onGuidelineUpdated(boolean isSuccess) {
+//                        Log.d(TAG, "Update Guideline : " + isSuccess);
+//                    }
+//                });
 
         String[] sebelumID = {"1","2","3","4","4a","4b","4c","4d","4e"};
         String[] saatID = {"1","2","3","3a","3b","3c","3d","3e","4","5","6"};

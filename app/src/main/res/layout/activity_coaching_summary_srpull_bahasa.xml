@@ -101,7 +101,7 @@
             android:layout_margin="20dp"
             android:layout_below="@+id/profile_line">
             <TextView
-                android:text="Need to go to Armstrong Leader Application to fill up the Coach Notes"
+                android:text="Jika Anda NSM/RSM/ASM Pull tuliskan Coaching Notes berikut di Armstrong"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"

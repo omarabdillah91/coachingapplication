@@ -141,7 +141,12 @@ public class CoachingOption extends AppCompatActivity {
     }
 
     private void goCoaching() {
-        int lang = bahasa_status ? ConstantUtil.BAHASA : ConstantUtil.ENGLISH;
+        int lang = 0;
+        if (!bahasa_status && !english_status) {
+            lang = ConstantUtil.BAHASA;
+        } else {
+            lang = bahasa_status ? ConstantUtil.BAHASA : ConstantUtil.ENGLISH;
+        }
         if(rsm_status) {
             CoachingSessionDAO.updateGuideline(coachingSessionID, ConstantUtil.GUIDELINE_RSM, lang,
                     new CoachingSessionDAO.UpdateCoachingListener() {

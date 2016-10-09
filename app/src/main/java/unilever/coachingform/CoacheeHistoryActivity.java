@@ -52,10 +52,14 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         if(isNetworkAvailable()) {
             getData();
         } else {
-            no_coachee.setText("Tidak dapat mendapatkan coaching history");
+            if(english) {
+                no_coachee.setText("Can not retrieve coaching history records");
+            } else {
+                no_coachee.setText("Tidak dapat mendapatkan coaching history");
+            }
             no_coachee.setVisibility(View.VISIBLE);
-            Toast.makeText(CoacheeHistoryActivity.this, "No internet access to load the the data!!!",
-                    Toast.LENGTH_SHORT).show();
+//            Toast.makeText(CoacheeHistoryActivity.this, "No internet access to load the the data!!!",
+//                    Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -74,9 +78,14 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
                 if(coacheeHistories.size() >0) {
                     onHistoryReceived(coacheeHistories);
                 } else {
+                    if(english) {
+                        no_coachee.setText("No coaching history records");
+                    } else {
+                        no_coachee.setText("Tidak ada coaching history");
+                    }
                     no_coachee.setVisibility(View.VISIBLE);
-                    Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(CoacheeHistoryActivity.this, "No coachee history found!!!",
+//                            Toast.LENGTH_SHORT).show();
                 }
 
             }

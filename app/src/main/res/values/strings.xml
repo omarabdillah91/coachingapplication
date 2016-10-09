@@ -673,11 +673,11 @@
     <string name="bahasa_sr_pull_report_title_1">A. Kelengkapan customer profile\n(5 informasi utama untuk digital : contact person name, Customer/business name, postal code address, contact person telp/email, type of business/Channel)\n(dan tanyakan tipe OTM setiap customer)</string>
     <string name="bahasa_sr_pull_report_how_1">*How: Home>customers> click on Customer name> search the info under \"Basic\" &amp; \"Contact\"</string>
     <string name="bahasa_sr_pull_report_1_1">1. Minta SR untuk menunjukan data customer yang telah memiliki 5 informasi utama untuk digital</string>
-    <string name="bahasa_sr_pull_report_1_1_a">a. Customer 1</string>
-    <string name="bahasa_sr_pull_report_1_1_b">b. Customer 2</string>
-    <string name="bahasa_sr_pull_report_1_1_c">c. Customer 3</string>
-    <string name="bahasa_sr_pull_report_1_1_d">d. Customer 4</string>
-    <string name="bahasa_sr_pull_report_1_1_e">e. Customer 5</string>
+    <string name="bahasa_sr_pull_report_1_1_a">a. Pelanggan 1</string>
+    <string name="bahasa_sr_pull_report_1_1_b">b. Pelanggan 2</string>
+    <string name="bahasa_sr_pull_report_1_1_c">c. Pelanggan 3</string>
+    <string name="bahasa_sr_pull_report_1_1_d">d. Pelanggan 4</string>
+    <string name="bahasa_sr_pull_report_1_1_e">e. Pelanggan 5</string>
     <string name="bahasa_sr_pull_report_1_2">2. Berapa customer yang belum lengkap dan mengapa?</string>
 
     <string name="bahasa_sr_pull_report_title_2">B. Minta SR untuk menjelaskan mengenai pencapaian sejak menggunakan Armstrong</string>
