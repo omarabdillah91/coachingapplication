@@ -20,16 +20,16 @@
             android:layout_marginTop="20dp">
             <Button
                 android:id="@+id/before_coaching"
-                android:text="Sebelum Kunjungan"
+                android:text="BEFORE VISIT"
                 style="@style/sub_page_coaching"/>
             <Button
                 android:id="@+id/on_coaching"
-                android:text="Pada Saat Kunjungan"
+                android:text="DURING VISIT"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
             <Button
                 android:id="@+id/after_coaching"
-                android:text="Setelah Kunjungan"
+                android:text="AFTER VISIT"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
         </LinearLayout>

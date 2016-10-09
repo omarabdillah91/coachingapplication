@@ -40,7 +40,7 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpull_habbit_bahasa);
+            setContentView(R.layout.activity_asmpull_habbit_english);
         } else {
             setContentView(R.layout.activity_asmpull_habbit_bahasa);
         }
@@ -72,7 +72,7 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
         public void onClick(View v) {
             if(v.getId() == R.id.next) {
                 saveQA();
-            } else if (v.getId() == R.id.on_report_coaching) {
+            } else if (v.getId() == R.id.report_coaching) {
                 Intent intent = new Intent(ASMPullHabbitActivity.this, ASMPullReportActivity.class);
                 intent.putExtra("coach", coach.getText().toString());
                 intent.putExtra("job", job);

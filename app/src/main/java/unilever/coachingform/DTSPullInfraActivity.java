@@ -46,7 +46,7 @@ public class DTSPullInfraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_dtspull_infra_bahasa);
+            setContentView(R.layout.activity_dtspull_infra_english);
         } else {
             setContentView(R.layout.activity_dtspull_infra_bahasa);
         }

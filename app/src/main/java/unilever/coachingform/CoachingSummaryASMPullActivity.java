@@ -67,7 +67,7 @@ public class CoachingSummaryASMPullActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_coaching_summary_asmpull_bahasa);
+            setContentView(R.layout.activity_coaching_summary_asmpull_english);
         } else {
             setContentView(R.layout.activity_coaching_summary_asmpull_bahasa);
         }
@@ -122,6 +122,8 @@ public class CoachingSummaryASMPullActivity extends AppCompatActivity {
                         Toast.makeText(CoachingSummaryASMPullActivity.this, "Your coaching from will be saved locally",
                                 Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(CoachingSummaryASMPullActivity.this, ProfileActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.putExtra("coach", coach.getText().toString());
                         intent.putExtra("job", job);
                         intent.putExtra("coachee", coachee.getText().toString());
@@ -158,6 +160,8 @@ public class CoachingSummaryASMPullActivity extends AppCompatActivity {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
             Log.d(TAG, "Result Received");
             Intent intent = new Intent(CoachingSummaryASMPullActivity.this, ProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("coach", coach.getText().toString());
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee.getText().toString());

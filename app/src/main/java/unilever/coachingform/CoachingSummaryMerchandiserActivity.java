@@ -111,6 +111,8 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
                         Toast.makeText(CoachingSummaryMerchandiserActivity.this, "Your coaching from will be saved locally",
                                 Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.putExtra("coach", coach.getText().toString());
                         intent.putExtra("job", job);
                         intent.putExtra("coachee", coachee.getText().toString());
@@ -129,6 +131,8 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
             Intent intent = new Intent(CoachingSummaryMerchandiserActivity.this, ProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("coach", coach.getText().toString());
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee.getText().toString());
@@ -160,9 +164,9 @@ public class CoachingSummaryMerchandiserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_coaching_summary_merchandiser_bahasa);
-        } else {
             setContentView(R.layout.activity_coaching_summary_merchandiser_english);
+        } else {
+            setContentView(R.layout.activity_coaching_summary_merchandiser_bahasa);
         }
         next = (Button) findViewById(R.id.next);
         coach = (EditText) findViewById(R.id.coach);

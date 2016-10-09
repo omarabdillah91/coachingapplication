@@ -212,6 +212,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 });
             } else {
                 Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.putExtra("email", user.getEmail());
                 intent.putExtra("job", job);
                 startActivity(intent);
@@ -223,11 +225,15 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onCoachingReceived(List<Coaching> coachingList) {
         if(coachingList.size() > 0) {
             Intent intent = new Intent(LoginActivity.this, SynchronizationActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("email", user.getEmail());
             intent.putExtra("job", job);
             startActivity(intent);
         } else {
             Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("email", user.getEmail());
             intent.putExtra("job", job);
             startActivity(intent);

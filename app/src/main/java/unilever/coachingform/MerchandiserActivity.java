@@ -268,7 +268,7 @@ public class MerchandiserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_merchandiser_bahasa);
+            setContentView(R.layout.activity_merchandiser_english);
         } else {
             setContentView(R.layout.activity_merchandiser_bahasa);
         }

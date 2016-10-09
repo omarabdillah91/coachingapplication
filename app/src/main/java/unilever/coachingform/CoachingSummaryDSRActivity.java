@@ -111,6 +111,8 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
                         Toast.makeText(CoachingSummaryDSRActivity.this, "Your coaching from will be saved locally",
                                 Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.putExtra("coach", coach.getText().toString());
                         intent.putExtra("job", job);
                         intent.putExtra("coachee", coachee.getText().toString());
@@ -129,6 +131,8 @@ public class CoachingSummaryDSRActivity extends AppCompatActivity {
         if(requestCode == ConstantUtil.REQ_SEND_EMAIL){
             Log.d(TAG, "Result Received");
             Intent intent = new Intent(CoachingSummaryDSRActivity.this, ProfileActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("coach", coach.getText().toString());
             intent.putExtra("job", job);
             intent.putExtra("coachee", coachee.getText().toString());

@@ -42,14 +42,10 @@ public class CoachingOption extends AppCompatActivity {
             } else if (v.getId() == R.id.sr_pull_coaching) {
                 sr_status = reverseStatus(v,sr_status);
             } else if (v.getId() == R.id.next) {
-                if(english_status) {
-                    Toast.makeText(CoachingOption.this, "English version will release soon", Toast.LENGTH_SHORT).show();
+                if(validSelection()) {
+                    goCoaching();
                 } else {
-                    if(validSelection()) {
-                        goCoaching();
-                    } else {
-                        Toast.makeText(CoachingOption.this, "Please select only 1 Coaching Guideline and 1 language", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(CoachingOption.this, "Please select only 1 Coaching Guideline and 1 language", Toast.LENGTH_SHORT).show();
                 }
             } else if (v.getId() == R.id.indonesian) {
                 bahasa_status = reverseStatus(v,bahasa_status);
@@ -314,12 +310,16 @@ public class CoachingOption extends AppCompatActivity {
         } else if (v.getId() == R.id.indonesian) {
             if(current_status) {
                 v.setBackgroundColor(getResources().getColor(R.color.gray));
+                english.setBackgroundColor(getResources().getColor(R.color.orange));
+                english_status = false;
             } else {
                 v.setBackgroundColor(getResources().getColor(R.color.orange));
             }
         } else if (v.getId() == R.id.english) {
             if(current_status) {
                 v.setBackgroundColor(getResources().getColor(R.color.gray));
+                bahasa.setBackgroundColor(getResources().getColor(R.color.orange));
+                bahasa_status = false;
             } else {
                 v.setBackgroundColor(getResources().getColor(R.color.orange));
             }

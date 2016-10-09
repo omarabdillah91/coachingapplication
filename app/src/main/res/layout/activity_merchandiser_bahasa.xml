@@ -148,7 +148,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_1"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,7 +168,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_2"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -188,7 +188,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_3"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -208,7 +208,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_4"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -228,7 +228,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_5"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -248,7 +248,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_6"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -268,7 +268,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_7"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -288,7 +288,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_8"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -308,7 +308,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_9"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -328,7 +328,7 @@
                     android:layout_gravity="center_vertical"/>
                 <Button
                     android:id="@+id/product_10"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -354,7 +354,7 @@
                     android:textCursorDrawable="@null"/>
                 <Button
                     android:id="@+id/product_11"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -380,7 +380,7 @@
                     android:textCursorDrawable="@null"/>
                 <Button
                     android:id="@+id/product_12"
-                    style="@style/fa_box"/>
+                    style="@style/fa_box_bahasa"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

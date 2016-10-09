@@ -49,7 +49,7 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpush_sebelum_bahasa);
+            setContentView(R.layout.activity_asmpush_sebelum_english);
         } else {
             setContentView(R.layout.activity_asmpush_sebelum_bahasa);
         }

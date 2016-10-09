@@ -19,21 +19,21 @@
             android:layout_marginTop="20dp">
             <Button
                 android:id="@+id/before_coaching"
-                android:text="@string/title_bahasa_dtspull_sebelum_kunjungan"
+                android:text="@string/title_english_dtspull_sebelum_kunjungan"
                 style="@style/sub_page_coaching"/>
             <Button
                 android:id="@+id/on_report_coaching"
-                android:text="@string/title_bahasa_dtspull_saat_report_kunjungan"
+                android:text="@string/title_english_dtspull_saat_report_kunjungan"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
             <Button
                 android:id="@+id/on_infra_coaching"
-                android:text="@string/title_bahasa_dtspull_saat_infra_kunjungan"
+                android:text="@string/title_english_dtspull_saat_infra_kunjungan"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
             <Button
-                android:id="@+id/after_coaching"
-                android:text="@string/title_bahasa_dtspull_pasar_kunjungan"
+                android:id="@+id/market_coaching"
+                android:text="@string/title_english_dtspull_pasar_kunjungan"
                 style="@style/sub_page_coaching"
                 android:background="@color/gray"/>
         </LinearLayout>
@@ -140,7 +140,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_title_1"
+                    android:text="@string/english_dts_sebelum_title_1"
                     style="@style/text_questions"/>
                 <TextView
                     android:text="Thick if\nDone/know"
@@ -150,7 +150,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1"
+                    android:text="@string/english_dts_sebelum_1_1"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -159,7 +159,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1_a"
+                    android:text="@string/english_dts_sebelum_1_1_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -176,7 +176,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1_b"
+                    android:text="@string/english_dts_sebelum_1_1_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -193,7 +193,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1_c"
+                    android:text="@string/english_dts_sebelum_1_1_c"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -210,7 +210,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1_d"
+                    android:text="@string/english_dts_sebelum_1_1_d"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -227,7 +227,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_1_e"
+                    android:text="@string/english_dts_sebelum_1_1_e"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -242,7 +242,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_2"
+                    android:text="@string/english_dts_sebelum_1_2"
                     style="@style/text_questions"/>
             </LinearLayout>
             <LinearLayout
@@ -251,7 +251,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_2_a"
+                    android:text="@string/english_dts_sebelum_1_2_a"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -268,7 +268,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_2_b"
+                    android:text="@string/english_dts_sebelum_1_2_b"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -285,7 +285,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_1_2_c"
+                    android:text="@string/english_dts_sebelum_1_2_c"
                     android:layout_marginLeft="15dp"
                     style="@style/text_questions"/>
                 <RadioButton
@@ -299,119 +299,119 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_title_2"
+                    style="@style/text_questions"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <TextView
-                    android:text="@string/bahasa_dts_sebelum_title_2"
+                    android:text="@string/english_dts_sebelum_2_1"
                     style="@style/text_questions"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_1"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_1"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_1"
-                    style="@style/remarks" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2"
-                        style="@style/text_questions"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2_a"
-                        android:layout_marginLeft="15dp"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_2_a"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_2_a"
-                    android:layout_marginLeft="15dp"
-                    style="@style/remarks" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2_b"
-                        android:layout_marginLeft="15dp"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_2_b"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_2_b"
-                    android:layout_marginLeft="15dp"
-                    style="@style/remarks" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2_c"
-                        android:layout_marginLeft="15dp"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_2_c"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_2_c"
-                    android:layout_marginLeft="15dp"
-                    style="@style/remarks" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2_d"
-                        android:layout_marginLeft="15dp"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_2_d"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_2_d"
-                    android:layout_marginLeft="15dp"
-                    style="@style/remarks" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <TextView
-                        android:text="@string/bahasa_dts_sebelum_2_2_e"
-                        android:layout_marginLeft="15dp"
-                        style="@style/text_questions"/>
-                    <RadioButton
-                        android:id="@+id/dts_sebelum_2_2_e"
-                        style="@style/radio_questions" />
-                </LinearLayout>
-                <EditText
-                    android:id="@+id/remarks_sebelum_2_2_e"
-                    android:layout_marginLeft="15dp"
-                    style="@style/remarks" />
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_1"
+                    style="@style/radio_questions" />
             </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_1"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2"
+                    style="@style/text_questions"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2_a"
+                    android:layout_marginLeft="15dp"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_2_a"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_2_a"
+                android:layout_marginLeft="15dp"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2_b"
+                    android:layout_marginLeft="15dp"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_2_b"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_2_b"
+                android:layout_marginLeft="15dp"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2_c"
+                    android:layout_marginLeft="15dp"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_2_c"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_2_c"
+                android:layout_marginLeft="15dp"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2_d"
+                    android:layout_marginLeft="15dp"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_2_d"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_2_d"
+                android:layout_marginLeft="15dp"
+                style="@style/remarks" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@string/english_dts_sebelum_2_2_e"
+                    android:layout_marginLeft="15dp"
+                    style="@style/text_questions"/>
+                <RadioButton
+                    android:id="@+id/dts_sebelum_2_2_e"
+                    style="@style/radio_questions" />
+            </LinearLayout>
+            <EditText
+                android:id="@+id/remarks_sebelum_2_2_e"
+                android:layout_marginLeft="15dp"
+                style="@style/remarks" />
         </LinearLayout>
 
         <LinearLayout

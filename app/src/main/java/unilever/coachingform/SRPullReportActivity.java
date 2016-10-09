@@ -49,7 +49,7 @@ public class SRPullReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_srpull_report_bahasa);
+            setContentView(R.layout.activity_srpull_report_english);
         } else {
             setContentView(R.layout.activity_srpull_report_bahasa);
         }

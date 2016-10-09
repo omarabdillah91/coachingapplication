@@ -43,7 +43,7 @@ public class ASMPushReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpush_report_bahasa);
+            setContentView(R.layout.activity_asmpush_report_english);
         } else {
             setContentView(R.layout.activity_asmpush_report_bahasa);
         }

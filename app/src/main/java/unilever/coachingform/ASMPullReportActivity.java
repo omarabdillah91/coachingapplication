@@ -51,7 +51,7 @@ public class ASMPullReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpull_report_bahasa);
+            setContentView(R.layout.activity_asmpull_report_english);
         } else {
             setContentView(R.layout.activity_asmpull_report_bahasa);
         }

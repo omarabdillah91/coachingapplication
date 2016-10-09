@@ -42,7 +42,7 @@ public class DTSPullReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_dtspull_report_bahasa);
+            setContentView(R.layout.activity_dtspull_report_english);
         } else {
             setContentView(R.layout.activity_dtspull_report_bahasa);
         }

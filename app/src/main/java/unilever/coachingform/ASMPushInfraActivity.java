@@ -46,7 +46,7 @@ public class ASMPushInfraActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpush_infra_bahasa);
+            setContentView(R.layout.activity_asmpush_infra_english);
         } else {
             setContentView(R.layout.activity_asmpush_infra_bahasa);
         }

@@ -42,7 +42,7 @@ public class  ASMPushMarketActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_asmpush_market_bahasa);
+            setContentView(R.layout.activity_asmpush_market_english);
         } else {
             setContentView(R.layout.activity_asmpush_market_bahasa);
         }

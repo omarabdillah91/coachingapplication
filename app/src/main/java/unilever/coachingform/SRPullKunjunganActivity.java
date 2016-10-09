@@ -43,7 +43,7 @@ public class SRPullKunjunganActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getExtra(getIntent().getExtras());
         if(english) {
-            setContentView(R.layout.activity_srpull_kunjungan_bahasa);
+            setContentView(R.layout.activity_srpull_kunjungan_english);
         } else {
             setContentView(R.layout.activity_srpull_kunjungan_bahasa);
         }
