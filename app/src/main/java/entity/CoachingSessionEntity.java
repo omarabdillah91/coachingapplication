@@ -284,7 +284,7 @@ public class CoachingSessionEntity extends RealmObject {
         } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_FASA) {
             guideline = "FA_SA_Merchandiser";
         } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_DTS_PULL){
-            guideline = "DTS_PULL";
+            guideline = "DTS_PUSH";
         } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_SR_PULL){
             guideline = "SR_PULL";
         } else if(getCoachingGuideline() == ConstantUtil.GUIDELINE_ASM_PULL){
