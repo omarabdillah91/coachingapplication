@@ -35,9 +35,9 @@ public class SRPullReportActivity extends AppCompatActivity {
     String job, coach_email, coachee_email, text_area = "";
     String coachingSessionID = "";
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
-    RadioButton radio_1_1_a, radio_1_1_b, radio_1_1_c, radio_1_1_d, radio_1_1_e, radio_1_2;
-    EditText remarks_1_1_a, remarks_1_1_b, remarks_1_1_c, remarks_1_1_d, remarks_1_1_e, remarks_1_2;
-    boolean status_1_1_a, status_1_1_b, status_1_1_c, status_1_1_d, status_1_1_e, status_1_2;
+    RadioButton radio_1_1_a, radio_1_1_b, radio_1_1_c, radio_1_1_d, radio_1_1_e,radio_1_2,radio_3_1,radio_3_2;
+    EditText remarks_1_1_a, remarks_1_1_b, remarks_1_1_c, remarks_1_1_d, remarks_1_1_e, remarks_1_2,remarks_3_1,remarks_3_2;
+    boolean status_1_1_a, status_1_1_b, status_1_1_c, status_1_1_d, status_1_1_e, status_1_2, status_3_1, status_3_2;
     boolean status_2[][] = new boolean[19][3];
     RadioButton radio_2[][] = new RadioButton[19][3];
     int radio_id_2[][] = new int[19][3];
@@ -72,6 +72,8 @@ public class SRPullReportActivity extends AppCompatActivity {
         radio_1_1_d = (RadioButton) findViewById(R.id.sr_pull_report_1_1_d);
         radio_1_1_e = (RadioButton) findViewById(R.id.sr_pull_report_1_1_e);
         radio_1_2 = (RadioButton) findViewById(R.id.sr_pull_report_1_2);
+        radio_3_1 = (RadioButton) findViewById(R.id.sr_pull_report_3_1);
+        radio_3_2 = (RadioButton) findViewById(R.id.sr_pull_report_3_2);
 
         remarks_1_1_a = (EditText) findViewById(R.id.remarks_report_1_1_a);
         remarks_1_1_b = (EditText) findViewById(R.id.remarks_report_1_1_b);
@@ -79,6 +81,8 @@ public class SRPullReportActivity extends AppCompatActivity {
         remarks_1_1_d = (EditText) findViewById(R.id.remarks_report_1_1_d);
         remarks_1_1_e = (EditText) findViewById(R.id.remarks_report_1_1_e);
         remarks_1_2 = (EditText) findViewById(R.id.remarks_report_1_2);
+        remarks_3_1 = (EditText) findViewById(R.id.remarks_report_3_1);
+        remarks_3_2 = (EditText) findViewById(R.id.remarks_report_3_2);
 
         radio_1_1_a.setOnClickListener(onClick);
         radio_1_1_b.setOnClickListener(onClick);
@@ -86,6 +90,8 @@ public class SRPullReportActivity extends AppCompatActivity {
         radio_1_1_d.setOnClickListener(onClick);
         radio_1_1_e.setOnClickListener(onClick);
         radio_1_2.setOnClickListener(onClick);
+        radio_3_1.setOnClickListener(onClick);
+        radio_3_2.setOnClickListener(onClick);
         for(int i = 1; i < 19;i++) {
             for (int j = 1; j < 3; j++) {
                 int id = getID("sr_pull_report_2_" + i+"_"+index[j]);
@@ -172,6 +178,22 @@ public class SRPullReportActivity extends AppCompatActivity {
                     status_1_2 = true;
                     radio_1_2.setChecked(true);
                 }
+            } else if (v.getId() == R.id.sr_pull_report_3_1) {
+                if(status_3_1) {
+                    radio_3_1.setChecked(false);
+                    status_3_1 = false;
+                } else {
+                    status_3_1 = true;
+                    radio_3_1.setChecked(true);
+                }
+            } else if (v.getId() == R.id.sr_pull_report_3_2) {
+                if(status_3_2) {
+                    radio_3_2.setChecked(false);
+                    status_3_2 = false;
+                } else {
+                    status_3_2 = true;
+                    radio_3_2.setChecked(true);
+                }
             }
         }
     };
@@ -203,6 +225,8 @@ public class SRPullReportActivity extends AppCompatActivity {
         addingQA("","sr_pull_report_1_1_d",status_1_1_d,remarks_1_1_d.getText().toString(),true);
         addingQA("","sr_pull_report_1_1_e",status_1_1_e,remarks_1_1_e.getText().toString(),true);
         addingQA("","sr_pull_report_1_2",status_1_2,remarks_1_2.getText().toString(),true);
+        addingQA("","sr_pull_report_3_1",status_3_1,remarks_3_1.getText().toString(),true);
+        addingQA("","sr_pull_report_3_2",status_3_2,remarks_3_2.getText().toString(),true);
         for(int i = 1; i < status_2.length;i++) {
             for (int j = 1;j < status_2[0].length;j++) {
                 addingQA("","sr_pull_report_2_"+i+"_"+index[j], status_2[i][j], remarks_2[i][j].getText().toString(), true);

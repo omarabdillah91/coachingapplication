@@ -31,9 +31,9 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
     String job, coach_email, coachee_email, text_area = "";
     String coachingSessionID = "";
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
-    RadioButton radio_1, radio_2;
-    EditText remarks_1, remarks_2;
-    boolean status_1, status_2;
+    RadioButton radio_1, radio_2, radio_3;
+    EditText remarks_1, remarks_2, remarks_3;
+    boolean status_1, status_2, status_3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +59,15 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
         date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         radio_1 = (RadioButton) findViewById(R.id.asm_pull_habit_1);
         radio_2 = (RadioButton) findViewById(R.id.asm_pull_habit_2);
+        radio_3 = (RadioButton) findViewById(R.id.asm_pull_habit_3);
         remarks_1 = (EditText) findViewById(R.id.remarks_habit_1);
         remarks_2 = (EditText) findViewById(R.id.remarks_habit_2);
+        remarks_3 = (EditText) findViewById(R.id.remarks_habit_3);
         report.setOnClickListener(onClick);
         next.setOnClickListener(onClick);
         radio_1.setOnClickListener(onClick);
         radio_2.setOnClickListener(onClick);
+        radio_3.setOnClickListener(onClick);
     }
 
     View.OnClickListener onClick = new View.OnClickListener() {
@@ -98,6 +101,14 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
                     status_2 = true;
                     radio_2.setChecked(true);
                 }
+            } else if (v.getId() == R.id.asm_pull_habit_3) {
+                if(status_3) {
+                    radio_3.setChecked(false);
+                    status_3 = false;
+                } else {
+                    status_3 = true;
+                    radio_3.setChecked(true);
+                }
             }
         }
     };
@@ -105,6 +116,7 @@ public class ASMPullHabbitActivity extends AppCompatActivity {
     private void saveQA() {
         addingQA("", "asm_pull_habbit_1", status_1, remarks_1.getText().toString(), true);
         addingQA("", "asm_pull_habbit_2", status_2, remarks_2.getText().toString(), true);
+        addingQA("", "asm_pull_habbit_3", status_3, remarks_3.getText().toString(), true);
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {

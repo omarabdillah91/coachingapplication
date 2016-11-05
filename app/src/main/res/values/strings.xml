@@ -197,6 +197,10 @@
     <string name="bahasa_dts_sebelum_2_2_d">d. Knorr Oyster</string>
     <string name="bahasa_dts_sebelum_2_2_e">e. KMP 500Gr</string>
 
+    <string name="bahasa_dts_sebelum_title_3">KEMAMPUAN CHEFMANSHIP </string>
+    <string name="bahasa_dts_sebelum_3_1">1. Seberapa sering anda mengikuti training Simple Wet Sampling Dilution In-Class Training yang dilakukan oleh ASM Pull?</string>
+    <string name="bahasa_dts_sebelum_3_2">2. Berapa SKU yang anda hafal Selling Story / Kelebihannya ? Sebutkan</string>
+
     <string name="bahasa_dts_title_di_distributor_report">DI DISTRIBUTOR (REPORT)</string>
     <string name="bahasa_dts_distributor_report_1">1. Dalam monitoring tim :</string>
     <string name="bahasa_dts_distributor_report_1_a">a. Seberapa sering Anda melakukan morning dan afternoon briefing?</string>
@@ -253,6 +257,10 @@
     <string name="english_dts_sebelum_2_2_c">c. Sari Wangi Celup Jombo</string>
     <string name="english_dts_sebelum_2_2_d">d. Knorr Oyster</string>
     <string name="english_dts_sebelum_2_2_e">e. KMP 500Gr</string>
+
+    <string name="english_dts_sebelum_title_3">CHEFMANSHIP SKILL </string>
+    <string name="english_dts_sebelum_3_1">1. How often do you join Simple Wet Sampling Dilution In-Class Training held by ASM Pull?</string>
+    <string name="english_dts_sebelum_3_2">2. How much SKU point that you memorize (please mention the strength/Selling Story)</string>
 
     <string name="english_dts_title_di_distributor_report">AT DISTRIBUTOR (REPORT)</string>
     <string name="english_dts_distributor_report_1">1. Regarding Team Monitoring:</string>
@@ -325,6 +333,9 @@
     <string name="bahasa_asm_push_sebelum_2_2_c">c. Sari Wangi Celup Jombo</string>
     <string name="bahasa_asm_push_sebelum_2_2_d">d. Knorr Oyster</string>
     <string name="bahasa_asm_push_sebelum_2_2_e">e. KMP 500Gr</string>
+
+    <string name="bahasa_asm_push_sebelum_title_3">KEMAMPUAN CHEFMANSHIP</string>
+    <string name="bahasa_asm_push_sebelum_3_1">1. Seberapa sering tim Anda melakukan refreshmen Product Knowledge and Selling Skills Training untuk tim di Distributor Anda (Leader as Teacher)</string>
 
     <string name="bahasa_asm_push_title_di_distributor_report">DI DISTRIBUTOR (REPORT)</string>
     <string name="bahasa_asm_push_distributor_report_1">1. Dalam monitoring tim :</string>
@@ -400,6 +411,9 @@
     <string name="english_asm_push_sebelum_2_2_c">c. Sari Wangi Celup Jombo</string>
     <string name="english_asm_push_sebelum_2_2_d">d. Knorr Oyster</string>
     <string name="english_asm_push_sebelum_2_2_e">e. KMP 500Gr</string>
+
+    <string name="english_asm_push_sebelum_title_3">CHEFMANSHIP SKILL </string>
+    <string name="english_asm_push_sebelum_3_1">1. How often do you conduct refreshment of Product Knowledge and Selling Skills Training for your team in assigned distributor (Leader as Teacher)?</string>
 
     <string name="english_asm_push_title_di_distributor_report">AT DISTRIBUTOR (REPORT)</string>
     <string name="english_asm_push_distributor_report_1">1. Regarding Team Monitoring:</string>
@@ -553,6 +567,7 @@
     <string name="bahasa_asm_pull_title_habit">Pengembangan Kapabilitas Tim</string>
     <string name="bahasa_asm_pull_habit_1">A. Seberapa sering Anda melakukan coaching?</string>
     <string name="bahasa_asm_pull_habit_2">B. Seberapa sering Anda memberikan training/wet sampling kepada tim Anda?</string>
+    <string name="bahasa_asm_pull_habit_3">C. Seberapa sering anda me-refresh Wet Sampling Skill team anda, dengan memberikan Simple Wet Sampling Dilution In-Class Training ?</string>
 
     <string name="english_asm_pull_title_report">Report Understanding in Armstrong</string>
     <string name="english_asm_pull_report_title_1">A. Ask the ASM to explain \"Summary Report Achievement\" in this month</string>
@@ -661,6 +676,7 @@
     <string name="english_asm_pull_title_habit">Team Capability Development</string>
     <string name="english_asm_pull_habit_1">A. How often do you conduct coaching?</string>
     <string name="english_asm_pull_habit_2">B. How often do you give training/wet sampling to your team?</string>
+    <string name="english_asm_pull_habit_3">C. How often do you refresh Wet Sampling Skill of your team, by giving Simple Wet Sampling Dilution In-Class Training ?</string>
 
     <string name="srpull_description">**The following questions is a guidelines for you to coach the team to develop better in Amstrong usage and Call Procedure</string>
 
@@ -736,6 +752,10 @@
     <string name="bahasa_sr_pull_report_2_18">18. Average Grab </string>
     <string name="bahasa_sr_pull_report_2_18_a">a. Apa pengertiannya?</string>
     <string name="bahasa_sr_pull_report_2_18_b">b. Apa rencana untuk meningkatkannya?</string>
+
+    <string name="bahasa_sr_pull_report_title_3">C. Kemampuan Chefmanship</string>
+    <string name="bahasa_sr_pull_report_3_1">1. Seberapa sering anda melakukan Wet Sampling di Operator ?</string>
+    <string name="bahasa_sr_pull_report_3_2">2. Apa kesulitan yang anda hadapi saat melakukan Wet Sampling ?</string>
 
     <string name="bahasa_sr_pull_title_saat">Pada saat kunjungan ke operator</string>
     <string name="bahasa_sr_pull_saat_1">A. Minta SR untuk menjelaskan apa yang telah dipersiapkan di Armstrong</string>
@@ -815,6 +835,10 @@
     <string name="english_sr_pull_report_2_18">18. Average Grab </string>
     <string name="english_sr_pull_report_2_18_a">a. What is the definition?</string>
     <string name="english_sr_pull_report_2_18_b">b. What are the plans to improve?</string>
+
+    <string name="english_sr_pull_report_title_3">C. Chefmanship Skill</string>
+    <string name="english_sr_pull_report_3_1">1. How often do you conduct Wet Sampling in Operator ?</string>
+    <string name="english_sr_pull_report_3_2">2. What is the difficulty in conducting Wet Sampling ?</string>
 
     <string name="english_sr_pull_title_saat">During operator visit</string>
     <string name="english_sr_pull_saat_1">A. Ask the SR to explain what preparation has been done in Armstrong</string>

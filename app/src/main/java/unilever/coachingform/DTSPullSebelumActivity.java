@@ -33,11 +33,11 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
     String coachingSessionID = "";
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     RadioButton radio_1_1_a, radio_1_1_b, radio_1_1_c, radio_1_1_d, radio_1_1_e, radio_1_2_a, radio_1_2_b, radio_1_2_c,
-     radio_2_1, radio_2_2_a, radio_2_2_b, radio_2_2_c, radio_2_2_d, radio_2_2_e;
+     radio_2_1, radio_2_2_a, radio_2_2_b, radio_2_2_c, radio_2_2_d, radio_2_2_e, radio_3_1, radio_3_2;
     EditText remarks_1_1_a, remarks_1_1_b, remarks_1_1_c, remarks_1_1_d, remarks_1_1_e, remarks_1_2_a, remarks_1_2_b, remarks_1_2_c,
-            remarks_2_1, remarks_2_2_a, remarks_2_2_b, remarks_2_2_c, remarks_2_2_d, remarks_2_2_e;
+            remarks_2_1, remarks_2_2_a, remarks_2_2_b, remarks_2_2_c, remarks_2_2_d, remarks_2_2_e, remarks_3_1, remarks_3_2;
     boolean status_1_1_a, status_1_1_b, status_1_1_c, status_1_1_d, status_1_1_e, status_1_2_a, status_1_2_b, status_1_2_c,
-            status_2_1, status_2_2_a, status_2_2_b, status_2_2_c, status_2_2_d, status_2_2_e;
+            status_2_1, status_2_2_a, status_2_2_b, status_2_2_c, status_2_2_d, status_2_2_e, status_3_1, status_3_2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +75,8 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
         radio_2_2_c = (RadioButton) findViewById(R.id.dts_sebelum_2_2_c);
         radio_2_2_d = (RadioButton) findViewById(R.id.dts_sebelum_2_2_d);
         radio_2_2_e = (RadioButton) findViewById(R.id.dts_sebelum_2_2_e);
+        radio_3_1 = (RadioButton) findViewById(R.id.dts_sebelum_3_1);
+        radio_3_2 = (RadioButton) findViewById(R.id.dts_sebelum_3_2);
         remarks_1_1_a = (EditText) findViewById(R.id.remarks_sebelum_1_1_a);
         remarks_1_1_b = (EditText) findViewById(R.id.remarks_sebelum_1_1_b);
         remarks_1_1_c = (EditText) findViewById(R.id.remarks_sebelum_1_1_c);
@@ -89,6 +91,8 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
         remarks_2_2_c = (EditText) findViewById(R.id.remarks_sebelum_2_2_c);
         remarks_2_2_d = (EditText) findViewById(R.id.remarks_sebelum_2_2_d);
         remarks_2_2_e = (EditText) findViewById(R.id.remarks_sebelum_2_2_e);
+        remarks_3_1 = (EditText) findViewById(R.id.remarks_sebelum_3_1);
+        remarks_3_2 = (EditText) findViewById(R.id.remarks_sebelum_3_2);
         report.setOnClickListener(onClick);
         infra.setOnClickListener(onClick);
         market.setOnClickListener(onClick);
@@ -107,6 +111,8 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
         radio_2_2_c.setOnClickListener(onClick);
         radio_2_2_d.setOnClickListener(onClick);
         radio_2_2_e.setOnClickListener(onClick);
+        radio_3_1.setOnClickListener(onClick);
+        radio_3_2.setOnClickListener(onClick);
     }
 
     private void getExtra(Bundle bundle) {
@@ -138,20 +144,22 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
     }
 
     private void saveQA() {
-        addingQA("","dts_pull_sebelum_1_1_a",status_1_1_a,remarks_1_1_a.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_1_b",status_1_1_b,remarks_1_1_b.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_1_c",status_1_1_c,remarks_1_1_c.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_1_d",status_1_1_d,remarks_1_1_d.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_1_e",status_1_1_e,remarks_1_1_e.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_2_a",status_1_2_a,remarks_1_2_a.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_2_b",status_1_2_b,remarks_1_2_b.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_1_2_c",status_1_2_c,remarks_1_2_c.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_1",status_2_1,remarks_2_1.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_2_a",status_2_2_a,remarks_2_2_a.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_2_b",status_2_2_b,remarks_2_2_b.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_2_c",status_2_2_c,remarks_2_2_c.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_2_d",status_2_2_d,remarks_2_2_d.getText().toString(),true);
-        addingQA("","dts_pull_sebelum_2_2_e",status_2_2_e,remarks_2_2_e.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_1_a",status_1_1_a,remarks_1_1_a.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_1_b",status_1_1_b,remarks_1_1_b.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_1_c",status_1_1_c,remarks_1_1_c.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_1_d",status_1_1_d,remarks_1_1_d.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_1_e",status_1_1_e,remarks_1_1_e.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_2_a",status_1_2_a,remarks_1_2_a.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_2_b",status_1_2_b,remarks_1_2_b.getText().toString(),true);
+        addingQA("","dts_push_sebelum_1_2_c",status_1_2_c,remarks_1_2_c.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_1",status_2_1,remarks_2_1.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_2_a",status_2_2_a,remarks_2_2_a.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_2_b",status_2_2_b,remarks_2_2_b.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_2_c",status_2_2_c,remarks_2_2_c.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_2_d",status_2_2_d,remarks_2_2_d.getText().toString(),true);
+        addingQA("","dts_push_sebelum_2_2_e",status_2_2_e,remarks_2_2_e.getText().toString(),true);
+        addingQA("","dts_push_sebelum_3_1",status_3_1,remarks_3_1.getText().toString(),true);
+        addingQA("","dts_push_sebelum_3_2",status_3_2,remarks_3_2.getText().toString(),true);
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
@@ -347,7 +355,24 @@ public class DTSPullSebelumActivity extends AppCompatActivity {
                     status_2_2_e = true;
                     radio_2_2_e.setChecked(true);
                 }
+            } else if (v.getId() == R.id.dts_sebelum_3_1) {
+                if(status_3_1) {
+                    radio_3_1.setChecked(false);
+                    status_3_1 = false;
+                } else {
+                    status_3_1 = true;
+                    radio_3_1.setChecked(true);
+                }
+            } else if (v.getId() == R.id.dts_sebelum_3_2) {
+                if(status_3_2) {
+                    radio_3_2.setChecked(false);
+                    status_3_2 = false;
+                } else {
+                    status_3_2 = true;
+                    radio_3_2.setChecked(true);
+                }
             }
+
         }
     };
 }

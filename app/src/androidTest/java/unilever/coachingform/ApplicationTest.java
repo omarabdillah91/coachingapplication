@@ -129,7 +129,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                     }
                 });
 
-        CoachingSessionDAO.updateGuideline(coachingSessionID, guideline,
+/*        CoachingSessionDAO.updateGuideline(coachingSessionID, guideline,
                 new CoachingSessionDAO.UpdateCoachingListener() {
                     @Override
                     public void onGuidelineUpdated(boolean isSuccess) {
@@ -137,7 +137,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
                         assertEquals(isSuccess, true);
                         signal2.countDown();
                     }
-                });
+                });*/
 
         signal2.await(30, TimeUnit.SECONDS);
 

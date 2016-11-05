@@ -37,13 +37,13 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
     final List<CoachingQuestionAnswerEntity> coachingQAs = new ArrayList<>();
     RadioButton radio_1_1_a, radio_1_1_b, radio_1_1_c, radio_1_1_d, radio_1_1_e, radio_1_2_a, radio_1_2_b, radio_1_2_c, radio_1_3_a, radio_1_3_b,
             radio_1_4_a, radio_1_4_b, radio_1_5_a, radio_1_5_b, radio_1_5_c, radio_1_5_d, radio_1_5_e,radio_1_6_a, radio_1_6_b,
-            radio_2_1, radio_2_2_a, radio_2_2_b, radio_2_2_c, radio_2_2_d, radio_2_2_e;
+            radio_2_1, radio_2_2_a, radio_2_2_b, radio_2_2_c, radio_2_2_d, radio_2_2_e, radio_3_1;
     EditText remarks_1_1_a, remarks_1_1_b, remarks_1_1_c, remarks_1_1_d, remarks_1_1_e, remarks_1_2_a, remarks_1_2_b, remarks_1_2_c, remarks_1_3_a, remarks_1_3_b,
             remarks_1_4_a, remarks_1_4_b, remarks_1_5_a, remarks_1_5_b, remarks_1_5_c, remarks_1_5_d, remarks_1_5_e,remarks_1_6_a, remarks_1_6_b,
-            remarks_2_1, remarks_2_2_a, remarks_2_2_b, remarks_2_2_c, remarks_2_2_d, remarks_2_2_e;
+            remarks_2_1, remarks_2_2_a, remarks_2_2_b, remarks_2_2_c, remarks_2_2_d, remarks_2_2_e, remarks_3_1;
     boolean status_1_1_a, status_1_1_b, status_1_1_c, status_1_1_d, status_1_1_e, status_1_2_a, status_1_2_b, status_1_2_c, status_1_3_a, status_1_3_b,
             status_1_4_a, status_1_4_b, status_1_5_a, status_1_5_b, status_1_5_c, status_1_5_d, status_1_5_e,status_1_6_a, status_1_6_b,
-            status_2_1, status_2_2_a, status_2_2_b, status_2_2_c, status_2_2_d, status_2_2_e;
+            status_2_1, status_2_2_a, status_2_2_b, status_2_2_c, status_2_2_d, status_2_2_e, status_3_1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,6 +92,7 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         radio_2_2_c = (RadioButton) findViewById(R.id.asm_push_sebelum_2_2_c);
         radio_2_2_d = (RadioButton) findViewById(R.id.asm_push_sebelum_2_2_d);
         radio_2_2_e = (RadioButton) findViewById(R.id.asm_push_sebelum_2_2_e);
+        radio_3_1 = (RadioButton) findViewById(R.id.asm_push_sebelum_3_1);
         remarks_1_1_a = (EditText) findViewById(R.id.remarks_sebelum_1_1_a);
         remarks_1_1_b = (EditText) findViewById(R.id.remarks_sebelum_1_1_b);
         remarks_1_1_c = (EditText) findViewById(R.id.remarks_sebelum_1_1_c);
@@ -117,6 +118,7 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         remarks_2_2_c = (EditText) findViewById(R.id.remarks_sebelum_2_2_c);
         remarks_2_2_d = (EditText) findViewById(R.id.remarks_sebelum_2_2_d);
         remarks_2_2_e = (EditText) findViewById(R.id.remarks_sebelum_2_2_e);
+        remarks_3_1 = (EditText) findViewById(R.id.remarks_sebelum_3_1);
         report.setOnClickListener(onClick);
         infra.setOnClickListener(onClick);
         market.setOnClickListener(onClick);
@@ -146,6 +148,7 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         radio_2_2_c.setOnClickListener(onClick);
         radio_2_2_d.setOnClickListener(onClick);
         radio_2_2_e.setOnClickListener(onClick);
+        radio_3_1.setOnClickListener(onClick);
     }
 
     private void saveQA() {
@@ -174,6 +177,7 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
         addingQA("","asm_push_sebelum_2_2_c",status_2_2_c,remarks_2_2_c.getText().toString(),true);
         addingQA("","asm_push_sebelum_2_2_d",status_2_2_d,remarks_2_2_d.getText().toString(),true);
         addingQA("","asm_push_sebelum_2_2_e",status_2_2_e,remarks_2_2_e.getText().toString(),true);
+        addingQA("","asm_push_sebelum_3_1",status_3_1,remarks_3_1.getText().toString(),true);
         CoachingQuestionAnswerDAO.insertCoachingQA(coachingQAs, new CoachingQuestionAnswerDAO.InsertCoachingQAListener() {
             @Override
             public void onInsertQuestionAnswerCompleted(boolean isSuccess) {
@@ -458,6 +462,14 @@ public class ASMPushSebelumActivity extends AppCompatActivity {
                 } else {
                     status_2_2_e = true;
                     radio_2_2_e.setChecked(true);
+                }
+            }  else if (v.getId() == R.id.asm_push_sebelum_3_1) {
+                if(status_3_1) {
+                    radio_3_1.setChecked(false);
+                    status_3_1 = false;
+                } else {
+                    status_3_1 = true;
+                    radio_3_1.setChecked(true);
                 }
             }
         }
