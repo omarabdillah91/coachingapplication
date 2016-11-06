@@ -629,7 +629,8 @@ public class PDFUtil {
                     ,"1_5", "1_5_a", "1_5_b", "1_5_c", "1_5_d", "1_5_e"
                     ,"1_6", "1_6_a", "1_6_b"
                     ,"title_2","2_1"
-                    ,"2_2", "2_2_a", "2_2_b", "2_2_c", "2_2_d", "2_2_e"};
+                    ,"2_2", "2_2_a", "2_2_b", "2_2_c", "2_2_d", "2_2_e"
+                    ,"title_3", "3_1"};
 
 
             for (String id : asmSebelum) {
@@ -640,7 +641,7 @@ public class PDFUtil {
 
                 if (id.equals("title_1") || id.equals("1_1") || id.equals("1_2")
                         || id.equals("1_3") || id.equals("1_4") || id.equals("1_5")
-                        || id.equals("1_6") || id.equals("title_2") || id.equals("2_2")) {
+                        || id.equals("1_6") || id.equals("title_2") || id.equals("2_2") || id.equals("title_3")) {
                     tableSebelum.addCell("");
                     tableSebelum.addCell("");
                 } else {
@@ -819,17 +820,18 @@ public class PDFUtil {
             String[] dtsSebelum = {"title_1","1_1","1_1_a", "1_1_b", "1_1_c", "1_1_d", "1_1_e"
                     ,"1_2","1_2_a", "1_2_b", "1_2_c"
                     ,"title_2","2_1"
-                    ,"2_2","2_2_a", "2_2_b", "2_2_c", "2_2_d", "2_2_e"};
+                    ,"2_2","2_2_a", "2_2_b", "2_2_c", "2_2_d", "2_2_e"
+                    ,"title_3", "3_1", "3_2"};
 
 
             for (String id : dtsSebelum) {
                 String temp = "dts_sebelum_" + id;
                 tableSebelum.addCell(createNormalCell(getString(temp, lang)));
-                String questionID = "dts_pull_sebelum_" + id;
+                String questionID = "dts_push_sebelum_" + id;
                 String columnID = "";
 
                 if (id.equals("title_1") || id.equals("1_1") || id.equals("1_2") ||
-                        id.equals("title_2") || id.equals("2_2")) {
+                        id.equals("title_2") || id.equals("2_2") || id.equals("title_3")) {
                     tableSebelum.addCell("");
                     tableSebelum.addCell("");
                 } else {
@@ -1075,7 +1077,7 @@ public class PDFUtil {
             tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Tandai jika \n Mengetahui" : "Tick if \n Done/Know"));
             tableHabbit.addCell(createTableHeader(lang == ConstantUtil.BAHASA ? "Keterangan" :"Remarks"));
 
-            String[] dtsDistributor = {"1", "2"};
+            String[] dtsDistributor = {"1", "2", "3"};
 
 
             for (String id : dtsDistributor) {
@@ -1222,6 +1224,26 @@ public class PDFUtil {
                     tableReport.addCell(createNormalCell(answerEntity.getTextAnswer()));
                 }
             }
+
+            tableReport.addCell(createNormalCell(getString("sr_pull_report_title_3", lang)));
+            tableReport.addCell("");
+            tableReport.addCell("");
+
+            String[] dtsDistributor = {"3_1","3_2"};
+
+
+            for (String id : dtsDistributor) {
+                String temp = "sr_pull_report_" + id;
+                tableReport.addCell(createNormalCell(getString(temp, lang)));
+                String questionID = temp;
+                String columnID = "";
+
+                CoachingQuestionAnswerEntity answerEntity = qaMap.get(new Pair<>(questionID, columnID));
+                String value = answerEntity.getTickStringRep();
+                tableReport.addCell(createNormalCell(value));
+                tableReport.addCell(createNormalCell(answerEntity.getTextAnswer()));
+            }
+
 
             chapter.add(tableReport);
             doc.add(chapter);
