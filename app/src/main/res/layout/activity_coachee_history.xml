@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="Coachee History"
+        android:text="Coaching History"
         style="@style/title_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -27,7 +27,7 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="0.3"
-            android:text="Coached By"
+            android:text="Coachee"
             style="@style/header_box"
             android:textSize="12dp"/>
         <TextView

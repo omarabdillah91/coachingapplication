@@ -39,7 +39,7 @@
     <string name="english_dsr_sebelum_2">2. Check warehouse stock availability</string>
     <string name="english_dsr_sebelum_3">3. Know and understand the ongoing promo</string>
     <string name="english_dsr_sebelum_4">4. Prepare tools  for visit</string>
-    <string name="english_dsr_sebelum_4a">\t a. TRC, Stationery, and Calculator</string>
+    <string name="english_dsr_sebelum_4a">\t a. TRC/LE Mobility, Stationery, and Calculator</string>
     <string name="english_dsr_sebelum_4b">\t b. Name Card</string>
     <string name="english_dsr_sebelum_4c">\t c. Product Catalog</string>
     <string name="english_dsr_sebelum_4d">\t d. Marketing Program</string>
@@ -52,27 +52,27 @@
     <string name="bahasa_dsr_saat_3a">\t a. Menawarkan penambahan stock (taking order) pada customer</string>
     <string name="bahasa_dsr_saat_3b">\t b. Menawarkan penambahan SKU baru (NPI)</string>
     <string name="bahasa_dsr_saat_3c">\t c. Presentasi produk: menguasai keunggulan produk</string>
-    <string name="bahasa_dsr_saat_3d">\t d. Presentasi harga: menguasai produk</string>
+    <string name="bahasa_dsr_saat_3d">\t d. Presentasi harga : menguasai harga produk yang ditawarkan </string>
     <string name="bahasa_dsr_saat_3e">\t e. Presentasi program: menguasai program-program yang sedang berlangsung</string>
     <string name="bahasa_dsr_saat_4">4. Penutupan: merekonfirmasi hasil kunjugan (jumlah orderan, dll)</string>
     <string name="bahasa_dsr_saat_5">5. Melakukan merchandising</string>
-    <string name="bahasa_dsr_saat_6">6. Mengisi TRC</string>
+    <string name="bahasa_dsr_saat_6">6. Mengisi TRC / LE mobility </string>
     <string name="english_dsr_saat_1">1. Introduction</string>
     <string name="english_dsr_saat_2">2. Stock check for UFS product, either on shelf or warehouse</string>
     <string name="english_dsr_saat_3">3. Presentation</string>
     <string name="english_dsr_saat_3a">\t a. Offers stock addition (taking order) to customer</string>
     <string name="english_dsr_saat_3b">\t b. Offers new SKU (NPI)</string>
     <string name="english_dsr_saat_3c">\t c. Product Presentation : mastery of product advantages</string>
-    <string name="english_dsr_saat_3d">\t d. Price Presentation : mastery of product</string>
+    <string name="english_dsr_saat_3d">\t d. Price Presentation : mastery of product price</string>
     <string name="english_dsr_saat_3e">\t e. Program presentation : mastery of ongoing programs</string>
     <string name="english_dsr_saat_4">4. Closing: reconfirms visit result (total order, etc)</string>
     <string name="english_dsr_saat_5">5. Conduct merchandising</string>
-    <string name="english_dsr_saat_6">6. Fills TRC</string>
+    <string name="english_dsr_saat_6">6. Fills TRC / LE Mobility</string>
 
     <string name="bahasa_dsr_setelah_1">1. Melakukan sync LE Mobility atau menginformasikan semua order ke Admin DMS</string>
-    <string name="bahasa_dsr_setelah_2">2. Merangkum hasil penjualan hari itu</string>
+    <string name="bahasa_dsr_setelah_2">2. Merangkum hasil penjualan hari itu dan mencatatkan di Wall Report/Laporan Dinding</string>
     <string name="english_dsr_setelah_1">1. Synchronizing LE Mobility or inform every order to Admin DMS</string>
-    <string name="english_dsr_setelah_2">2. Summarize sales number in that day</string>
+    <string name="english_dsr_setelah_2">2.  Summarize total sales on that day & Write it down in Wall Report</string>
 
     <string name="bahasa_summary_1">Tuliskan apa yang telah dilakukan dengan baik (max. 3hal)</string>
     <string name="bahasa_summary_2">Tuliskan apa yang dapat dilakukan dengan lebih baik (max.3hal)</string>
@@ -166,14 +166,14 @@
 
     <string name="dtspull_description">**The following questions is a guidelines for you to coach the team to develop better in territory management, distributor management, and chefmanship</string>
 
-    <string name="title_bahasa_dtspull_sebelum_kunjungan">Sebelum</string>
-    <string name="title_bahasa_dtspull_saat_report_kunjungan">Report</string>
-    <string name="title_bahasa_dtspull_saat_infra_kunjungan">Infra</string>
-    <string name="title_bahasa_dtspull_pasar_kunjungan">Pasar</string>
-    <string name="title_english_dtspull_sebelum_kunjungan">Before</string>
-    <string name="title_english_dtspull_saat_report_kunjungan">Report</string>
-    <string name="title_english_dtspull_saat_infra_kunjungan">Infra</string>
-    <string name="title_english_dtspull_pasar_kunjungan">Market</string>
+    <string name="title_bahasa_dtspull_sebelum_kunjungan">General</string>
+    <string name="title_bahasa_dtspull_saat_report_kunjungan">Reporting</string>
+    <string name="title_bahasa_dtspull_saat_infra_kunjungan">Infra-structure</string>
+    <string name="title_bahasa_dtspull_pasar_kunjungan">Team</string>
+    <string name="title_english_dtspull_sebelum_kunjungan">General</string>
+    <string name="title_english_dtspull_saat_report_kunjungan">Reporting</string>
+    <string name="title_english_dtspull_saat_infra_kunjungan">Infra-structure</string>
+    <string name="title_english_dtspull_pasar_kunjungan">Team</string>
 
     <string name="bahasa_dts_title_sebelum">SEBELUM TIBA DI DISTRIBUTOR</string>
     <string name="bahasa_dts_sebelum_title_1">TERRITORY PROFILE </string>
@@ -454,9 +454,9 @@
     <string name="english_asm_push_di_pasar_5">e. What is your plan to improve the penetration of Top 10 and TLC?</string>
 
     <string name="title_bahasa_asmpull_report">REPORT di Amstrong</string>
-    <string name="title_bahasa_asmpull_habit">HABBIT</string>
+    <string name="title_bahasa_asmpull_habit">HABIT</string>
     <string name="title_english_asmpull_report">REPORT in Amstrong</string>
-    <string name="title_english_asmpull_habit">HABBIT</string>
+    <string name="title_english_asmpull_habit">HABIT</string>
 
     <string name="asmpull_description">**The following questions is a guidelines for you to coach the team to develop better in Amstrong usage and Habbit</string>
 
@@ -488,7 +488,7 @@
     <string name="bahasa_asm_pull_report_1_5_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_5_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
     <string name="bahasa_asm_pull_report_1_5_d">d. Bagaimana rencana pengembangannya?</string>
-    <string name="bahasa_asm_pull_report_1_6">6. TFO SKU (# of SKU per TFO, same SKU counted as 1)</string>
+    <string name="bahasa_asm_pull_report_1_6">6. TFO SKU (# SKU per TFO, sama dengan SKU terhitung pada nomor 1)</string>
     <string name="bahasa_asm_pull_report_1_6_a">a. Apa pengertiannya?</string>
     <string name="bahasa_asm_pull_report_1_6_b">b. Siapa yang terbaik di tim Anda?</string>
     <string name="bahasa_asm_pull_report_1_6_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
@@ -504,7 +504,7 @@
     <string name="bahasa_asm_pull_report_1_8_c">c. Siapa yang terendah dalam tim Anda dan apa rencana peningkatannya?</string>
     <string name="bahasa_asm_pull_report_1_8_d">d. Bagaimana rencana pengembangannya?</string>
 
-    <string name="bahasa_asm_pull_report_title_2">B. Minta ASM untuk menjelaskan "KPI Under Reports" pada bulan ini</string>
+    <string name="bahasa_asm_pull_report_title_2">B. Minta ASM untuk menjelaskan \"KPI di bawah laporan\" pada bulan ini</string>
     <string name="bahasa_asm_pull_report_how_2">*How : Home > Reports > KPI</string>
     <string name="bahasa_asm_pull_report_2_1">1. Total Calls</string>
     <string name="bahasa_asm_pull_report_2_1_a">a. Apa pengertiannya?</string>
@@ -853,6 +853,9 @@
 
 
     <string-array name="job_title">
+        <item>Chef</item>
+        <item>HR</item>
+        <item>SCC Business Development Manager</item>
         <item>Managing Director</item>
         <item>NSM Push</item>
         <item>NSM Pull</item>

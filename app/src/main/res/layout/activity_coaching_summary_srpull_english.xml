@@ -21,11 +21,10 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            style="@style/description_style"
             android:text="@string/asmpull_description"
             android:layout_below="@+id/title"
             android:gravity="center_horizontal"
-            android:textColor="@color/orange"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"/>
@@ -93,20 +92,42 @@
                     android:layout_weight="1"/>
             </TableRow>
         </TableLayout>
-        <LinearLayout
-            android:id="@+id/questions"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/summary_1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20dp"
-            android:layout_below="@+id/profile_line">
-            <TextView
-                android:text="Need to go to Armstrong Leader Application to fill up the Coach Notes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textSize="15dp"/>
-        </LinearLayout>
+            android:layout_margin="10dp"
+            android:text="@string/english_summary_1"
+            android:textSize="15dp"
+            android:layout_below="@+id/profile_line"/>
+        <EditText
+            android:id="@+id/edittext_summary_1"
+            style="@style/multiline_summary"
+            android:layout_below="@id/summary_1"/>
+        <TextView
+            android:id="@+id/summary_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/english_summary_2"
+            android:textSize="15dp"
+            android:layout_below="@+id/edittext_summary_1"/>
+        <EditText
+            android:id="@+id/edittext_summary_2"
+            style="@style/multiline_summary"
+            android:layout_below="@id/summary_2"/>
+        <TextView
+            android:id="@+id/summary_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/english_summary_3"
+            android:textSize="15dp"
+            android:layout_below="@+id/edittext_summary_2"/>
+        <EditText
+            android:id="@+id/edittext_summary_3"
+            style="@style/multiline_summary"
+            android:layout_below="@id/summary_3"/>
         <LinearLayout
             android:id="@+id/button"
             android:layout_width="wrap_content"
@@ -114,7 +135,7 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             android:layout_centerInParent="true"
-            android:layout_below="@+id/questions">
+            android:layout_below="@+id/edittext_summary_3">
             <Button
                 android:id="@+id/next"
                 style="@style/next_button_1"/>

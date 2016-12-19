@@ -30,13 +30,13 @@ import utility.ConstantUtil;
 import utility.SharedPreferenceUtil;
 
 public class ProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner coach_job, coachee_job, first_job,second_job, cd_job;
-    EditText coach_email, coachee_email, first_email,second_email, cd_email;
+    Spinner coach_job, coachee_job, first_job, cd_job;
+    EditText coach_email, coachee_email, first_email, cd_email;
     Button next;
     String job = "";
     int job_id = -1;
     ArrayAdapter<CharSequence> job_adapter, cdteam_adapter;
-    String coach_position, coachee_position, first_position, second_position, cd_position = "";
+    String coach_position, coachee_position, first_position, cd_position = "";
     String coachingSessionID = "";
     final String TAG = "Profile";
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -52,8 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                     SharedPreferenceUtil.putString(ConstantUtil.SP_DATE,date_formatted);
                     SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, coach_email.getText().toString());
                     CoachingSessionDAO.insertNewCoaching(coachee_email.getText().toString(), coachee_email.getText().toString(), coachee_position,
-                            first_email.getText().toString(), first_email.getText().toString(), first_position,
-                            second_email.getText().toString(), second_email.getText().toString(), second_position,
+                            first_email.getText().toString(), first_email.getText().toString(), first_position,"","","",
                             cd_email.getText().toString(), cd_email.getText().toString(), cd_position,
                             new CoachingSessionDAO.InsertCoachingListener() {
                                 @Override
@@ -84,7 +83,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 
     private boolean validate() {
         if(!coach_email.getText().toString().equalsIgnoreCase("") && !coachee_email.getText().toString().equalsIgnoreCase("")  &&
-                !first_email.getText().toString().equalsIgnoreCase("") && !second_email.getText().toString().equalsIgnoreCase("")  &&
                 !cd_email.getText().toString().equalsIgnoreCase("") ) {
             return true;
         }
@@ -96,12 +94,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         outState.putString("coach_email", coach_email.getText().toString());
         outState.putString("coachee_email", coachee_email.getText().toString());
         outState.putString("first_email", first_email.getText().toString());
-        outState.putString("second_email", second_email.getText().toString());
         outState.putString("cd_email", cd_email.getText().toString());
         outState.putString("coach_position", coach_position);
         outState.putString("coachee_position", coachee_position);
         outState.putString("first_position", first_position);
-        outState.putString("second_position", second_position);
         outState.putString("cd_position", cd_position);
         return outState;
     }
@@ -113,12 +109,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         coach_job = (Spinner) findViewById(R.id.coach_position);
         coachee_job = (Spinner) findViewById(R.id.coachee_position);
         first_job = (Spinner) findViewById(R.id.firstlinemanager_position);
-        second_job = (Spinner) findViewById(R.id.secondlinemanager_position);
         cd_job = (Spinner) findViewById(R.id.cdteam_position);
         coach_email = (EditText) findViewById(R.id.coach_email);
         coachee_email = (EditText) findViewById(R.id.coachee_email);
         first_email = (EditText) findViewById(R.id.firstlinemanager_email);
-        second_email = (EditText) findViewById(R.id.secondlinemanager_email);
         cd_email = (EditText) findViewById(R.id.cdteam_email);
         next = (Button) findViewById(R.id.next);
         job_adapter = ArrayAdapter.createFromResource(this, R.array.job_title, android.R.layout.simple_spinner_item);
@@ -126,7 +120,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         coach_job.setAdapter(job_adapter);
         coachee_job.setAdapter(job_adapter);
         first_job.setAdapter(job_adapter);
-        second_job.setAdapter(job_adapter);
         cd_job.setAdapter(cdteam_adapter);
         if (getIntent().getExtras() != null) {
             Bundle bundle = getIntent().getExtras();
@@ -151,7 +144,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         coach_job.setOnItemSelectedListener(this);
         coachee_job.setOnItemSelectedListener(this);
         first_job.setOnItemSelectedListener(this);
-        second_job.setOnItemSelectedListener(this);
         cd_job.setOnItemSelectedListener(this);
         next.setOnClickListener(onClick);
 
@@ -265,12 +257,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         coach_email.setText(savedState.getString("coach_email"));
         coachee_email.setText(savedState.getString("coachee_email"));
         first_email.setText(savedState.getString("first_email"));
-        second_email.setText(savedState.getString("second_email"));
         cd_email.setText(savedState.getString("cd_email"));
         coach_job.setSelection(job_adapter.getPosition(savedState.getString("coach_position")));
         coachee_job.setSelection(job_adapter.getPosition(savedState.getString("coachee_position")));
         first_job.setSelection(job_adapter.getPosition(savedState.getString("first_position")));
-        second_job.setSelection(job_adapter.getPosition(savedState.getString("second_position")));
         cd_job.setSelection(job_adapter.getPosition(savedState.getString("cd_position")));
     }
 
@@ -282,8 +272,6 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             coachee_position = parent.getSelectedItem().toString();
         } else if (view.getId() == R.id.firstlinemanager_position) {
             first_position = parent.getSelectedItem().toString();
-        } else if (view.getId() == R.id.secondlinemanager_position) {
-            second_position = parent.getSelectedItem().toString();
         } else if (view.getId() == R.id.cdteam_position) {
             cd_position = parent.getSelectedItem().toString();
         }
@@ -304,12 +292,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         outState.putString("coach_email", coach_email.getText().toString());
         outState.putString("coachee_email", coachee_email.getText().toString());
         outState.putString("first_email", first_email.getText().toString());
-        outState.putString("second_email", second_email.getText().toString());
         outState.putString("cd_email", cd_email.getText().toString());
         outState.putString("coach_position", coach_position);
         outState.putString("coachee_position", coachee_position);
         outState.putString("first_position", first_position);
-        outState.putString("second_position", second_position);
         outState.putString("cd_position", cd_position);
     }
 
@@ -322,12 +308,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         coach_email.setText(savedState.getString("coach_email"));
         coachee_email.setText(savedState.getString("coachee_email"));
         first_email.setText(savedState.getString("first_email"));
-        second_email.setText(savedState.getString("second_email"));
         cd_email.setText(savedState.getString("cd_email"));
         coach_job.setSelection(job_adapter.getPosition(savedState.getString("coach_position")));
         coachee_job.setSelection(job_adapter.getPosition(savedState.getString("coachee_position")));
         first_job.setSelection(job_adapter.getPosition(savedState.getString("first_position")));
-        second_job.setSelection(job_adapter.getPosition(savedState.getString("second_position")));
         cd_job.setSelection(job_adapter.getPosition(savedState.getString("cd_position")));
     }
 }

@@ -36,7 +36,7 @@ import utility.SharedPreferenceUtil;
 public class CoachingSummarySRPullActivity extends AppCompatActivity {
     private static final String TAG = "SummarySRPullActivity";
     Button next;
-    EditText coach, coachee, area;
+    EditText coach, coachee, area,summary_1, summary_2, summary_3;
     TextView date;
     boolean bahasa = false;
     boolean english = false;
@@ -81,6 +81,9 @@ public class CoachingSummarySRPullActivity extends AppCompatActivity {
         coachee = (EditText) findViewById(R.id.coachee);
         area = (EditText) findViewById(R.id.area);
         date = (TextView) findViewById(R.id.date);
+        summary_1 = (EditText) findViewById(R.id.edittext_summary_1);
+        summary_2 = (EditText) findViewById(R.id.edittext_summary_2);
+        summary_3 = (EditText) findViewById(R.id.edittext_summary_3);
         date.setText(SharedPreferenceUtil.getString(ConstantUtil.SP_DATE));
         coach.setText(coach_email);
         coach.setEnabled(false);
@@ -195,7 +198,10 @@ public class CoachingSummarySRPullActivity extends AppCompatActivity {
     }
 
     private void saveQA() {
-        CoachingSessionDAO.updateAction(coachingSessionID, "",
+        addingQA("","sr_pull_summary_1",false,summary_1.getText().toString(),false);
+        addingQA("","sr_pull_summary_2",false,summary_2.getText().toString(),false);
+        addingQA("", "sr_pull_summary_3", false, summary_3.getText().toString(), false);
+        CoachingSessionDAO.updateAction(coachingSessionID, summary_3.getText().toString(),
                 new CoachingSessionDAO.UpdateCoachingListener() {
                     @Override
                     public void onGuidelineUpdated(boolean isSuccess) {

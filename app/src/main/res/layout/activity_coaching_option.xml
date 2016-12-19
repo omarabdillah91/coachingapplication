@@ -20,11 +20,10 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:text="@string/description_coaching_option"
             android:layout_below="@+id/title"
             android:gravity="center_horizontal"
-            android:textColor="@color/orange"
+            style="@style/description_style"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"/>

@@ -36,11 +36,10 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
             android:text="@string/dsr_description"
             android:layout_below="@+id/sub_page_option"
             android:gravity="center_horizontal"
-            android:textColor="@color/orange"
+            style="@style/description_style"
             android:layout_margin="5dp"/>
         <View
             android:id="@+id/line1"
@@ -148,11 +147,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_1_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_1_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -162,11 +161,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_1_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_1_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -176,11 +175,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_1_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_1_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -190,11 +189,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_1_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_1_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -204,11 +203,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_1_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_1_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_2"
@@ -224,11 +223,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_2_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_2_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -238,11 +237,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_2_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_2_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -252,11 +251,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_2_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_2_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -266,11 +265,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_2_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_2_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -280,11 +279,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_2_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_2_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_3"
@@ -306,11 +305,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_3_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_3_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -320,11 +319,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_3_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_3_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -334,11 +333,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_3_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_3_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -348,11 +347,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_3_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_3_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -362,11 +361,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_3_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_3_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_3b"
@@ -382,11 +381,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_4_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_4_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -396,11 +395,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_4_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_4_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -410,11 +409,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_4_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_4_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -424,11 +423,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_4_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_4_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -438,11 +437,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_4_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_4_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_3c"
@@ -458,11 +457,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_5_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_5_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -472,11 +471,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_5_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_5_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -486,11 +485,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_5_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_5_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -500,11 +499,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_5_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_5_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -514,11 +513,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_5_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_5_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_3d"
@@ -534,11 +533,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_6_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_6_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -548,11 +547,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_6_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_6_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -562,11 +561,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_6_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_6_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -576,11 +575,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_6_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_6_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -590,11 +589,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_6_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_6_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_3e"
@@ -610,11 +609,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_7_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_7_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -624,11 +623,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_7_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_7_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -638,11 +637,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_7_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_7_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -652,11 +651,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_7_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_7_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -666,11 +665,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_7_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_7_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_4"
@@ -686,11 +685,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_8_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_8_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -700,11 +699,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_8_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_8_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -714,11 +713,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_8_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_8_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -728,11 +727,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_8_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_8_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -742,11 +741,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_8_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_8_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_5"
@@ -762,11 +761,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_9_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_9_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -776,11 +775,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_9_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_9_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -790,11 +789,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_9_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_9_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -804,11 +803,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_9_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_9_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -818,11 +817,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_9_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_9_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
             <TextView
                 android:text="@string/bahasa_dsr_saat_6"
@@ -838,11 +837,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_10_1"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 1"/>
+                    android:text="Outlet 1"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_10_6"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 6"/>
+                    android:text="Outlet 6"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -852,11 +851,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_10_2"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 2"/>
+                    android:text="Outlet 2"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_10_7"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 7"/>
+                    android:text="Outlet 7"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -866,11 +865,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_10_3"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 3"/>
+                    android:text="Outlet 3"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_10_8"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 8"/>
+                    android:text="Outlet 8"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -880,11 +879,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_10_4"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 4"/>
+                    android:text="Outlet 4"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_10_9"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 9"/>
+                    android:text="Outlet 9"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -894,11 +893,11 @@
                 <RadioButton
                     android:id="@+id/dsr_saat_10_5"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 5"/>
+                    android:text="Outlet 5"/>
                 <RadioButton
                     android:id="@+id/dsr_saat_10_10"
                     style="@style/dsr_saat_radio"
-                    android:text="Pengguna 10"/>
+                    android:text="Outlet 10"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout

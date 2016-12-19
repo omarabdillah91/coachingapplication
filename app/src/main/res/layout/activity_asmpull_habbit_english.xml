@@ -30,11 +30,10 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15dp"
+            style="@style/description_style"
             android:text="@string/asmpull_description"
             android:layout_below="@+id/sub_page_option"
             android:gravity="center_horizontal"
-            android:textColor="@color/orange"
             android:layout_margin="5dp"/>
         <View
             android:id="@+id/line1"
