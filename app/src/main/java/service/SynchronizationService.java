@@ -75,8 +75,6 @@ public class SynchronizationService {
     }
 
     public static void sendEmail(String coachingSessionID, final Activity activity){
-
-
         CoachingSessionDAO.getCoachingSession(coachingSessionID, new CoachingSessionDAO.GetCoachingListener() {
             @Override
             public void onCoachingReceived(CoachingSessionEntity coachingSessionEntity) {
@@ -93,10 +91,11 @@ public class SynchronizationService {
                     receiverList.add(coachingSessionEntity.getFirstManagerEmail());
                 }
 
+                /*
                 if(coachingSessionEntity.getSecondManagerEmail() != null &&
                         coachingSessionEntity.getSecondManagerEmail() != ""){
                     receiverList.add(coachingSessionEntity.getSecondManagerEmail());
-                }
+                }*/
 
                 if(coachingSessionEntity.getCdCapabilityTeamEmail() != null &&
                         coachingSessionEntity.getCdCapabilityTeamEmail() != ""){
@@ -110,8 +109,12 @@ public class SynchronizationService {
                 Log.d(TAG, receiverArray.toString());
 
                 if(receiverList.size() > 0) {
+                    String subject = coachingSessionEntity.getCoachName() + " - " +
+                            coachingSessionEntity.getCoacheeName() + " - " +
+                            coachingSessionEntity.getFormattedDate();
+
                     email.putExtra(Intent.EXTRA_EMAIL, receiverArray);
-                    email.putExtra(Intent.EXTRA_SUBJECT, "COACHING");
+                    email.putExtra(Intent.EXTRA_SUBJECT, subject);
                     email.putExtra(Intent.EXTRA_TEXT, "");
                     Uri uri = Uri.fromFile(new File(path));
                     email.putExtra(Intent.EXTRA_STREAM, uri);

@@ -59,7 +59,7 @@ public class TestActivity extends AppCompatActivity {
 
     public void insertTestData(View v){
         CoachingSessionDAO.insertNewCoaching("coachee1", "coachee1@gmail.com",
-                "engineer", "", "omar.abdillah91@gmail.com", "", "", "adrianch@rocketmail.com", "", "", "", "",
+                "engineer", "", "omar.abdillah91@gmail.com", "", "", "adrianch@rocketmail.com", "",
                 new CoachingSessionDAO.InsertCoachingListener() {
                     @Override
                     public void onInsertCoachingCompleted(String id) {

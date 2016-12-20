@@ -72,7 +72,7 @@
     <string name="bahasa_dsr_setelah_1">1. Melakukan sync LE Mobility atau menginformasikan semua order ke Admin DMS</string>
     <string name="bahasa_dsr_setelah_2">2. Merangkum hasil penjualan hari itu dan mencatatkan di Wall Report/Laporan Dinding</string>
     <string name="english_dsr_setelah_1">1. Synchronizing LE Mobility or inform every order to Admin DMS</string>
-    <string name="english_dsr_setelah_2">2.  Summarize total sales on that day & Write it down in Wall Report</string>
+    <string name="english_dsr_setelah_2">2.  Summarize total sales on that day &amp; Write it down in Wall Report</string>
 
     <string name="bahasa_summary_1">Tuliskan apa yang telah dilakukan dengan baik (max. 3hal)</string>
     <string name="bahasa_summary_2">Tuliskan apa yang dapat dilakukan dengan lebih baik (max.3hal)</string>

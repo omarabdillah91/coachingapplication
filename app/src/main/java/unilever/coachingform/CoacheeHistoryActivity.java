@@ -19,6 +19,8 @@ import java.util.List;
 import adapter.CoacheeHistoryAdapter;
 import model.CoacheeHistory;
 import service.CoachingSessionService;
+import utility.ConstantUtil;
+import utility.SharedPreferenceUtil;
 
 public class CoacheeHistoryActivity extends AppCompatActivity {
     String coach, job, coachee, coaching = "";
@@ -71,7 +73,8 @@ public class CoacheeHistoryActivity extends AppCompatActivity {
         progressBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressBar.setProgress(0);
         progressBar.show();
-        CoachingSessionService.getCoacheeHistory(coachee, new CoachingSessionService.GetCoacheeHistoryListener() {
+        CoachingSessionService.getCoachingHistory(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL),
+                new CoachingSessionService.GetCoacheeHistoryListener() {
             @Override
             public void onCoacheeHistoryReceived(List<CoacheeHistory> coacheeHistories) {
                 progressBar.dismiss();

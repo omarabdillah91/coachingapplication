@@ -68,8 +68,7 @@ public class CoachingSessionDAO {
     public static void insertNewCoaching(String coacheeName, String coacheeEmail,
                                          String coacheePosition, String firstManagerName,
                                          String firstManagerEmail, String firstManagerPosition,
-                                         String secondManagerName, String secondManagerEmail,
-                                         String secondManagerPosition, String cdTeamName,
+                                         String cdTeamName,
                                          String cdTeamEmail, String cdTeamPosition,
                                          final InsertCoachingListener listener) {
         Realm realm = Realm.getDefaultInstance();
@@ -79,7 +78,7 @@ public class CoachingSessionDAO {
 
         CoachingSessionEntity entity = new CoachingSessionEntity(coacheeName, coacheeEmail,
                 coacheePosition, firstManagerName, firstManagerEmail, firstManagerPosition,
-                secondManagerName, secondManagerEmail, secondManagerPosition, cdTeamName,
+                "", "", "", cdTeamName,
                 cdTeamEmail, cdTeamPosition, coachID, coachName);
 
         realm.beginTransaction();

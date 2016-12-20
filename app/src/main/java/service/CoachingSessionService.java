@@ -52,6 +52,35 @@ public class CoachingSessionService {
                         });
     }
 
+    public static void getCoachingHistory(String coachEmail, final GetCoacheeHistoryListener listener){
+        final List<CoacheeHistory> coacheeHistories = new ArrayList<>();
+        mDatabase.child(childNode).orderByChild("coachName").equalTo(coachEmail)
+                .addListenerForSingleValueEvent(
+                        new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot d : dataSnapshot.getChildren()) {
+                                    CoachingSessionDTO dto = d.getValue(CoachingSessionDTO.class);
+                                    Log.d(TAG, dto.toString());
+
+                                    /*if(dto.getCoachName().equals(SharedPreferenceUtil.getString(ConstantUtil.SP_COACH_EMAIL))){
+                                        coacheeHistories.add(new CoacheeHistory(dto.getCoachName(),
+                                                dto.getDate(), dto.getAction()));
+                                    }*/
+                                    coacheeHistories.add(new CoacheeHistory(dto.getCoacheeName(),
+                                            dto.getDate(), dto.getAction()));
+                                }
+                                listener.onCoacheeHistoryReceived(coacheeHistories);
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Log.d(TAG, "getUser:onCancelled", databaseError.toException());
+                                listener.onCoacheeHistoryReceived(coacheeHistories);
+                            }
+                        });
+    }
+
     public static void insertCoachingSession(String coachingSessionID, CoachingSessionDTO coachingSessionDTO,
                                              final InsertCoachingSessionListener listener) {
 

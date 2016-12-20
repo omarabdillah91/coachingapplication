@@ -93,7 +93,7 @@ public class ApplicationTest extends ApplicationTestCase<MainApp> {
         final CountDownLatch signal2 = new CountDownLatch(3);
 
         CoachingSessionDAO.insertNewCoaching("coachee1", "coachee1@gmail.com",
-                "engineer", "", "", "", "", "", "", "", "", "",
+                "engineer", "", "", "", "", "", "",
                 new CoachingSessionDAO.InsertCoachingListener() {
                     @Override
                     public void onInsertCoachingCompleted(String id) {

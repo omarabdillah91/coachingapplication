@@ -52,7 +52,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                     SharedPreferenceUtil.putString(ConstantUtil.SP_DATE,date_formatted);
                     SharedPreferenceUtil.putString(ConstantUtil.SP_COACH_NAME, coach_email.getText().toString());
                     CoachingSessionDAO.insertNewCoaching(coachee_email.getText().toString(), coachee_email.getText().toString(), coachee_position,
-                            first_email.getText().toString(), first_email.getText().toString(), first_position,"","","",
+                            first_email.getText().toString(), first_email.getText().toString(), first_position,
                             cd_email.getText().toString(), cd_email.getText().toString(), cd_position,
                             new CoachingSessionDAO.InsertCoachingListener() {
                                 @Override
