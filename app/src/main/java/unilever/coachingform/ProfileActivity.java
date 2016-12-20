@@ -22,7 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 
 import dao.CoachingSessionDAO;
@@ -74,7 +78,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                                 }
                             });
                 } else {
-                    Toast.makeText(ProfileActivity.this, "Email of every roles should not be empty!!",
+                    Toast.makeText(ProfileActivity.this, "Email of every Coach, Coachee, and CD Capability Team should not be empty!!",
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -115,6 +119,10 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
         first_email = (EditText) findViewById(R.id.firstlinemanager_email);
         cd_email = (EditText) findViewById(R.id.cdteam_email);
         next = (Button) findViewById(R.id.next);
+        List<String> job_list = Arrays.asList(getResources().getStringArray(R.array.job_title));
+        List<String> cdteam_list = Arrays.asList(getResources().getStringArray(R.array.cdteam_title));
+        Collections.sort(job_list);
+        Collections.sort(cdteam_list);
         job_adapter = ArrayAdapter.createFromResource(this, R.array.job_title, android.R.layout.simple_spinner_item);
         cdteam_adapter = ArrayAdapter.createFromResource(this, R.array.cdteam_title, android.R.layout.simple_spinner_item);
         coach_job.setAdapter(job_adapter);
